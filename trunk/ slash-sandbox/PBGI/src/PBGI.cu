@@ -12,7 +12,7 @@ namespace gpu {
 
 template <uint32 CTA_SIZE, uint32 K, bool CHECKED>
 __device__ void pbgi_block(
-    typename Vec<float,K>::type*       smem,
+    float*          smem,
     const uint32    src_begin,
     const uint32    src_end,
     const uint32    block_offset,
@@ -26,14 +26,14 @@ __device__ void pbgi_block(
     const uint32 thread_id = threadIdx.x;
 
     vec_type* x;     x     = &smem[0];
-    vec_type* y;     y     = &smem[0] + CTA_SIZE*1;
-    vec_type* z;     z     = &smem[0] + CTA_SIZE*2;
-    vec_type* nx;    nx    = &smem[0] + CTA_SIZE*3;
-    vec_type* ny;    ny    = &smem[0] + CTA_SIZE*4;
-    vec_type* nz;    nz    = &smem[0] + CTA_SIZE*5;
-    vec_type* rec_r; rec_r = &smem[0] + CTA_SIZE*6;
-    vec_type* rec_g; rec_g = &smem[0] + CTA_SIZE*7;
-    vec_type* rec_b; rec_b = &smem[0] + CTA_SIZE*8;
+    vec_type* y;     y     = &smem[0] + CTA_SIZE*K*1;
+    vec_type* z;     z     = &smem[0] + CTA_SIZE*K*2;
+    vec_type* nx;    nx    = &smem[0] + CTA_SIZE*K*3;
+    vec_type* ny;    ny    = &smem[0] + CTA_SIZE*K*4;
+    vec_type* nz;    nz    = &smem[0] + CTA_SIZE*K*5;
+    vec_type* rec_r; rec_r = &smem[0] + CTA_SIZE*K*6;
+    vec_type* rec_g; rec_g = &smem[0] + CTA_SIZE*K*7;
+    vec_type* rec_b; rec_b = &smem[0] + CTA_SIZE*K*8;
 
     // read block in shared memory (not caring about overflows)
     if (thread_id < CTA_SIZE) // help the poor compiler reducing register pressure
@@ -68,15 +68,15 @@ __device__ void pbgi_block(
     {
         __syncthreads();
 
-        float* x;     x     = reinterpret_cast<float*>(&smem[0]);
-        float* y;     y     = reinterpret_cast<float*>(&smem[0] + CTA_SIZE*1);
-        float* z;     z     = reinterpret_cast<float*>(&smem[0] + CTA_SIZE*2);
-        float* nx;    nx    = reinterpret_cast<float*>(&smem[0] + CTA_SIZE*3);
-        float* ny;    ny    = reinterpret_cast<float*>(&smem[0] + CTA_SIZE*4);
-        float* nz;    nz    = reinterpret_cast<float*>(&smem[0] + CTA_SIZE*5);
-        float* rec_r; rec_r = reinterpret_cast<float*>(&smem[0] + CTA_SIZE*6);
-        float* rec_g; rec_g = reinterpret_cast<float*>(&smem[0] + CTA_SIZE*7);
-        float* rec_b; rec_b = reinterpret_cast<float*>(&smem[0] + CTA_SIZE*8);
+        float* x;     x     = &smem[0];
+        float* y;     y     = &smem[0] + CTA_SIZE*K*1;
+        float* z;     z     = &smem[0] + CTA_SIZE*K*2;
+        float* nx;    nx    = &smem[0] + CTA_SIZE*K*3;
+        float* ny;    ny    = &smem[0] + CTA_SIZE*K*4;
+        float* nz;    nz    = &smem[0] + CTA_SIZE*K*5;
+        float* rec_r; rec_r = &smem[0] + CTA_SIZE*K*6;
+        float* rec_g; rec_g = &smem[0] + CTA_SIZE*K*7;
+        float* rec_b; rec_b = &smem[0] + CTA_SIZE*K*8;
 
         // ...iterating over batches of N_SENDERS senders at a time
         #if __CUDA_ARCH__ < 200
@@ -177,7 +177,7 @@ __global__  void pbgi_kernel(
 
     typedef typename Vec<float,K>::type vec_type;
 
-    __shared__ vec_type smem[CTA_SIZE*9];
+    __shared__ float smem[CTA_SIZE*K*9];
 
     uint32 block_offset = block_begin;
 
