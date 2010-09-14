@@ -49,6 +49,7 @@ __device__ void pbgi_block(
     // read block in shared memory (not caring about overflows)
     if (thread_id < CTA_SIZE) // help the poor compiler reducing register pressure
     {
+        // look at our batch as a collection of K elements tuples, accessing them using vec_type
         const batch_view<vec_type,CTA_SIZE*K> batch( smem );
 
         if (CHECKED == false || block_offset + thread_id*K + K-1 < block_end)
@@ -81,8 +82,6 @@ __device__ void pbgi_block(
     {
         __syncthreads();
 
-        const batch_view<float,CTA_SIZE*K> batch( smem );
-
         // ...iterating over batches of N_SENDERS senders at a time
         #if __CUDA_ARCH__ < 200
         const uint32 N_SENDERS = 4;
@@ -91,6 +90,9 @@ __device__ void pbgi_block(
         #endif
 
         __shared__ float s_x[N_SENDERS], s_y[N_SENDERS], s_z[N_SENDERS], s_nx[N_SENDERS], s_ny[N_SENDERS], s_nz[N_SENDERS], s_r[N_SENDERS], s_g[N_SENDERS], s_b[N_SENDERS];
+
+        // in this phase we´ll look at the batch of receivers as single elements using floats
+        const batch_view<float,CTA_SIZE*K> batch( smem );
 
         for (uint32 i = src_begin; i < src_end; i += N_SENDERS)
         {
@@ -143,6 +145,7 @@ __device__ void pbgi_block(
     // write block to global memory
     if (thread_id < CTA_SIZE) // help the poor compiler reducing register pressure
     {
+        // look at our batch as a collection of K elements tuples, accessing them using vec_type
         const batch_view<vec_type,CTA_SIZE*K> batch( smem );
 
         if (CHECKED == false || block_offset + thread_id*K + K-1 < block_end)
