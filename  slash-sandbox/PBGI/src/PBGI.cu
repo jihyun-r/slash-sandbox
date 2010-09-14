@@ -10,6 +10,27 @@
 namespace pbgi {
 namespace gpu {
 
+template <typename T, uint32 OFFSET>
+struct batch_view
+{
+    batch_view(float* smem)
+    {
+        x   = reinterpret_cast<T*>(&smem[0]);
+        y   = reinterpret_cast<T*>(&smem[0] + OFFSET*1);
+        z   = reinterpret_cast<T*>(&smem[0] + OFFSET*2);
+        nx  = reinterpret_cast<T*>(&smem[0] + OFFSET*3);
+        ny  = reinterpret_cast<T*>(&smem[0] + OFFSET*4);
+        nz  = reinterpret_cast<T*>(&smem[0] + OFFSET*5);
+        r   = reinterpret_cast<T*>(&smem[0] + OFFSET*6);
+        g   = reinterpret_cast<T*>(&smem[0] + OFFSET*7);
+        b   = reinterpret_cast<T*>(&smem[0] + OFFSET*8);
+    }
+
+    typedef T* pointer;
+
+    pointer x, y, z, nx, ny, nz, r, g, b;
+};
+
 template <uint32 CTA_SIZE, uint32 K, bool CHECKED>
 __device__ void pbgi_block(
     float*          smem,
@@ -25,42 +46,34 @@ __device__ void pbgi_block(
 
     const uint32 thread_id = threadIdx.x;
 
-    vec_type* x;     x     = &smem[0];
-    vec_type* y;     y     = &smem[0] + CTA_SIZE*K*1;
-    vec_type* z;     z     = &smem[0] + CTA_SIZE*K*2;
-    vec_type* nx;    nx    = &smem[0] + CTA_SIZE*K*3;
-    vec_type* ny;    ny    = &smem[0] + CTA_SIZE*K*4;
-    vec_type* nz;    nz    = &smem[0] + CTA_SIZE*K*5;
-    vec_type* rec_r; rec_r = &smem[0] + CTA_SIZE*K*6;
-    vec_type* rec_g; rec_g = &smem[0] + CTA_SIZE*K*7;
-    vec_type* rec_b; rec_b = &smem[0] + CTA_SIZE*K*8;
-
     // read block in shared memory (not caring about overflows)
     if (thread_id < CTA_SIZE) // help the poor compiler reducing register pressure
     {
+        const batch_view<vec_type,CTA_SIZE*K> batch( smem );
+
         if (CHECKED == false || block_offset + thread_id*K + K-1 < block_end)
         {
-            x[ thread_id ]     = reinterpret_cast<vec_type*>(state.x + block_offset)[ thread_id ];
-            y[ thread_id ]     = reinterpret_cast<vec_type*>(state.y + block_offset)[ thread_id  ];
-            z[ thread_id ]     = reinterpret_cast<vec_type*>(state.z + block_offset)[ thread_id  ];
-            nx[ thread_id ]    = reinterpret_cast<vec_type*>(state.nx + block_offset)[ thread_id  ];
-            ny[ thread_id ]    = reinterpret_cast<vec_type*>(state.ny + block_offset)[ thread_id  ];
-            nz[ thread_id ]    = reinterpret_cast<vec_type*>(state.nz + block_offset)[ thread_id  ];
-            rec_r[ thread_id ] = reinterpret_cast<vec_type*>(out_values.r + block_offset)[ thread_id  ];
-            rec_g[ thread_id ] = reinterpret_cast<vec_type*>(out_values.g + block_offset)[ thread_id  ];
-            rec_b[ thread_id ] = reinterpret_cast<vec_type*>(out_values.b + block_offset)[ thread_id  ];
+            batch.x[ thread_id ]  = reinterpret_cast<vec_type*>(state.x + block_offset)[ thread_id ];
+            batch.y[ thread_id ]  = reinterpret_cast<vec_type*>(state.y + block_offset)[ thread_id  ];
+            batch.z[ thread_id ]  = reinterpret_cast<vec_type*>(state.z + block_offset)[ thread_id  ];
+            batch.nx[ thread_id ] = reinterpret_cast<vec_type*>(state.nx + block_offset)[ thread_id  ];
+            batch.ny[ thread_id ] = reinterpret_cast<vec_type*>(state.ny + block_offset)[ thread_id  ];
+            batch.nz[ thread_id ] = reinterpret_cast<vec_type*>(state.nz + block_offset)[ thread_id  ];
+            batch.r[ thread_id ]  = reinterpret_cast<vec_type*>(out_values.r + block_offset)[ thread_id  ];
+            batch.g[ thread_id ]  = reinterpret_cast<vec_type*>(out_values.g + block_offset)[ thread_id  ];
+            batch.b[ thread_id ]  = reinterpret_cast<vec_type*>(out_values.b + block_offset)[ thread_id  ];
         }
         else
         {
-            rw<K>::read<0>( x[ thread_id ], &state.x[ block_offset ], block_end - block_offset );
-            rw<K>::read<0>( y[ thread_id ], &state.y[ block_offset ], block_end - block_offset );
-            rw<K>::read<0>( z[ thread_id ], &state.z[ block_offset ], block_end - block_offset );
-            rw<K>::read<0>( nx[ thread_id ], &state.nx[ block_offset ], block_end - block_offset );
-            rw<K>::read<0>( ny[ thread_id ], &state.ny[ block_offset ], block_end - block_offset );
-            rw<K>::read<0>( nz[ thread_id ], &state.nz[ block_offset ], block_end - block_offset );
-            rw<K>::read<0>( rec_r[ thread_id ], &in_values.r[ block_offset ], block_end - block_offset );
-            rw<K>::read<0>( rec_g[ thread_id ], &in_values.g[ block_offset ], block_end - block_offset );
-            rw<K>::read<0>( rec_b[ thread_id ], &in_values.b[ block_offset ], block_end - block_offset );
+            rw<K>::read<0>( batch.x[ thread_id ], &state.x[ block_offset ], block_end - block_offset );
+            rw<K>::read<0>( batch.y[ thread_id ], &state.y[ block_offset ], block_end - block_offset );
+            rw<K>::read<0>( batch.z[ thread_id ], &state.z[ block_offset ], block_end - block_offset );
+            rw<K>::read<0>( batch.nx[ thread_id ], &state.nx[ block_offset ], block_end - block_offset );
+            rw<K>::read<0>( batch.ny[ thread_id ], &state.ny[ block_offset ], block_end - block_offset );
+            rw<K>::read<0>( batch.nz[ thread_id ], &state.nz[ block_offset ], block_end - block_offset );
+            rw<K>::read<0>( batch.r[ thread_id ], &in_values.r[ block_offset ], block_end - block_offset );
+            rw<K>::read<0>( batch.g[ thread_id ], &in_values.g[ block_offset ], block_end - block_offset );
+            rw<K>::read<0>( batch.b[ thread_id ], &in_values.b[ block_offset ], block_end - block_offset );
         }
     }
 
@@ -68,15 +81,7 @@ __device__ void pbgi_block(
     {
         __syncthreads();
 
-        float* x;     x     = &smem[0];
-        float* y;     y     = &smem[0] + CTA_SIZE*K*1;
-        float* z;     z     = &smem[0] + CTA_SIZE*K*2;
-        float* nx;    nx    = &smem[0] + CTA_SIZE*K*3;
-        float* ny;    ny    = &smem[0] + CTA_SIZE*K*4;
-        float* nz;    nz    = &smem[0] + CTA_SIZE*K*5;
-        float* rec_r; rec_r = &smem[0] + CTA_SIZE*K*6;
-        float* rec_g; rec_g = &smem[0] + CTA_SIZE*K*7;
-        float* rec_b; rec_b = &smem[0] + CTA_SIZE*K*8;
+        const batch_view<float,CTA_SIZE*K> batch( smem );
 
         // ...iterating over batches of N_SENDERS senders at a time
         #if __CUDA_ARCH__ < 200
@@ -112,22 +117,22 @@ __device__ void pbgi_block(
                 #endif
                 for (uint32 c = 0; c < N_SENDERS; ++c)
                 {
-                    const float dx = s_x[c] - x[ thread_id + CTA_SIZE*k ];
-                    const float dy = s_y[c] - y[ thread_id + CTA_SIZE*k ];
-                    const float dz = s_z[c] - z[ thread_id + CTA_SIZE*k ];
+                    const float dx = s_x[c] - batch.x[ thread_id + CTA_SIZE*k ];
+                    const float dy = s_y[c] - batch.y[ thread_id + CTA_SIZE*k ];
+                    const float dz = s_z[c] - batch.z[ thread_id + CTA_SIZE*k ];
 
                     const float d2 = dx*dx + dy*dy + dz*dz;
 
-                    const float g1 = nx[ thread_id + CTA_SIZE*k ]*dx + ny[ thread_id + CTA_SIZE*k ]*dy + nz[ thread_id + CTA_SIZE*k ]*dz;
+                    const float g1 = batch.nx[ thread_id + CTA_SIZE*k ]*dx + batch.ny[ thread_id + CTA_SIZE*k ]*dy + batch.nz[ thread_id + CTA_SIZE*k ]*dz;
                     const float g2 = s_nx[c]*dx + s_ny[c]*dy + s_nz[c]*dz;
 
                     const float G_tmp = abs( g1*g2 ) * rcp( fmaxf( d2*d2, 1.0e-8f ) );
                     const float G = (i+c == block_offset + thread_id + CTA_SIZE*k) ? 1.0f : G_tmp; // if the sender is the receiver the weight should be 1
                         //__syncthreads(); // helps lowering register usage for wide K
 
-                    rec_r[ thread_id + CTA_SIZE*k ] += s_r[c] * G;
-                    rec_g[ thread_id + CTA_SIZE*k ] += s_g[c] * G;
-                    rec_b[ thread_id + CTA_SIZE*k ] += s_b[c] * G;
+                    batch.r[ thread_id + CTA_SIZE*k ] += s_r[c] * G;
+                    batch.g[ thread_id + CTA_SIZE*k ] += s_g[c] * G;
+                    batch.b[ thread_id + CTA_SIZE*k ] += s_b[c] * G;
                 }
             }
         }
@@ -138,17 +143,19 @@ __device__ void pbgi_block(
     // write block to global memory
     if (thread_id < CTA_SIZE) // help the poor compiler reducing register pressure
     {
+        const batch_view<vec_type,CTA_SIZE*K> batch( smem );
+
         if (CHECKED == false || block_offset + thread_id*K + K-1 < block_end)
         {
-            reinterpret_cast<vec_type*>(out_values.r + block_offset)[ thread_id ] = rec_r[thread_id];
-            reinterpret_cast<vec_type*>(out_values.g + block_offset)[ thread_id ] = rec_g[thread_id];
-            reinterpret_cast<vec_type*>(out_values.b + block_offset)[ thread_id ] = rec_b[thread_id];
+            reinterpret_cast<vec_type*>(out_values.r + block_offset)[ thread_id ] = batch.r[thread_id];
+            reinterpret_cast<vec_type*>(out_values.g + block_offset)[ thread_id ] = batch.g[thread_id];
+            reinterpret_cast<vec_type*>(out_values.b + block_offset)[ thread_id ] = batch.b[thread_id];
         }
         else
         {
-            rw<K>::write<0>( rec_r[ thread_id ], &out_values.r[ block_offset ], block_end - block_offset );
-            rw<K>::write<0>( rec_g[ thread_id ], &out_values.g[ block_offset ], block_end - block_offset );
-            rw<K>::write<0>( rec_b[ thread_id ], &out_values.b[ block_offset ], block_end - block_offset );
+            rw<K>::write<0>( batch.r[ thread_id ], &out_values.r[ block_offset ], block_end - block_offset );
+            rw<K>::write<0>( batch.g[ thread_id ], &out_values.g[ block_offset ], block_end - block_offset );
+            rw<K>::write<0>( batch.b[ thread_id ], &out_values.b[ block_offset ], block_end - block_offset );
         }
     }
 }
