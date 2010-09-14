@@ -78,7 +78,7 @@ __device__ void pbgi_block(
         float* rec_g; rec_g = reinterpret_cast<float*>(&smem[0] + CTA_SIZE*7);
         float* rec_b; rec_b = reinterpret_cast<float*>(&smem[0] + CTA_SIZE*8);
 
-        // ...iterating over batches of N_SENDERS senders at a time...
+        // ...iterating over batches of N_SENDERS senders at a time
         #if __CUDA_ARCH__ < 200
         const uint32 N_SENDERS = 4;
         #else
@@ -104,7 +104,7 @@ __device__ void pbgi_block(
             }
             __syncthreads();
 
-            // ...and computing their contribution to all K receivers per thread
+            // and compute their contribution to all K receivers per thread
             for (uint32 k = 0; k < K; ++k)
             {
                 #if __CUDA_ARCH__ < 200
