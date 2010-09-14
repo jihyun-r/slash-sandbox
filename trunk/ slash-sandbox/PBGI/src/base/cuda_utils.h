@@ -58,11 +58,32 @@ __device__ inline float3 rcp(const float3 a) { return make_float3( rcp(a.x), rcp
 __device__ inline float4 rcp(const float4 a) { return make_float4( rcp(a.x), rcp(a.y), rcp(a.z), rcp(a.w) ); }
 
 
-template <uint32 K>
-struct rw {};
+template <bool CHECKED, uint32 K>
+struct rw
+{
+    typedef typename Vec<float,K>::type vec_type;
+
+    template <uint32 OFFSET>
+    __device__ static void read(
+        vec_type&                       item,
+        const float* __restrict__       in_keys,
+        const uint32                    limit)
+    {
+        item = reinterpret_cast<const vec_type*>(in_keys)[ threadIdx.x + OFFSET ];
+    }
+    template <uint32 OFFSET>
+    __device__ static void write(
+        const vec_type                  item,
+        float* __restrict__             out_keys,
+        const uint32                    limit)
+    {
+        reinterpret_cast<vec_type*>(out_keys)[ threadIdx.x + OFFSET ] = item;
+    }
+
+};
 
 template <>
-struct rw<1>
+struct rw<true, 1>
 {
     typedef float vec_type;
 
@@ -84,7 +105,7 @@ struct rw<1>
     }
 };
 template <>
-struct rw<2>
+struct rw<true, 2>
 {
     typedef typename Vec<float,2>::type vec_type;
 
@@ -108,7 +129,7 @@ struct rw<2>
     }
 };
 template <>
-struct rw<3>
+struct rw<true, 3>
 {
     typedef typename Vec<float,3>::type vec_type;
 
@@ -134,7 +155,7 @@ struct rw<3>
     }
 };
 template <>
-struct rw<4>
+struct rw<true, 4>
 {
     typedef typename Vec<float,4>::type vec_type;
 
