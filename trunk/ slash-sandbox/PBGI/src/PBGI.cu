@@ -31,7 +31,7 @@ struct batch_view
     pointer x, y, z, nx, ny, nz, r, g, b;
 };
 
-template <uint32 CTA_SIZE, uint32 K, bool CHECKED>
+template <uint32 CTA_SIZE, uint32 K, bool GUARDED_IO>
 __device__ void pbgi_block(
     float*          smem,
     const uint32    src_begin,
@@ -52,15 +52,15 @@ __device__ void pbgi_block(
         // look at our batch as a collection of K elements tuples, accessed using vec_type
         const batch_view<vec_type,CTA_SIZE*K> batch( smem );
 
-        rw<CHECKED,K>::read<0>( batch.x[ thread_id ], &state.x[ block_offset ], block_end - block_offset );
-        rw<CHECKED,K>::read<0>( batch.y[ thread_id ], &state.y[ block_offset ], block_end - block_offset );
-        rw<CHECKED,K>::read<0>( batch.z[ thread_id ], &state.z[ block_offset ], block_end - block_offset );
-        rw<CHECKED,K>::read<0>( batch.nx[ thread_id ], &state.nx[ block_offset ], block_end - block_offset );
-        rw<CHECKED,K>::read<0>( batch.ny[ thread_id ], &state.ny[ block_offset ], block_end - block_offset );
-        rw<CHECKED,K>::read<0>( batch.nz[ thread_id ], &state.nz[ block_offset ], block_end - block_offset );
-        rw<CHECKED,K>::read<0>( batch.r[ thread_id ], &in_values.r[ block_offset ], block_end - block_offset );
-        rw<CHECKED,K>::read<0>( batch.g[ thread_id ], &in_values.g[ block_offset ], block_end - block_offset );
-        rw<CHECKED,K>::read<0>( batch.b[ thread_id ], &in_values.b[ block_offset ], block_end - block_offset );
+        rw<GUARDED_IO,K>::read( batch.x[ thread_id ], &state.x[ block_offset ], block_end - block_offset );
+        rw<GUARDED_IO,K>::read( batch.y[ thread_id ], &state.y[ block_offset ], block_end - block_offset );
+        rw<GUARDED_IO,K>::read( batch.z[ thread_id ], &state.z[ block_offset ], block_end - block_offset );
+        rw<GUARDED_IO,K>::read( batch.nx[ thread_id ], &state.nx[ block_offset ], block_end - block_offset );
+        rw<GUARDED_IO,K>::read( batch.ny[ thread_id ], &state.ny[ block_offset ], block_end - block_offset );
+        rw<GUARDED_IO,K>::read( batch.nz[ thread_id ], &state.nz[ block_offset ], block_end - block_offset );
+        rw<GUARDED_IO,K>::read( batch.r[ thread_id ], &in_values.r[ block_offset ], block_end - block_offset );
+        rw<GUARDED_IO,K>::read( batch.g[ thread_id ], &in_values.g[ block_offset ], block_end - block_offset );
+        rw<GUARDED_IO,K>::read( batch.b[ thread_id ], &in_values.b[ block_offset ], block_end - block_offset );
     }
 
     // process block...
@@ -133,9 +133,9 @@ __device__ void pbgi_block(
         // look at our batch as a collection of K elements tuples, accessed using vec_type
         const batch_view<vec_type,CTA_SIZE*K> batch( smem );
 
-        rw<CHECKED,K>::write<0>( batch.r[ thread_id ], &out_values.r[ block_offset ], block_end - block_offset );
-        rw<CHECKED,K>::write<0>( batch.g[ thread_id ], &out_values.g[ block_offset ], block_end - block_offset );
-        rw<CHECKED,K>::write<0>( batch.b[ thread_id ], &out_values.b[ block_offset ], block_end - block_offset );
+        rw<GUARDED_IO,K>::write( batch.r[ thread_id ], &out_values.r[ block_offset ], block_end - block_offset );
+        rw<GUARDED_IO,K>::write( batch.g[ thread_id ], &out_values.g[ block_offset ], block_end - block_offset );
+        rw<GUARDED_IO,K>::write( batch.b[ thread_id ], &out_values.b[ block_offset ], block_end - block_offset );
     }
 }
 

@@ -58,12 +58,16 @@ __device__ inline float3 rcp(const float3 a) { return make_float3( rcp(a.x), rcp
 __device__ inline float4 rcp(const float4 a) { return make_float4( rcp(a.x), rcp(a.y), rcp(a.z), rcp(a.w) ); }
 
 
-template <bool CHECKED, uint32 K>
+///
+/// A small helper class to handle checked and unchecked IO.
+/// The idea is that reads and writes to some array are guarded against overflows only
+/// if the template parameter CHECKED is set to true.
+///
+template <bool CHECKED, uint32 K, uint32 OFFSET = 0>
 struct rw
 {
     typedef typename Vec<float,K>::type vec_type;
 
-    template <uint32 OFFSET>
     __device__ static void read(
         vec_type&                       item,
         const float* __restrict__       in_keys,
@@ -71,7 +75,6 @@ struct rw
     {
         item = reinterpret_cast<const vec_type*>(in_keys)[ threadIdx.x + OFFSET ];
     }
-    template <uint32 OFFSET>
     __device__ static void write(
         const vec_type                  item,
         float* __restrict__             out_keys,
@@ -82,12 +85,14 @@ struct rw
 
 };
 
-template <>
-struct rw<true, 1>
+///
+/// A small helper class to handle checked IO, specialized for floats.
+///
+template <uint32 OFFSET>
+struct rw<true, 1, OFFSET>
 {
     typedef float vec_type;
 
-    template <uint32 OFFSET>
     __device__ static void read(
         vec_type&                       item,
         const float* __restrict__       in_keys,
@@ -95,7 +100,6 @@ struct rw<true, 1>
     {
         item = (threadIdx.x + OFFSET < limit) ? in_keys[ threadIdx.x + OFFSET ] : 0;
     }
-    template <uint32 OFFSET>
     __device__ static void write(
         const vec_type                  item,
         float* __restrict__             out_keys,
@@ -104,12 +108,14 @@ struct rw<true, 1>
         if (threadIdx.x + OFFSET < limit) out_keys[ threadIdx.x + OFFSET ] = item;
     }
 };
-template <>
-struct rw<true, 2>
+///
+/// A small helper class to handle checked IO, specialized for float2.
+///
+template <uint32 OFFSET>
+struct rw<true, 2, OFFSET>
 {
     typedef typename Vec<float,2>::type vec_type;
 
-    template <uint32 OFFSET>
     __device__ static void read(
         vec_type&                       item,
         const float* __restrict__       in_keys,
@@ -118,7 +124,6 @@ struct rw<true, 2>
         item.x = (threadIdx.x*2 + OFFSET*2   < limit) ? in_keys[ threadIdx.x*2 + OFFSET*2   ] : 0;
         item.y = (threadIdx.x*2 + OFFSET*2+1 < limit) ? in_keys[ threadIdx.x*2 + OFFSET*2+1 ] : 0;
     }
-    template <uint32 OFFSET>
     __device__ static void write(
         const vec_type                  item,
         float* __restrict__             out_keys,
@@ -128,12 +133,14 @@ struct rw<true, 2>
         if (threadIdx.x*2 + OFFSET*2+1 < limit) out_keys[ threadIdx.x*2 + OFFSET*2+1 ] = item.y;
     }
 };
-template <>
-struct rw<true, 3>
+///
+/// A small helper class to handle checked IO, specialized for float3.
+///
+template <uint32 OFFSET>
+struct rw<true, 3, OFFSET>
 {
     typedef typename Vec<float,3>::type vec_type;
 
-    template <uint32 OFFSET>
     __device__ static void read(
         vec_type&                       item,
         const float* __restrict__       in_keys,
@@ -143,7 +150,6 @@ struct rw<true, 3>
         item.y = (threadIdx.x*3 + OFFSET*3+1 < limit) ? in_keys[ threadIdx.x*3 + OFFSET*3+1 ] : 0;
         item.z = (threadIdx.x*3 + OFFSET*3+2 < limit) ? in_keys[ threadIdx.x*3 + OFFSET*3+2 ] : 0;
     }
-    template <uint32 OFFSET>
     __device__ static void write(
         const vec_type                  item,
         float* __restrict__             out_keys,
@@ -154,12 +160,14 @@ struct rw<true, 3>
         if (threadIdx.x*3 + OFFSET*3+2 < limit) out_keys[ threadIdx.x*3 + OFFSET*3+2 ] = item.z;
     }
 };
-template <>
-struct rw<true, 4>
+///
+/// A small helper class to handle checked IO, specialized for float4.
+///
+template <uint32 OFFSET>
+struct rw<true, 4, OFFSET>
 {
     typedef typename Vec<float,4>::type vec_type;
 
-    template <uint32 OFFSET>
     __device__ static void read(
         vec_type&                       item,
         const float* __restrict__       in_keys,
@@ -170,7 +178,6 @@ struct rw<true, 4>
         item.z = (threadIdx.x*4 + 4*OFFSET+2 < limit) ? in_keys[ threadIdx.x*4 + OFFSET*4+2 ] : 0;
         item.w = (threadIdx.x*4 + 4*OFFSET+3 < limit) ? in_keys[ threadIdx.x*4 + OFFSET*4+3 ] : 0;
     }
-    template <uint32 OFFSET>
     __device__ static void write(
         const vec_type                  item,
         float* __restrict__             out_keys,
