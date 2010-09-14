@@ -61,9 +61,9 @@ __device__ inline float4 rcp(const float4 a) { return make_float4( rcp(a.x), rcp
 ///
 /// A small helper class to handle checked and unchecked IO.
 /// The idea is that reads and writes to some array are guarded against overflows only
-/// if the template parameter CHECKED is set to true.
+/// if the template parameter GUARDED is set to true.
 ///
-template <bool CHECKED, uint32 K, uint32 OFFSET = 0>
+template <bool GUARDED, uint32 K, uint32 OFFSET = 0>
 struct rw
 {
     typedef typename Vec<float,K>::type vec_type;
@@ -82,7 +82,6 @@ struct rw
     {
         reinterpret_cast<vec_type*>(out_keys)[ threadIdx.x + OFFSET ] = item;
     }
-
 };
 
 ///
