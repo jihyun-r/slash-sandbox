@@ -293,8 +293,8 @@ void test_pbgi_t(const uint32 n_points)
     // set the number of senders correspondingly to reach our quota
     uint32 n_receivers = std::min( n_blocks * group_size * 4u, n_points );
     uint32 n_senders   = std::max( uint32( pairs_per_kernel / float(n_receivers) ), 1u );
-    if (n_senders % 32)
-        n_senders += 32 - (n_senders % 32);
+    if (n_senders % 64)
+        n_senders += 64 - (n_senders % 64);
 
     uint32 n_elements_per_block = (n_receivers + n_blocks-1) / n_blocks;
     if (n_elements_per_block % 4 != 0)
