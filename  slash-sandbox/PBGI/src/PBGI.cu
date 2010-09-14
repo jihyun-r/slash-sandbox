@@ -52,30 +52,15 @@ __device__ void pbgi_block(
         // look at our batch as a collection of K elements tuples, accessed using vec_type
         const batch_view<vec_type,CTA_SIZE*K> batch( smem );
 
-        if (CHECKED == false || block_offset + thread_id*K + K-1 < block_end)
-        {
-            batch.x[ thread_id ]  = reinterpret_cast<vec_type*>(state.x + block_offset)[ thread_id ];
-            batch.y[ thread_id ]  = reinterpret_cast<vec_type*>(state.y + block_offset)[ thread_id  ];
-            batch.z[ thread_id ]  = reinterpret_cast<vec_type*>(state.z + block_offset)[ thread_id  ];
-            batch.nx[ thread_id ] = reinterpret_cast<vec_type*>(state.nx + block_offset)[ thread_id  ];
-            batch.ny[ thread_id ] = reinterpret_cast<vec_type*>(state.ny + block_offset)[ thread_id  ];
-            batch.nz[ thread_id ] = reinterpret_cast<vec_type*>(state.nz + block_offset)[ thread_id  ];
-            batch.r[ thread_id ]  = reinterpret_cast<vec_type*>(out_values.r + block_offset)[ thread_id  ];
-            batch.g[ thread_id ]  = reinterpret_cast<vec_type*>(out_values.g + block_offset)[ thread_id  ];
-            batch.b[ thread_id ]  = reinterpret_cast<vec_type*>(out_values.b + block_offset)[ thread_id  ];
-        }
-        else
-        {
-            rw<K>::read<0>( batch.x[ thread_id ], &state.x[ block_offset ], block_end - block_offset );
-            rw<K>::read<0>( batch.y[ thread_id ], &state.y[ block_offset ], block_end - block_offset );
-            rw<K>::read<0>( batch.z[ thread_id ], &state.z[ block_offset ], block_end - block_offset );
-            rw<K>::read<0>( batch.nx[ thread_id ], &state.nx[ block_offset ], block_end - block_offset );
-            rw<K>::read<0>( batch.ny[ thread_id ], &state.ny[ block_offset ], block_end - block_offset );
-            rw<K>::read<0>( batch.nz[ thread_id ], &state.nz[ block_offset ], block_end - block_offset );
-            rw<K>::read<0>( batch.r[ thread_id ], &in_values.r[ block_offset ], block_end - block_offset );
-            rw<K>::read<0>( batch.g[ thread_id ], &in_values.g[ block_offset ], block_end - block_offset );
-            rw<K>::read<0>( batch.b[ thread_id ], &in_values.b[ block_offset ], block_end - block_offset );
-        }
+        rw<CHECKED,K>::read<0>( batch.x[ thread_id ], &state.x[ block_offset ], block_end - block_offset );
+        rw<CHECKED,K>::read<0>( batch.y[ thread_id ], &state.y[ block_offset ], block_end - block_offset );
+        rw<CHECKED,K>::read<0>( batch.z[ thread_id ], &state.z[ block_offset ], block_end - block_offset );
+        rw<CHECKED,K>::read<0>( batch.nx[ thread_id ], &state.nx[ block_offset ], block_end - block_offset );
+        rw<CHECKED,K>::read<0>( batch.ny[ thread_id ], &state.ny[ block_offset ], block_end - block_offset );
+        rw<CHECKED,K>::read<0>( batch.nz[ thread_id ], &state.nz[ block_offset ], block_end - block_offset );
+        rw<CHECKED,K>::read<0>( batch.r[ thread_id ], &in_values.r[ block_offset ], block_end - block_offset );
+        rw<CHECKED,K>::read<0>( batch.g[ thread_id ], &in_values.g[ block_offset ], block_end - block_offset );
+        rw<CHECKED,K>::read<0>( batch.b[ thread_id ], &in_values.b[ block_offset ], block_end - block_offset );
     }
 
     // process block...
@@ -148,18 +133,9 @@ __device__ void pbgi_block(
         // look at our batch as a collection of K elements tuples, accessed using vec_type
         const batch_view<vec_type,CTA_SIZE*K> batch( smem );
 
-        if (CHECKED == false || block_offset + thread_id*K + K-1 < block_end)
-        {
-            reinterpret_cast<vec_type*>(out_values.r + block_offset)[ thread_id ] = batch.r[thread_id];
-            reinterpret_cast<vec_type*>(out_values.g + block_offset)[ thread_id ] = batch.g[thread_id];
-            reinterpret_cast<vec_type*>(out_values.b + block_offset)[ thread_id ] = batch.b[thread_id];
-        }
-        else
-        {
-            rw<K>::write<0>( batch.r[ thread_id ], &out_values.r[ block_offset ], block_end - block_offset );
-            rw<K>::write<0>( batch.g[ thread_id ], &out_values.g[ block_offset ], block_end - block_offset );
-            rw<K>::write<0>( batch.b[ thread_id ], &out_values.b[ block_offset ], block_end - block_offset );
-        }
+        rw<CHECKED,K>::write<0>( batch.r[ thread_id ], &out_values.r[ block_offset ], block_end - block_offset );
+        rw<CHECKED,K>::write<0>( batch.g[ thread_id ], &out_values.g[ block_offset ], block_end - block_offset );
+        rw<CHECKED,K>::write<0>( batch.b[ thread_id ], &out_values.b[ block_offset ], block_end - block_offset );
     }
 }
 
