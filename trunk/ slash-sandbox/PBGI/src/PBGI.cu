@@ -321,8 +321,10 @@ void test_pbgi_t(const uint32 n_points)
                 rec_end = n_points;                 // merge them in...
 
             n_elements_per_block = (rec_end - rec_begin + n_blocks-1) / n_blocks;
-            if (n_elements_per_block % 4 != 0)
-                n_elements_per_block += 4 - (n_elements_per_block % 4);
+            if (n_elements_per_block % group_size != 0)
+                n_elements_per_block += group_size - (n_elements_per_block % group_size);
+            //if (n_elements_per_block % 4 != 0)
+            //    n_elements_per_block += 4 - (n_elements_per_block % 4);
 
             uint32 sender_begin = 0;
             while (sender_begin < n_points)
