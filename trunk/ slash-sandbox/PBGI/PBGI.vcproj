@@ -239,6 +239,10 @@
 			Name="base"
 			>
 			<File
+				RelativePath=".\src\base\cuda_utils.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\base\numbers.h"
 				>
 			</File>
