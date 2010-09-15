@@ -112,7 +112,7 @@ __device__ void pbgi_block(
                 *reinterpret_cast<float4*>(s_g + thread_id*4)  = *reinterpret_cast<float4*>(in_values.g + i + thread_id*4);
                 *reinterpret_cast<float4*>(s_b + thread_id*4)  = *reinterpret_cast<float4*>(in_values.b + i + thread_id*4);
             }
-            __syncthreads();
+            __syncthreads(); // make sure all reads are finished
 
             // and compute their contribution to all K receivers per thread
             for (uint32 k = 0; k < K; ++k)
@@ -141,9 +141,11 @@ __device__ void pbgi_block(
                     batch.b[ thread_id + CTA_SIZE*k ] += s_b[c] * G;
                 }
             }
+
+            __syncthreads(); // protect the inner loops from the next round of reads
         }
 
-        __syncthreads();
+        //__syncthreads();
     }
 
     // write block to global memory
