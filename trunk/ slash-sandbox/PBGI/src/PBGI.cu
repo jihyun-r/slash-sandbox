@@ -49,7 +49,7 @@ struct batch_view
 /// \param in_values    gmem input point values
 /// \param out_values   gmem output point values
 ///
-template <uint32 CTA_SIZE, uint32 K, bool GUARDED_IO>
+template <uint32 CTA_SIZE, uint32 K, bool GUARDED_SENDERS, bool GUARDED_IO>
 __device__ void pbgi_block(
     float*          smem,
     const uint32    src_begin,
@@ -76,9 +76,9 @@ __device__ void pbgi_block(
         rw<GUARDED_IO,K>::read( batch.nx[ thread_id ], &state.nx[ block_offset ], block_end - block_offset );
         rw<GUARDED_IO,K>::read( batch.ny[ thread_id ], &state.ny[ block_offset ], block_end - block_offset );
         rw<GUARDED_IO,K>::read( batch.nz[ thread_id ], &state.nz[ block_offset ], block_end - block_offset );
-        rw<GUARDED_IO,K>::read( batch.r[ thread_id ], &in_values.r[ block_offset ], block_end - block_offset );
-        rw<GUARDED_IO,K>::read( batch.g[ thread_id ], &in_values.g[ block_offset ], block_end - block_offset );
-        rw<GUARDED_IO,K>::read( batch.b[ thread_id ], &in_values.b[ block_offset ], block_end - block_offset );
+        rw<GUARDED_IO,K>::read( batch.r[ thread_id ], &out_values.r[ block_offset ], block_end - block_offset );
+        rw<GUARDED_IO,K>::read( batch.g[ thread_id ], &out_values.g[ block_offset ], block_end - block_offset );
+        rw<GUARDED_IO,K>::read( batch.b[ thread_id ], &out_values.b[ block_offset ], block_end - block_offset );
     }
 
     // process block...
@@ -120,7 +120,8 @@ __device__ void pbgi_block(
                 #if __CUDA_ARCH__ < 200
                 #pragma unroll
                 #endif
-                for (uint32 c = 0; c < N_SENDERS; ++c)
+                const uint32 loop_end = GUARDED_SENDERS ? min( N_SENDERS, src_end - i ) : N_SENDERS;
+                for (uint32 c = 0; c < loop_end; ++c)
                 {
                     const float dx = s_x[c] - batch.x[ thread_id + CTA_SIZE*k ];
                     const float dy = s_y[c] - batch.y[ thread_id + CTA_SIZE*k ];
@@ -172,7 +173,7 @@ __device__ void pbgi_block(
 /// \param in_values                gmem input point values
 /// \param out_values               gmem output point values
 ///
-template <uint32 CTA_SIZE, uint32 K>
+template <uint32 CTA_SIZE, uint32 K, bool GUARD_SENDERS>
 __global__  void pbgi_kernel(
     const uint32    n_points,
     const uint32    src_begin,
@@ -203,7 +204,7 @@ __global__  void pbgi_kernel(
     // process all the batches which don´t need overflow checks
     while (block_offset + group_size <= block_end)
     {
-        pbgi_block<CTA_SIZE,K,false>(
+        pbgi_block<CTA_SIZE,K,GUARD_SENDERS,false>(
             smem,
             src_begin,
             src_end,
@@ -219,7 +220,7 @@ __global__  void pbgi_kernel(
     // process the last batch
     if (block_offset < block_end)
     {
-        pbgi_block<CTA_SIZE,K,true>(
+        pbgi_block<CTA_SIZE,K,GUARD_SENDERS,true>(
             smem,
             src_begin,
             src_end,
@@ -289,7 +290,7 @@ void test_pbgi_t(const uint32 n_points)
     PBGI_values out_values;
 
     // compute the number of blocks we can launch to fill the machine
-    const size_t max_blocks = thrust::experimental::arch::max_active_blocks(pbgi_kernel<CTA_SIZE,K>, CTA_SIZE, 0);
+    const size_t max_blocks = thrust::experimental::arch::max_active_blocks(pbgi_kernel<CTA_SIZE,K,true>, CTA_SIZE, 0);
     const uint32 group_size = CTA_SIZE * K;
     const uint32 n_groups   = (n_points + group_size-1) / group_size;
     const size_t n_blocks   = std::min( max_blocks, n_groups );
@@ -368,17 +369,34 @@ void test_pbgi_t(const uint32 n_points)
 
                 min_pairs = std::min( min_pairs, (sender_end - sender_begin)*(rec_end - rec_begin) );
 
-                pbgi_kernel<CTA_SIZE,K><<<n_blocks,CTA_SIZE>>>(
-                    n_points,
-                    sender_begin,
-                    sender_end,
-                    rec_begin,
-                    rec_end,
-                    n_blocks,
-                    n_elements_per_block,
-                    state,
-                    in_values,
-                    out_values );
+                if (((sender_end - sender_begin) & 63) == 0)
+                {
+                    pbgi_kernel<CTA_SIZE,K,false><<<n_blocks,CTA_SIZE>>>(
+                        n_points,
+                        sender_begin,
+                        sender_end,
+                        rec_begin,
+                        rec_end,
+                        n_blocks,
+                        n_elements_per_block,
+                        state,
+                        in_values,
+                        out_values );
+                }
+                else
+                {
+                    pbgi_kernel<CTA_SIZE,K,true><<<n_blocks,CTA_SIZE>>>(
+                        n_points,
+                        sender_begin,
+                        sender_end,
+                        rec_begin,
+                        rec_end,
+                        n_blocks,
+                        n_elements_per_block,
+                        state,
+                        in_values,
+                        out_values );
+                }
 
                 cudaThreadSynchronize();
                 check_cuda_errors( 1 );
