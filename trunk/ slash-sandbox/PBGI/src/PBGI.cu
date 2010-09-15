@@ -40,14 +40,14 @@ struct batch_view
 /// Main procedure to compute the contributions of a block of a sources
 /// on a block of receivers stored in a shared memory arena.
 ///
-/// \param smem			shared memory arena, to be viewed with batch_view<T>( smem )
-/// \param src_begin	beginning of the source block
-/// \param src_end		end of the source block
-/// \param block_offset	beginning of the receiver block
-/// \param block_end	end of the receiver block
-/// \param state		gmem state
-/// \param in_values	gmem input point values
-/// \param out_values	gmem output point values
+/// \param smem         shared memory arena, to be viewed with batch_view<T>( smem )
+/// \param src_begin    beginning of the source block
+/// \param src_end      end of the source block
+/// \param block_offset beginning of the receiver block
+/// \param block_end    end of the receiver block
+/// \param state        gmem state
+/// \param in_values    gmem input point values
+/// \param out_values   gmem output point values
 ///
 template <uint32 CTA_SIZE, uint32 K, bool GUARDED_IO>
 __device__ void pbgi_block(
@@ -161,16 +161,16 @@ __device__ void pbgi_block(
 /// Kernel entry function to compute the energy exchange between a block of
 /// senders and a block of receivers.
 ///
-/// \param n_points					total number of points
-/// \param n_blocks					total number of blocks
-/// \param n_elements_per_block		number of elements per block
-/// \param src_begin				beginning of the source block
-/// \param src_end					end of the source block
-/// \param rec_begin				beginning of the receiver block
-/// \param rec_end					end of the receiver block
-/// \param state					gmem state
-/// \param in_values				gmem input point values
-/// \param out_values				gmem output point values
+/// \param n_points                 total number of points
+/// \param n_blocks                 total number of blocks
+/// \param n_elements_per_block     number of elements per block
+/// \param src_begin                beginning of the source block
+/// \param src_end                  end of the source block
+/// \param rec_begin                beginning of the receiver block
+/// \param rec_end                  end of the receiver block
+/// \param state                    gmem state
+/// \param in_values                gmem input point values
+/// \param out_values               gmem output point values
 ///
 template <uint32 CTA_SIZE, uint32 K>
 __global__  void pbgi_kernel(
