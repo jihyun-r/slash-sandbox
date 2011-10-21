@@ -1,4 +1,4 @@
-#include <base/types.h>
+#include <nih/basic/types.h>
 
 namespace pbgi {
 
@@ -20,7 +20,7 @@ struct PBGI_values
 
 namespace gpu {
 
-void test_pbgi(const uint32 n_points);
+void test_pbgi(const nih::uint32 n_points);
 
 } // namespace gpu
 

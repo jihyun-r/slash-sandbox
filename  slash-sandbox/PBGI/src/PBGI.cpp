@@ -3,11 +3,13 @@
 
 #include <PBGI.h>
 
-#include <base/vector.h>
-#include <base/timer.h>
+#include <nih/linalg/vector.h>
+#include <nih/time/timer.h>
 #include <vector>
 
 #include <xmmintrin.h>	// Need this for SSE compiler intrinsics
+
+using namespace nih;
 
 namespace pbgi {
 
