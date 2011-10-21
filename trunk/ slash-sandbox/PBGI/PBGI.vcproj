@@ -115,11 +115,11 @@
 			<Tool
 				Name="CUDA Build Rule"
 				AdditionalOptions=""
-				Include="./src; C:/thrust1.2/"
+				Include="./src;  ../;  $(CUDA_PATH)\include"
 				Arch="20"
 				FastMath="true"
 				PtxAsOptionV="true"
-				Defines="WIN32"
+				Defines="WIN32; _CRT_SECURE_NO_DEPRECATE"
 				Optimization="3"
 				Runtime="0"
 			/>
@@ -138,8 +138,8 @@
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
-				AdditionalIncludeDirectories="./src; C:/thrust1.2/"
-				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
+				AdditionalIncludeDirectories="./src;  ../;  $(CUDA_PATH)\include"
+				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE; _CRT_SECURE_NO_DEPRECATE"
 				RuntimeLibrary="0"
 				EnableEnhancedInstructionSet="2"
 				FloatingPointModel="2"
@@ -161,7 +161,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="cudart.lib"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="C:/CUDA/lib;"
+				AdditionalLibraryDirectories="$(CUDA_PATH)/lib/$(PlatformName);"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				OptimizeReferences="2"
@@ -218,16 +218,16 @@
 				RelativePath=".\stdafx.cpp"
 				>
 			</File>
-		</Filter>
-		<Filter
-			Name="Header Files"
-			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
-			>
-			<File
-				RelativePath=".\stdafx.h"
+			<Filter
+				Name="Header Files"
+				Filter="h;hpp;hxx;hm;inl;inc;xsd"
+				UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 				>
-			</File>
+				<File
+					RelativePath=".\stdafx.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Resource Files"
@@ -236,34 +236,46 @@
 			>
 		</Filter>
 		<Filter
-			Name="base"
+			Name="basic"
 			>
 			<File
-				RelativePath=".\src\base\cuda_utils.h"
+				RelativePath="..\nih\basic\cuda_domains.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\base\numbers.h"
+				RelativePath="..\nih\basic\domain_pointer.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\base\stats.h"
+				RelativePath="..\nih\basic\functors.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\base\timer.cpp"
+				RelativePath="..\nih\basic\numbers.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\base\timer.h"
+				RelativePath="..\nih\basic\primes.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\base\types.h"
+				RelativePath="..\nih\basic\stats.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\base\vector.h"
+				RelativePath="..\nih\basic\types.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="time"
+			>
+			<File
+				RelativePath="..\nih\time\timer.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\nih\time\timer.h"
 				>
 			</File>
 		</Filter>
