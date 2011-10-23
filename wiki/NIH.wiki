@@ -7,3 +7,7 @@ the author wouldn't want *Not* to be *Invented Here*.
 
 Parts of it are somewhat graphics oriented, containing fast algorithms
 for point cloud manipulation and stuff like that.
+
+As a library, it's supposed to be highly modular: one can simply include
+a subset of its modules in its own project and everything should work
+just as well (as long as dependencies are respected).
