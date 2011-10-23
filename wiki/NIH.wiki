@@ -1,0 +1,9 @@
+#summary NIH introductory page.
+
+= Introduction =
+
+NIH is a simple library for performing _all kinds of basic stuff_ that
+the author wouldn't want *Not* to be *Invented Here*.
+
+Parts of it are somewhat graphics oriented, containing fast algorithms
+for point cloud manipulation and stuff like that.
