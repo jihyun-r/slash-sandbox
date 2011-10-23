@@ -513,6 +513,16 @@ NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> face_forward(const Vector<T,DIM>&
     return dot( n, view ) > 0.0f ? -n : n;
 }
 
+/// compute the modulus of a vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> mod(const Vector<T,DIM>& v, const float m)
+{
+    Vector<T,DIM> r;
+	for (uint32 i = 0; i < DIM; i++)
+        r[i] = nih::mod( v[i], m );
+	return r;
+}
+
 typedef Vector<float,2> Vector2f;
 typedef Vector<float,3> Vector3f;
 typedef Vector<float,4> Vector4f;
