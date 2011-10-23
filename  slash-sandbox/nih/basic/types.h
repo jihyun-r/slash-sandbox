@@ -61,6 +61,7 @@ typedef int					int32;
 typedef unsigned long long	uint64;
 typedef long long			int64;
 
+//#define NIH_FORCE_INLINE __forceinline
 #define FORCE_INLINE __forceinline
 
 template <typename Out, typename In>

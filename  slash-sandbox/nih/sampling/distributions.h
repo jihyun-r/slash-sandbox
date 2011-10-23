@@ -32,7 +32,17 @@
 
 namespace nih {
 
-struct Uniform_distribution
+template <typename Derived_type>
+struct Base_distribution
+{
+    template <typename Generator>
+	inline float next(Generator& gen) const
+	{
+        return static_cast<const Derived_type*>(this)->map( gen.next() );
+    }
+};
+
+struct Uniform_distribution : Base_distribution<Uniform_distribution>
 {
 	Uniform_distribution(const float b) : m_b( b ) {}
 
@@ -45,7 +55,7 @@ struct Uniform_distribution
 private:
     float m_b;
 };
-struct Cosine_distribution
+struct Cosine_distribution : Base_distribution<Cosine_distribution>
 {
 	inline float map(const float U) const
     {
@@ -58,7 +68,7 @@ struct Cosine_distribution
         return 0.0f;
     }
 };
-struct Pareto_distribution
+struct Pareto_distribution : Base_distribution<Pareto_distribution>
 {
 	Pareto_distribution(const float a, const float min) : m_a( a ), m_inv_a( 1.0f / a ), m_min( min ) {}
 
@@ -81,7 +91,7 @@ private:
 	float m_inv_a;
     float m_min;
 };
-struct Bounded_pareto_distribution
+struct Bounded_pareto_distribution : Base_distribution<Bounded_pareto_distribution>
 {
 	Bounded_pareto_distribution(const float a, const float min, const float max) :
         m_a( a ), m_inv_a( 1.0f / a ), m_min( min ), m_max( max ),
@@ -119,7 +129,7 @@ private:
     float m_min_a;
     float m_max_a;
 };
-struct Bounded_exponential
+struct Bounded_exponential : Base_distribution<Bounded_exponential>
 {
 	Bounded_exponential(const float b) :
 		m_s1( b / 16.0f ),
@@ -139,7 +149,7 @@ private:
 	float m_s2;
 	float m_ln;
 };
-struct Cauchy_distribution
+struct Cauchy_distribution : Base_distribution<Cauchy_distribution>
 {
 	Cauchy_distribution(const float gamma) :
 		m_gamma( gamma )
@@ -157,7 +167,7 @@ struct Cauchy_distribution
 private:
     float m_gamma;
 };
-struct Exponential_distribution
+struct Exponential_distribution : Base_distribution<Exponential_distribution>
 {
 	Exponential_distribution(const float lambda) :
 		m_lambda( lambda )

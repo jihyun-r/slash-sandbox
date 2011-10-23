@@ -27,7 +27,7 @@
 
 #pragma once
 
-#include <nih/basic/domain_pointer>
+#include <nih/basic/domain_pointer.h>
 
 namespace nih {
 
@@ -35,7 +35,7 @@ struct host_domain {};
 struct device_domain {};
 
 template <typename T>
-struct dual_domain {}
+struct dual_domain {};
 
 template <> struct dual_domain<host_domain>   { typedef device_domain type; };
 template <> struct dual_domain<device_domain> { typedef host_domain type; };
