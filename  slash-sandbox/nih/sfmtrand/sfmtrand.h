@@ -315,8 +315,8 @@ namespace sfmtplus {
 			idx = N32;
 		}
 		forceinline const char *get_idstring(void) const { return idstring; }
-		forceinline const int get_min_array_size32(void) const { return N32; }
-		forceinline const int get_min_array_size64(void) const { return N64; }
+		forceinline int get_min_array_size32(void) const { return N32; }
+		forceinline int get_min_array_size64(void) const { return N64; }
 		forceinline double genrand_real3(void) { return to_real3(gen_rand32()); }
 		forceinline double genrand_real2(void) { return to_real2(gen_rand32()); }
 		forceinline double genrand_real1(void) { return to_real1(gen_rand32()); }
