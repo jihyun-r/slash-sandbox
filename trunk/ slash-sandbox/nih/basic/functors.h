@@ -366,12 +366,40 @@ struct binary_and
 };
 
 template <typename T>
+struct mask_and
+{
+    typedef T      argument_type;
+    typedef T      result_type;
+
+    NIH_HOST_DEVICE mask_and(const T mask) : m_mask( mask ) {}
+
+    NIH_HOST_DEVICE T operator() (const T op) const { return op & m_mask; }
+
+private:
+    const T m_mask;
+};
+
+template <typename T>
+struct mask_or
+{
+    typedef T      argument_type;
+    typedef T      result_type;
+
+    NIH_HOST_DEVICE mask_or(const T mask) : m_mask( mask ) {}
+
+    NIH_HOST_DEVICE T operator() (const T op) const { return op | m_mask; }
+
+private:
+    const T m_mask;
+};
+
+template <typename T>
 struct l_bit_shift
 {
     typedef T argument_type;
     typedef T result_type;
 
-    l_bit_shift(const T bits) : m_bits( bits ) {}
+    NIH_HOST_DEVICE l_bit_shift(const T bits) : m_bits( bits ) {}
 
     NIH_HOST_DEVICE  T operator() (const T x) const { return x << m_bits; }
 
@@ -384,7 +412,7 @@ struct r_bit_shift
     typedef T argument_type;
     typedef T result_type;
 
-    r_bit_shift(const T bits) : m_bits( bits ) {}
+    NIH_HOST_DEVICE r_bit_shift(const T bits) : m_bits( bits ) {}
 
     NIH_HOST_DEVICE  T operator() (const T x) const { return x >> m_bits; }
 
@@ -398,7 +426,7 @@ struct clamped_cosine_fun
     typedef Vector_type argument_type;
     typedef float       result_type;
 
-    clamped_cosine_fun(const Vector_type& normal) : m_normal( normal ) {}
+    NIH_HOST_DEVICE clamped_cosine_fun(const Vector_type& normal) : m_normal( normal ) {}
 
     NIH_HOST_DEVICE float operator() (const Vector_type& dir) const { return max( dot( dir, m_normal ), 0.0f ); }
 

@@ -48,6 +48,26 @@
 
 namespace nih {
 
+///
+/// Return samples from a strided-vector
+///
+template <typename Iterator>
+struct Sample_vector
+{
+    Sample_vector(Iterator samples, const uint32 stride) :
+        m_samples( samples ), m_stride( stride ) {}
+
+    float next()
+    {
+        const float value = *m_samples;
+        m_samples += m_stride;
+        return value;
+    }
+
+    Iterator m_samples;
+    uint32   m_stride;
+};
+
 /// sample a cdf
 uint32 sample_cdf(
 	const float					x,

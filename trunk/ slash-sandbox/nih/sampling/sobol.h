@@ -109,4 +109,13 @@ class Sobol_sampler
     unsigned int m_i;
 };
 
+struct Sobol_sequence
+{
+    typedef Sobol_sampler Sampler_type;
+
+    Sobol_sampler instance(
+        const uint32 index,
+        const uint32 copy = 0) const { return Sobol_sampler( index, copy ); }
+};
+
 } // namespace nih
