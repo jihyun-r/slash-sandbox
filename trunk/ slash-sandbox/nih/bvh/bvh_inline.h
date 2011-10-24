@@ -157,7 +157,7 @@ void Bvh_builder<DIM>::build(
 		}
 	}
 
-	build_skip_nodes( &bvh->m_nodes[0], &bvh->m_nodes[0], uint32(-1) );
+    build_skip_nodes( &bvh->m_nodes[0], &bvh->m_nodes[0], Bvh_node::kInvalid );
 }
 
 inline void build_skip_nodes(

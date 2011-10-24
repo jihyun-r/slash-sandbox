@@ -48,6 +48,7 @@ struct Bvh_node
     typedef uint32 Type;
     const static uint32 kLeaf     = (1u << 31u);
     const static uint32 kInternal = 0x00000000u;
+    const static uint32 kInvalid  = uint32(-1);
 
     NIH_HOST NIH_DEVICE Bvh_node() {}
     NIH_HOST NIH_DEVICE Bvh_node(const Type type, const uint32 index, const uint32 skip_node);

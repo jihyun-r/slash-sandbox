@@ -28,35 +28,9 @@
 #pragma once
 
 #include <nih/basic/types.h>
-#include <thrust/device_vector.h>
 
 namespace nih {
-namespace cuda {
 
-///
-/// A context class for binary tree generate() function.
-///
-struct Bintree_gen_context
-{
-    struct Split_task
-    {
-        NIH_HOST_DEVICE Split_task() {}
-        NIH_HOST_DEVICE Split_task(const uint32 id, const uint32 begin, const uint32 end, const uint32 in = 0)
-            : m_node( id ), m_begin( begin ), m_end( end ), m_input( in ) {}
+void lbvh_test();
 
-        uint32 m_node;
-        uint32 m_begin;
-        uint32 m_end;
-        uint32 m_input;
-    };
-
-    thrust::device_vector<Split_task>   m_task_queues[2];
-    thrust::device_vector<uint32>       m_counters;
-    thrust::device_vector<uint32>       m_skip_nodes;
-    uint32                              m_nodes;
-    uint32                              m_leaves;
-    uint32                              m_levels[32];
-};
-
-} // namespace cuda
 } // namespace nih
