@@ -39,16 +39,23 @@ namespace nih {
 /// GPU-based octree builder
 struct Octree_builder
 {
+    /// constructor
+    Octree_builder(
+        thrust::device_vector<Octree_node_base>& octree,
+        thrust::device_vector<uint2>&            leaves,
+        thrust::device_vector<uint32>&           index) :
+        m_octree( &octree ), m_leaves( &leaves ), m_index( &index ) {}
+
     /// build an octree given a set of points
     void build(
         const Bbox3f                           bbox,
         const thrust::device_vector<Vector4f>& points,
         const uint32                           max_leaf_size);
 
+    thrust::device_vector<Octree_node_base>* m_octree;
+    thrust::device_vector<uint2>*            m_leaves;
+    thrust::device_vector<uint32>*           m_index;
     thrust::device_vector<uint32>            m_codes;
-    thrust::device_vector<uint32>            m_index;
-    thrust::device_vector<Octree_node_base>  m_octree;
-    thrust::device_vector<uint2>             m_leaves;
     Bbox3f                                   m_bbox;
     uint32                                   m_node_count;
     uint32                                   m_leaf_count;

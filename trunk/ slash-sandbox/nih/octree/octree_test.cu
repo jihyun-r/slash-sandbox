@@ -46,7 +46,11 @@ void octree_test()
     thrust::device_vector<Vector4f> d_points( h_points );
     thrust::device_vector<Vector4f> d_unsorted_points( h_points );
 
-    Octree_builder builder;
+    thrust::device_vector<Octree_node_base> octree_nodes;
+    thrust::device_vector<uint2>            octree_leaves;
+    thrust::device_vector<uint32>           octree_index;
+
+    Octree_builder builder( octree_nodes, octree_leaves, octree_index );
 
     cudaEvent_t start, stop;
     cudaEventCreate( &start );
