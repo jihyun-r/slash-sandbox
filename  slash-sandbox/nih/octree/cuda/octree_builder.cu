@@ -311,17 +311,23 @@ void Octree_builder::build(
     need_space( m_counters, 3 );
     m_counters[ in_queue ]  = 1;
     m_counters[ out_queue ] = 0;
-    m_counters[ 2 ]         = 0; // output node counter
+    m_counters[ 2 ]         = 1; // output node counter
 
     m_task_queues[ in_queue ][0] = Split_task( 0, 0, 0, 0 );
+
+    uint32 level = 0;
+    m_levels[ level++ ] = 0;
 
     // loop until there's tasks left in the input queue
     while (m_counters[ in_queue ])
     {
+        m_levels[ level++ ] = m_counters[2];
+
         need_space( *m_octree, m_counters[2] + m_counters[ in_queue ]*8 );
 
         // clear the output queue
         m_counters[ out_queue ] = 0;
+        cudaThreadSynchronize();
 
         octree_builder::collect_octants(
             thrust::raw_pointer_cast( &m_kd_nodes.front() ),
@@ -338,6 +344,9 @@ void Octree_builder::build(
         std::swap( in_queue, out_queue );
     }
     m_node_count = m_counters[2];
+
+    for (; level < 32; ++level)
+        m_levels[ level ] = m_node_count;
 }
 
 } // namespace nih

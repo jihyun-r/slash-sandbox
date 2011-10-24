@@ -86,6 +86,18 @@ void octree_test()
     fprintf(stderr, "octree test... done\n");
     fprintf(stderr, "  time       : %f ms\n", time * 1000.0f );
     fprintf(stderr, "  points/sec : %f M\n", (n_points / time) / 1.0e6f );
+
+    fprintf(stderr, "  nodes  : %u\n", builder.m_node_count );
+    fprintf(stderr, "  leaves : %u\n", builder.m_leaf_count );
+    for (uint32 level = 0; level < 16; ++level)
+        fprintf(stderr, "  level %u : %u nodes\n", level, builder.m_levels[level+1] - builder.m_levels[level] );
+
+    thrust::host_vector<uint2> h_leaves( octree_leaves );
+    uint32 n = 0;
+    for (uint32 i = 0; i < builder.m_leaf_count; ++i)
+        n += h_leaves[i].y - h_leaves[i].x;
+
+    fprintf(stderr, "n : %u\n", n);
 }
 
 } // namespace nih
