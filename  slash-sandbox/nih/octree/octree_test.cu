@@ -43,6 +43,7 @@ void octree_test()
     Random random;
     for (uint32 i = 0; i < n_points; ++i)
         h_points[i] = Vector4f( random.next(), random.next(), random.next(), 1.0f );
+
     thrust::device_vector<Vector4f> d_points( h_points );
     thrust::device_vector<Vector4f> d_unsorted_points( h_points );
 
@@ -91,13 +92,6 @@ void octree_test()
     fprintf(stderr, "  leaves : %u\n", builder.m_leaf_count );
     for (uint32 level = 0; level < 16; ++level)
         fprintf(stderr, "  level %u : %u nodes\n", level, builder.m_levels[level+1] - builder.m_levels[level] );
-
-    thrust::host_vector<uint2> h_leaves( octree_leaves );
-    uint32 n = 0;
-    for (uint32 i = 0; i < builder.m_leaf_count; ++i)
-        n += h_leaves[i].y - h_leaves[i].x;
-
-    fprintf(stderr, "n : %u\n", n);
 }
 
 } // namespace nih
