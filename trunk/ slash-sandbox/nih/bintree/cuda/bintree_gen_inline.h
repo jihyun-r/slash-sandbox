@@ -28,6 +28,7 @@
 #include <nih/basic/functors.h>
 #include <nih/basic/algorithms.h>
 #include <nih/basic/cuda/scan.h>
+#include <nih/basic/utils.h>
 
 namespace nih {
 namespace cuda {
@@ -265,7 +266,7 @@ void gen_leaves(
 }
 
 template <typename vector_type>
-void resize_if_needed(vector_type& vec, const uint32 size)
+void need_space(vector_type& vec, const uint32 size)
 {
     if (vec.size() < size)
         vec.resize( size );
@@ -287,8 +288,8 @@ void generate(
     tree.reserve_leaves( n_codes );
 
     // start building the octree
-    resize_if_needed( context.m_task_queues[0], n_codes );
-    resize_if_needed( context.m_task_queues[1], n_codes );
+    need_space( context.m_task_queues[0], n_codes );
+    need_space( context.m_task_queues[1], n_codes );
 
     Bintree_gen_context::Split_task* task_queues[2] = {
         thrust::raw_pointer_cast( &(context.m_task_queues[0]).front() ),
