@@ -29,6 +29,7 @@
 #include <nih/bintree/cuda/bintree_context.h>
 #include <nih/bintree/cuda/bintree_gen.h>
 #include <nih/basic/cuda/scan.h>
+#include <nih/basic/utils.h>
 #include <nih/bits/morton.h>
 #include <thrust/iterator/counting_iterator.h>
 #include <thrust/transform.h>
@@ -241,13 +242,6 @@ void collect_octants(
 
 } // namespace octree_builder
 
-template <typename vector_type>
-void resize_if_needed(vector_type& vec, const uint32 size)
-{
-    if (vec.size() < size)
-        vec.resize( size );
-}
-
 // build an octree given a set of points
 void Octree_builder::build(
     const Bbox3f                           bbox,
@@ -259,10 +253,10 @@ void Octree_builder::build(
     const uint32 n_points = uint32( points.size() );
 
     m_bbox = bbox;
-    resize_if_needed( m_codes, n_points );
-    resize_if_needed( *m_index, n_points );
-    resize_if_needed( *m_octree, (n_points / max_leaf_size) * 8 );
-    resize_if_needed( *m_leaves, n_points );
+    need_space( m_codes, n_points );
+    need_space( *m_index, n_points );
+    need_space( *m_octree, (n_points / max_leaf_size) * 8 );
+    need_space( *m_leaves, n_points );
 
     // compute the Morton code for each point
     thrust::transform(
@@ -302,8 +296,8 @@ void Octree_builder::build(
     thrust::device_vector<Split_task>* m_task_queues = m_kd_context.m_task_queues;
     thrust::device_vector<uint32>&     m_counters    = m_kd_context.m_counters;
 
-    resize_if_needed( m_task_queues[0], n_points );
-    resize_if_needed( m_task_queues[1], n_points );
+    need_space( m_task_queues[0], n_points );
+    need_space( m_task_queues[1], n_points );
 
     Split_task* task_queues[2] = {
         thrust::raw_pointer_cast( &(m_task_queues[0]).front() ),
@@ -314,7 +308,7 @@ void Octree_builder::build(
     uint32 out_queue = 1;
 
     // convert the kd-tree into an octree.
-    resize_if_needed( m_counters, 3 );
+    need_space( m_counters, 3 );
     m_counters[ in_queue ]  = 1;
     m_counters[ out_queue ] = 0;
     m_counters[ 2 ]         = 0; // output node counter
@@ -324,7 +318,7 @@ void Octree_builder::build(
     // loop until there's tasks left in the input queue
     while (m_counters[ in_queue ])
     {
-        resize_if_needed( *m_octree, m_counters[2] + m_counters[ in_queue ]*8 );
+        need_space( *m_octree, m_counters[2] + m_counters[ in_queue ]*8 );
 
         // clear the output queue
         m_counters[ out_queue ] = 0;
