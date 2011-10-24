@@ -260,9 +260,9 @@ void Octree_builder::build(
 
     m_bbox = bbox;
     resize_if_needed( m_codes, n_points );
-    resize_if_needed( m_index, n_points );
-    resize_if_needed( m_octree, (n_points / max_leaf_size) * 8 );
-    resize_if_needed( m_leaves, n_points );
+    resize_if_needed( *m_index, n_points );
+    resize_if_needed( *m_octree, (n_points / max_leaf_size) * 8 );
+    resize_if_needed( *m_leaves, n_points );
 
     // compute the Morton code for each point
     thrust::transform(
@@ -275,17 +275,17 @@ void Octree_builder::build(
     thrust::copy(
         thrust::counting_iterator<uint32>(0),
         thrust::counting_iterator<uint32>(0) + n_points,
-        m_index.begin() );
+        m_index->begin() );
 
     // sort the indices by Morton code
     // TODO: use Duane's library directly here... this is doing shameful allocations!
     thrust::sort_by_key(
         m_codes.begin(),
         m_codes.begin() + n_points,
-        m_index.begin() );
+        m_index->begin() );
 
     // generate a kd-tree
-    cuda::Bintree_context tree( m_kd_nodes, m_leaves );
+    cuda::Bintree_context tree( m_kd_nodes, *m_leaves );
 
     cuda::generate(
         m_kd_context,
@@ -324,7 +324,7 @@ void Octree_builder::build(
     // loop until there's tasks left in the input queue
     while (m_counters[ in_queue ])
     {
-        resize_if_needed( m_octree, m_counters[2] + m_counters[ in_queue ]*8 );
+        resize_if_needed( *m_octree, m_counters[2] + m_counters[ in_queue ]*8 );
 
         // clear the output queue
         m_counters[ out_queue ] = 0;
@@ -336,7 +336,7 @@ void Octree_builder::build(
             thrust::raw_pointer_cast( &m_counters.front() ) + out_queue,
             task_queues[ out_queue ],
             thrust::raw_pointer_cast( &m_counters.front() ) + 2,
-            thrust::raw_pointer_cast( &m_octree.front() ) );
+            thrust::raw_pointer_cast( &m_octree->front() ) );
 
         const uint32 out_queue_size = m_counters[ out_queue ];
 
