@@ -40,6 +40,8 @@ namespace nih {
 ///
 struct Bintree_node
 {
+    static const uint32 kInvalid = uint32(-1);
+
     /// empty constructor
     NIH_HOST_DEVICE Bintree_node() {}
 
@@ -57,15 +59,25 @@ struct Bintree_node
     {
         return m_packed_info >> 2u;
     }
-    /// get i-th child
+    /// get i-th child (among the active ones)
     NIH_HOST_DEVICE uint32 get_child(const uint32 i) const
     {
         return get_child_offset() + i;
     }
     /// is the i-th child active?
-    NIH_HOST_DEVICE bool is_active(const uint32 i) const
+    NIH_HOST_DEVICE bool has_child(const uint32 i) const
     {
         return m_packed_info & (1u << i) ? true : false;
+    }
+    /// get left partition (or kInvalid if not active)
+    NIH_HOST_DEVICE uint32 get_left() const
+    {
+        return has_child(0) ? get_child_offset() : kInvalid;
+    }
+    /// get right partition (or kInvalid if not active)
+    NIH_HOST_DEVICE uint32 get_right() const
+    {
+        return has_child(1) ? get_child_offset() + (has_child(0) ? 1u : 0u) : kInvalid;
     }
 
     uint32 m_packed_info;

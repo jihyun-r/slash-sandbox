@@ -34,6 +34,7 @@
 #include <thrust/iterator/counting_iterator.h>
 #include <thrust/transform.h>
 #include <thrust/sort.h>
+#include <stack>
 
 namespace nih {
 
@@ -42,6 +43,14 @@ namespace octree_builder { // anonymous namespace
 typedef cuda::Bintree_gen_context::Split_task Split_task;
 typedef Bintree_node Kd_node;
 
+/// Utility class to hold results of an octree collection step
+struct Octree_collection
+{
+    uint32 node_count;
+    uint32 leaf_count;
+    uint32 bitmask;
+};
+
 // Helper class to collect the 8 children of a given node from
 // a binary kd-tree structure.
 // The class implements template based compile-time recursion.
@@ -49,57 +58,49 @@ template <uint32 LEVEL, uint32 STRIDE>
 struct Octree_collector
 {
     static NIH_HOST_DEVICE void find_children(
-        const uint32    node_index,
-        const Kd_node*  nodes,
-        uint32&         counter,
-        uint32&         leaf_counter,
-        uint32*         children,
-        uint32&         bitmask,
-        const uint32    octant = 0)
+        const uint32        node_index,
+        const Kd_node*      nodes,
+        Octree_collection*  result,
+        uint32*             children,
+        const uint32        octant = 0)
     {
         const Kd_node node = nodes[ node_index ];
 
-        if (LEVEL == 0)
-            bitmask = 0;
+        const bool active0 = node.has_child(0);
+        const bool active1 = node.has_child(1);
 
-        if (node.is_leaf())
+        if ((active0 == false) && (active1 == false))
         {
             // here we have some trouble... this guy is likely not
             // fitting within an octant of his parent.
             // Which octant do we assign this guy to?
             // Let's say the minimum...
-            children[ STRIDE * counter++ ] = node_index;
-            bitmask &= 1u << (octant << (3 - LEVEL));
-            leaf_counter++;
+            children[ STRIDE * result->node_count ] = node_index;
+            result->bitmask |= 1u << (octant << (3 - LEVEL));
+            result->node_count += 1;
+            result->leaf_count += 1;
         }
         else
         {
             // traverse the children in Morton order: preserving
             // the order is key here, as we want the output counter
             // to match the bitmask pop-counts.
-            const bool active0 = node.is_active(0);
-            const bool active1 = node.is_active(1);
-
             if (active0)
             {
                 Octree_collector<LEVEL+1,STRIDE>::find_children(
-                    node.get_child(0),
+                    node.get_left(),
                     nodes,
-                    counter,
-                    leaf_counter,
+                    result,
                     children,
-                    bitmask,
                     octant * 2 );
             }
             if (active1)
             {
                 Octree_collector<LEVEL+1,STRIDE>::find_children(
-                    node.get_child(1),
+                    node.get_right(),
                     nodes,
-                    counter,
-                    leaf_counter,
+                    result,
                     children,
-                    bitmask,
                     octant * 2 + 1 );
             }
         }
@@ -110,21 +111,19 @@ template <uint32 STRIDE>
 struct Octree_collector<3,STRIDE>
 {
     static NIH_HOST_DEVICE void find_children(
-        const uint32    node_index,
-        const Kd_node*  nodes,
-        uint32&         counter,
-        uint32&         leaf_counter,
-        uint32*         children,
-        uint32&         bitmask,
-        const uint32    octant)
+        const uint32        node_index,
+        const Kd_node*      nodes,
+        Octree_collection*  result,
+        uint32*             children,
+        const uint32        octant)
     {
         // we got to one of the octants
-        children[ STRIDE * counter++ ] = node_index;
-        bitmask &= 1u << octant;
+        children[ STRIDE * result->node_count ] = node_index;
+        result->bitmask |= 1u << octant;
+        result->node_count += 1;
 
-        const Kd_node node = nodes[ node_index ];
-        if (node.is_leaf())
-            leaf_counter++;
+        if (nodes[ node_index ].is_leaf())
+            result->leaf_count += 1;
     }
 };
 
@@ -148,11 +147,10 @@ __global__ void collect_octants_kernel(
     const uint32 warp_tid = threadIdx.x & (WARP_SIZE-1);
     const uint32 warp_id  = threadIdx.x >> LOG_WARP_SIZE;
 
-    __shared__ uint32 sm_children[ BLOCK_SIZE * 8 ];
-
     volatile __shared__ uint32 sm_red[ BLOCK_SIZE * 2 ];
     volatile uint32* warp_red = sm_red + WARP_SIZE * 2 * warp_id;
 
+    __shared__ uint32 sm_children[ BLOCK_SIZE * 8 ];
     uint32* children = sm_children + threadIdx.x;
 
     // loop through all logical blocks associated to this physical one
@@ -164,9 +162,10 @@ __global__ void collect_octants_kernel(
 
         uint32 node;
 
-        uint32 child_counter = 0;
-        uint32 leaf_counter  = 0;
-        uint32 bitmask       = 0;
+        Octree_collection result;
+        result.node_count = 0;
+        result.leaf_count = 0;
+        result.bitmask    = 0;
 
         // check if the task id is in range, and if so try to collect its treelet
         if (task_id < in_tasks_count)
@@ -178,25 +177,23 @@ __global__ void collect_octants_kernel(
             Octree_collector<0,BLOCK_SIZE>::find_children(
                 in_task.m_input,
                 kd_nodes,
-                child_counter,
-                leaf_counter,
-                children, 
-                bitmask );
+                &result,
+                children );
         }
 
         // allocate output nodes, output tasks, and write all leaves
         {
-            uint32 task_counter = child_counter - leaf_counter;
+            uint32 task_count = result.node_count - result.leaf_count;
 
-            uint32 node_offset = cuda::alloc( child_counter, out_nodes_count, warp_tid, warp_red, warp_offset + warp_id );
-            uint32 task_offset = cuda::alloc( task_counter,  out_tasks_count, warp_tid, warp_red, warp_offset + warp_id );
+            uint32 node_offset = cuda::alloc( result.node_count, out_nodes_count, warp_tid, warp_red, warp_offset + warp_id );
+            uint32 task_offset = cuda::alloc( task_count,        out_tasks_count, warp_tid, warp_red, warp_offset + warp_id );
 
             // write the parent node
             if (task_id < in_tasks_count)
-                out_nodes[ node ] = Octree_node_base( bitmask, node_offset );
+                out_nodes[ node ] = Octree_node_base( result.bitmask, node_offset );
 
             // write out all outputs
-            for (uint32 i = 0; i < child_counter; ++i)
+            for (uint32 i = 0; i < result.node_count; ++i)
             {
                 const uint32  kd_node_index = children[ i * BLOCK_SIZE ];
                 const Kd_node kd_node       = kd_nodes[ kd_node_index ];
@@ -342,6 +339,8 @@ void Octree_builder::build(
 
         // swap the input and output queues
         std::swap( in_queue, out_queue );
+
+        const uint32 n_nodes = m_counters[2];
     }
     m_node_count = m_counters[2];
 

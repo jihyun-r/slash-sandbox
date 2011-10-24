@@ -118,7 +118,7 @@ __global__ void split_kernel(
             }
 
             // check whether the input node really needs to be split
-            if (end - begin > max_leaf_size)
+            if (end - begin > max_leaf_size && level != uint32(-1))
             {
                 // find the "partitioning pivot" using a binary search
                 split_index = find_pivot(
@@ -130,25 +130,26 @@ __global__ void split_kernel(
             }
         }
 
-        uint32 offset = cuda::alloc( output_count, out_tasks_count, warp_tid, warp_red, warp_offset + warp_id );
-        if (output_count >= 1)
-            out_tasks[ offset + 0 ] = Split_task( out_nodes_count + offset + 0, begin, output_count == 1 ? end : split_index, level-1 );
-        if (output_count == 2)
-            out_tasks[ offset + 1 ] = Split_task( out_nodes_count + offset + 1, split_index, end, level-1 );
+        const uint32 task_offset = cuda::alloc( output_count, out_tasks_count, warp_tid, warp_red, warp_offset + warp_id );
+        const uint32 node_offset = out_nodes_count + task_offset;
+        const uint32 first_end   = output_count == 1 ? end : split_index;
+
+        if (output_count >= 1) out_tasks[ task_offset+0 ] = Split_task( node_offset+0, begin, first_end, level-1 );
+        if (output_count == 2) out_tasks[ task_offset+1 ] = Split_task( node_offset+1, split_index, end, level-1 );
 
         const bool generate_leaf = (output_count == 0 && task_id < in_tasks_count);
 
         // count how many leaves we need to generate
-        uint32 leaf_index = cuda::alloc<1>( generate_leaf, out_leaf_count, warp_tid, warp_offset + warp_id );
+        const uint32 leaf_index = cuda::alloc<1>( generate_leaf, out_leaf_count, warp_tid, warp_offset + warp_id );
 
         // write the parent node
         if (task_id < in_tasks_count)
         {
             tree.write_node(
                 node,
-                output_count ? split_index != begin     : false,
-                output_count ? split_index != end       : false,
-                output_count ? out_nodes_count + offset : leaf_index );
+                output_count ? split_index != begin : false,
+                output_count ? split_index != end   : false,
+                output_count ? node_offset          : leaf_index );
 
             // make a leaf if necessary
             if (output_count == 0)
