@@ -37,7 +37,7 @@ namespace bintree {
 typedef Bintree_gen_context::Split_task Split_task;
 
 // find the most significant bit smaller than start by which code0 and code1 differ
-FORCE_INLINE NIH_HOST_DEVICE uint32 find_leading_bit_difference(
+FORCE_INLINE NIH_HOST_DEVICE int32 find_leading_bit_difference(
     const  int32  start_level,
     const uint32  code0,
     const uint32  code1)
@@ -318,6 +318,7 @@ void generate(
 
         // clear the output queue
         context.m_counters[ out_queue ] = 0;
+        cudaThreadSynchronize();
 
         bintree::split(
             tree.get_cuda_context(),
@@ -331,10 +332,10 @@ void generate(
             n_nodes,
             thrust::raw_pointer_cast( &context.m_counters.front() ) + 2 );
 
-        uint32 out_count = context.m_counters[ out_queue ];
+        const uint32 out_count = context.m_counters[ out_queue ];
 
         // update the number of nodes
-        n_nodes += context.m_counters[ out_queue ];
+        n_nodes += out_count;
 
         // swap the input and output queues
         std::swap( in_queue, out_queue );
@@ -343,8 +344,7 @@ void generate(
         --level;
     }
 
-    // do level 0 separately, as we want to specialize it based on
-    // the fact it doesn't need to generate any additional tasks.
+    // generate a leaf for each of the remaining tasks
     if (context.m_counters[ in_queue ])
     {
         bintree::gen_leaves(

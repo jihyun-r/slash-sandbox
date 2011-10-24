@@ -76,7 +76,7 @@ uint32 alloc(bool p, uint32* pool, const int32 warp_tid, volatile uint32* warp_b
         *warp_broadcast = atomicAdd( pool, warp_count * N );
 
     // find offset
-    return *warp_broadcast + __popc( warpSize << (32u - warp_tid) ) * N;
+    return *warp_broadcast + __popc( warp_mask << (warpSize - warp_tid) ) * N;
 }
 
 } // namespace cuda
