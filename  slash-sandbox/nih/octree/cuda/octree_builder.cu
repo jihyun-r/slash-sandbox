@@ -244,7 +244,7 @@ void Octree_builder::build(
     const Bbox3f                           bbox,
     const thrust::device_vector<Vector4f>& points,
     const uint32                           max_leaf_size)
-{
+{ 
     typedef cuda::Bintree_gen_context::Split_task Split_task;
 
     const uint32 n_points = uint32( points.size() );

@@ -27,36 +27,47 @@
 
 #pragma once
 
-#include <nih/basic/types.h>
+#include <nih/bvh/bvh.h>
+#include <nih/linalg/vector.h>
+#include <nih/linalg/bbox.h>
+#include <nih/bintree/bintree_node.h>
+#include <nih/bintree/cuda/bintree_gen_context.h>
 #include <thrust/device_vector.h>
 
 namespace nih {
 namespace cuda {
 
-///
-/// A context class for binary tree generate() function.
-///
-struct Bintree_gen_context
+/// GPU-based Linar BVH builder
+struct LBVH_builder
 {
-    struct Split_task
-    {
-        NIH_HOST_DEVICE Split_task() {}
-        NIH_HOST_DEVICE Split_task(const uint32 id, const uint32 begin, const uint32 end, const uint32 in = 0)
-            : m_node( id ), m_begin( begin ), m_end( end ), m_input( in ) {}
+    /// constructor
+    LBVH_builder(
+        thrust::device_vector<Bvh_node>&         nodes,
+        thrust::device_vector<uint2>&            leaves,
+        thrust::device_vector<uint32>&           index) :
+        m_nodes( &nodes ), m_leaves( &leaves ), m_index( &index ) {}
 
-        uint32 m_node;
-        uint32 m_begin;
-        uint32 m_end;
-        uint32 m_input;
-    };
+    /// build a bvh given a set of points
+    template <typename Iterator>
+    void build(
+        const Bbox3f    bbox,
+        const Iterator  points_begin,
+        const Iterator  points_end,
+        const uint32    max_leaf_size);
 
-    thrust::device_vector<Split_task>   m_task_queues[2];
-    thrust::device_vector<uint32>       m_counters;
-    thrust::device_vector<uint32>       m_skip_nodes;
-    uint32                              m_nodes;
-    uint32                              m_leaves;
+    thrust::device_vector<Bvh_node>*    m_nodes;
+    thrust::device_vector<uint2>*       m_leaves;
+    thrust::device_vector<uint32>*      m_index;
+    thrust::device_vector<uint32>       m_codes;
     uint32                              m_levels[32];
+    Bbox3f                              m_bbox;
+    uint32                              m_node_count;
+    uint32                              m_leaf_count;
+
+    cuda::Bintree_gen_context           m_kd_context;
 };
 
 } // namespace cuda
 } // namespace nih
+
+#include <nih/bvh/cuda/lbvh_builder_inline.h>

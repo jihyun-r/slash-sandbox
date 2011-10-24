@@ -27,28 +27,25 @@
 
 #pragma once
 
-#include <nih/basic/types.h>
-#include <nih/bintree/bintree_node.h>
-#include <thrust/device_vector.h>
-
 namespace nih {
 namespace cuda {
 
 /// A simple binary tree context implementation to be used with
-/// the Bintree generate() function.
-struct Bintree_context
+/// the Bvh generate() function.
+struct LBVH_context
 {
     /// Cuda accessor struct
     struct Cuda_context
     {
         NIH_HOST_DEVICE Cuda_context() {}
-        NIH_HOST_DEVICE Cuda_context(Bintree_node* nodes, uint2* leaves) :
+        NIH_HOST_DEVICE Cuda_context(Bvh_node* nodes, uint2* leaves) :
             m_nodes(nodes), m_leaves(leaves) {}
 
         /// write a new node
         NIH_HOST_DEVICE void write_node(const uint32 node, bool p1, bool p2, const uint32 offset, const uint32 skip_node)
         {
-            m_nodes[ node ] = Bintree_node( p1, p2, offset );
+            const uint32 type = p1 == false && p2 == false ? Bvh_node::kLeaf : Bvh_node::kInternal;
+            m_nodes[ node ] = Bvh_node( type, offset, skip_node );
         }
         /// write a new leaf
         NIH_HOST_DEVICE void write_leaf(const uint32 index, const uint32 begin, const uint32 end)
@@ -56,20 +53,14 @@ struct Bintree_context
             m_leaves[ index ] = make_uint2( begin, end );
         }
 
-        Bintree_node*  m_nodes;    ///< node pointer
-        uint2*         m_leaves;   ///< leaf pointer
+        Bvh_node*  m_nodes;    ///< node pointer
+        uint2*     m_leaves;   ///< leaf pointer
     };
 
     /// constructor
-    Bintree_context(
-        thrust::device_vector<Bintree_node>& nodes,
-        thrust::device_vector<uint2>&        leaves) :
-        m_nodes( &nodes ), m_leaves( &leaves ) {}
-
-    /// constructor
-    Bintree_context(
-        thrust::device_vector<Bintree_node>* nodes,
-        thrust::device_vector<uint2>*        leaves) :
+    LBVH_context(
+        thrust::device_vector<Bvh_node>* nodes,
+        thrust::device_vector<uint2>*    leaves) :
         m_nodes( nodes ), m_leaves( leaves ) {}
 
         /// reserve space for more nodes
@@ -86,8 +77,8 @@ struct Bintree_context
             thrust::raw_pointer_cast( &m_leaves->front() ) );
     }
 
-    thrust::device_vector<Bintree_node>* m_nodes;
-    thrust::device_vector<uint2>*        m_leaves;
+    thrust::device_vector<Bvh_node>* m_nodes;
+    thrust::device_vector<uint2>*    m_leaves;
 };
 
 } // namespace cuda
