@@ -28,47 +28,64 @@
 #pragma once
 
 #include <nih/bvh/bvh.h>
-#include <nih/linalg/vector.h>
-#include <nih/linalg/bbox.h>
-#include <nih/bintree/bintree_node.h>
-#include <nih/bintree/cuda/bintree_gen_context.h>
-#include <thrust/device_vector.h>
+#include <nih/tree/model.h>
 
 namespace nih {
-namespace cuda {
 
-/// GPU-based Linar BVH builder
-template <typename Integer>
-struct LBVH_builder
+template <typename Tree_type, typename Domain_type>
+struct Bvh_tree {};
+
+/// A simple Breadth-First Tree model implementation for BVHs
+template <typename Domain_type>
+struct Bvh_tree< breadth_first_tree, Domain_type >
 {
+    typedef Domain_type         domain_type;
+    typedef Bvh_node            node_type;
+    typedef breadth_first_tree  tree_type;
+
+    /// empty constructor
+    Bvh_tree() {}
+
     /// constructor
-    LBVH_builder(
-        thrust::device_vector<Bvh_node>&         nodes,
-        thrust::device_vector<uint2>&            leaves,
-        thrust::device_vector<uint32>&           index) :
-        m_nodes( &nodes ), m_leaves( &leaves ), m_index( &index ) {}
+    Bvh_tree(
+        const Bvh_node* nodes,
+        const uint32    n_leaves,
+        const uint2*    leaves,
+        const uint32    n_levels,
+        const uint32*   levels) : 
+        m_nodes( nodes ),
+        m_leaf_count( n_leaves ),
+        m_leaves( leaves ),
+        m_level_count( n_levels ),
+        m_levels( levels )
+    {}
 
-    /// build a bvh given a set of points
-    template <typename Iterator>
-    void build(
-        const Bbox3f    bbox,
-        const Iterator  points_begin,
-        const Iterator  points_end,
-        const uint32    max_leaf_size);
+    /// return the number of levels
+    NIH_HOST_DEVICE uint32 get_level_count() const { return m_level_count; }
 
-    thrust::device_vector<Bvh_node>*    m_nodes;
-    thrust::device_vector<uint2>*       m_leaves;
-    thrust::device_vector<uint32>*      m_index;
-    thrust::device_vector<Integer>      m_codes;
-    uint32                              m_levels[64];
-    Bbox3f                              m_bbox;
-    uint32                              m_node_count;
-    uint32                              m_leaf_count;
+    /// return the i-th level
+    NIH_HOST_DEVICE uint32 get_level(const uint32 i) const { return m_levels[i]; }
 
-    cuda::Bintree_gen_context           m_kd_context;
+    /// retrieve a node
+    NIH_HOST_DEVICE Bvh_node get_node(const uint32 index) const
+    {
+        return m_nodes[ index ];
+    }
+
+    /// return the number of leaves
+    NIH_HOST_DEVICE uint32 get_leaf_count() const { return m_leaf_count; }
+
+    /// retrieve a leaf
+    NIH_HOST_DEVICE uint2 get_leaf(const uint32 index) const
+    {
+        return m_leaves[ index ];
+    }
+
+    const Bvh_node* m_nodes;
+    uint32          m_leaf_count;
+    const uint2*    m_leaves;
+    uint32          m_level_count;
+    const uint32*   m_levels;
 };
 
-} // namespace cuda
 } // namespace nih
-
-#include <nih/bvh/cuda/lbvh_builder_inline.h>

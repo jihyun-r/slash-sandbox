@@ -13,7 +13,7 @@ FORCE_INLINE Octree_node_base::Octree_node_base(const uint32 mask, const uint32 
 }
 
 // is a leaf?
-FORCE_INLINE bool Octree_node_base::is_leaf()
+FORCE_INLINE bool Octree_node_base::is_leaf() const
 {
     return get_child_mask() ? false : true;
 }
@@ -42,8 +42,14 @@ FORCE_INLINE uint32 Octree_node_base::get_child_offset() const
     return m_packed_info >> 8u;
 }
 
+// get the offset to the first child
+FORCE_INLINE uint32 Octree_node_base::get_leaf_index() const
+{
+    return m_packed_info >> 8u;
+}
+
 // check whether the i-th child exists
-FORCE_INLINE bool Octree_node_base::is_active(const uint32 i) const
+FORCE_INLINE bool Octree_node_base::has_child(const uint32 i) const
 {
     return m_packed_info & (1u << i) ? true : false;
 }
@@ -54,19 +60,19 @@ FORCE_INLINE uint32 Octree_node_base::get_child(const uint32 i) const
     return (m_packed_info >> 8u) + i;
 }
 
-// get the index of the i-th octant. returns kInvalid for non-active children.
-FORCE_INLINE uint32 Octree_node<host_domain>::get_octant(const uint32 i) const
+/// get the index of the i-th octant. returns kInvalid for non-active children.
+FORCE_INLINE uint32 get_octant(const Octree_node_base& node, const uint32 i, host_domain tag)
 {
-    const uint32 mask = get_child_mask();
-    return mask & (1u << i) ? get_child_offset() + popc(uint8(mask << (8u - i))) : kInvalid;
+    const uint32 mask = node.get_child_mask();
+    return mask & (1u << i) ? node.get_child_offset() + popc(uint8(mask << (8u - i))) : Octree_node_base::kInvalid;
 }
 
-// get the index of the i-th octant. returns kInvalid for non-active children.
-FORCE_INLINE uint32 Octree_node<device_domain>::get_octant(const uint32 i) const
+/// get the index of the i-th octant. returns kInvalid for non-active children.
+FORCE_INLINE NIH_DEVICE uint32 get_octant(const Octree_node_base& node, const uint32 i, device_domain tag)
 {
 #ifdef __CUDACC__
-    const uint32 mask = get_child_mask();
-    return mask & (1u << i) ? get_child_offset() + __popc(mask << (8u - i)) : kInvalid;
+    const uint32 mask = node.get_child_mask();
+    return mask & (1u << i) ? node.get_child_offset() + __popc(mask << (8u - i)) : Octree_node_base::kInvalid;
 #endif
 }
 

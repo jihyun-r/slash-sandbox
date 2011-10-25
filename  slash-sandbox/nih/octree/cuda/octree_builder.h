@@ -37,6 +37,7 @@
 namespace nih {
 
 /// GPU-based octree builder
+template <typename Integer>
 struct Octree_builder
 {
     /// constructor
@@ -55,8 +56,8 @@ struct Octree_builder
     thrust::device_vector<Octree_node_base>* m_octree;
     thrust::device_vector<uint2>*            m_leaves;
     thrust::device_vector<uint32>*           m_index;
-    thrust::device_vector<uint32>            m_codes;
-    uint32                                   m_levels[32];
+    thrust::device_vector<Integer>           m_codes;
+    uint32                                   m_levels[64];
     Bbox3f                                   m_bbox;
     uint32                                   m_node_count;
     uint32                                   m_leaf_count;
@@ -66,3 +67,5 @@ struct Octree_builder
 };
 
 } // namespace nih
+
+#include <nih/octree/cuda/octree_builder_inline.h>

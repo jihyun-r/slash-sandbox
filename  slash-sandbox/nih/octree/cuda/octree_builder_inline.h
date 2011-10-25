@@ -25,7 +25,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <nih/octree/cuda/octree_builder.h>
 #include <nih/bintree/cuda/bintree_context.h>
 #include <nih/bintree/cuda/bintree_gen.h>
 #include <nih/basic/cuda/scan.h>
@@ -39,6 +38,15 @@
 namespace nih {
 
 namespace octree_builder { // anonymous namespace
+
+template <typename Integer>
+struct Morton_bits {};
+
+template <>
+struct Morton_bits<uint32> { static const uint32 value = 30u; };
+
+template <>
+struct Morton_bits<uint64> { static const uint32 value = 60u; };
 
 typedef cuda::Bintree_gen_context::Split_task Split_task;
 typedef Bintree_node Kd_node;
@@ -240,7 +248,8 @@ void collect_octants(
 } // namespace octree_builder
 
 // build an octree given a set of points
-void Octree_builder::build(
+template <typename Integer>
+void Octree_builder<Integer>::build(
     const Bbox3f                           bbox,
     const thrust::device_vector<Vector4f>& points,
     const uint32                           max_leaf_size)
@@ -260,7 +269,7 @@ void Octree_builder::build(
         points.begin(),
         points.begin() + n_points,
         m_codes.begin(),
-        morton_functor( bbox ) );
+        morton_functor<Integer>( bbox ) );
 
     // setup the point indices, from 0 to n_points-1
     thrust::copy(
@@ -282,7 +291,7 @@ void Octree_builder::build(
         m_kd_context,
         n_points,
         thrust::raw_pointer_cast( &m_codes.front() ),
-        30u,
+        octree_builder::Morton_bits<Integer>::value,
         max_leaf_size,
         true,
         tree );
@@ -344,7 +353,7 @@ void Octree_builder::build(
     }
     m_node_count = m_counters[2];
 
-    for (; level < 32; ++level)
+    for (; level < 64; ++level)
         m_levels[ level ] = m_node_count;
 }
 

@@ -33,9 +33,23 @@
 namespace nih {
 namespace cuda {
 
-// build an octree given a set of points
+namespace lbvh {
+
+    template <typename Integer>
+    struct Morton_bits {};
+
+    template <>
+    struct Morton_bits<uint32> { static const uint32 value = 30u; };
+
+    template <>
+    struct Morton_bits<uint64> { static const uint32 value = 60u; };
+
+};
+
+// build a Linear BVH given a set of points
+template <typename Integer>
 template <typename Iterator>
-void LBVH_builder::build(
+void LBVH_builder<Integer>::build(
     const Bbox3f    bbox,
     const Iterator  points_begin,
     const Iterator  points_end,
@@ -55,7 +69,7 @@ void LBVH_builder::build(
         points_begin,
         points_begin + n_points,
         m_codes.begin(),
-        morton_functor( bbox ) );
+        morton_functor<Integer>( bbox ) );
 
     // setup the point indices, from 0 to n_points-1
     thrust::copy(
@@ -73,11 +87,13 @@ void LBVH_builder::build(
     // generate a kd-tree
     LBVH_context tree( m_nodes, m_leaves );
 
+    const uint32 bits = lbvh::Morton_bits<Integer>::value;
+
     generate(
         m_kd_context,
         n_points,
         thrust::raw_pointer_cast( &m_codes.front() ),
-        30u,
+        bits,
         max_leaf_size,
         false,
         tree );
@@ -85,8 +101,8 @@ void LBVH_builder::build(
     m_leaf_count = m_kd_context.m_leaves;
     m_node_count = m_kd_context.m_nodes;
 
-    for (uint32 level = 0; level < 32; ++level)
-        m_levels[ 30u - level ] = m_kd_context.m_levels[ level ];
+    for (uint32 level = 0; level <= bits; ++level)
+        m_levels[ bits - level ] = m_kd_context.m_levels[ level ];
 }
 
 } // namespace cuda

@@ -27,48 +27,24 @@
 
 #pragma once
 
-#include <nih/bvh/bvh.h>
-#include <nih/linalg/vector.h>
-#include <nih/linalg/bbox.h>
-#include <nih/bintree/bintree_node.h>
-#include <nih/bintree/cuda/bintree_gen_context.h>
-#include <thrust/device_vector.h>
+#include <nih/basic/types.h>
+#include <nih/tree/model.h>
 
 namespace nih {
 namespace cuda {
 
-/// GPU-based Linar BVH builder
-template <typename Integer>
-struct LBVH_builder
-{
-    /// constructor
-    LBVH_builder(
-        thrust::device_vector<Bvh_node>&         nodes,
-        thrust::device_vector<uint2>&            leaves,
-        thrust::device_vector<uint32>&           index) :
-        m_nodes( &nodes ), m_leaves( &leaves ), m_index( &index ) {}
-
-    /// build a bvh given a set of points
-    template <typename Iterator>
-    void build(
-        const Bbox3f    bbox,
-        const Iterator  points_begin,
-        const Iterator  points_end,
-        const uint32    max_leaf_size);
-
-    thrust::device_vector<Bvh_node>*    m_nodes;
-    thrust::device_vector<uint2>*       m_leaves;
-    thrust::device_vector<uint32>*      m_index;
-    thrust::device_vector<Integer>      m_codes;
-    uint32                              m_levels[64];
-    Bbox3f                              m_bbox;
-    uint32                              m_node_count;
-    uint32                              m_leaf_count;
-
-    cuda::Bintree_gen_context           m_kd_context;
-};
+//
+// Reduce a bunch of values attached to the elemens in the leaves of a tree.
+//
+template <typename Tree, typename Input_iterator, typename Output_iterator, typename Operator>
+void tree_reduce(
+    const Tree              tree,
+    const Input_iterator    in_values,
+    Output_iterator         out_values,
+    const Operator          op);
 
 } // namespace cuda
 } // namespace nih
 
-#include <nih/bvh/cuda/lbvh_builder_inline.h>
+#include <nih/tree/cuda/reduce_inline.h>
+

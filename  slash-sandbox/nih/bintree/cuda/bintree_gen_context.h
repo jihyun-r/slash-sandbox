@@ -55,7 +55,7 @@ struct Bintree_gen_context
     thrust::device_vector<uint32>       m_skip_nodes;
     uint32                              m_nodes;
     uint32                              m_leaves;
-    uint32                              m_levels[32];
+    uint32                              m_levels[64];
 };
 
 } // namespace cuda

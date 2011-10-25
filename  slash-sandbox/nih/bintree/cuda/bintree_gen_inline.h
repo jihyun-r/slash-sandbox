@@ -37,16 +37,17 @@ namespace bintree {
 typedef Bintree_gen_context::Split_task Split_task;
 
 // find the most significant bit smaller than start by which code0 and code1 differ
+template <typename Integer>
 FORCE_INLINE NIH_HOST_DEVICE int32 find_leading_bit_difference(
     const  int32  start_level,
-    const uint32  code0,
-    const uint32  code1)
+    const Integer code0,
+    const Integer code1)
 {
     int32 level = start_level;
 
     while (level >= 0)
     {
-        const uint32 mask = 1u << level;
+        const Integer mask = Integer(1u) << level;
 
         if ((code0 & mask) !=
             (code1 & mask))
@@ -59,13 +60,13 @@ FORCE_INLINE NIH_HOST_DEVICE int32 find_leading_bit_difference(
 
 // do a single kd-split for all nodes in the input task queue, and generate
 // a corresponding list of output tasks
-template <typename Tree, uint32 BLOCK_SIZE>
+template <uint32 BLOCK_SIZE, typename Tree, typename Integer>
 __global__ void split_kernel(
     Tree                tree,
     const uint32        max_leaf_size,
     const bool          keep_singletons,
     const uint32        grid_size,
-    const uint32*       codes,
+    const Integer*      codes,
     const uint32        in_tasks_count,
     const Split_task*   in_tasks,
     const uint32*       in_skip_nodes,
@@ -129,7 +130,7 @@ __global__ void split_kernel(
                 split_index = find_pivot(
                     codes + begin,
                     end - begin,
-                    mask_and<uint32>( 1u << level ) ) - codes;
+                    mask_and<Integer>( Integer(1u) << level ) ) - codes;
 
                 output_count = (split_index == begin || split_index == end) ? 1u : 2u;
             }
@@ -219,12 +220,12 @@ __global__ void gen_leaves_kernel(
 
 // do a single kd-split for all nodes in the input task queue, and generate
 // a corresponding list of output tasks
-template <typename Tree>
+template <typename Tree, typename Integer>
 void split(
     Tree                tree,
     const uint32        max_leaf_size,
     const bool          keep_singletons,
-    const uint32*       codes,
+    const Integer*      codes,
     const uint32        in_tasks_count,
     const Split_task*   in_tasks,
     const uint32*       in_skip_nodes,
@@ -235,11 +236,11 @@ void split(
     uint32*             out_leaf_count)
 {
     const uint32 BLOCK_SIZE = 128;
-    const size_t max_blocks = thrust::detail::device::cuda::arch::max_active_blocks(split_kernel<Tree,BLOCK_SIZE>, BLOCK_SIZE, 0);
+    const size_t max_blocks = thrust::detail::device::cuda::arch::max_active_blocks(split_kernel<BLOCK_SIZE,Tree,Integer>, BLOCK_SIZE, 0);
     const size_t n_blocks   = nih::min( max_blocks, (in_tasks_count + BLOCK_SIZE-1) / BLOCK_SIZE );
     const size_t grid_size  = n_blocks * BLOCK_SIZE;
 
-    split_kernel<Tree, BLOCK_SIZE> <<<n_blocks,BLOCK_SIZE>>> (
+    split_kernel<BLOCK_SIZE> <<<n_blocks,BLOCK_SIZE>>> (
         tree,
         max_leaf_size,
         keep_singletons,
@@ -291,15 +292,15 @@ void need_space(vector_type& vec, const uint32 size)
 
 } // namespace bintree
 
-template <typename Tree>
+template <typename Tree, typename Integer>
 void generate(
     Bintree_gen_context& context,
-    const uint32  n_codes,
-    const uint32* codes,
-    const uint32  bits,
-    const uint32  max_leaf_size,
-    const bool    keep_singletons,
-    Tree&         tree)
+    const uint32    n_codes,
+    const Integer*  codes,
+    const uint32    bits,
+    const uint32    max_leaf_size,
+    const bool      keep_singletons,
+    Tree&           tree)
 {
     tree.reserve_nodes( (n_codes / max_leaf_size) * 2 );
     tree.reserve_leaves( n_codes );
@@ -372,6 +373,9 @@ void generate(
         // decrease the level
         --level;
     }
+
+    for (; level >= 0; --level)
+        context.m_levels[ level ] = n_nodes;
 
     // generate a leaf for each of the remaining tasks
     if (context.m_counters[ in_queue ])

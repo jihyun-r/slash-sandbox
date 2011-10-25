@@ -59,6 +59,11 @@ struct Bintree_node
     {
         return m_packed_info >> 2u;
     }
+    /// get leaf index
+    NIH_HOST_DEVICE uint32 get_leaf_index() const
+    {
+        return m_packed_info >> 2u;
+    }
     /// get i-th child (among the active ones)
     NIH_HOST_DEVICE uint32 get_child(const uint32 i) const
     {
