@@ -55,6 +55,7 @@ template <typename T> inline __device__ __forceinline__ T scan_warp_total(volati
 __device__ __forceinline__
 uint32 alloc(uint32 n, uint32* pool, const int32 warp_tid, volatile uint32* warp_red, volatile uint32* warp_broadcast)
 {
+//    return atomicAdd( pool, n );
     uint32 warp_scan  = scan_warp( n, warp_tid, warp_red ) - n;
     uint32 warp_count = scan_warp_total( warp_red );
     if (warp_tid == 0)
@@ -68,6 +69,7 @@ template <uint32 N>
 __device__ __forceinline__
 uint32 alloc(bool p, uint32* pool, const int32 warp_tid, volatile uint32* warp_broadcast)
 {
+    //return atomicAdd( pool, N );
     const uint32 warp_mask  = __ballot( p );
     const uint32 warp_count = __popc( warp_mask );
 

@@ -30,6 +30,7 @@
 #include <nih/basic/types.h>
 #include <nih/basic/cuda_domains.h>
 #include <nih/bits/popcount.h>
+#include <nih/tree/model.h>
 
 namespace nih {
 
@@ -53,7 +54,7 @@ struct Octree_node_base
     NIH_HOST_DEVICE Octree_node_base(const uint32 mask, const uint32 index);
 
     /// is a leaf?
-    NIH_HOST_DEVICE bool is_leaf();
+    NIH_HOST_DEVICE bool is_leaf() const;
 
     /// set the 8-bit mask of active children
     NIH_HOST_DEVICE void set_child_mask(const uint32 mask);
@@ -62,13 +63,19 @@ struct Octree_node_base
     NIH_HOST_DEVICE uint32 get_child_mask() const;
 
     /// check whether the i-th child exists
-    NIH_HOST_DEVICE bool is_active(const uint32 i) const;
+    NIH_HOST_DEVICE bool has_child(const uint32 i) const;
 
     /// set the offset to the first child
     NIH_HOST_DEVICE void set_child_offset(const uint32 child);
 
     /// get the offset to the first child
     NIH_HOST_DEVICE uint32 get_child_offset() const;
+
+    /// get leaf index
+    NIH_HOST_DEVICE uint32 get_leaf_index() const;
+
+    /// return the number of children
+    NIH_HOST_DEVICE uint32 get_child_count() const { return popc( get_child_mask() ); }
 
     /// get the index of the i-th child (among the active ones)
     NIH_HOST_DEVICE uint32 get_child(const uint32 i) const;
@@ -79,21 +86,64 @@ struct Octree_node_base
     uint32 m_packed_info;
 };
 
-template <typename domain_tag>
-struct Octree_node : public Octree_node_base {};
+/// get the index of the i-th octant. returns kInvalid for non-active children.
+uint32 get_octant(const Octree_node_base& node, const uint32 i, host_domain tag);
 
-template <>
-struct Octree_node<host_domain> : public Octree_node_base
-{
-    /// get the index of the i-th octant. returns kInvalid for non-active children.
-    uint32 get_octant(const uint32 i) const;
-};
+/// get the index of the i-th octant. returns kInvalid for non-active children.
+NIH_DEVICE uint32 get_octant(const Octree_node_base& node, const uint32 i, device_domain tag);
 
-template <>
-struct Octree_node<device_domain> : public Octree_node_base
+
+/// A simple Breadth-First Tree model implementation for Octrees
+template <typename Tree_type, typename Domain_type>
+struct Octree {};
+
+template <typename Domain_type>
+struct Octree< breadth_first_tree, Domain_type >
 {
-    /// get the index of the i-th octant. returns kInvalid for non-active children.
-    NIH_DEVICE uint32 get_octant(const uint32 i) const;
+    typedef Domain_type         domain_type;
+    typedef Octree_node_base    node_type;
+    typedef breadth_first_tree  tree_type;
+
+    /// constructor
+    Octree(
+        const node_type* nodes,
+        const uint32     n_leaves,
+        const uint2*     leaves,
+        const uint32     n_levels,
+        const uint32*    levels) : 
+        m_nodes( nodes ),
+        m_leaf_count( n_leaves ),
+        m_leaves( leaves ),
+        m_level_count( n_levels ),
+        m_levels( levels )
+    {}
+
+    /// return the number of levels
+    NIH_HOST_DEVICE uint32 get_level_count() const { return m_level_count; }
+
+    /// return the i-th level
+    NIH_HOST_DEVICE uint32 get_level(const uint32 i) const { return m_levels[i]; }
+
+    /// retrieve a node
+    NIH_HOST_DEVICE node_type get_node(const uint32 index) const
+    {
+        return m_nodes[ index ];
+    }
+
+    /// return the number of leaves
+    NIH_HOST_DEVICE uint32 get_leaf_count() const { return m_leaf_count; }
+
+    /// retrieve a leaf
+    NIH_HOST_DEVICE uint2 get_leaf(const uint32 index) const
+    {
+        return m_leaves[ index ];
+    }
+
+    const node_type*    m_nodes;
+    const uint32        m_leaf_count;
+    const uint2*        m_leaves;
+    const uint32*       m_levels;
+    uint32              m_level_count;
 };
 
 } // namespace nih

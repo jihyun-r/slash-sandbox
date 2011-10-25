@@ -51,7 +51,7 @@ void octree_test()
     thrust::device_vector<uint2>            octree_leaves;
     thrust::device_vector<uint32>           octree_index;
 
-    Octree_builder builder( octree_nodes, octree_leaves, octree_index );
+    Octree_builder<uint64> builder( octree_nodes, octree_leaves, octree_index );
 
     cudaEvent_t start, stop;
     cudaEventCreate( &start );

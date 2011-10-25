@@ -59,7 +59,11 @@ struct Bvh_node
 
 	NIH_HOST NIH_DEVICE bool is_leaf() const { return (m_packed_data & kLeaf) != 0u; }
 	NIH_HOST NIH_DEVICE uint32 get_index() const { return m_packed_data & (~kLeaf); }
+	NIH_HOST NIH_DEVICE uint32 get_leaf_index() const { return m_packed_data & (~kLeaf); }
 	NIH_HOST NIH_DEVICE uint32 get_skip_node() const { return m_skip_node; }
+
+    NIH_HOST NIH_DEVICE uint32 get_child_count() const { return 2u; }
+    NIH_HOST NIH_DEVICE uint32 get_child(const uint32 i) const { return get_index() + i; }
 
     static NIH_HOST NIH_DEVICE uint32 packed_data(const Type type, const uint32 index)
     {

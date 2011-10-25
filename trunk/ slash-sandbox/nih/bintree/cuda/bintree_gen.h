@@ -50,11 +50,11 @@ namespace cuda {
 ///                         in the output tree
 /// \param tree             output tree
 ///
-template <typename Tree>
+template <typename Tree, typename Integer>
 void generate(
     Bintree_gen_context&    context,
     const uint32            n_codes,
-    const uint32*           codes,
+    const Integer*          codes,
     const uint32            bits,
     const uint32            max_leaf_size,
     const bool              keep_singletons,

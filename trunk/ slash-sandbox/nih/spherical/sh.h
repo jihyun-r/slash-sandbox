@@ -119,15 +119,15 @@ NIH_HOST NIH_DEVICE inline float sh(const int32 l, const int32 m, const Vector3f
     const float Y = v[1];
     const float Z = v[2];
 
-    const float m_15_over_4sqrtPI = sqrtf(15.0f)/(4.0f*sqrtf(M_PIf));
-    const float m_15_over_2sqrtPI = sqrtf(15.0f)/(2.0f*sqrtf(M_PIf));
-    const float m_5_over_4sqrtPI =  sqrtf(5.0f)/(4.0f*sqrtf(M_PIf));
-    const float m_sqrt2sqrt35_over_8sqrtPI = sqrtf(2.0f*35.0f)/(8.0f*sqrtf(M_PIf));
-    const float m_sqrt2sqrt35_over_4sqrtPI = sqrtf(2.0f*35.0f)/(4.0f*sqrtf(M_PIf));
-    const float m_sqrt7_over_4sqrtPI = sqrtf(7.0f)/(4.0f*sqrtf(M_PIf));
-    const float m_sqrt2sqrt21_over_8sqrtPI = sqrtf(2.0f*21.0f)/(8.0f*sqrtf(M_PIf));
-    const float m_sqrt105_over_4sqrtPI = sqrtf(105.0f)/(4.0f*sqrtf(M_PIf));
-    const float m_sqrt105_over_2sqrtPI = sqrtf(105.0f)/(2.0f*sqrtf(M_PIf));
+    const float m_15_over_4sqrtPI           = 0.54627419f; //sqrtf(15.0f)/(4.0f*sqrtf(M_PIf));
+    const float m_15_over_2sqrtPI           = 1.09254837f; //sqrtf(15.0f)/(2.0f*sqrtf(M_PIf));
+    const float m_5_over_4sqrtPI            = 0.31539154f; //sqrtf(5.0f)/(4.0f*sqrtf(M_PIf));
+    const float m_sqrt2sqrt35_over_8sqrtPI  = 0.59004354f; //sqrtf(2.0f*35.0f)/(8.0f*sqrtf(M_PIf));
+    const float m_sqrt2sqrt35_over_4sqrtPI  = 1.18008709f; //sqrtf(2.0f*35.0f)/(4.0f*sqrtf(M_PIf));
+    const float m_sqrt7_over_4sqrtPI        = 0.37317631f; //sqrtf(7.0f)/(4.0f*sqrtf(M_PIf));
+    const float m_sqrt2sqrt21_over_8sqrtPI  = 0.45704576f; //sqrtf(2.0f*21.0f)/(8.0f*sqrtf(M_PIf));
+    const float m_sqrt105_over_4sqrtPI      = 1.44530571f; //sqrtf(105.0f)/(4.0f*sqrtf(M_PIf));
+    const float m_sqrt105_over_2sqrtPI      = 2.89061141f; //sqrtf(105.0f)/(2.0f*sqrtf(M_PIf));
 
     if (l == 0)
         return 0.282095f;
@@ -165,6 +165,58 @@ NIH_HOST NIH_DEVICE inline float sh(const int32 l, const int32 m, const Vector3f
     }
 #endif
     return 0.0f;
+}
+template <int32 l, int32 m>
+NIH_HOST NIH_DEVICE inline float sh(const Vector3f& v)
+{
+    const float X = v[0];
+    const float Y = v[1];
+    const float Z = v[2];
+
+    const float m_15_over_4sqrtPI           = 0.54627419f; //sqrtf(15.0f)/(4.0f*sqrtf(M_PIf));
+    const float m_15_over_2sqrtPI           = 1.09254837f; //sqrtf(15.0f)/(2.0f*sqrtf(M_PIf));
+    const float m_5_over_4sqrtPI            = 0.31539154f; //sqrtf(5.0f)/(4.0f*sqrtf(M_PIf));
+    const float m_sqrt2sqrt35_over_8sqrtPI  = 0.59004354f; //sqrtf(2.0f*35.0f)/(8.0f*sqrtf(M_PIf));
+    const float m_sqrt2sqrt35_over_4sqrtPI  = 1.18008709f; //sqrtf(2.0f*35.0f)/(4.0f*sqrtf(M_PIf));
+    const float m_sqrt7_over_4sqrtPI        = 0.37317631f; //sqrtf(7.0f)/(4.0f*sqrtf(M_PIf));
+    const float m_sqrt2sqrt21_over_8sqrtPI  = 0.45704576f; //sqrtf(2.0f*21.0f)/(8.0f*sqrtf(M_PIf));
+    const float m_sqrt105_over_4sqrtPI      = 1.44530571f; //sqrtf(105.0f)/(4.0f*sqrtf(M_PIf));
+    const float m_sqrt105_over_2sqrtPI      = 2.89061141f; //sqrtf(105.0f)/(2.0f*sqrtf(M_PIf));
+
+    if (l == 0)
+        return 0.282095f;
+    else if (l == 1)
+        return 0.488603f * (m == -1 ? -Y : (m == 0 ? Z : -X));
+    else if (l == 2)
+    {
+        if (m == 0)
+            return m_5_over_4sqrtPI * (3*Z*Z - 1.0f);
+        else if (m == 1)
+            return -m_15_over_2sqrtPI * X*Z;
+        else if (m == 2)
+            return m_15_over_4sqrtPI * (X*X - Y*Y);
+        else if (m == -1)
+            return -m_15_over_2sqrtPI * Y*Z;
+        else if (m == -2)
+            return m_15_over_2sqrtPI * X*Y;
+    }
+    else if (l == 3)
+    {
+        if (m == 0)
+            return m_sqrt7_over_4sqrtPI * Z * (5*Z*Z - 3);
+        else if (m == 1)
+            return -m_sqrt2sqrt21_over_8sqrtPI * X * (5*Z*Z - 1);
+        else if (m == 2)
+            return m_sqrt105_over_4sqrtPI * (X*X - Y*Y) * Z;
+        else if (m == 3)
+            return -m_sqrt2sqrt35_over_8sqrtPI * (X*X - 3*Y*Y)*X;
+        else if (m == -1)
+            return -m_sqrt2sqrt21_over_8sqrtPI * Y * (5*Z*Z - 1);
+        else if (m == -2)
+            return m_sqrt105_over_2sqrtPI * X*Y*Z;
+        else if (m == -3)
+            return -m_sqrt2sqrt35_over_8sqrtPI * (3*X*X - Y*Y)*Y;
+    }
 }
 
 } // namespace nih
