@@ -208,13 +208,6 @@
 			<File
 				RelativePath="..\octree\octree_test.cu"
 				>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="Cudart Build Rule"
-					/>
-				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\octree\octree_test.h"
@@ -224,18 +217,11 @@
 				Name="cuda"
 				>
 				<File
-					RelativePath="..\octree\cuda\octree_builder.cu"
+					RelativePath="..\octree\cuda\octree_builder.h"
 					>
-					<FileConfiguration
-						Name="Release|Win32"
-						>
-						<Tool
-							Name="Cudart Build Rule"
-						/>
-					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\octree\cuda\octree_builder.h"
+					RelativePath="..\octree\cuda\octree_builder_inline.h"
 					>
 				</File>
 			</Filter>
@@ -395,6 +381,10 @@
 				RelativePath="..\bvh\bvh_sah_builder_inline.h"
 				>
 			</File>
+			<File
+				RelativePath="..\bvh\bvh_tree.h"
+				>
+			</File>
 			<Filter
 				Name="cuda"
 				>
@@ -413,13 +403,6 @@
 				<File
 					RelativePath="..\bvh\cuda\lbvh_test.cu"
 					>
-					<FileConfiguration
-						Name="Release|Win32"
-						>
-						<Tool
-							Name="Cudart Build Rule"
-						/>
-					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\bvh\cuda\lbvh_test.h"
@@ -514,6 +497,26 @@
 				RelativePath="..\spherical\sh.h"
 				>
 			</File>
+		</Filter>
+		<Filter
+			Name="tree"
+			>
+			<File
+				RelativePath="..\tree\model.h"
+				>
+			</File>
+			<Filter
+				Name="cuda"
+				>
+				<File
+					RelativePath="..\tree\cuda\reduce.h"
+					>
+				</File>
+				<File
+					RelativePath="..\tree\cuda\reduce_inline.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<File
 			RelativePath=".\ReadMe.txt"
