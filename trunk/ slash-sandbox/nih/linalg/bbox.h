@@ -108,6 +108,20 @@ inline NIH_HOST NIH_DEVICE bool contains(const Bbox<Vector_t>& bbox, const Vecto
     return true;
 }
 
+template <typename Vector_t>
+FORCE_INLINE NIH_HOST NIH_DEVICE float sq_distance(const Bbox<Vector_t>& bbox, const Vector_t& p)
+{
+    float r = 0.0f;
+    for (uint32 i = 0; i < p.dimension(); ++i)
+    {
+        const float dist = nih::max( bbox[0][i] - p[i], 0.0f ) +
+                           nih::max( p[i] - bbox[1][i], 0.0f );
+
+        r += dist*dist;
+    }
+    return r;
+}
+
 } // namespace nih
 
 #include <nih/linalg/bbox_inline.h>

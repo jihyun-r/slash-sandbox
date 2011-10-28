@@ -27,56 +27,14 @@
 
 #pragma once
 
-#include <assert.h>
-
-#ifdef __CUDACC__
-    #define NIH_HOST_DEVICE __host__ __device__
-    //#if (__CUDA_ARCH__ > 0)
-    //    #define NIH_HOST_DEVICE __device__
-    //#else
-    //    #define NIH_HOST_DEVICE __host__
-    //#endif
-    #define NIH_HOST   __host__
-    #define NIH_DEVICE __device__
-#else
-    #define NIH_HOST_DEVICE 
-    #define NIH_HOST
-    #define NIH_DEVICE
-#endif
-
-#define NIH_API_CS
-#define NIH_API_SS
+#include <nih/basic/types.h>
 
 namespace nih {
 
-struct device_space {};
-struct host_space   {};
-
-typedef unsigned char		uint8;
-typedef char				int8;
-typedef unsigned short		uint16;
-typedef short				int16;
-typedef unsigned int		uint32;
-typedef int					int32;
-typedef unsigned long long	uint64;
-typedef long long			int64;
-
-//#define NIH_FORCE_INLINE __forceinline
-#define FORCE_INLINE __forceinline
-
-template <typename Out, typename In>
-union BinaryCast
+struct CUDA_config
 {
-    In  in;
-    Out out;
+    static const uint32 log_WARP_SIZE = 5;
+    static const uint32     WARP_SIZE = 1u << log_WARP_SIZE;
 };
-
-template <typename Out, typename In>
-FORCE_INLINE NIH_HOST_DEVICE Out binary_cast(const In in)
-{
-    BinaryCast<Out,In> inout;
-    inout.in = in;
-    return inout.out;
-}
 
 } // namespace nih

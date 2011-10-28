@@ -138,8 +138,8 @@ __global__ void split_kernel(
 
         const uint32 task_offset = cuda::alloc( output_count, out_tasks_count, warp_tid, warp_red, warp_offset + warp_id );
         const uint32 node_offset = out_nodes_count + task_offset;
-        const uint32 first_end   = output_count == 1 ? end : split_index;
-        const uint32 first_skip  = output_count == 1 ? skip_node : task_offset+1;
+        const uint32 first_end   = (output_count == 1) ? end       : split_index;
+        const uint32 first_skip  = (output_count == 1) ? skip_node : node_offset+1;
 
         if (output_count >= 1) { out_tasks[ task_offset+0 ] = Split_task( node_offset+0, begin, first_end, level-1 ); out_skip_nodes[ task_offset+0 ] = first_skip; }
         if (output_count == 2) { out_tasks[ task_offset+1 ] = Split_task( node_offset+1, split_index, end, level-1 ); out_skip_nodes[ task_offset+1 ] = skip_node; }

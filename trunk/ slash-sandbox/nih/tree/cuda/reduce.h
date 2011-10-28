@@ -29,6 +29,7 @@
 
 #include <nih/basic/types.h>
 #include <nih/tree/model.h>
+#include <iterator>
 
 namespace nih {
 namespace cuda {
@@ -40,8 +41,10 @@ template <typename Tree, typename Input_iterator, typename Output_iterator, type
 void tree_reduce(
     const Tree              tree,
     const Input_iterator    in_values,
-    Output_iterator         out_values,
-    const Operator          op);
+    Output_iterator         leaf_values,
+    Output_iterator         node_values,
+    const Operator          op,
+    const typename std::iterator_traits<Output_iterator>::value_type def_value);
 
 } // namespace cuda
 } // namespace nih

@@ -28,7 +28,7 @@
 #pragma once
 
 #include <nih/basic/types.h>
-#include <iterator>
+#include <thrust/detail/device/dereference.h>
 
 namespace nih {
 namespace cuda {
@@ -42,9 +42,10 @@ __global__ void reduce_leaves_kernel(
     const uint32            n_leaves,
     const Input_iterator    in_values,
     Output_iterator         out_values,
-    const Operator          op)
+    const Operator          op,
+    const typename std::iterator_traits<Output_iterator>::value_type def_value)
 {
-    const uint32 grid_size = BLOCK_SIZE * blockDim.x;
+    const uint32 grid_size = gridDim.x * blockDim.x;
 
     // loop through all logical blocks associated to this physical one
     for (uint32 base_idx = blockIdx.x * BLOCK_SIZE;
@@ -59,11 +60,11 @@ __global__ void reduce_leaves_kernel(
             const uint32 begin = leaf.x;
             const uint32 end   = leaf.y;
 
-            typename std::iterator_traits<Output_iterator>::value_type value = in_values[ begin ];
-            for (uint32 i = begin + 1; i < end; ++i)
-                value = op( value, in_values[i] );
+            typename std::iterator_traits<Output_iterator>::value_type value = def_value;
+            for (uint32 i = begin; i < end; ++i)
+                value = op( value, thrust::detail::device::dereference( in_values + i ) );
 
-            out_values[ leaf_id ] = value;
+            thrust::detail::device::dereference( out_values, leaf_id ) = value;
         }
     }
 }
@@ -74,7 +75,8 @@ void reduce_leaves(
     const Tree              tree,
     const Input_iterator    in_values,
     Output_iterator         out_values,
-    const Operator          op)
+    const Operator          op,
+    const typename std::iterator_traits<Output_iterator>::value_type def_value)
 {
     const uint32 n_leaves = tree.get_leaf_count();
 
@@ -87,7 +89,8 @@ void reduce_leaves(
         n_leaves,
         in_values,
         out_values,
-        op );
+        op,
+        def_value );
 
     cudaThreadSynchronize();
 }
@@ -98,10 +101,11 @@ __global__ void reduce_level_kernel(
     const Tree              tree,
     const uint32            begin,
     const uint32            end,
+    Output_iterator         leaf_values,
     Output_iterator         out_values,
     const Operator          op)
 {
-    const uint32 grid_size = BLOCK_SIZE * blockDim.x;
+    const uint32 grid_size = gridDim.x * blockDim.x;
 
     // loop through all logical blocks associated to this physical one
     for (uint32 base_idx = blockIdx.x * BLOCK_SIZE + begin;
@@ -118,18 +122,19 @@ __global__ void reduce_level_kernel(
             {
                 // copy the corresponding leaf value
                 const uint32 leaf_index = node.get_leaf_index();
-                out_values[ node_id ] = out_values[ leaf_index ];
+                out_values[ node_id ] = leaf_values[ leaf_index ];
             }
             else
             {
                 // reduce all child values
                 const uint32 n_children = node.get_child_count();
 
-                typename std::iterator_traits<Output_iterator>::value_type value = out_values[ node.get_child(0) ];
+                typename std::iterator_traits<Output_iterator>::value_type value =
+                    thrust::detail::device::dereference( out_values, node.get_child(0) );
                 for (uint32 i = 1; i < n_children; ++i)
-                    value = op( value, out_values[ node.get_child(i) ] );
+                    value = op( value, thrust::detail::device::dereference( out_values, node.get_child(i) ) );
 
-                out_values[ node_id ] = value;
+                thrust::detail::device::dereference( out_values, node_id ) = value;
             }
         }
     }
@@ -141,6 +146,7 @@ void reduce_level(
     const Tree              tree,
     const uint32            begin,
     const uint32            end,
+    Output_iterator         leaf_values,
     Output_iterator         out_values,
     const Operator          op)
 {
@@ -154,6 +160,7 @@ void reduce_level(
         tree,
         begin,
         end,
+        leaf_values,
         out_values,
         op );
 
@@ -176,14 +183,17 @@ struct reduce<breadth_first_tree>
     static void dispatch(
         const Tree              tree,
         const Input_iterator    in_values,
-        Output_iterator         out_values,
-        const Operator          op)
+        Output_iterator         leaf_values,
+        Output_iterator         node_values,
+        const Operator          op,
+        const typename std::iterator_traits<Output_iterator>::value_type def_value)
     {
         reduce_leaves(
             tree,
             in_values,
-            out_values,
-            op );
+            leaf_values,
+            op,
+            def_value );
 
         const uint32 n_levels = tree.get_level_count();
 
@@ -202,7 +212,8 @@ struct reduce<breadth_first_tree>
                 tree,
                 level_begin,
                 level_end,
-                out_values,
+                leaf_values,
+                node_values,
                 op );
 
             offset += level_size;
@@ -225,14 +236,18 @@ template <typename Tree, typename Input_iterator, typename Output_iterator, type
 void tree_reduce(
     const Tree              tree,
     const Input_iterator    in_values,
-    Output_iterator         out_values,
-    const Operator          op)
+    Output_iterator         leaf_values,
+    Output_iterator         node_values,
+    const Operator          op,
+    const typename std::iterator_traits<Output_iterator>::value_type def_value)
 {
     treereduce::reduce<typename Tree::tree_type>::dispatch(
         tree,
         in_values,
-        out_values,
-        op );
+        leaf_values,
+        node_values,
+        op,
+        def_value );
 }
 
 } // namespace cuda

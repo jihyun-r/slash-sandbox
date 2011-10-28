@@ -30,7 +30,7 @@
 #include <base/vector.h>
 #include <cmath>
 
-namespace llpv {
+namespace nih {
 
 template <typename T> struct Sparse_matrix_entry
 {
@@ -177,8 +177,8 @@ inline        iterator      end   (void);
 inline        const Entry&  operator [] (int32 i) const;
 inline        Entry&        operator [] (int32 i);
 
-friend LLPV_API_CS int  operator == <T> (const Sparse_matrix<T>&,  const Sparse_matrix<T>&);
-friend LLPV_API_CS int  operator != <T> (const Sparse_matrix<T>&,  const Sparse_matrix<T>&);
+friend NIH_API_CS int  operator == <T> (const Sparse_matrix<T>&,  const Sparse_matrix<T>&);
+friend NIH_API_CS int  operator != <T> (const Sparse_matrix<T>&,  const Sparse_matrix<T>&);
 
 public:
 	int32   dRows;
@@ -474,7 +474,7 @@ template < typename T > Sparse_matrix_entry<T>& Sparse_matrix<T>::operator [] (i
 // Sparse_matrix template < typename T > functions (not members)
 //
 
-template < typename T > LLPV_API_CS int operator == (const Sparse_matrix<T>& a, const Sparse_matrix<T>& b)
+template < typename T > NIH_API_CS int operator == (const Sparse_matrix<T>& a, const Sparse_matrix<T>& b)
 {
 	int32 sz = a.dSize;
 	if (sz != b.dSize || a.dRows != b.dRows || a.dCols != b.dCols)
@@ -489,7 +489,7 @@ template < typename T > LLPV_API_CS int operator == (const Sparse_matrix<T>& a, 
 	return 1;
 }
 
-template < typename T > LLPV_API_CS int operator != (const Sparse_matrix<T>& a, const Sparse_matrix<T>& b)
+template < typename T > NIH_API_CS int operator != (const Sparse_matrix<T>& a, const Sparse_matrix<T>& b)
 {
 	return !(a == b);
 }
@@ -877,4 +877,4 @@ template<typename T> const T& Sparse_matrix<T>::const_iterator::value (void) con
 	return dM[dK].value();
 }
 
-} // namespace llpv
+} // namespace nih
