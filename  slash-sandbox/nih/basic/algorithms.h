@@ -43,8 +43,8 @@ FORCE_INLINE NIH_HOST_DEVICE Iterator find_pivot(
         return predicate( begin[0] ) ? begin + n : begin;
 
     // perform a binary search over the given range
-    uint32 lo = 0;
-    uint32 hi = n;
+/*    uint32 lo = 0;
+    uint32 hi = n-1;
 
     while (hi - lo > 1)
     {
@@ -55,7 +55,22 @@ FORCE_INLINE NIH_HOST_DEVICE Iterator find_pivot(
         else
             lo = mid;
     }
-    return begin + lo;
+    return begin + lo + (predicate( begin[lo] ) ? 0u : 1);
+    */
+    uint32 count = n;
+
+    while (count > 0)
+    {
+        const uint32 count2 = count / 2;
+
+        Iterator mid = begin + count2;
+
+        if (predicate( *mid ) == false)
+            begin = ++mid, count -= count2 + 1;
+        else
+            count = count2;
+    }
+	return begin;
 }
 
 } // namespace nih

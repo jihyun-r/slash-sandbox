@@ -128,7 +128,8 @@ void lbvh_test()
         60u,
         builder.m_levels );
 
-    thrust::device_vector<Bbox4f> d_bboxes( builder.m_leaf_count + builder.m_node_count );
+    thrust::device_vector<Bbox4f> d_leaf_bboxes( builder.m_leaf_count );
+    thrust::device_vector<Bbox4f> d_node_bboxes( builder.m_node_count );
 
     cudaEventCreate( &start );
     cudaEventCreate( &stop );
@@ -143,8 +144,10 @@ void lbvh_test()
         cuda::tree_reduce(
             bvh,
             thrust::raw_pointer_cast( &d_points.front() ),
-            thrust::raw_pointer_cast( &d_bboxes.front() ),
-            bbox_functor() );
+            thrust::raw_pointer_cast( &d_leaf_bboxes.front() ),
+            thrust::raw_pointer_cast( &d_node_bboxes.front() ),
+            bbox_functor(),
+            Bbox4f() );
 
         cudaEventRecord( stop, 0 );
         cudaEventSynchronize( stop );
