@@ -44,6 +44,11 @@ namespace nih {
 /// evaluate the i-th octahedral basis
 NIH_HOST_DEVICE float oct_basis(const int32 i, const Vector3f& omega);
 
+///
+/// An octahedral basis: the basis functions correspond to the characteristic
+/// functions of the intersection of the octants and the sphere, and do not
+/// overlap.
+///
 struct Oct_basis
 {
     static const int32 COEFFS = 8;
@@ -78,9 +83,14 @@ struct Oct_basis
     static void solve(float* coeffs) {}
 };
 
-/// evaluate the i-th octahedral basis
+/// evaluate the i-th smooth octahedral basis
 NIH_HOST_DEVICE float oct_smooth_basis(const int32 i, const Vector3f& omega);
 
+///
+/// A smoothed octahedral basis: the basis functions overlap and are not
+/// orthogonal. As a consequence, projection requires solving a least
+/// squares problem.
+///
 struct Oct_smooth_basis
 {
     static const int32 COEFFS = 8;

@@ -34,6 +34,18 @@
 
 namespace nih {
 
+///
+/// Project a function on a given basis.
+/// NOTE: the coefficients for the projection are accumulated to the ones
+/// passed in.
+///
+/// \param basis        the basis functions
+/// \param fun          the function to project
+/// \param a            a multiplier for the function
+/// \param b            a bias for the function
+/// \param n_samples    the number of samples used to evaluate the projection
+/// \param coeffs       the output coefficients
+/// 
 template <typename Basis_type, typename Fun_type>
 void project(
     const Basis_type    basis,

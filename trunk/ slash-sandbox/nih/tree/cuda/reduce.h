@@ -36,6 +36,26 @@ namespace cuda {
 
 ///
 /// Reduce a bunch of values attached to the elemens in the leaves of a tree.
+/// The Tree template type has to provide the following breadth-first tree
+/// interface:
+///
+/// struct Tree
+/// {
+///     // return the number of levels
+///     uint32 get_level_count() const;
+///
+///     // return the index of the first node in the i-th level
+///     uint32 get_level(const uint32 i) const;
+///
+///     // retrieve a node
+///     node_type get_node(const uint32 index) const;
+///
+///     // return the number of leaves
+///     uint32 get_leaf_count() const;
+///
+///     // retrieve a leaf
+///     uint2 get_leaf(const uint32 index) const;
+/// };
 ///
 template <typename Tree, typename Input_iterator, typename Output_iterator, typename Operator>
 void tree_reduce(
