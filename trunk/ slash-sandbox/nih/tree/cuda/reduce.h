@@ -34,9 +34,9 @@
 namespace nih {
 namespace cuda {
 
-//
-// Reduce a bunch of values attached to the elemens in the leaves of a tree.
-//
+///
+/// Reduce a bunch of values attached to the elemens in the leaves of a tree.
+///
 template <typename Tree, typename Input_iterator, typename Output_iterator, typename Operator>
 void tree_reduce(
     const Tree              tree,
@@ -45,6 +45,16 @@ void tree_reduce(
     Output_iterator         node_values,
     const Operator          op,
     const typename std::iterator_traits<Output_iterator>::value_type def_value);
+
+///
+/// Reduce a bunch of values attached to the leaves of a tree.
+///
+template <typename Tree, typename Input_iterator, typename Output_iterator, typename Operator>
+void tree_reduce(
+    const Tree              tree,
+    const Input_iterator    in_values,
+    Output_iterator         node_values,
+    const Operator          op);
 
 } // namespace cuda
 } // namespace nih
