@@ -283,13 +283,6 @@ void gen_leaves(
     cudaThreadSynchronize();
 }
 
-template <typename vector_type>
-void need_space(vector_type& vec, const uint32 size)
-{
-    if (vec.size() < size)
-        vec.resize( size );
-}
-
 } // namespace bintree
 
 template <typename Tree, typename Integer>
