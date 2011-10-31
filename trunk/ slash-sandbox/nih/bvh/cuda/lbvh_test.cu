@@ -29,7 +29,7 @@
 #include <nih/sampling/random.h>
 #include <nih/time/timer.h>
 #include <nih/basic/cuda_domains.h>
-#include <nih/bvh/bvh_tree.h>
+#include <nih/tree/model.h>
 #include <nih/tree/cuda/reduce.h>
 
 namespace nih {
@@ -121,7 +121,7 @@ void lbvh_test()
 
     fprintf(stderr, "lbvh bbox reduction test... started\n");
 
-    Bvh_tree<breadth_first_tree,device_domain> bvh(
+    BFTree<Bvh_node,device_domain> bvh(
         thrust::raw_pointer_cast( &bvh_nodes.front() ),
         builder.m_leaf_count,
         thrust::raw_pointer_cast( &bvh_leaves.front() ),

@@ -32,4 +32,57 @@ namespace nih {
 struct breadth_first_tree {};
 struct depth_first_tree   {};
 
+/// A simple Breadth-First Tree model implementation
+template <typename Node_type, typename Domain_type>
+struct BFTree
+{
+    typedef Domain_type         domain_type;
+    typedef Node_type           node_type;
+    typedef breadth_first_tree  tree_type;
+
+    /// empty constructor
+    BFTree() {}
+
+    /// constructor
+    BFTree(
+        const node_type* nodes,
+        const uint32     n_leaves,
+        const uint2*     leaves,
+        const uint32     n_levels,
+        const uint32*    levels) : 
+        m_nodes( nodes ),
+        m_leaf_count( n_leaves ),
+        m_leaves( leaves ),
+        m_level_count( n_levels ),
+        m_levels( levels )
+    {}
+
+    /// return the number of levels
+    NIH_HOST_DEVICE uint32 get_level_count() const { return m_level_count; }
+
+    /// return the i-th level
+    NIH_HOST_DEVICE uint32 get_level(const uint32 i) const { return m_levels[i]; }
+
+    /// retrieve a node
+    NIH_HOST_DEVICE node_type get_node(const uint32 index) const
+    {
+        return m_nodes[ index ];
+    }
+
+    /// return the number of leaves
+    NIH_HOST_DEVICE uint32 get_leaf_count() const { return m_leaf_count; }
+
+    /// retrieve a leaf
+    NIH_HOST_DEVICE uint2 get_leaf(const uint32 index) const
+    {
+        return m_leaves[ index ];
+    }
+
+    const node_type* m_nodes;
+    uint32           m_leaf_count;
+    const uint2*     m_leaves;
+    uint32           m_level_count;
+    const uint32*    m_levels;
+};
+
 } // namespace nih
