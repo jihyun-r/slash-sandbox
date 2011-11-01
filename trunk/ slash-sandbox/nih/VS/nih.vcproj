@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="8,00"
 	Name="nih"
-	ProjectGUID="{C58169A2-425C-4329-AD47-0E5CF4BB8201}"
+	ProjectGUID="{86D213DA-6EB8-479E-A7E9-AE8C71FEB46C}"
 	RootNamespace="PBGI"
 	Keyword="Win32Proj"
 	>
@@ -107,7 +107,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			OutputDirectory="$(NIH)/lib/"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="4"
 			CharacterSet="1"
@@ -234,6 +234,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\basic\cuda_config.h"
+				>
+			</File>
+			<File
 				RelativePath="..\basic\cuda_domains.h"
 				>
 			</File>
@@ -326,6 +330,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\linalg\matrix_inline.h"
+				>
+			</File>
+			<File
 				RelativePath="..\linalg\sparse_matrix.h"
 				>
 			</File>
@@ -381,10 +389,6 @@
 				RelativePath="..\bvh\bvh_sah_builder_inline.h"
 				>
 			</File>
-			<File
-				RelativePath="..\bvh\bvh_tree.h"
-				>
-			</File>
 			<Filter
 				Name="cuda"
 				>
@@ -406,6 +410,10 @@
 				</File>
 				<File
 					RelativePath="..\bvh\cuda\lbvh_test.h"
+					>
+				</File>
+				<File
+					RelativePath="..\bvh\cuda\packing.h"
 					>
 				</File>
 			</Filter>
@@ -479,6 +487,10 @@
 			>
 			<File
 				RelativePath="..\spherical\mappings.h"
+				>
+			</File>
+			<File
+				RelativePath="..\spherical\mappings_inline.h"
 				>
 			</File>
 			<File
