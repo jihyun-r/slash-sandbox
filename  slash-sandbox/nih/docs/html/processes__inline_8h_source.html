@@ -112,7 +112,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00033"></a>00033 <span class="comment">// using a black-box Gaussian generator.</span>
 <a name="l00034"></a>00034 <span class="comment">//</span>
 <a name="l00035"></a>00035 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Generator, u<span class="keywordtype">int</span>32 DIM&gt;
-<a name="l00036"></a><a class="code" href="group__sampling.html#gabb2dd2ed5d619ca9c891ed4ce050fa6a">00036</a> <a class="code" href="structnih_1_1_vector.html">Vector&lt;float,DIM&gt;</a> <a class="code" href="group__sampling.html#gabb2dd2ed5d619ca9c891ed4ce050fa6a">brownian_bridge</a>(
+<a name="l00036"></a><a class="code" href="group__processes.html#gabb2dd2ed5d619ca9c891ed4ce050fa6a">00036</a> <a class="code" href="structnih_1_1_vector.html">Vector&lt;float,DIM&gt;</a> <a class="code" href="group__processes.html#gabb2dd2ed5d619ca9c891ed4ce050fa6a">brownian_bridge</a>(
 <a name="l00037"></a>00037     <span class="keyword">const</span> uint32        L,
 <a name="l00038"></a>00038     <span class="keyword">const</span> uint32        t,
 <a name="l00039"></a>00039     Generator           gaussian)
@@ -167,7 +167,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00088"></a>00088 <span class="comment">// rotation.</span>
 <a name="l00089"></a>00089 <span class="comment">//</span>
 <a name="l00090"></a>00090 <span class="keyword">template</span> &lt;u<span class="keywordtype">int</span>32 DIM, <span class="keyword">typename</span> Distribution, <span class="keyword">typename</span> Sampler_type&gt;
-<a name="l00091"></a><a class="code" href="group__sampling.html#ga1e80545c2d9cb0ccdc535bd7bbc6b003">00091</a> <a class="code" href="structnih_1_1_vector.html">Vector&lt;float,DIM&gt;</a> <a class="code" href="group__sampling.html#ga1e80545c2d9cb0ccdc535bd7bbc6b003">generate_point</a>(
+<a name="l00091"></a><a class="code" href="group__processes.html#ga1e80545c2d9cb0ccdc535bd7bbc6b003">00091</a> <a class="code" href="structnih_1_1_vector.html">Vector&lt;float,DIM&gt;</a> <a class="code" href="group__processes.html#ga1e80545c2d9cb0ccdc535bd7bbc6b003">generate_point</a>(
 <a name="l00092"></a>00092     Sampler_type&amp;             sampler,
 <a name="l00093"></a>00093     Distribution&amp;             gaussian)
 <a name="l00094"></a>00094 {
@@ -186,7 +186,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00107"></a>00107 <span class="comment">// and the vector of rotations must contain L * (DIM + (DIM &amp; 1)) entries.</span>
 <a name="l00108"></a>00108 <span class="comment">//</span>
 <a name="l00109"></a>00109 <span class="keyword">template</span> &lt;u<span class="keywordtype">int</span>32 DIM, <span class="keyword">typename</span> Sequence, <span class="keyword">typename</span> Distribution&gt;
-<a name="l00110"></a><a class="code" href="group__sampling.html#gadd2480f0c83af4a386b888ed7ed8e955">00110</a> <a class="code" href="structnih_1_1_vector.html">Vector&lt;float,DIM&gt;</a> <a class="code" href="group__sampling.html#gabb2dd2ed5d619ca9c891ed4ce050fa6a">brownian_bridge</a>(
+<a name="l00110"></a><a class="code" href="group__processes.html#gadd2480f0c83af4a386b888ed7ed8e955">00110</a> <a class="code" href="structnih_1_1_vector.html">Vector&lt;float,DIM&gt;</a> <a class="code" href="group__processes.html#gabb2dd2ed5d619ca9c891ed4ce050fa6a">brownian_bridge</a>(
 <a name="l00111"></a>00111     Distribution&amp;               gaussian,
 <a name="l00112"></a>00112     <span class="keyword">const</span> <span class="keywordtype">float</span>                 sigma,
 <a name="l00113"></a>00113     <span class="keyword">const</span> uint32                N,
@@ -264,7 +264,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 24 2011 14:20:21 for nih by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 24 2011 14:41:37 for nih by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

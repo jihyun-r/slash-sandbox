@@ -110,51 +110,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00035"></a>00035 
 <a name="l00036"></a>00036 <span class="keyword">namespace </span>nih {
 <a name="l00037"></a>00037 
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Generator&gt;
-<a name="l00047"></a><a class="code" href="structnih_1_1_c_p__rotator.html">00047</a> <span class="keyword">struct </span><a class="code" href="structnih_1_1_c_p__rotator.html">CP_rotator</a>
-<a name="l00048"></a>00048 {
-<a name="l00055"></a><a class="code" href="structnih_1_1_c_p__rotator.html#a9868e43041aa07b1c8d435830aca854b">00055</a>     NIH_HOST_DEVICE <a class="code" href="structnih_1_1_c_p__rotator.html#a9868e43041aa07b1c8d435830aca854b">CP_rotator</a>(Generator&amp; gen, <span class="keyword">const</span> <span class="keywordtype">float</span>* rot, uint32 size, uint32 dim = 0) :
-<a name="l00056"></a>00056         m_gen( gen ), m_rot( rot ), m_size( size ), m_dim( dim ) {}
-<a name="l00057"></a>00057 
-<a name="l00060"></a><a class="code" href="structnih_1_1_c_p__rotator.html#a4572683851e705acd2063988100c2e01">00060</a>         <span class="keyword">inline</span> NIH_HOST_DEVICE <span class="keywordtype">float</span> <a class="code" href="structnih_1_1_c_p__rotator.html#a4572683851e705acd2063988100c2e01">next</a>()
-<a name="l00061"></a>00061         {
-<a name="l00062"></a>00062         <span class="keywordflow">return</span> <a class="code" href="group__linalg.html#ga278bc40e135ff21dd4c80375feccc703" title="compute the modulus of a vector">nih::mod</a>( m_gen.next() + m_rot[m_dim++ &amp; (m_size-1)], 1.0f );
-<a name="l00063"></a>00063     }
-<a name="l00067"></a><a class="code" href="structnih_1_1_c_p__rotator.html#a4af1ac36b0cc5c16f880d3e43a7d0ebd">00067</a>         <span class="keyword">inline</span> NIH_HOST_DEVICE <span class="keywordtype">float</span> <a class="code" href="structnih_1_1_c_p__rotator.html#a4af1ac36b0cc5c16f880d3e43a7d0ebd">density</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> x)<span class="keyword"> const</span>
-<a name="l00068"></a>00068 <span class="keyword">        </span>{
-<a name="l00069"></a>00069         <span class="keywordflow">return</span> 1.0f;
-<a name="l00070"></a>00070     }
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072     Generator&amp;        m_gen;
-<a name="l00073"></a>00073     <span class="keyword">const</span> <span class="keywordtype">float</span>*      m_rot;
-<a name="l00074"></a>00074     uint32            m_size;
-<a name="l00075"></a>00075     uint32            m_dim;
-<a name="l00076"></a>00076 };
-<a name="l00077"></a>00077 
-<a name="l00082"></a>00082 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Sample_sequence&gt;
-<a name="l00083"></a><a class="code" href="structnih_1_1_c_p__rotated__sequence.html">00083</a> <span class="keyword">struct </span><a class="code" href="structnih_1_1_c_p__rotated__sequence.html">CP_rotated_sequence</a>
-<a name="l00084"></a>00084 {
-<a name="l00085"></a>00085     <span class="keyword">typedef</span> <a class="code" href="structnih_1_1_c_p__rotator.html">CP_rotator&lt;typename Sample_sequence::Sampler_type&gt;</a> <a class="code" href="structnih_1_1_c_p__rotator.html">Sampler_type</a>;
-<a name="l00086"></a>00086 
-<a name="l00093"></a><a class="code" href="structnih_1_1_c_p__rotated__sequence.html#a660231532d529c38aeb9827ea20d5637">00093</a>     NIH_HOST_DEVICE <a class="code" href="structnih_1_1_c_p__rotated__sequence.html#a660231532d529c38aeb9827ea20d5637">CP_rotated_sequence</a>(Sample_sequence&amp; sequence, <span class="keyword">const</span> uint32 dims, <span class="keyword">const</span> <span class="keywordtype">float</span>* rot, uint32 size) :
-<a name="l00094"></a>00094         m_sequence( sequence ), m_rot( rot ), m_size( size ), m_dims( dims ) {}
-<a name="l00095"></a>00095 
-<a name="l00100"></a><a class="code" href="structnih_1_1_c_p__rotated__sequence.html#a825ebb2e498eabafb7313bfc07e28b74">00100</a>     <a class="code" href="structnih_1_1_c_p__rotator.html">Sampler_type</a> NIH_HOST_DEVICE <a class="code" href="structnih_1_1_c_p__rotated__sequence.html#a825ebb2e498eabafb7313bfc07e28b74">instance</a>(<span class="keyword">const</span> uint32 index, <span class="keyword">const</span> uint32 copy)<span class="keyword"> const</span>
-<a name="l00101"></a>00101 <span class="keyword">    </span>{
-<a name="l00102"></a>00102         <span class="keywordflow">return</span> <a class="code" href="structnih_1_1_c_p__rotator.html">Sampler_type</a>( m_sequence.instance( index, copy ), m_rot, m_dims * m_size, copy * m_dims );
-<a name="l00103"></a>00103     }
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105     Sample_sequence&amp;      m_sequence;
-<a name="l00106"></a>00106     <span class="keyword">const</span> <span class="keywordtype">float</span>*          m_rot;
-<a name="l00107"></a>00107     uint32                m_size;
-<a name="l00108"></a>00108     uint32                m_dims;
-<a name="l00109"></a>00109 };
-<a name="l00110"></a>00110 
-<a name="l00114"></a>00114 } <span class="comment">// namespace nih</span>
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Generator&gt;
+<a name="l00051"></a><a class="code" href="structnih_1_1_c_p__rotator.html">00051</a> <span class="keyword">struct </span><a class="code" href="structnih_1_1_c_p__rotator.html">CP_rotator</a>
+<a name="l00052"></a>00052 {
+<a name="l00059"></a><a class="code" href="structnih_1_1_c_p__rotator.html#a9868e43041aa07b1c8d435830aca854b">00059</a>     NIH_HOST_DEVICE <a class="code" href="structnih_1_1_c_p__rotator.html#a9868e43041aa07b1c8d435830aca854b">CP_rotator</a>(Generator&amp; gen, <span class="keyword">const</span> <span class="keywordtype">float</span>* rot, uint32 size, uint32 dim = 0) :
+<a name="l00060"></a>00060         m_gen( gen ), m_rot( rot ), m_size( size ), m_dim( dim ) {}
+<a name="l00061"></a>00061 
+<a name="l00064"></a><a class="code" href="structnih_1_1_c_p__rotator.html#a4572683851e705acd2063988100c2e01">00064</a>         <span class="keyword">inline</span> NIH_HOST_DEVICE <span class="keywordtype">float</span> <a class="code" href="structnih_1_1_c_p__rotator.html#a4572683851e705acd2063988100c2e01">next</a>()
+<a name="l00065"></a>00065         {
+<a name="l00066"></a>00066         <span class="keywordflow">return</span> <a class="code" href="group__vectors.html#ga278bc40e135ff21dd4c80375feccc703" title="compute the modulus of a vector">nih::mod</a>( m_gen.next() + m_rot[m_dim++ &amp; (m_size-1)], 1.0f );
+<a name="l00067"></a>00067     }
+<a name="l00071"></a><a class="code" href="structnih_1_1_c_p__rotator.html#a4af1ac36b0cc5c16f880d3e43a7d0ebd">00071</a>         <span class="keyword">inline</span> NIH_HOST_DEVICE <span class="keywordtype">float</span> <a class="code" href="structnih_1_1_c_p__rotator.html#a4af1ac36b0cc5c16f880d3e43a7d0ebd">density</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> x)<span class="keyword"> const</span>
+<a name="l00072"></a>00072 <span class="keyword">        </span>{
+<a name="l00073"></a>00073         <span class="keywordflow">return</span> 1.0f;
+<a name="l00074"></a>00074     }
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076     Generator&amp;        m_gen;
+<a name="l00077"></a>00077     <span class="keyword">const</span> <span class="keywordtype">float</span>*      m_rot;
+<a name="l00078"></a>00078     uint32            m_size;
+<a name="l00079"></a>00079     uint32            m_dim;
+<a name="l00080"></a>00080 };
+<a name="l00081"></a>00081 
+<a name="l00086"></a>00086 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Sample_sequence&gt;
+<a name="l00087"></a><a class="code" href="structnih_1_1_c_p__rotated__sequence.html">00087</a> <span class="keyword">struct </span><a class="code" href="structnih_1_1_c_p__rotated__sequence.html">CP_rotated_sequence</a>
+<a name="l00088"></a>00088 {
+<a name="l00089"></a>00089     <span class="keyword">typedef</span> <a class="code" href="structnih_1_1_c_p__rotator.html">CP_rotator&lt;typename Sample_sequence::Sampler_type&gt;</a> <a class="code" href="structnih_1_1_c_p__rotator.html">Sampler_type</a>;
+<a name="l00090"></a>00090 
+<a name="l00097"></a><a class="code" href="structnih_1_1_c_p__rotated__sequence.html#a660231532d529c38aeb9827ea20d5637">00097</a>     NIH_HOST_DEVICE <a class="code" href="structnih_1_1_c_p__rotated__sequence.html#a660231532d529c38aeb9827ea20d5637">CP_rotated_sequence</a>(Sample_sequence&amp; sequence, <span class="keyword">const</span> uint32 dims, <span class="keyword">const</span> <span class="keywordtype">float</span>* rot, uint32 size) :
+<a name="l00098"></a>00098         m_sequence( sequence ), m_rot( rot ), m_size( size ), m_dims( dims ) {}
+<a name="l00099"></a>00099 
+<a name="l00104"></a><a class="code" href="structnih_1_1_c_p__rotated__sequence.html#a825ebb2e498eabafb7313bfc07e28b74">00104</a>     <a class="code" href="structnih_1_1_c_p__rotator.html">Sampler_type</a> NIH_HOST_DEVICE <a class="code" href="structnih_1_1_c_p__rotated__sequence.html#a825ebb2e498eabafb7313bfc07e28b74">instance</a>(<span class="keyword">const</span> uint32 index, <span class="keyword">const</span> uint32 copy)<span class="keyword"> const</span>
+<a name="l00105"></a>00105 <span class="keyword">    </span>{
+<a name="l00106"></a>00106         <span class="keywordflow">return</span> <a class="code" href="structnih_1_1_c_p__rotator.html">Sampler_type</a>( m_sequence.instance( index, copy ), m_rot, m_dims * m_size, copy * m_dims );
+<a name="l00107"></a>00107     }
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109     Sample_sequence&amp;      m_sequence;
+<a name="l00110"></a>00110     <span class="keyword">const</span> <span class="keywordtype">float</span>*          m_rot;
+<a name="l00111"></a>00111     uint32                m_size;
+<a name="l00112"></a>00112     uint32                m_dims;
+<a name="l00113"></a>00113 };
+<a name="l00114"></a>00114 
+<a name="l00118"></a>00118 } <span class="comment">// namespace nih</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -174,7 +174,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 24 2011 14:20:21 for nih by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 24 2011 14:41:37 for nih by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

@@ -112,28 +112,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00037"></a>00037 
 <a name="l00038"></a>00038 <span class="keyword">namespace </span>nih {
 <a name="l00039"></a>00039 
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 NIH_HOST NIH_DEVICE Vector3f <a class="code" href="group__spherical__functions.html#gabb50d34723dc8f63f83481dda7e4538a">from_spherical_coords</a>(<span class="keyword">const</span> Vector2f&amp; uv);
 <a name="l00048"></a>00048 
-<a name="l00052"></a>00052 NIH_HOST NIH_DEVICE Vector2f <a class="code" href="group__spherical__functions.html#gae14d642cb444062ebf966fc27f379972">to_spherical_coords</a>(<span class="keyword">const</span> Vector3f&amp; vec);
-<a name="l00053"></a>00053 
-<a name="l00057"></a>00057 NIH_HOST NIH_DEVICE Vector2f <a class="code" href="group__spherical__functions.html#ga5852f54031a04a3c2622ac9c1c3ee181">square_to_unit_disk</a>(<span class="keyword">const</span> Vector2f uv);
-<a name="l00058"></a>00058 
-<a name="l00062"></a>00062 NIH_HOST NIH_DEVICE Vector2f <a class="code" href="group__spherical__functions.html#ga4c1322b35d3548385cfbcde647eaa9b6">unit_disk_to_square</a>(<span class="keyword">const</span> Vector2f disk);
-<a name="l00063"></a>00063 
-<a name="l00067"></a>00067 NIH_HOST NIH_DEVICE Vector3f <a class="code" href="group__spherical__functions.html#ga8b4bb2387e2dcc609267e00777c753d1">square_to_cosine_hemisphere</a>(<span class="keyword">const</span> Vector2f&amp; uv);
-<a name="l00068"></a>00068 
-<a name="l00072"></a>00072 NIH_HOST NIH_DEVICE Vector2f <a class="code" href="group__spherical__functions.html#ga1e65205c0882ccfa8b8cea7ab18525ce">cosine_hemisphere_to_square</a>(<span class="keyword">const</span> Vector3f&amp; dir);
-<a name="l00073"></a>00073 
-<a name="l00077"></a>00077 NIH_HOST NIH_DEVICE Vector3f <a class="code" href="group__spherical__functions.html#ga711e9a117559053c96478f404aa2a278">uniform_square_to_sphere</a>(<span class="keyword">const</span> Vector2f&amp; uv);
-<a name="l00078"></a>00078 
-<a name="l00082"></a>00082 NIH_HOST NIH_DEVICE Vector2f <a class="code" href="group__spherical__functions.html#ga74d80bd5bc66492ae691520586329be5">uniform_sphere_to_square</a>(<span class="keyword">const</span> Vector3f&amp; vec);
-<a name="l00083"></a>00083 
-<a name="l00087"></a>00087 } <span class="comment">// namespace nih</span>
-<a name="l00088"></a>00088 
-<a name="l00089"></a>00089 <span class="preprocessor">#include &lt;nih/spherical/mappings_inline.h&gt;</span>
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 NIH_HOST NIH_DEVICE Vector3f <a class="code" href="group__spherical__mappings.html#gabb50d34723dc8f63f83481dda7e4538a">from_spherical_coords</a>(<span class="keyword">const</span> Vector2f&amp; uv);
+<a name="l00052"></a>00052 
+<a name="l00056"></a>00056 NIH_HOST NIH_DEVICE Vector2f <a class="code" href="group__spherical__mappings.html#gae14d642cb444062ebf966fc27f379972">to_spherical_coords</a>(<span class="keyword">const</span> Vector3f&amp; vec);
+<a name="l00057"></a>00057 
+<a name="l00061"></a>00061 NIH_HOST NIH_DEVICE Vector2f <a class="code" href="group__spherical__mappings.html#ga5852f54031a04a3c2622ac9c1c3ee181">square_to_unit_disk</a>(<span class="keyword">const</span> Vector2f uv);
+<a name="l00062"></a>00062 
+<a name="l00066"></a>00066 NIH_HOST NIH_DEVICE Vector2f <a class="code" href="group__spherical__mappings.html#ga4c1322b35d3548385cfbcde647eaa9b6">unit_disk_to_square</a>(<span class="keyword">const</span> Vector2f disk);
+<a name="l00067"></a>00067 
+<a name="l00071"></a>00071 NIH_HOST NIH_DEVICE Vector3f <a class="code" href="group__spherical__mappings.html#ga8b4bb2387e2dcc609267e00777c753d1">square_to_cosine_hemisphere</a>(<span class="keyword">const</span> Vector2f&amp; uv);
+<a name="l00072"></a>00072 
+<a name="l00076"></a>00076 NIH_HOST NIH_DEVICE Vector2f <a class="code" href="group__spherical__mappings.html#ga1e65205c0882ccfa8b8cea7ab18525ce">cosine_hemisphere_to_square</a>(<span class="keyword">const</span> Vector3f&amp; dir);
+<a name="l00077"></a>00077 
+<a name="l00081"></a>00081 NIH_HOST NIH_DEVICE Vector3f <a class="code" href="group__spherical__mappings.html#ga711e9a117559053c96478f404aa2a278">uniform_square_to_sphere</a>(<span class="keyword">const</span> Vector2f&amp; uv);
+<a name="l00082"></a>00082 
+<a name="l00086"></a>00086 NIH_HOST NIH_DEVICE Vector2f <a class="code" href="group__spherical__mappings.html#ga74d80bd5bc66492ae691520586329be5">uniform_sphere_to_square</a>(<span class="keyword">const</span> Vector3f&amp; vec);
+<a name="l00087"></a>00087 
+<a name="l00091"></a>00091 } <span class="comment">// namespace nih</span>
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093 <span class="preprocessor">#include &lt;nih/spherical/mappings_inline.h&gt;</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -153,7 +153,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 24 2011 14:20:22 for nih by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 24 2011 14:41:38 for nih by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

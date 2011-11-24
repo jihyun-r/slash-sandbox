@@ -91,11 +91,12 @@ $<$ \hyperlink{structnih_1_1_bintree__node}{\-Bintree\-\_\-node} $>$ {\bfseries 
  thrust::device_vector<Vector3f> points;
  ... // code to fill the input vector of points
 
- thrust::device_vector<Bvh_node> bvh_nodes;
- thrust::device_vector<uint2>    bvh_leaves;
- thrust::device_vector<uint32>   bvh_index;
+ thrust::device_vector<Octree_node> octree_nodes;
+ thrust::device_vector<uint2>       octree_leaves;
+ thrust::device_vector<uint32>      octree_index;
 
- nih::Octree_builder<uint64> builder( bvh_nodes, bvh_leaves, bvh_index );
+ nih::Octree_builder<uint64> builder( octree_nodes, octree_leaves, octree_index
+       );
  builder.build(
      Bbox3f( Vector3f(0.0f), Vector3f(1.0f) ),   // suppose all bboxes are in
        [0,1]^3

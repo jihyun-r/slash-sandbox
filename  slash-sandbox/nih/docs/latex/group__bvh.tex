@@ -9,5 +9,28 @@ struct \hyperlink{structnih_1_1cuda_1_1_binned__sah__builder}{nih\-::cuda\-::\-B
 \item 
 struct \hyperlink{structnih_1_1cuda_1_1_l_b_v_h__builder}{nih\-::cuda\-::\-L\-B\-V\-H\-\_\-builder$<$ Integer $>$}
 \item 
+struct \hyperlink{structnih_1_1cuda_1_1bvh__packing__functor}{nih\-::cuda\-::bvh\-\_\-packing\-\_\-functor}
+\item 
 struct \hyperlink{structnih_1_1cuda_1_1_sah__builder}{nih\-::cuda\-::\-Sah\-\_\-builder}
 \begin{DoxyCompactList}\small\item\em \-G\-P\-U-\/based \-S\-A\-H \-B\-V\-H builder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Node\-\_\-iterator , typename Bbox\-\_\-iterator , typename Output\-\_\-iterator $>$ }\\void \hyperlink{group__bvh_ga6e090f607737d9e380e3f2cc04bca282}{nih\-::cuda\-::pack} (const uint32 n\-\_\-nodes, \-Node\-\_\-iterator nodes, \-Bbox\-\_\-iterator bboxes, \-Output\-\_\-iterator packed\-\_\-nodes)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{group__bvh_ga6e090f607737d9e380e3f2cc04bca282}{
+\index{\-Boundary Volume Hierarchies@{\-Boundary Volume Hierarchies}!pack@{pack}}
+\index{pack@{pack}!Boundary Volume Hierarchies@{\-Boundary Volume Hierarchies}}
+\subsubsection[{pack}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Node\-\_\-iterator , typename Bbox\-\_\-iterator , typename Output\-\_\-iterator $>$ void nih\-::cuda\-::pack (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{n\-\_\-nodes, }
+\item[{\-Node\-\_\-iterator}]{nodes, }
+\item[{\-Bbox\-\_\-iterator}]{bboxes, }
+\item[{\-Output\-\_\-iterator}]{packed\-\_\-nodes}
+\end{DoxyParamCaption}
+)}}
+\label{group__bvh_ga6e090f607737d9e380e3f2cc04bca282}
+\-Pack a set of bvh nodes and their bboxes into a single set of (4d) bboxes. \-The input and output bbox arrays can be the same. 

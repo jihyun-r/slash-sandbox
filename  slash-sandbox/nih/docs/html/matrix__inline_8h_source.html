@@ -183,28 +183,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00104"></a>00104         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00105"></a>00105 }
 <a name="l00106"></a>00106 
-<a name="l00107"></a>00107 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; Matrix&lt;T,N,M&gt;&amp; <a class="code" href="group__linalg.html#ga4226e5c3bf0305cf0a0459bf43564223">Matrix&lt;T,N,M&gt;::operator += </a>(<span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; m)
+<a name="l00107"></a>00107 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; Matrix&lt;T,N,M&gt;&amp; <a class="code" href="group__vectors.html#ga4226e5c3bf0305cf0a0459bf43564223">Matrix&lt;T,N,M&gt;::operator += </a>(<span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; m)
 <a name="l00108"></a>00108 {
 <a name="l00109"></a>00109         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; N; i++)
 <a name="l00110"></a>00110                 r[i] += m.r[i];
 <a name="l00111"></a>00111         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00112"></a>00112 }
 <a name="l00113"></a>00113 
-<a name="l00114"></a>00114 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; Matrix&lt;T,N,M&gt;&amp; <a class="code" href="group__linalg.html#ga6c534bcb2f6acc627ea0988b2de4f73e">Matrix&lt;T,N,M&gt;::operator -= </a>(<span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; m)
+<a name="l00114"></a>00114 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; Matrix&lt;T,N,M&gt;&amp; <a class="code" href="group__vectors.html#ga6c534bcb2f6acc627ea0988b2de4f73e">Matrix&lt;T,N,M&gt;::operator -= </a>(<span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; m)
 <a name="l00115"></a>00115 {
 <a name="l00116"></a>00116         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; N; i++)
 <a name="l00117"></a>00117                 r[i] -= m.r[i];
 <a name="l00118"></a>00118         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00119"></a>00119 }
 <a name="l00120"></a>00120 
-<a name="l00121"></a>00121 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; Matrix&lt;T,N,M&gt;&amp; <a class="code" href="group__linalg.html#gabaaa34dafadbdbaaff130b02d28b3ad1">Matrix&lt;T,N,M&gt;::operator *= </a>(T k)
+<a name="l00121"></a>00121 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; Matrix&lt;T,N,M&gt;&amp; <a class="code" href="group__vectors.html#gabaaa34dafadbdbaaff130b02d28b3ad1">Matrix&lt;T,N,M&gt;::operator *= </a>(T k)
 <a name="l00122"></a>00122 {
 <a name="l00123"></a>00123         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; N; i++)
 <a name="l00124"></a>00124                 r[i] *= k;
 <a name="l00125"></a>00125         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00126"></a>00126 }
 <a name="l00127"></a>00127 
-<a name="l00128"></a>00128 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; Matrix&lt;T,N,M&gt;&amp; <a class="code" href="group__linalg.html#ga04e63000d70a03c13098b6b7303a29e9">Matrix&lt;T,N,M&gt;::operator /= </a>(T k)
+<a name="l00128"></a>00128 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; Matrix&lt;T,N,M&gt;&amp; <a class="code" href="group__vectors.html#ga04e63000d70a03c13098b6b7303a29e9">Matrix&lt;T,N,M&gt;::operator /= </a>(T k)
 <a name="l00129"></a>00129 {
 <a name="l00130"></a>00130         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; N; i++)
 <a name="l00131"></a>00131                 r[i] /= k;
@@ -380,7 +380,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00301"></a>00301 <span class="comment">// Matrix&lt;T,N,M&gt; template &lt;typename T, int N, int M&gt; functions (not members)</span>
 <a name="l00302"></a>00302 <span class="comment">//</span>
 <a name="l00303"></a>00303 
-<a name="l00304"></a>00304 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; NIH_API_CS NIH_HOST NIH_DEVICE <span class="keywordtype">int</span> <a class="code" href="group__linalg.html#gaabd17838f41c1637cb84a3cfe31dfb0b">operator == </a>(<span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; a, <span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; b)
+<a name="l00304"></a>00304 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; NIH_API_CS NIH_HOST NIH_DEVICE <span class="keywordtype">int</span> <a class="code" href="group__vectors.html#gaabd17838f41c1637cb84a3cfe31dfb0b">operator == </a>(<span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; a, <span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; b)
 <a name="l00305"></a>00305 {
 <a name="l00306"></a>00306         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; N; i++)
 <a name="l00307"></a>00307         {
@@ -390,17 +390,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00311"></a>00311         <span class="keywordflow">return</span> 1;
 <a name="l00312"></a>00312 }
 <a name="l00313"></a>00313 
-<a name="l00314"></a>00314 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; NIH_API_CS NIH_HOST NIH_DEVICE <span class="keywordtype">int</span> <a class="code" href="group__linalg.html#ga884852dfe6e126e524af6c966fd3fa8e">operator != </a>(<span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; a, <span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; b)
+<a name="l00314"></a>00314 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; NIH_API_CS NIH_HOST NIH_DEVICE <span class="keywordtype">int</span> <a class="code" href="group__vectors.html#ga884852dfe6e126e524af6c966fd3fa8e">operator != </a>(<span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; a, <span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; b)
 <a name="l00315"></a>00315 {
 <a name="l00316"></a>00316         <span class="keywordflow">return</span> !(a == b);
 <a name="l00317"></a>00317 }
 <a name="l00318"></a>00318 
-<a name="l00319"></a>00319 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; NIH_API_CS Matrix&lt;T,N,M&gt; NIH_HOST NIH_DEVICE <a class="code" href="group__linalg.html#ga8782aba246b1da852d9f4390d22336f8">operator  - </a>(<span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; a)
+<a name="l00319"></a>00319 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; NIH_API_CS Matrix&lt;T,N,M&gt; NIH_HOST NIH_DEVICE <a class="code" href="group__vectors.html#ga8782aba246b1da852d9f4390d22336f8">operator  - </a>(<span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; a)
 <a name="l00320"></a>00320 {
 <a name="l00321"></a>00321         <span class="keywordflow">return</span> (Matrix&lt;T,N,M&gt;(a) *= -1.0);
 <a name="l00322"></a>00322 }
 <a name="l00323"></a>00323 
-<a name="l00324"></a>00324 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; NIH_API_CS Matrix&lt;T,N,M&gt; NIH_HOST NIH_DEVICE <a class="code" href="group__linalg.html#ga9235b9ea803b8d0ef379565a3ff7dd76">operator  + </a>(<span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; a, <span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; b)
+<a name="l00324"></a>00324 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; NIH_API_CS Matrix&lt;T,N,M&gt; NIH_HOST NIH_DEVICE <a class="code" href="group__vectors.html#ga9235b9ea803b8d0ef379565a3ff7dd76">operator  + </a>(<span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; a, <span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; b)
 <a name="l00325"></a>00325 {
 <a name="l00326"></a>00326         Matrix&lt;T,N,M&gt; r;
 <a name="l00327"></a>00327         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; N; i++)
@@ -410,7 +410,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00331"></a>00331         <span class="keywordflow">return</span> r;
 <a name="l00332"></a>00332 }
 <a name="l00333"></a>00333 
-<a name="l00334"></a>00334 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; NIH_API_CS Matrix&lt;T,N,M&gt; NIH_HOST NIH_DEVICE <a class="code" href="group__linalg.html#ga8782aba246b1da852d9f4390d22336f8">operator  - </a>(<span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; a, <span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; b)
+<a name="l00334"></a>00334 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; NIH_API_CS Matrix&lt;T,N,M&gt; NIH_HOST NIH_DEVICE <a class="code" href="group__vectors.html#ga8782aba246b1da852d9f4390d22336f8">operator  - </a>(<span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; a, <span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; b)
 <a name="l00335"></a>00335 {
 <a name="l00336"></a>00336         Matrix&lt;T,N,M&gt; r;
 <a name="l00337"></a>00337         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; N; i++)
@@ -460,7 +460,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00381"></a>00381     <span class="keywordflow">return</span> multiply(m, v, r);
 <a name="l00382"></a>00382 }
 <a name="l00383"></a>00383 
-<a name="l00384"></a>00384 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; NIH_API_CS NIH_HOST NIH_DEVICE Matrix&lt;T,N,M&gt; <a class="code" href="group__linalg.html#gafe00990ed787cec75b986c394b7f5e0f">operator  / </a>(<span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; a, T k)
+<a name="l00384"></a>00384 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N, <span class="keywordtype">int</span> M&gt; NIH_API_CS NIH_HOST NIH_DEVICE Matrix&lt;T,N,M&gt; <a class="code" href="group__vectors.html#gafe00990ed787cec75b986c394b7f5e0f">operator  / </a>(<span class="keyword">const</span> Matrix&lt;T,N,M&gt;&amp; a, T k)
 <a name="l00385"></a>00385 {
 <a name="l00386"></a>00386         Matrix&lt;T,N,M&gt; r;
 <a name="l00387"></a>00387         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; N; i++)
@@ -471,7 +471,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00392"></a>00392 }
 <a name="l00393"></a>00393 
 <a name="l00394"></a>00394 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00395"></a><a class="code" href="group__linalg.html#ga5d92f3307949b63085b54c2c4d14cb78">00395</a> NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> <a class="code" href="group__linalg.html#ga5d92f3307949b63085b54c2c4d14cb78" title="build a 3d translation matrix">translate</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>&amp; vec)
+<a name="l00395"></a><a class="code" href="group__matrices.html#ga5d92f3307949b63085b54c2c4d14cb78">00395</a> NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> <a class="code" href="group__matrices.html#ga5d92f3307949b63085b54c2c4d14cb78" title="build a 3d translation matrix">translate</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>&amp; vec)
 <a name="l00396"></a>00396 {
 <a name="l00397"></a>00397     <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> m( T(0) );
 <a name="l00398"></a>00398 
@@ -485,7 +485,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00406"></a>00406 }
 <a name="l00407"></a>00407 
 <a name="l00408"></a>00408 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00409"></a><a class="code" href="group__linalg.html#gad1ee54c47ad750f6485c00f707dd978c">00409</a> <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> <a class="code" href="group__linalg.html#gad1ee54c47ad750f6485c00f707dd978c" title="build a 3d perspective matrix">perspective</a>(T fovy, T aspect, T zNear, T zFar)
+<a name="l00409"></a><a class="code" href="group__matrices.html#gad1ee54c47ad750f6485c00f707dd978c">00409</a> <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> <a class="code" href="group__matrices.html#gad1ee54c47ad750f6485c00f707dd978c" title="build a 3d perspective matrix">perspective</a>(T fovy, T aspect, T zNear, T zFar)
 <a name="l00410"></a>00410 {
 <a name="l00411"></a>00411     <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> m( T(0) );
 <a name="l00412"></a>00412 
@@ -501,11 +501,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00422"></a>00422     <span class="keywordflow">return</span> m;
 <a name="l00423"></a>00423 }
 <a name="l00424"></a>00424 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00425"></a><a class="code" href="group__linalg.html#ga9df91e2ecf368ee7e7b9dddce3a7f3d1">00425</a> <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> <a class="code" href="group__linalg.html#ga9df91e2ecf368ee7e7b9dddce3a7f3d1" title="build a 3d look at matrix">look_at</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>&amp; eye, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>&amp; center, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>&amp; up)
+<a name="l00425"></a><a class="code" href="group__matrices.html#ga9df91e2ecf368ee7e7b9dddce3a7f3d1">00425</a> <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> <a class="code" href="group__matrices.html#ga9df91e2ecf368ee7e7b9dddce3a7f3d1" title="build a 3d look at matrix">look_at</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>&amp; eye, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>&amp; center, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>&amp; up)
 <a name="l00426"></a>00426 {
-<a name="l00427"></a>00427     <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> f = <a class="code" href="group__linalg.html#gae244399ef06f44b09f0a908aa406c037">normalize</a>(center - eye);
-<a name="l00428"></a>00428     <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> s = <a class="code" href="group__linalg.html#gae244399ef06f44b09f0a908aa406c037">normalize</a>(<a class="code" href="group__linalg.html#ga14de1c4465c863797732d372f933a932">cross</a>(f, up));
-<a name="l00429"></a>00429     <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> u = <a class="code" href="group__linalg.html#ga14de1c4465c863797732d372f933a932">cross</a>(s, f);
+<a name="l00427"></a>00427     <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> f = <a class="code" href="group__vectors.html#gae244399ef06f44b09f0a908aa406c037">normalize</a>(center - eye);
+<a name="l00428"></a>00428     <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> s = <a class="code" href="group__vectors.html#gae244399ef06f44b09f0a908aa406c037">normalize</a>(<a class="code" href="group__vectors.html#ga14de1c4465c863797732d372f933a932">cross</a>(f, up));
+<a name="l00429"></a>00429     <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> u = <a class="code" href="group__vectors.html#ga14de1c4465c863797732d372f933a932">cross</a>(s, f);
 <a name="l00430"></a>00430 
 <a name="l00431"></a>00431     <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> m(T(0));
 <a name="l00432"></a>00432     m(0,0) = s.x;
@@ -518,11 +518,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00439"></a>00439     m(2,1) = -f.y;
 <a name="l00440"></a>00440     m(2,2) = -f.z;
 <a name="l00441"></a>00441 
-<a name="l00442"></a>00442     <span class="keywordflow">return</span> m * <a class="code" href="group__linalg.html#ga5d92f3307949b63085b54c2c4d14cb78" title="build a 3d translation matrix">translate</a>(-eye);
+<a name="l00442"></a>00442     <span class="keywordflow">return</span> m * <a class="code" href="group__matrices.html#ga5d92f3307949b63085b54c2c4d14cb78" title="build a 3d translation matrix">translate</a>(-eye);
 <a name="l00443"></a>00443 }
 <a name="l00444"></a>00444 
 <a name="l00445"></a>00445 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00446"></a><a class="code" href="group__linalg.html#gaf42e47e61afca06aff0efdbb26cfc1ef">00446</a> NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> <a class="code" href="group__linalg.html#gaf42e47e61afca06aff0efdbb26cfc1ef" title="build a 3d rotation around the X axis">rotation_around_X</a>(<span class="keyword">const</span> T q)
+<a name="l00446"></a><a class="code" href="group__matrices.html#gaf42e47e61afca06aff0efdbb26cfc1ef">00446</a> NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> <a class="code" href="group__matrices.html#gaf42e47e61afca06aff0efdbb26cfc1ef" title="build a 3d rotation around the X axis">rotation_around_X</a>(<span class="keyword">const</span> T q)
 <a name="l00447"></a>00447 {
 <a name="l00448"></a>00448     <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> m;
 <a name="l00449"></a>00449 
@@ -544,7 +544,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00465"></a>00465         <span class="keywordflow">return</span> m;
 <a name="l00466"></a>00466 }
 <a name="l00467"></a>00467 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00468"></a><a class="code" href="group__linalg.html#ga21af57144d9398e235230c2096f64655">00468</a> NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> <a class="code" href="group__linalg.html#ga21af57144d9398e235230c2096f64655" title="build a 3d rotation around the Y axis">rotation_around_Y</a>(<span class="keyword">const</span> T q)
+<a name="l00468"></a><a class="code" href="group__matrices.html#ga21af57144d9398e235230c2096f64655">00468</a> NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> <a class="code" href="group__matrices.html#ga21af57144d9398e235230c2096f64655" title="build a 3d rotation around the Y axis">rotation_around_Y</a>(<span class="keyword">const</span> T q)
 <a name="l00469"></a>00469 {
 <a name="l00470"></a>00470     <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> m;
 <a name="l00471"></a>00471 
@@ -566,7 +566,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00487"></a>00487         <span class="keywordflow">return</span> m;
 <a name="l00488"></a>00488 }
 <a name="l00489"></a>00489 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00490"></a><a class="code" href="group__linalg.html#gaa52af0191054c50d9ebd145331c61a78">00490</a> NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> <a class="code" href="group__linalg.html#gaa52af0191054c50d9ebd145331c61a78" title="build a 3d rotation around the Z axis">rotation_around_Z</a>(<span class="keyword">const</span> T q)
+<a name="l00490"></a><a class="code" href="group__matrices.html#gaa52af0191054c50d9ebd145331c61a78">00490</a> NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> <a class="code" href="group__matrices.html#gaa52af0191054c50d9ebd145331c61a78" title="build a 3d rotation around the Z axis">rotation_around_Z</a>(<span class="keyword">const</span> T q)
 <a name="l00491"></a>00491 {
 <a name="l00492"></a>00492     <a class="code" href="structnih_1_1_matrix.html">Matrix&lt;T,4,4&gt;</a> m;
 <a name="l00493"></a>00493 
@@ -587,12 +587,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00508"></a>00508         m[3][2] = T(0.0f);
 <a name="l00509"></a>00509         <span class="keywordflow">return</span> m;
 <a name="l00510"></a>00510 }
-<a name="l00511"></a><a class="code" href="group__linalg.html#ga33d8b434a7554e170c48d85be8a45efd">00511</a> NIH_HOST NIH_DEVICE <span class="keyword">inline</span> <a class="code" href="structnih_1_1_vector.html">Vector3f</a> <a class="code" href="group__linalg.html#ga33d8b434a7554e170c48d85be8a45efd" title="transform a 3d point with a perspective transform">ptrans</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_matrix.html">Matrix4x4f</a>&amp; m, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector3f</a>&amp; v)
+<a name="l00511"></a><a class="code" href="group__matrices.html#ga33d8b434a7554e170c48d85be8a45efd">00511</a> NIH_HOST NIH_DEVICE <span class="keyword">inline</span> <a class="code" href="structnih_1_1_vector.html">Vector3f</a> <a class="code" href="group__matrices.html#ga33d8b434a7554e170c48d85be8a45efd" title="transform a 3d point with a perspective transform">ptrans</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_matrix.html">Matrix4x4f</a>&amp; m, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector3f</a>&amp; v)
 <a name="l00512"></a>00512 {
 <a name="l00513"></a>00513         <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector4f</a> r = m * <a class="code" href="structnih_1_1_vector.html">Vector4f</a>(v,1.0f);
 <a name="l00514"></a>00514         <span class="keywordflow">return</span> <a class="code" href="structnih_1_1_vector.html">Vector3f</a>( r[0], r[1], r[2] );
 <a name="l00515"></a>00515 }
-<a name="l00516"></a><a class="code" href="group__linalg.html#ga90f6d2850e286d194db09300a4d99537">00516</a> NIH_HOST NIH_DEVICE <span class="keyword">inline</span> <a class="code" href="structnih_1_1_vector.html">Vector3f</a> <a class="code" href="group__linalg.html#ga90f6d2850e286d194db09300a4d99537" title="transform a 3d vector with a perspective transform">vtrans</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_matrix.html">Matrix4x4f</a>&amp; m, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector3f</a>&amp; v)
+<a name="l00516"></a><a class="code" href="group__matrices.html#ga90f6d2850e286d194db09300a4d99537">00516</a> NIH_HOST NIH_DEVICE <span class="keyword">inline</span> <a class="code" href="structnih_1_1_vector.html">Vector3f</a> <a class="code" href="group__matrices.html#ga90f6d2850e286d194db09300a4d99537" title="transform a 3d vector with a perspective transform">vtrans</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_matrix.html">Matrix4x4f</a>&amp; m, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector3f</a>&amp; v)
 <a name="l00517"></a>00517 {
 <a name="l00518"></a>00518         <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector4f</a> r = m * <a class="code" href="structnih_1_1_vector.html">Vector4f</a>(v,0.0f);
 <a name="l00519"></a>00519         <span class="keywordflow">return</span> <a class="code" href="structnih_1_1_vector.html">Vector3f</a>( r[0], r[1], r[2] );
@@ -622,7 +622,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 24 2011 14:20:21 for nih by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 24 2011 14:41:36 for nih by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

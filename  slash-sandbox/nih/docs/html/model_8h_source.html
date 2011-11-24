@@ -110,56 +110,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00031"></a>00031 
 <a name="l00032"></a>00032 <span class="keyword">namespace </span>nih {
 <a name="l00033"></a>00033 
-<a name="l00034"></a><a class="code" href="structnih_1_1breadth__first__tree.html">00034</a> <span class="keyword">struct </span><a class="code" href="structnih_1_1breadth__first__tree.html">breadth_first_tree</a> {};
-<a name="l00035"></a><a class="code" href="structnih_1_1depth__first__tree.html">00035</a> <span class="keyword">struct </span><a class="code" href="structnih_1_1depth__first__tree.html">depth_first_tree</a>   {};
-<a name="l00036"></a>00036 
-<a name="l00038"></a>00038 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Node_iterator, <span class="keyword">typename</span> Domain_type&gt;
-<a name="l00039"></a><a class="code" href="structnih_1_1_b_f_tree.html">00039</a> <span class="keyword">struct </span><a class="code" href="structnih_1_1_b_f_tree.html" title="A simple Breadth-First Tree model implementation.">BFTree</a>
-<a name="l00040"></a>00040 {
-<a name="l00041"></a>00041     <span class="keyword">typedef</span> Domain_type         domain_type;
-<a name="l00042"></a>00042     <span class="keyword">typedef</span> Node_iterator       node_iterator;
-<a name="l00043"></a>00043     <span class="keyword">typedef</span> <span class="keyword">typename</span> std::iterator_traits&lt;node_iterator&gt;::value_type node_type;
-<a name="l00044"></a>00044     <span class="keyword">typedef</span> <a class="code" href="structnih_1_1breadth__first__tree.html">breadth_first_tree</a>  <a class="code" href="structnih_1_1breadth__first__tree.html">tree_type</a>;
-<a name="l00045"></a>00045 
-<a name="l00047"></a><a class="code" href="structnih_1_1_b_f_tree.html#afe4371df8f9c91081a16ff33098a1342">00047</a>     <a class="code" href="structnih_1_1_b_f_tree.html#afe4371df8f9c91081a16ff33098a1342" title="empty constructor">BFTree</a>() {}
-<a name="l00048"></a>00048 
-<a name="l00050"></a><a class="code" href="structnih_1_1_b_f_tree.html#aff13c32b85c7604d9bc1d14fa5416334">00050</a>     <a class="code" href="structnih_1_1_b_f_tree.html#afe4371df8f9c91081a16ff33098a1342" title="empty constructor">BFTree</a>(
-<a name="l00051"></a>00051         <span class="keyword">const</span> node_iterator nodes,
-<a name="l00052"></a>00052         <span class="keyword">const</span> uint32        n_leaves,
-<a name="l00053"></a>00053         <span class="keyword">const</span> uint2*        leaves,
-<a name="l00054"></a>00054         <span class="keyword">const</span> uint32        n_levels,
-<a name="l00055"></a>00055         <span class="keyword">const</span> uint32*       levels) : 
-<a name="l00056"></a>00056         m_nodes( nodes ),
-<a name="l00057"></a>00057         m_leaf_count( n_leaves ),
-<a name="l00058"></a>00058         m_leaves( leaves ),
-<a name="l00059"></a>00059         m_level_count( n_levels ),
-<a name="l00060"></a>00060         m_levels( levels )
-<a name="l00061"></a>00061     {}
-<a name="l00062"></a>00062 
-<a name="l00064"></a><a class="code" href="structnih_1_1_b_f_tree.html#a39ddeb39862a4572fdfb08a631d5c85e">00064</a>     NIH_HOST_DEVICE uint32 <a class="code" href="structnih_1_1_b_f_tree.html#a39ddeb39862a4572fdfb08a631d5c85e" title="return the number of levels">get_level_count</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_level_count; }
-<a name="l00065"></a>00065 
-<a name="l00067"></a><a class="code" href="structnih_1_1_b_f_tree.html#ab9f387666c6110dc23033b43b2507477">00067</a>     NIH_HOST_DEVICE uint32 <a class="code" href="structnih_1_1_b_f_tree.html#ab9f387666c6110dc23033b43b2507477" title="return the i-th level">get_level</a>(<span class="keyword">const</span> uint32 i)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_levels[i]; }
-<a name="l00068"></a>00068 
-<a name="l00070"></a><a class="code" href="structnih_1_1_b_f_tree.html#ac7d9b23a296d7c36eccdaaccfb90009e">00070</a>     NIH_HOST_DEVICE node_type <a class="code" href="structnih_1_1_b_f_tree.html#ac7d9b23a296d7c36eccdaaccfb90009e" title="retrieve a node">get_node</a>(<span class="keyword">const</span> uint32 index)<span class="keyword"> const</span>
-<a name="l00071"></a>00071 <span class="keyword">    </span>{
-<a name="l00072"></a>00072         <span class="keywordflow">return</span> m_nodes[ index ];
-<a name="l00073"></a>00073     }
-<a name="l00074"></a>00074 
-<a name="l00076"></a><a class="code" href="structnih_1_1_b_f_tree.html#acd4c65c4ddff86d0dbb3d57ac10f754e">00076</a>     NIH_HOST_DEVICE uint32 <a class="code" href="structnih_1_1_b_f_tree.html#acd4c65c4ddff86d0dbb3d57ac10f754e" title="return the number of leaves">get_leaf_count</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_leaf_count; }
-<a name="l00077"></a>00077 
-<a name="l00079"></a><a class="code" href="structnih_1_1_b_f_tree.html#a7990e513530c87c5f315895d160093ad">00079</a>     NIH_HOST_DEVICE uint2 <a class="code" href="structnih_1_1_b_f_tree.html#a7990e513530c87c5f315895d160093ad" title="retrieve a leaf">get_leaf</a>(<span class="keyword">const</span> uint32 index)<span class="keyword"> const</span>
-<a name="l00080"></a>00080 <span class="keyword">    </span>{
-<a name="l00081"></a>00081         <span class="keywordflow">return</span> m_leaves[ index ];
-<a name="l00082"></a>00082     }
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084     <span class="keyword">const</span> node_iterator m_nodes;
-<a name="l00085"></a>00085     uint32              m_leaf_count;
-<a name="l00086"></a>00086     <span class="keyword">const</span> uint2*        m_leaves;
-<a name="l00087"></a>00087     uint32              m_level_count;
-<a name="l00088"></a>00088     <span class="keyword">const</span> uint32*       m_levels;
-<a name="l00089"></a>00089 };
-<a name="l00090"></a>00090 
-<a name="l00091"></a>00091 } <span class="comment">// namespace nih</span>
+<a name="l00038"></a><a class="code" href="structnih_1_1breadth__first__tree.html">00038</a> <span class="keyword">struct </span><a class="code" href="structnih_1_1breadth__first__tree.html">breadth_first_tree</a> {};
+<a name="l00039"></a><a class="code" href="structnih_1_1depth__first__tree.html">00039</a> <span class="keyword">struct </span><a class="code" href="structnih_1_1depth__first__tree.html">depth_first_tree</a>   {};
+<a name="l00040"></a>00040 
+<a name="l00042"></a>00042 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Node_iterator, <span class="keyword">typename</span> Domain_type&gt;
+<a name="l00043"></a><a class="code" href="structnih_1_1_b_f_tree.html">00043</a> <span class="keyword">struct </span><a class="code" href="structnih_1_1_b_f_tree.html" title="A simple Breadth-First Tree model implementation.">BFTree</a>
+<a name="l00044"></a>00044 {
+<a name="l00045"></a>00045     <span class="keyword">typedef</span> Domain_type         domain_type;
+<a name="l00046"></a>00046     <span class="keyword">typedef</span> Node_iterator       node_iterator;
+<a name="l00047"></a>00047     <span class="keyword">typedef</span> <span class="keyword">typename</span> std::iterator_traits&lt;node_iterator&gt;::value_type node_type;
+<a name="l00048"></a>00048     <span class="keyword">typedef</span> <a class="code" href="structnih_1_1breadth__first__tree.html">breadth_first_tree</a>  <a class="code" href="structnih_1_1breadth__first__tree.html">tree_type</a>;
+<a name="l00049"></a>00049 
+<a name="l00051"></a><a class="code" href="structnih_1_1_b_f_tree.html#afe4371df8f9c91081a16ff33098a1342">00051</a>     <a class="code" href="structnih_1_1_b_f_tree.html#afe4371df8f9c91081a16ff33098a1342" title="empty constructor">BFTree</a>() {}
+<a name="l00052"></a>00052 
+<a name="l00054"></a><a class="code" href="structnih_1_1_b_f_tree.html#aff13c32b85c7604d9bc1d14fa5416334">00054</a>     <a class="code" href="structnih_1_1_b_f_tree.html#afe4371df8f9c91081a16ff33098a1342" title="empty constructor">BFTree</a>(
+<a name="l00055"></a>00055         <span class="keyword">const</span> node_iterator nodes,
+<a name="l00056"></a>00056         <span class="keyword">const</span> uint32        n_leaves,
+<a name="l00057"></a>00057         <span class="keyword">const</span> uint2*        leaves,
+<a name="l00058"></a>00058         <span class="keyword">const</span> uint32        n_levels,
+<a name="l00059"></a>00059         <span class="keyword">const</span> uint32*       levels) : 
+<a name="l00060"></a>00060         m_nodes( nodes ),
+<a name="l00061"></a>00061         m_leaf_count( n_leaves ),
+<a name="l00062"></a>00062         m_leaves( leaves ),
+<a name="l00063"></a>00063         m_level_count( n_levels ),
+<a name="l00064"></a>00064         m_levels( levels )
+<a name="l00065"></a>00065     {}
+<a name="l00066"></a>00066 
+<a name="l00068"></a><a class="code" href="structnih_1_1_b_f_tree.html#a39ddeb39862a4572fdfb08a631d5c85e">00068</a>     NIH_HOST_DEVICE uint32 <a class="code" href="structnih_1_1_b_f_tree.html#a39ddeb39862a4572fdfb08a631d5c85e" title="return the number of levels">get_level_count</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_level_count; }
+<a name="l00069"></a>00069 
+<a name="l00071"></a><a class="code" href="structnih_1_1_b_f_tree.html#ab9f387666c6110dc23033b43b2507477">00071</a>     NIH_HOST_DEVICE uint32 <a class="code" href="structnih_1_1_b_f_tree.html#ab9f387666c6110dc23033b43b2507477" title="return the i-th level">get_level</a>(<span class="keyword">const</span> uint32 i)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_levels[i]; }
+<a name="l00072"></a>00072 
+<a name="l00074"></a><a class="code" href="structnih_1_1_b_f_tree.html#ac7d9b23a296d7c36eccdaaccfb90009e">00074</a>     NIH_HOST_DEVICE node_type <a class="code" href="structnih_1_1_b_f_tree.html#ac7d9b23a296d7c36eccdaaccfb90009e" title="retrieve a node">get_node</a>(<span class="keyword">const</span> uint32 index)<span class="keyword"> const</span>
+<a name="l00075"></a>00075 <span class="keyword">    </span>{
+<a name="l00076"></a>00076         <span class="keywordflow">return</span> m_nodes[ index ];
+<a name="l00077"></a>00077     }
+<a name="l00078"></a>00078 
+<a name="l00080"></a><a class="code" href="structnih_1_1_b_f_tree.html#acd4c65c4ddff86d0dbb3d57ac10f754e">00080</a>     NIH_HOST_DEVICE uint32 <a class="code" href="structnih_1_1_b_f_tree.html#acd4c65c4ddff86d0dbb3d57ac10f754e" title="return the number of leaves">get_leaf_count</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_leaf_count; }
+<a name="l00081"></a>00081 
+<a name="l00083"></a><a class="code" href="structnih_1_1_b_f_tree.html#a7990e513530c87c5f315895d160093ad">00083</a>     NIH_HOST_DEVICE uint2 <a class="code" href="structnih_1_1_b_f_tree.html#a7990e513530c87c5f315895d160093ad" title="retrieve a leaf">get_leaf</a>(<span class="keyword">const</span> uint32 index)<span class="keyword"> const</span>
+<a name="l00084"></a>00084 <span class="keyword">    </span>{
+<a name="l00085"></a>00085         <span class="keywordflow">return</span> m_leaves[ index ];
+<a name="l00086"></a>00086     }
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088     <span class="keyword">const</span> node_iterator m_nodes;
+<a name="l00089"></a>00089     uint32              m_leaf_count;
+<a name="l00090"></a>00090     <span class="keyword">const</span> uint2*        m_leaves;
+<a name="l00091"></a>00091     uint32              m_level_count;
+<a name="l00092"></a>00092     <span class="keyword">const</span> uint32*       m_levels;
+<a name="l00093"></a>00093 };
+<a name="l00094"></a>00094 
+<a name="l00098"></a>00098 } <span class="comment">// namespace nih</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -179,7 +179,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 24 2011 14:20:22 for nih by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 24 2011 14:41:38 for nih by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>
