@@ -59,6 +59,48 @@ namespace cuda {
 ///                         in the output tree
 /// \param tree             output tree
 ///
+/// The following code snippet shows how to use this builder:
+///
+/// \code
+///
+/// #include <nih/bintree/cuda/bintree_gen.h>
+/// #include <nih/bintree/cuda/bintree_context.h>
+/// #include <nih/bits/morton.h>
+///
+/// const uint32 n_points = 1000000;
+/// thrust::device_vector<Vecto3f> points( n_points );
+/// ... // generate a bunch of points here
+///
+/// // compute their Morton codes
+/// thrust::device_vector<uint32> codes( n_points );
+/// thrust::transform(
+///     points.begin(),
+///     points.begin() + n_points,
+///     codes.begin(),
+///     morton_functor<uint32>() );
+///
+/// // sort them
+/// thrust::sort( codes.begin(), codes.end() );
+///
+/// // allocate storage for a binary tree...
+/// thrust::device_vector<Bintree_node> nodes;
+/// thrust::device_vector<uint2>        leaves;
+///
+/// Bintree_context tree( nodes, leaves );
+///
+/// // ...and generate it!
+/// Bintree_gen_context gen_context;
+/// cuda::generate(
+///     gen_context,
+///     n_points,
+///     thrust::raw_pointer_cast( &codes.front() ),
+///     30u,
+///     16u,
+///     false,
+///     tree );
+/// 
+///  \endcode
+///
 template <typename Tree, typename Integer>
 void generate(
     Bintree_gen_context&    context,
