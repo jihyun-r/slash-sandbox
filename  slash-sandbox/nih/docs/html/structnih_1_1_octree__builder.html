@@ -130,13 +130,35 @@ thrust::device_vector<br class="typebreak"/>
 struct nih::Octree_builder&lt; Integer &gt;</h3>
 
 <p>GPU-based octree builder</p>
-<p>This class provides the context to generate octrees on the GPU starting from a set of unordered points. The output is a set of nodes with the corresponding leaves and a set of primitive indices into the input set of points. The output leaves will specify contiguous ranges into this index. </p>
-</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<p>This class provides the context to generate octrees on the GPU starting from a set of unordered points. The output is a set of nodes with the corresponding leaves and a set of primitive indices into the input set of points. The output leaves will specify contiguous ranges into this index.</p>
+<dl><dt><b>Template Parameters:</b></dt><dd>
+  <table class="">
+    <tr><td class="paramname">Integer</td><td>an integer type that determines the number of bits used to compute the points' Morton codes. Accepted values are uint32 and uint64.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The following code snippet shows how to use this builder:</p>
+<div class="fragment"><pre class="fragment"><span class="preprocessor"> #include &lt;<a class="code" href="octree__builder_8h.html" title="Defines a CUDA octree builder.">nih/octree/cuda/octree_builder.h</a>&gt;</span>
+
+ thrust::device_vector&lt;Vector3f&gt; points;
+ ... <span class="comment">// code to fill the input vector of points</span>
+
+ thrust::device_vector&lt;Bvh_node&gt; bvh_nodes;
+ thrust::device_vector&lt;uint2&gt;    bvh_leaves;
+ thrust::device_vector&lt;uint32&gt;   bvh_index;
+
+ <a class="code" href="structnih_1_1_octree__builder.html">nih::Octree_builder&lt;uint64&gt;</a> builder( bvh_nodes, bvh_leaves, bvh_index );
+ builder.build(
+     Bbox3f( Vector3f(0.0f), Vector3f(1.0f) ),   <span class="comment">// suppose all bboxes are in [0,1]^3</span>
+     points.begin(),                             <span class="comment">// begin iterator</span>
+     points.end(),                               <span class="comment">// end iterator</span>
+     4 );                                        <span class="comment">// target 4 objects per leaf</span>
+</pre></div> </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a4a7ff86186fca6ebe6122cbf5d85354a"></a><!-- doxytag: member="nih::Octree_builder::Octree_builder" ref="a4a7ff86186fca6ebe6122cbf5d85354a" args="(thrust::device_vector&lt; Octree_node &gt; &amp;octree, thrust::device_vector&lt; uint2 &gt; &amp;leaves, thrust::device_vector&lt; uint32 &gt; &amp;index)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Integer &gt; </div>
+template&lt;typename Integer&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="structnih_1_1_octree__builder.html">nih::Octree_builder</a>&lt; Integer &gt;::<a class="el" href="structnih_1_1_octree__builder.html">Octree_builder</a> </td>
@@ -252,7 +274,7 @@ template&lt;typename Iterator &gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 24 2011 13:58:34 for nih by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 24 2011 14:20:23 for nih by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>
