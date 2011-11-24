@@ -125,38 +125,64 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00054"></a>00054 
 <a name="l00055"></a>00055 
 <a name="l00056"></a>00056 
-<a name="l00057"></a>00057 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Integer&gt;
-<a name="l00058"></a><a class="code" href="structnih_1_1cuda_1_1_l_b_v_h__builder.html">00058</a> <span class="keyword">struct </span><a class="code" href="structnih_1_1cuda_1_1_l_b_v_h__builder.html">LBVH_builder</a>
-<a name="l00059"></a>00059 {
-<a name="l00065"></a><a class="code" href="structnih_1_1cuda_1_1_l_b_v_h__builder.html#a741aaa3327c755146ab412eb87431c0e">00065</a>     <a class="code" href="structnih_1_1cuda_1_1_l_b_v_h__builder.html#a741aaa3327c755146ab412eb87431c0e">LBVH_builder</a>(
-<a name="l00066"></a>00066         thrust::device_vector&lt;Bvh_node&gt;&amp;         nodes,
-<a name="l00067"></a>00067         thrust::device_vector&lt;uint2&gt;&amp;            leaves,
-<a name="l00068"></a>00068         thrust::device_vector&lt;uint32&gt;&amp;           index) :
-<a name="l00069"></a>00069         m_nodes( &amp;nodes ), m_leaves( &amp;leaves ), m_index( &amp;index ) {}
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 
 <a name="l00070"></a>00070 
-<a name="l00077"></a>00077     <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Iterator&gt;
-<a name="l00078"></a>00078     <span class="keywordtype">void</span> <a class="code" href="structnih_1_1cuda_1_1_l_b_v_h__builder.html#abb1ce022488c550e59cc87cd3d7ff2db">build</a>(
-<a name="l00079"></a>00079         <span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox3f</a>    bbox,
-<a name="l00080"></a>00080         <span class="keyword">const</span> Iterator  points_begin,
-<a name="l00081"></a>00081         <span class="keyword">const</span> Iterator  points_end,
-<a name="l00082"></a>00082         <span class="keyword">const</span> uint32    max_leaf_size);
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084     thrust::device_vector&lt;Bvh_node&gt;*    m_nodes;
-<a name="l00085"></a>00085     thrust::device_vector&lt;uint2&gt;*       m_leaves;
-<a name="l00086"></a>00086     thrust::device_vector&lt;uint32&gt;*      m_index;
-<a name="l00087"></a>00087     thrust::device_vector&lt;Integer&gt;      m_codes;
-<a name="l00088"></a>00088     uint32                              m_levels[64];
-<a name="l00089"></a>00089     <a class="code" href="structnih_1_1_bbox.html">Bbox3f</a>                              m_bbox;
-<a name="l00090"></a>00090     uint32                              m_node_count;
-<a name="l00091"></a>00091     uint32                              m_leaf_count;
-<a name="l00092"></a>00092 
-<a name="l00093"></a>00093     <a class="code" href="structnih_1_1cuda_1_1_bintree__gen__context.html">cuda::Bintree_gen_context</a>           m_kd_context;
-<a name="l00094"></a>00094 };
-<a name="l00095"></a>00095 
-<a name="l00099"></a>00099 } <span class="comment">// namespace cuda</span>
-<a name="l00100"></a>00100 } <span class="comment">// namespace nih</span>
-<a name="l00101"></a>00101 
-<a name="l00102"></a>00102 <span class="preprocessor">#include &lt;nih/bvh/cuda/lbvh_builder_inline.h&gt;</span>
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Integer&gt;
+<a name="l00084"></a><a class="code" href="structnih_1_1cuda_1_1_l_b_v_h__builder.html">00084</a> <span class="keyword">struct </span><a class="code" href="structnih_1_1cuda_1_1_l_b_v_h__builder.html">LBVH_builder</a>
+<a name="l00085"></a>00085 {
+<a name="l00091"></a><a class="code" href="structnih_1_1cuda_1_1_l_b_v_h__builder.html#a741aaa3327c755146ab412eb87431c0e">00091</a>     <a class="code" href="structnih_1_1cuda_1_1_l_b_v_h__builder.html#a741aaa3327c755146ab412eb87431c0e">LBVH_builder</a>(
+<a name="l00092"></a>00092         thrust::device_vector&lt;Bvh_node&gt;&amp;         nodes,
+<a name="l00093"></a>00093         thrust::device_vector&lt;uint2&gt;&amp;            leaves,
+<a name="l00094"></a>00094         thrust::device_vector&lt;uint32&gt;&amp;           index) :
+<a name="l00095"></a>00095         m_nodes( &amp;nodes ), m_leaves( &amp;leaves ), m_index( &amp;index ) {}
+<a name="l00096"></a>00096 
+<a name="l00103"></a>00103     <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Iterator&gt;
+<a name="l00104"></a>00104     <span class="keywordtype">void</span> <a class="code" href="structnih_1_1cuda_1_1_l_b_v_h__builder.html#abb1ce022488c550e59cc87cd3d7ff2db">build</a>(
+<a name="l00105"></a>00105         <span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox3f</a>    bbox,
+<a name="l00106"></a>00106         <span class="keyword">const</span> Iterator  points_begin,
+<a name="l00107"></a>00107         <span class="keyword">const</span> Iterator  points_end,
+<a name="l00108"></a>00108         <span class="keyword">const</span> uint32    max_leaf_size);
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110     thrust::device_vector&lt;Bvh_node&gt;*    m_nodes;
+<a name="l00111"></a>00111     thrust::device_vector&lt;uint2&gt;*       m_leaves;
+<a name="l00112"></a>00112     thrust::device_vector&lt;uint32&gt;*      m_index;
+<a name="l00113"></a>00113     thrust::device_vector&lt;Integer&gt;      m_codes;
+<a name="l00114"></a>00114     uint32                              m_levels[64];
+<a name="l00115"></a>00115     <a class="code" href="structnih_1_1_bbox.html">Bbox3f</a>                              m_bbox;
+<a name="l00116"></a>00116     uint32                              m_node_count;
+<a name="l00117"></a>00117     uint32                              m_leaf_count;
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119     <a class="code" href="structnih_1_1cuda_1_1_bintree__gen__context.html">cuda::Bintree_gen_context</a>           m_kd_context;
+<a name="l00120"></a>00120 };
+<a name="l00121"></a>00121 
+<a name="l00125"></a>00125 } <span class="comment">// namespace cuda</span>
+<a name="l00126"></a>00126 } <span class="comment">// namespace nih</span>
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128 <span class="preprocessor">#include &lt;nih/bvh/cuda/lbvh_builder_inline.h&gt;</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -176,7 +202,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 24 2011 13:58:32 for nih by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 24 2011 14:20:21 for nih by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>
