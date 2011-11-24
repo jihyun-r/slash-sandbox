@@ -31,6 +31,10 @@
 
 namespace nih {
 
+/*! \addtogroup trees Trees
+ *  \{
+ */
+
 struct breadth_first_tree {};
 struct depth_first_tree   {};
 
@@ -87,5 +91,8 @@ struct BFTree
     uint32              m_level_count;
     const uint32*       m_levels;
 };
+
+/*! \}
+ */
 
 } // namespace nih

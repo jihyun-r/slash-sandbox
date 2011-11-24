@@ -39,6 +39,10 @@
 namespace nih {
 namespace cuda {
 
+/*! \addtogroup bvh Boundary Volume Hierarchies
+ *  \{
+ */
+
 /// utility functor to pack a tuple formed by a (4d) bbox and a node into
 /// a single bbox.
 struct bvh_packing_functor
@@ -59,6 +63,29 @@ struct bvh_packing_functor
 /// Pack a set of bvh nodes and their bboxes into a single set of (4d) bboxes.
 /// The input and output bbox arrays can be the same.
 ///
+/// \param n_nodes          node count
+/// \param nodes            input nodes
+/// \param bboxes           input bboxes
+/// \param packed_nodes     output bboxes
+///
+/// The following code snipped illustrates an example usage:
+///
+/// \code
+///
+/// thrust::device_vector<Bvh_node> bvh_nodes;
+/// thrust::device_vector<Bbox4f>   bvh_bboxes;
+/// uint32 node_count;
+/// ... // build a bvh and compute its bboxes here
+///
+/// // pack the bvh
+/// cuda::pack(
+///     node_count,
+///     bvh_nodes.begin(),
+///     bvh_bboxes.begin(),
+///     bvh_bboxes.begin() );
+///
+/// \endcode
+///
 template <typename Node_iterator, typename Bbox_iterator, typename Output_iterator>
 void pack(
     const uint32    n_nodes,
@@ -72,6 +99,9 @@ void pack(
         packed_nodes,
         bvh_packing_functor() );
 }
+
+/*! \}
+ */
 
 } // namespace cuda
 } // namespace nih

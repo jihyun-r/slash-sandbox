@@ -79,6 +79,28 @@ namespace sah {
 /// a set of primitive indices into the input set of points.
 /// The output leaves will specify contiguous ranges into this index.
 ///
+/// The following code snippet shows how to use this builder:
+///
+/// \code
+///
+/// #include <nih/bvh/cuda/sah_builder.h>
+///
+/// thrust::device_vector<Bbox4f>   bboxes;
+/// ... // code to fill the input vector of bboxes
+///
+/// thrust::device_vector<Bvh_node> bvh_nodes;
+/// thrust::device_vector<uint2>    bvh_leaves;
+/// thrust::device_vector<uint32>   bvh_index;
+///
+/// nih::Sah_builder builder( bvh_nodes, bvh_leaves, bvh_index );
+/// builder.build(
+///     Bbox3f( Vector3f(0.0f), Vector3f(1.0f) ),   // suppose all bboxes are in [0,1]^3
+///     bboxes.begin(),                             // begin iterator
+///     bboxes.end(),                               // end iterator
+///     4 );                                        // target 4 objects per leaf
+/// 
+///  \endcode
+///
 struct Sah_builder
 {
     /// constructor

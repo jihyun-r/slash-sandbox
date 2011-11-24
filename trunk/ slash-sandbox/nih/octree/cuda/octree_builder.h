@@ -53,6 +53,32 @@ namespace nih {
 /// a set of primitive indices into the input set of points.
 /// The output leaves will specify contiguous ranges into this index.
 ///
+/// \tparam Integer     an integer type that determines the number
+///                     of bits used to compute the points' Morton codes.
+///                     Accepted values are uint32 and uint64.
+///
+/// The following code snippet shows how to use this builder:
+///
+/// \code
+///
+/// #include <nih/octree/cuda/octree_builder.h>
+///
+/// thrust::device_vector<Vector3f> points;
+/// ... // code to fill the input vector of points
+///
+/// thrust::device_vector<Octree_node> octree_nodes;
+/// thrust::device_vector<uint2>       octree_leaves;
+/// thrust::device_vector<uint32>      octree_index;
+///
+/// nih::Octree_builder<uint64> builder( octree_nodes, octree_leaves, octree_index );
+/// builder.build(
+///     Bbox3f( Vector3f(0.0f), Vector3f(1.0f) ),   // suppose all bboxes are in [0,1]^3
+///     points.begin(),                             // begin iterator
+///     points.end(),                               // end iterator
+///     4 );                                        // target 4 objects per leaf
+/// 
+///  \endcode
+///
 template <typename Integer>
 struct Octree_builder
 {

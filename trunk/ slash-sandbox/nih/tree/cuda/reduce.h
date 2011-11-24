@@ -39,10 +39,16 @@
 namespace nih {
 namespace cuda {
 
+/*! \addtogroup trees Trees
+ *  \{
+ */
+
 ///
 /// Reduce a bunch of values attached to the elemens in the leaves of a tree.
 /// The Tree template type has to provide the following breadth-first tree
 /// interface:
+///
+/// \code
 ///
 /// struct Tree
 /// {
@@ -62,6 +68,55 @@ namespace cuda {
 ///     uint2 get_leaf(const uint32 index) const;
 /// };
 ///
+/// \endcode
+///
+/// The following code snippet illustrates an example usage:
+///
+/// \code
+///
+/// #include <nih/tree/cuda/tree_reduce.h>
+/// #include <nih/tree/model.h>
+///
+/// struct merge_op
+/// {
+///     NIH_HOST_DEVICE Bbox4f operator() (
+///         const Bbox4f op1,
+///         const Bbox4f op2) const { return Bbox4f( op1, op2 ); }
+/// };
+///
+/// // compute the bboxes of a tree
+/// void compute_bboxes(
+///     uint32      node_count,     // input tree nodes
+///     uint32      leaf_count,     // input tree leaves
+///     uint32      level_count,    // input tree levels
+///     Bvh_node*   nodes,          // input tree nodes, device pointer
+///     uint2*      leaves,         // input tree leaves, device pointer
+///     uint32*     levels,         // input tree levels, host pointer
+///     Bbox4f*     bboxes,         // input primitive bboxes, device pointer
+///     Bbox4f*     node_bboxes,    // output node bboxes, device pointer
+///     Bbox4f*     leaf_bboxes)    // output leaf bboxes, device pointer
+/// {
+///     // instantiate a breadth-first tree view
+///     BFTree<Bvh_node*,device_domain> bvh(
+///         nodes,
+///         leaf_count,
+///         leaves,
+///         level_count,
+///         levels );
+///
+///     // compute a tree reduction
+///     cuda::tree_reduce(
+///         bvh,
+///         bboxes,
+///         leaf_bboxes,
+///         node_bboxes,
+///         merge_op(),
+///         Bbox4f() );
+/// }
+///
+/// \endcode
+///
+
 template <typename Tree, typename Input_iterator, typename Output_iterator, typename Operator>
 void tree_reduce(
     const Tree              tree,
@@ -80,6 +135,9 @@ void tree_reduce(
     const Input_iterator    in_values,
     Output_iterator         node_values,
     const Operator          op);
+
+/*! \}
+ */
 
 } // namespace cuda
 } // namespace nih
