@@ -6,9 +6,14 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -68,6 +73,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('group__bintree.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
@@ -152,14 +170,53 @@ template&lt;typename Tree , typename Integer &gt; </div>
     <tr><td class="paramname">bits</td><td>number of bits per code </td></tr>
     <tr><td class="paramname">max_leaf_size</td><td>maximum target number of entries per leaf </td></tr>
     <tr><td class="paramname">keep_singletons</td><td>mark whether to keep or suppress singleton nodes in the output tree </td></tr>
-    <tr><td class="paramname">tree</td><td>output tree </td></tr>
+    <tr><td class="paramname">tree</td><td>output tree</td></tr>
   </table>
   </dd>
 </dl>
+<p>The following code snippet shows how to use this builder:</p>
+<div class="fragment"><pre class="fragment"><span class="preprocessor"> #include &lt;nih/bintree/cuda/bintree_gen.h&gt;</span>
+<span class="preprocessor"> #include &lt;<a class="code" href="bintree__context_8h.html" title="Defines a simple binary tree context implementation to be used with the Bintree generate() function...">nih/bintree/cuda/bintree_context.h</a>&gt;</span>
+<span class="preprocessor"> #include &lt;<a class="code" href="morton_8h.html" title="Defines some general purpose algorithms.">nih/bits/morton.h</a>&gt;</span>
 
+ <span class="keyword">const</span> uint32 n_points = 1000000;
+ thrust::device_vector&lt;Vecto3f&gt; points( n_points );
+ ... <span class="comment">// generate a bunch of points here</span>
+
+ <span class="comment">// compute their Morton codes</span>
+ thrust::device_vector&lt;uint32&gt; codes( n_points );
+ thrust::transform(
+     points.begin(),
+     points.begin() + n_points,
+     codes.begin(),
+     morton_functor&lt;uint32&gt;() );
+
+ <span class="comment">// sort them</span>
+ thrust::sort( codes.begin(), codes.end() );
+
+ <span class="comment">// allocate storage for a binary tree...</span>
+ thrust::device_vector&lt;Bintree_node&gt; nodes;
+ thrust::device_vector&lt;uint2&gt;        leaves;
+
+ Bintree_context tree( nodes, leaves );
+
+ <span class="comment">// ...and generate it!</span>
+ Bintree_gen_context gen_context;
+ <a class="code" href="group__bintree.html#gad76a50ae08ab4d525f748a7cbcc0fb6e">cuda::generate</a>(
+     gen_context,
+     n_points,
+     thrust::raw_pointer_cast( &amp;codes.front() ),
+     30u,
+     16u,
+     <span class="keyword">false</span>,
+     tree );
+</pre></div> 
 </div>
 </div>
 </div>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -175,12 +232,12 @@ template&lt;typename Tree , typename Integer &gt; </div>
 </div>
 
 
+    <li class="footer">Generated on Thu Nov 24 2011 17:30:08 for nih by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 24 2011 16:43:18 for nih by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.5.1
-</small></address>
 
 </body>
 </html>
