@@ -1,0 +1,113 @@
+\hypertarget{classnih_1_1_sobol__sampler}{
+\section{nih\-:\-:\-Sobol\-\_\-sampler \-Class \-Reference}
+\label{classnih_1_1_sobol__sampler}\index{nih\-::\-Sobol\-\_\-sampler@{nih\-::\-Sobol\-\_\-sampler}}
+}
+
+
+{\ttfamily \#include $<$sobol.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \hyperlink{classnih_1_1_sobol__sampler_ae85ae0890768f5c68bbccc3e03a8030e}{\-Sobol\-\_\-sampler} ()
+\item 
+\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \hyperlink{classnih_1_1_sobol__sampler_a092384171e44310586306f9ab3eb6bd4}{\-Sobol\-\_\-sampler} (unsigned int instance, unsigned int s=0)
+\item 
+\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{classnih_1_1_sobol__sampler_a536af034afaf8959883dead62f862973}{sample} ()
+\item 
+\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{classnih_1_1_sobol__sampler_a4489c6a4fe29833a3591e86dc2c477e5}{next} ()
+\end{DoxyCompactItemize}
+\subsection*{\-Static \-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classnih_1_1_sobol__sampler_a59f0f2ef1de20df8885808483a2703c6}{generator\-\_\-matrices} (const char $\ast$direction\-\_\-numbers, const char $\ast$matrix\-\_\-file)
+\end{DoxyCompactItemize}
+\subsection*{\-Static \-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classnih_1_1_sobol__sampler_a70a8f1c9f01c06df0fb0b2957bdec8b3}{
+static const unsigned int {\bfseries max} = \-U\-I\-N\-T\-\_\-\-M\-A\-X}
+\label{classnih_1_1_sobol__sampler_a70a8f1c9f01c06df0fb0b2957bdec8b3}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Sobol sampler class 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classnih_1_1_sobol__sampler_ae85ae0890768f5c68bbccc3e03a8030e}{
+\index{nih\-::\-Sobol\-\_\-sampler@{nih\-::\-Sobol\-\_\-sampler}!\-Sobol\-\_\-sampler@{\-Sobol\-\_\-sampler}}
+\index{\-Sobol\-\_\-sampler@{\-Sobol\-\_\-sampler}!nih::Sobol_sampler@{nih\-::\-Sobol\-\_\-sampler}}
+\subsubsection[{\-Sobol\-\_\-sampler}]{\setlength{\rightskip}{0pt plus 5cm}\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E nih\-::\-Sobol\-\_\-sampler\-::\-Sobol\-\_\-sampler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classnih_1_1_sobol__sampler_ae85ae0890768f5c68bbccc3e03a8030e}
+empty constructor \hypertarget{classnih_1_1_sobol__sampler_a092384171e44310586306f9ab3eb6bd4}{
+\index{nih\-::\-Sobol\-\_\-sampler@{nih\-::\-Sobol\-\_\-sampler}!\-Sobol\-\_\-sampler@{\-Sobol\-\_\-sampler}}
+\index{\-Sobol\-\_\-sampler@{\-Sobol\-\_\-sampler}!nih::Sobol_sampler@{nih\-::\-Sobol\-\_\-sampler}}
+\subsubsection[{\-Sobol\-\_\-sampler}]{\setlength{\rightskip}{0pt plus 5cm}\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E nih\-::\-Sobol\-\_\-sampler\-::\-Sobol\-\_\-sampler (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{instance, }
+\item[{unsigned int}]{s = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{classnih_1_1_sobol__sampler_a092384171e44310586306f9ab3eb6bd4}
+instance constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em instance} & instance number \\
+\hline
+{\em s} & randomization seed \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classnih_1_1_sobol__sampler_a59f0f2ef1de20df8885808483a2703c6}{
+\index{nih\-::\-Sobol\-\_\-sampler@{nih\-::\-Sobol\-\_\-sampler}!generator\-\_\-matrices@{generator\-\_\-matrices}}
+\index{generator\-\_\-matrices@{generator\-\_\-matrices}!nih::Sobol_sampler@{nih\-::\-Sobol\-\_\-sampler}}
+\subsubsection[{generator\-\_\-matrices}]{\setlength{\rightskip}{0pt plus 5cm}void nih\-::\-Sobol\-\_\-sampler\-::generator\-\_\-matrices (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{direction\-\_\-numbers, }
+\item[{const char $\ast$}]{matrix\-\_\-file}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classnih_1_1_sobol__sampler_a59f0f2ef1de20df8885808483a2703c6}
+build generator matrices
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em direction\-\_\-numbers} & input file of comma separated direction numbers \\
+\hline
+{\em matrix\-\_\-file} & output file \\
+\hline
+\end{DoxyParams}
+\hypertarget{classnih_1_1_sobol__sampler_a4489c6a4fe29833a3591e86dc2c477e5}{
+\index{nih\-::\-Sobol\-\_\-sampler@{nih\-::\-Sobol\-\_\-sampler}!next@{next}}
+\index{next@{next}!nih::Sobol_sampler@{nih\-::\-Sobol\-\_\-sampler}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float nih\-::\-Sobol\-\_\-sampler\-::next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classnih_1_1_sobol__sampler_a4489c6a4fe29833a3591e86dc2c477e5}
+return next sample \hypertarget{classnih_1_1_sobol__sampler_a536af034afaf8959883dead62f862973}{
+\index{nih\-::\-Sobol\-\_\-sampler@{nih\-::\-Sobol\-\_\-sampler}!sample@{sample}}
+\index{sample@{sample}!nih::Sobol_sampler@{nih\-::\-Sobol\-\_\-sampler}}
+\subsubsection[{sample}]{\setlength{\rightskip}{0pt plus 5cm}\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float nih\-::\-Sobol\-\_\-sampler\-::sample (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classnih_1_1_sobol__sampler_a536af034afaf8959883dead62f862973}
+return next sample 
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\-C\-:/p4research/research/jpantaleoni/nih/sampling/\hyperlink{sobol_8h}{sobol.\-h}\item 
+\-C\-:/p4research/research/jpantaleoni/nih/sampling/sobol.\-cpp\item 
+\-C\-:/p4research/research/jpantaleoni/nih/sampling/sobol\-\_\-inline.\-h\end{DoxyCompactItemize}

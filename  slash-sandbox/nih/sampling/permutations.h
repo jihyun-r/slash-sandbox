@@ -25,6 +25,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file permutations.h
+ *   \brief Defines functions and classes to build pseudo-random permutations and
+ *          permutation sets.
+ */
+
 #pragma once
 
 #include <nih/basic/types.h>
@@ -34,6 +39,15 @@
 
 namespace nih {
 
+/*! \addtogroup sampling Sampling
+ *  \{
+ */
+
+/// permute a set of n elements randomly
+///
+/// \param random   random number generator
+/// \param n        set size
+/// \param seq      element sequence
 template <typename Sequence>
 void permute(Random& random, const uint32 n, Sequence seq)
 {
@@ -52,6 +66,9 @@ void permute(Random& random, const uint32 n, Sequence seq)
 struct LCPermutation_set
 {
     /// Build n-permutations of the range [0,m), with n << m.
+    ///
+    /// \param m    range size
+    /// \param n    number of permutations
     LCPermutation_set(const uint32 m, const uint32 n) :
         m_M(m), m_A(n), m_C(n)
     {
@@ -73,6 +90,9 @@ struct LCPermutation_set
     }
 
     /// return the permuted position of a given index in a given permutation
+    ///
+    /// \param permutation_index        permutation index
+    /// \param element_index            element index
     FORCE_INLINE uint32 operator() (
         const uint32 permutation_index,
         const uint32 element_index) const
@@ -91,6 +111,9 @@ struct LCPermutation_set
 struct Permutation_set
 {
     /// Build n-permutations of the range [0,m)
+    ///
+    /// \param m    range size
+    /// \param n    number of permutations
     Permutation_set(const uint32 m, const uint32 n) :
         m_M(m), m_tables(m*n)
     {
@@ -108,6 +131,9 @@ struct Permutation_set
     }
 
     /// return the permuted position of a given index in a given permutation
+    ///
+    /// \param permutation_index        permutation index
+    /// \param element_index            element index
     FORCE_INLINE uint32 operator() (
         const uint32 permutation_index,
         const uint32 element_index) const
@@ -119,16 +145,28 @@ struct Permutation_set
     std::vector<nih::uint32> m_tables;
 };
 
+///
+/// A wrapper to build permuted sequences based on a templated permutation
+/// sequence
+///
 template <typename Permutation_sequence, typename Sample_sequence>
 struct Permuted_sequence
 {
     typedef typename Sample_sequence::Sampler_type Sampler_type;
 
+    /// constructor
+    ///
+    /// \param sequence                sample sequence
+    /// \param permutation_sequence    permutation sequence
     Permuted_sequence(
         Sample_sequence& sequence,
         Permutation_sequence& permutation_sequence) :
         m_sequence( sequence ), m_permutation( permutation ) {}
 
+    /// return a given sampler instance
+    ///
+    /// \param index        instance number
+    /// \param copy         randomization seed
     Sampler_type instance(const uint32 index, const uint32 copy)
     {
         return m_sequence.instance( m_permutation(copy,index), 0 );
@@ -137,5 +175,8 @@ struct Permuted_sequence
     Permutation_sequence& m_permutation;
     Sample_sequence&      m_sequence;
 };
+
+/*! \}
+ */
 
 } // namespace nih

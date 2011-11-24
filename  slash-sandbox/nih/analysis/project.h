@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file project.h
+ *   \brief Defines a function to project spherical functions on a given basis.
+ */
+
 #pragma once
 
 #include <nih/basic/numbers.h>
@@ -35,7 +39,7 @@
 namespace nih {
 
 ///
-/// Project a function on a given basis.
+/// Project a spherical function on a given basis.
 /// NOTE: the coefficients for the projection are accumulated to the ones
 /// passed in.
 ///
@@ -63,8 +67,8 @@ void project(
 
         Sobol_sampler sampler(s);
 
-        uv[0] = sampler.sample();
-        uv[1] = sampler.sample();
+        uv[0] = sampler.next();
+        uv[1] = sampler.next();
 
         const Vector3f dir = uniform_square_to_sphere( uv );
 

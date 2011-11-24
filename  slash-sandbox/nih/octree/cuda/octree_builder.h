@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file octree_builder.h
+ *   \brief Defines a CUDA octree builder
+ */
+
 #pragma once
 
 #include <nih/octree/octree.h>
@@ -36,24 +40,47 @@
 
 namespace nih {
 
+/*! \addtogroup octrees Octrees
+ *  \{
+ */
+
+///
 /// GPU-based octree builder
+///
+/// This class provides the context to generate octrees on the GPU
+/// starting from a set of unordered points.
+/// The output is a set of nodes with the corresponding leaves and
+/// a set of primitive indices into the input set of points.
+/// The output leaves will specify contiguous ranges into this index.
+///
 template <typename Integer>
 struct Octree_builder
 {
     /// constructor
+    ///
+    /// \param octree       output octree nodes array
+    /// \param leaves       output leaf array
+    /// \param index        output primitive index array
     Octree_builder(
-        thrust::device_vector<Octree_node_base>& octree,
-        thrust::device_vector<uint2>&            leaves,
-        thrust::device_vector<uint32>&           index) :
+        thrust::device_vector<Octree_node>&     octree,
+        thrust::device_vector<uint2>&           leaves,
+        thrust::device_vector<uint32>&          index) :
         m_octree( &octree ), m_leaves( &leaves ), m_index( &index ) {}
 
     /// build an octree given a set of points
+    ///
+    /// \param bbox             global bounding box
+    /// \param points_begin     iterator to the beginning of the point sequence to sort
+    /// \param points_end       iterator to the end of the point sequence to sort
+    /// \param max_leaf_size    maximum leaf size
+    template <typename Iterator>
     void build(
         const Bbox3f                           bbox,
-        const thrust::device_vector<Vector4f>& points,
+        const Iterator                         points_begin,
+        const Iterator                         points_end,
         const uint32                           max_leaf_size);
 
-    thrust::device_vector<Octree_node_base>* m_octree;
+    thrust::device_vector<Octree_node>*      m_octree;
     thrust::device_vector<uint2>*            m_leaves;
     thrust::device_vector<uint32>*           m_index;
     thrust::device_vector<Integer>           m_codes;
@@ -65,6 +92,9 @@ struct Octree_builder
     thrust::device_vector<Bintree_node>      m_kd_nodes;
     cuda::Bintree_gen_context                m_kd_context;
 };
+
+/*! \}
+ */
 
 } // namespace nih
 

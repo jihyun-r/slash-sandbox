@@ -25,13 +25,16 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-///
-/// Octahedral basis definitions and helper functions
-///
-/// This is a set of 8 orthogonal basis functions on the sphere,
-/// where each basis is constant over one of the faces of a octahedron
-/// and zero outside.
-///
+/*! \file oct.h
+ *   \brief Octahedral basis definitions and helper functions
+ *
+ * Defines a set of 8 orthogonal functions on the sphere, where
+ * each function is constant over one of the faces of a octahedron
+ * and zero outside.
+ *
+ * Additionally, introduces a smoothed version of these functions
+ * which form a non-orthogonal system.
+ */
 
 #pragma once
 
@@ -41,8 +44,21 @@
 
 namespace nih {
 
-/// evaluate the i-th octahedral basis
-NIH_HOST_DEVICE float oct_basis(const int32 i, const Vector3f& omega);
+/*! \addtogroup spherical_functions Spherical
+ *  \{
+ */
+
+/// evaluate the i-th octahedral function
+///
+/// \param i        function index
+/// \param d        input direction vector
+NIH_HOST_DEVICE float oct_basis(const int32 i, const Vector3f& d);
+
+/// evaluate the i-th smoothed octahedral function
+///
+/// \param i        function index
+/// \param d        input direction vector
+NIH_HOST_DEVICE float oct_smooth_basis(const int32 i, const Vector3f& omega);
 
 ///
 /// An octahedral basis: the basis functions correspond to the characteristic
@@ -53,16 +69,32 @@ struct Oct_basis
 {
     static const int32 COEFFS = 8;
 
+    /// evaluate the i-th octahedral function
+    ///
+    /// \param i        function index
+    /// \param d        input direction vector
     NIH_HOST NIH_DEVICE static float eval(const int32 i, const Vector3f& d) { return oct_basis( i, d ); }
 
+    /// add a weighted basis expansion of a clamped cosine lobe to a given
+    /// set of coefficients
+    ///
+    /// \param normal   input normal
+    /// \param w        scalar weight
+    /// \param coeffs   input/output coefficients
     static void clamped_cosine(const Vector3f& normal, const float w, float* coeffs);
 
+    /// return the basis expansion of a constant
+    ///
+    /// \param k        input constant
+    /// \param coeffs   output coefficients
     static void constant(float k, float* coeffs)
     {
         for (int32 i = 0; i < 8; ++i)
             coeffs[i] = k * sqrtf(M_PIf/2.0f);
     }
 
+    /// return the integral of a spherical hamonics function
+    ///
     static float integral(const float* coeffs)
     {
         float r = 0.0f;
@@ -71,6 +103,8 @@ struct Oct_basis
         return r;
     }
 
+    /// return the integral of a spherical hamonics function
+    ///
     template <typename Vector_type>
     static float integral(const Vector_type& coeffs)
     {
@@ -80,6 +114,9 @@ struct Oct_basis
         return r;
     }
 
+    /// solve the linear least squares projection for a set of coefficients
+    ///
+    /// \param coeffs   input projection coefficients
     static void solve(float* coeffs) {}
 };
 
@@ -95,16 +132,32 @@ struct Oct_smooth_basis
 {
     static const int32 COEFFS = 8;
 
+    /// evaluate the i-th octahedral function
+    ///
+    /// \param i        function index
+    /// \param d        input direction vector
     NIH_HOST_DEVICE static float eval(const int32 i, const Vector3f& d) { return oct_smooth_basis( i, d ); }
 
+    /// add a weighted basis expansion of a clamped cosine lobe to a given
+    /// set of coefficients
+    ///
+    /// \param normal   input normal
+    /// \param w        scalar weight
+    /// \param coeffs   input/output coefficients
     static void clamped_cosine(const Vector3f& normal, const float w, float* coeffs);
 
+    /// return the basis expansion of a constant
+    ///
+    /// \param k        input constant
+    /// \param coeffs   output coefficients
     static void constant(float k, float* coeffs)
     {
         for (int32 i = 0; i < 8; ++i)
             coeffs[i] = k * s_K[i];
     }
 
+    /// return the integral of a spherical hamonics function
+    ///
     static float integral(const float* coeffs)
     {
         float r = 0.0f;
@@ -113,6 +166,8 @@ struct Oct_smooth_basis
         return r;
     }
 
+    /// return the integral of a spherical hamonics function
+    ///
     template <typename Vector_type>
     static float integral(const Vector_type& coeffs)
     {
@@ -122,8 +177,15 @@ struct Oct_smooth_basis
         return r;
     }
 
+    /// return the dot product of the i-th and j-th basis functions
+    ///
+    /// \param i    first function index
+    /// \param j    second functio index
     static float G(const int32 i, const int32 j) { return s_G[i][j]; }
 
+    /// solve the linear least squares projection for a set of coefficients
+    ///
+    /// \param coeffs   input projection coefficients
     static void solve(float* coeffs);
 
 private:
@@ -204,5 +266,8 @@ inline NIH_HOST_DEVICE float oct_smooth_basis(const int32 i, const Vector3f& ome
     const float d = max( dot( omega, c ), 0.0f );
     return fast_pow( d, N ) * norm;
 }
+
+/*! \}
+ */
 
 } // namespace nih

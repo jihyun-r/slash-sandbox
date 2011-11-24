@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file distributions.h
+ *   \brief Defines various distributions.
+ */
+
 #ifndef __NIH_DISTRIBUTIONS_H
 #define __NIH_DISTRIBUTIONS_H
 
@@ -32,9 +36,19 @@
 
 namespace nih {
 
+/*! \addtogroup sampling Sampling
+ *  \{
+ */
+
+///
+/// Base distribution class
+///
 template <typename Derived_type>
 struct Base_distribution
 {
+    /// return the next number in the sequence mapped through the distribution
+    ///
+    /// \param gen      random number generator
     template <typename Generator>
 	inline float next(Generator& gen) const
 	{
@@ -42,12 +56,25 @@ struct Base_distribution
     }
 };
 
+///
+/// Uniform distribution in [0,1]
+///
 struct Uniform_distribution : Base_distribution<Uniform_distribution>
 {
-	Uniform_distribution(const float b) : m_b( b ) {}
+    /// constructor
+    ///
+    /// \param b    distribution parameter
+	NIH_HOST_DEVICE Uniform_distribution(const float b) : m_b( b ) {}
 
-	inline float map(const float U) const { return m_b * (U*2.0f - 1.0f); }
-    inline float density(const float x) const
+    /// transform a uniformly distributed number through the distribution
+    ///
+    /// \param U    real number to transform
+	inline NIH_HOST_DEVICE float map(const float U) const { return m_b * (U*2.0f - 1.0f); }
+
+    /// probability density function
+    ///
+    /// \param x    sample location
+    inline NIH_HOST_DEVICE float density(const float x) const
     {
         return (x >= -m_b && x <= m_b) ? m_b * 2.0f : 0.0f;
     }
@@ -55,30 +82,52 @@ struct Uniform_distribution : Base_distribution<Uniform_distribution>
 private:
     float m_b;
 };
+///
+/// Cosine distribution
+///
 struct Cosine_distribution : Base_distribution<Cosine_distribution>
 {
-	inline float map(const float U) const
+    /// transform a uniformly distributed number through the distribution
+    ///
+    /// \param U    real number to transform
+	inline NIH_HOST_DEVICE float map(const float U) const
     {
         return asin( 0.5f * U ) * 2.0f / M_PIf;
     }
-    inline float density(const float x) const
+    /// probability density function
+    ///
+    /// \param x    sample location
+    inline NIH_HOST_DEVICE float density(const float x) const
     {
         if (x >= -1.0f && x <= 1.0f)
             return M_PIf*0.25f * cosf( x * M_PIf*0.5f );
         return 0.0f;
     }
 };
+///
+/// Pareto distribution
+///
 struct Pareto_distribution : Base_distribution<Pareto_distribution>
 {
-	Pareto_distribution(const float a, const float min) : m_a( a ), m_inv_a( 1.0f / a ), m_min( min ) {}
+    /// constructor
+    ///
+    /// \param a    distribution parameter
+    /// \param min  distribution parameter
+	NIH_HOST_DEVICE Pareto_distribution(const float a, const float min) : m_a( a ), m_inv_a( 1.0f / a ), m_min( min ) {}
 
-	inline float map(const float U) const
+    /// transform a uniformly distributed number through the distribution
+    ///
+    /// \param U    real number to transform
+	inline NIH_HOST_DEVICE float map(const float U) const
     {
         return U < 0.5f ?
              m_min / powf( (0.5f - U)*2.0f, m_inv_a ) :
             -m_min / powf( (U - 0.5f)*2.0f, m_inv_a );
     }
-    inline float density(const float x) const
+    /// probability density function
+    ///
+    /// \param x    sample location
+    inline NIH_HOST_DEVICE float density(const float x) const
     {
         if (x >= -m_min && x <= m_min)
             return 0.0f;
@@ -91,14 +140,25 @@ private:
 	float m_inv_a;
     float m_min;
 };
+///
+/// Bounded Pareto distribution
+///
 struct Bounded_pareto_distribution : Base_distribution<Bounded_pareto_distribution>
 {
-	Bounded_pareto_distribution(const float a, const float min, const float max) :
+    /// constructor
+    ///
+    /// \param a    distribution parameter
+    /// \param min  distribution parameter
+    /// \param max  distribution parameter
+	NIH_HOST_DEVICE Bounded_pareto_distribution(const float a, const float min, const float max) :
         m_a( a ), m_inv_a( 1.0f / a ), m_min( min ), m_max( max ),
         m_min_a( powf( m_min, m_a ) ),
-        m_max_a( powf( m_max, m_a ) ){}
+        m_max_a( powf( m_max, m_a ) ) {}
 
-	inline float map(const float U) const
+    /// transform a uniformly distributed number through the distribution
+    ///
+    /// \param U    real number to transform
+	inline NIH_HOST_DEVICE float map(const float U) const
     {
         if (U < 0.5f)
         {
@@ -111,7 +171,10 @@ struct Bounded_pareto_distribution : Base_distribution<Bounded_pareto_distributi
             return -powf( -(u * m_max_a - u * m_min_a - m_max_a) / (m_max_a*m_min_a), -m_inv_a);
         }
     }
-    inline float density(const float x) const
+    /// probability density function
+    ///
+    /// \param x    sample location
+    inline NIH_HOST_DEVICE float density(const float x) const
     {
         if (x >= -m_min && x <= m_min)
             return 0.0f;
@@ -129,15 +192,23 @@ private:
     float m_min_a;
     float m_max_a;
 };
+///
+/// Bounded exponential distribution
+///
 struct Bounded_exponential : Base_distribution<Bounded_exponential>
 {
-	Bounded_exponential(const float b) :
+    /// constructor
+    ///
+    /// \param b    distribution parameter
+	NIH_HOST_DEVICE Bounded_exponential(const float b) :
 		m_s1( b / 16.0f ),
 		m_s2( b ),
-		m_ln( -log(m_s2/m_s1) )
-	{
-	}
-	inline float map(const float U) const
+		m_ln( -log(m_s2/m_s1) ) {}
+
+    /// transform a uniformly distributed number through the distribution
+    ///
+    /// \param U    real number to transform
+	inline NIH_HOST_DEVICE float map(const float U) const
 	{
 		return U < 0.5f ?
 			+m_s2 * exp( m_ln*(0.5f - U)*2.0f ) :
@@ -149,17 +220,28 @@ private:
 	float m_s2;
 	float m_ln;
 };
+///
+/// Cauchy distribution
+///
 struct Cauchy_distribution : Base_distribution<Cauchy_distribution>
 {
-	Cauchy_distribution(const float gamma) :
-		m_gamma( gamma )
-	{
-	}
-	inline float map(const float U) const
+    /// constructor
+    ///
+    /// \param gamma    distribution parameter
+	NIH_HOST_DEVICE Cauchy_distribution(const float gamma) :
+		m_gamma( gamma ) {}
+
+    /// transform a uniformly distributed number through the distribution
+    ///
+    /// \param U    real number to transform
+	inline NIH_HOST_DEVICE float map(const float U) const
 	{
 		return m_gamma * tanf( float(M_PI) * (U - 0.5f) );
 	}
-	inline float density(const float x) const
+    /// probability density function
+    ///
+    /// \param x    sample location
+	inline NIH_HOST_DEVICE float density(const float x) const
 	{
 		return (m_gamma / (x*x + m_gamma*m_gamma)) / float(M_PI);
 	}
@@ -167,20 +249,31 @@ struct Cauchy_distribution : Base_distribution<Cauchy_distribution>
 private:
     float m_gamma;
 };
+///
+/// Exponential distribution
+///
 struct Exponential_distribution : Base_distribution<Exponential_distribution>
 {
-	Exponential_distribution(const float lambda) :
-		m_lambda( lambda )
-	{
-	}
-	inline float map(const float U) const
+    /// constructor
+    ///
+    /// \param lambda   distribution parameter
+	NIH_HOST_DEVICE Exponential_distribution(const float lambda) :
+		m_lambda( lambda ) {}
+
+    /// transform a uniformly distributed number through the distribution
+    ///
+    /// \param U    real number to transform
+	inline NIH_HOST_DEVICE float map(const float U) const
 	{
 		const float eps = 1.0e-5f;
 		return U < 0.5f ?
 			-logf( std::max( (0.5f - U)*2.0f, eps ) ) / m_lambda :
 			 logf( std::max( (U - 0.5f)*2.0f, eps ) ) / m_lambda;
 	}
-	inline float density(const float x) const
+    /// probability density function
+    ///
+    /// \param x    sample location
+	inline NIH_HOST_DEVICE float density(const float x) const
 	{
 		return 0.5f * m_lambda * expf( -m_lambda * fabsf(x) );
 	}
@@ -188,13 +281,21 @@ struct Exponential_distribution : Base_distribution<Exponential_distribution>
 private:
     float m_lambda;
 };
+///
+/// 2d Gaussian distribution
+///
 struct Gaussian_distribution_2d
 {
-	Gaussian_distribution_2d(const float sigma) :
-		m_sigma( sigma )
-	{
-	}
-	inline Vector2f map(const Vector2f uv) const
+    /// constructor
+    ///
+    /// \param sigma    variance
+	NIH_HOST_DEVICE Gaussian_distribution_2d(const float sigma) :
+		m_sigma( sigma ) {}
+
+    /// transform a uniformly distributed vector through the distribution
+    ///
+    /// \param uv   real numbers to transform
+	inline NIH_HOST_DEVICE Vector2f map(const Vector2f uv) const
 	{
 		const float eps = 1.0e-5f;
 		const float r = m_sigma * sqrtf( - 2.0f * logf( std::max( uv[0], eps ) ) );
@@ -207,16 +308,28 @@ private:
 	float m_sigma;
 };
 
+///
+/// Wrapper class to transform a random number generator with a given distribution
+///
 template <typename Generator, typename Distribution>
 struct Transform_generator
 {
-    Transform_generator(Generator& gen, const Distribution& dist) : m_gen( gen ), m_dist( dist ) {}
+    /// constructor
+    ///
+    /// \param gen      generator to wrap
+    /// \param dist     transforming distribution
+    NIH_HOST_DEVICE Transform_generator(Generator& gen, const Distribution& dist) : m_gen( gen ), m_dist( dist ) {}
 
-	inline float next() const
+    /// return the next number in the sequence
+    ///
+	inline NIH_HOST_DEVICE float next() const
 	{
         return m_dist.map( m_gen.next() );
     }
-	inline float density(const float x) const
+    /// probability density function
+    ///
+    /// \param x    sample location
+	inline NIH_HOST_DEVICE float density(const float x) const
 	{
         return m_dist.density( x );
     }
@@ -225,15 +338,24 @@ struct Transform_generator
     Distribution m_dist;
 };
 
+///
+/// Wrapper class to generate Gaussian distributed numbers out of a uniform
+/// random number generator
+///
 struct Gaussian_generator
 {
-	Gaussian_generator(const float sigma) :
+    /// constructor
+    ///
+    /// \param sigma    variance
+	NIH_HOST_DEVICE Gaussian_generator(const float sigma) :
 		m_sigma( sigma ),
-		m_cached( false )
-	{
-	}
+		m_cached( false ) {}
+
+    /// return the next number in the sequence
+    ///
+    /// \param random   random number generator
     template <typename Generator>
-	inline float next(Generator& random)
+	inline NIH_HOST_DEVICE float next(Generator& random)
 	{
 		if (m_cached)
 		{
@@ -251,7 +373,10 @@ struct Gaussian_generator
 		m_cached = true;
 		return y0;
 	}
-    inline float density(const float x) const
+    /// probability density function
+    ///
+    /// \param x    sample location
+    inline NIH_HOST_DEVICE float density(const float x) const
     {
         const float SQRT_TWO_PI = sqrtf(2.0f * M_PIf);
         return expf( -x*x/(2.0f*m_sigma*m_sigma) ) / (SQRT_TWO_PI*m_sigma);
@@ -262,6 +387,9 @@ private:
 	float  m_cache;
 	bool   m_cached;
 };
+
+/*! \}
+ */
 
 } // namespace nih
 

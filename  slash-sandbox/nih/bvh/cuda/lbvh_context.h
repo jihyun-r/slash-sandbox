@@ -27,6 +27,9 @@
 
 #pragma once
 
+#include <nih/bvh/bvh.h>
+#include <thrust/device_vector.h>
+
 namespace nih {
 namespace cuda {
 
@@ -35,10 +38,10 @@ namespace cuda {
 struct LBVH_context
 {
     /// Cuda accessor struct
-    struct Cuda_context
+    struct Context
     {
-        NIH_HOST_DEVICE Cuda_context() {}
-        NIH_HOST_DEVICE Cuda_context(Bvh_node* nodes, uint2* leaves) :
+        NIH_HOST_DEVICE Context() {}
+        NIH_HOST_DEVICE Context(Bvh_node* nodes, uint2* leaves) :
             m_nodes(nodes), m_leaves(leaves) {}
 
         /// write a new node
@@ -70,9 +73,9 @@ struct LBVH_context
     void reserve_leaves(const uint32 n) { if (m_leaves->size() < n) m_leaves->resize(n); }
 
     /// return a cuda context
-    Cuda_context get_cuda_context()
+    Context get_context()
     {
-        return Cuda_context(
+        return Context(
             thrust::raw_pointer_cast( &m_nodes->front() ),
             thrust::raw_pointer_cast( &m_leaves->front() ) );
     }

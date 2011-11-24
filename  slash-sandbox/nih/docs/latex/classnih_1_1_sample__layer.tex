@@ -1,0 +1,95 @@
+\hypertarget{classnih_1_1_sample__layer}{
+\section{nih\-:\-:\-Sample\-\_\-layer$<$ \-Image\-\_\-type1, \-Image\-\_\-type2 $>$ \-Class \-Template \-Reference}
+\label{classnih_1_1_sample__layer}\index{nih\-::\-Sample\-\_\-layer$<$ Image\-\_\-type1, Image\-\_\-type2 $>$@{nih\-::\-Sample\-\_\-layer$<$ Image\-\_\-type1, Image\-\_\-type2 $>$}}
+}
+
+
+{\ttfamily \#include $<$sampler.\-h$>$}
+
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1_sample__layer_1_1_row}{\-Row}
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classnih_1_1_sample__layer_a124dbfce20926ed15b090bbb72ee1013}{
+\hyperlink{classnih_1_1_sample__layer_a124dbfce20926ed15b090bbb72ee1013}{\-Sample\-\_\-layer} ()}
+\label{classnih_1_1_sample__layer_a124dbfce20926ed15b090bbb72ee1013}
+
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\hypertarget{classnih_1_1_sample__layer_a46ae62ad1e481e929fdf00584fd4bc77}{
+\hyperlink{classnih_1_1_sample__layer_a46ae62ad1e481e929fdf00584fd4bc77}{\-Sample\-\_\-layer} (const \-Image\-\_\-type1 \&\-X, const \-Image\-\_\-type2 \&\-Y)}
+\label{classnih_1_1_sample__layer_a46ae62ad1e481e929fdf00584fd4bc77}
+
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+uint32 \hyperlink{classnih_1_1_sample__layer_ad7845baacb43dfa554ebe376fafdcdf6}{rows} () const 
+\item 
+uint32 \hyperlink{classnih_1_1_sample__layer_a6b936d7e4f23aedce39b7e647cce555f}{cols} () const 
+\item 
+uint32 \hyperlink{classnih_1_1_sample__layer_a86e7d9f4bda99fece5985a5d45368060}{size} () const 
+\item 
+float \hyperlink{classnih_1_1_sample__layer_ae69a60903be4c8215bc266e3d8c24a3e}{operator()} (const uint32 d, const uint32 i) const 
+\item 
+\hyperlink{structnih_1_1_sample__layer_1_1_row}{\-Row} \hyperlink{classnih_1_1_sample__layer_a5e4e5f18b56cb17fcc49f18983a016b0}{operator\mbox{[}$\,$\mbox{]}} (const uint32 i) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\subsubsection*{template$<$typename Image\-\_\-type1, typename Image\-\_\-type2$>$class nih\-::\-Sample\-\_\-layer$<$ Image\-\_\-type1, Image\-\_\-type2 $>$}
+
+\-Combine two sets of samples for different dimensions 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classnih_1_1_sample__layer_a6b936d7e4f23aedce39b7e647cce555f}{
+\index{nih\-::\-Sample\-\_\-layer@{nih\-::\-Sample\-\_\-layer}!cols@{cols}}
+\index{cols@{cols}!nih::Sample_layer@{nih\-::\-Sample\-\_\-layer}}
+\subsubsection[{cols}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Image\-\_\-type1 , typename Image\-\_\-type2 $>$ uint32 {\bf nih\-::\-Sample\-\_\-layer}$<$ \-Image\-\_\-type1, \-Image\-\_\-type2 $>$\-::cols (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_sample__layer_a6b936d7e4f23aedce39b7e647cce555f}
+return cols \hypertarget{classnih_1_1_sample__layer_ae69a60903be4c8215bc266e3d8c24a3e}{
+\index{nih\-::\-Sample\-\_\-layer@{nih\-::\-Sample\-\_\-layer}!operator()@{operator()}}
+\index{operator()@{operator()}!nih::Sample_layer@{nih\-::\-Sample\-\_\-layer}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Image\-\_\-type1 , typename Image\-\_\-type2 $>$ float {\bf nih\-::\-Sample\-\_\-layer}$<$ \-Image\-\_\-type1, \-Image\-\_\-type2 $>$\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{d, }
+\item[{const uint32}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_sample__layer_ae69a60903be4c8215bc266e3d8c24a3e}
+return d-\/th component of the i-\/th sample \hypertarget{classnih_1_1_sample__layer_a5e4e5f18b56cb17fcc49f18983a016b0}{
+\index{nih\-::\-Sample\-\_\-layer@{nih\-::\-Sample\-\_\-layer}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!nih::Sample_layer@{nih\-::\-Sample\-\_\-layer}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Image\-\_\-type1 , typename Image\-\_\-type2 $>$ {\bf \-Row} {\bf nih\-::\-Sample\-\_\-layer}$<$ \-Image\-\_\-type1, \-Image\-\_\-type2 $>$\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_sample__layer_a5e4e5f18b56cb17fcc49f18983a016b0}
+return the i-\/th sample \hypertarget{classnih_1_1_sample__layer_ad7845baacb43dfa554ebe376fafdcdf6}{
+\index{nih\-::\-Sample\-\_\-layer@{nih\-::\-Sample\-\_\-layer}!rows@{rows}}
+\index{rows@{rows}!nih::Sample_layer@{nih\-::\-Sample\-\_\-layer}}
+\subsubsection[{rows}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Image\-\_\-type1 , typename Image\-\_\-type2 $>$ uint32 {\bf nih\-::\-Sample\-\_\-layer}$<$ \-Image\-\_\-type1, \-Image\-\_\-type2 $>$\-::rows (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_sample__layer_ad7845baacb43dfa554ebe376fafdcdf6}
+return rows \hypertarget{classnih_1_1_sample__layer_a86e7d9f4bda99fece5985a5d45368060}{
+\index{nih\-::\-Sample\-\_\-layer@{nih\-::\-Sample\-\_\-layer}!size@{size}}
+\index{size@{size}!nih::Sample_layer@{nih\-::\-Sample\-\_\-layer}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Image\-\_\-type1 , typename Image\-\_\-type2 $>$ uint32 {\bf nih\-::\-Sample\-\_\-layer}$<$ \-Image\-\_\-type1, \-Image\-\_\-type2 $>$\-::size (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_sample__layer_a86e7d9f4bda99fece5985a5d45368060}
+size of the combined sample set 
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\-C\-:/p4research/research/jpantaleoni/nih/sampling/\hyperlink{sampler_8h}{sampler.\-h}\end{DoxyCompactItemize}

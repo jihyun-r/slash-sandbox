@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file functors.h
+ *   \brief Defines some general purpose functors.
+ */
+
 #pragma once
 
 #include <nih/basic/types.h>
@@ -36,6 +40,9 @@ struct unary_function_tag {};
 struct binary_function_tag {};
 struct ternary_function_tag {};
 
+///
+/// default predicate functor, returning the standard conversion to boolean
+///
 template <typename T>
 struct default_predicate
 {
@@ -44,6 +51,9 @@ struct default_predicate
     NIH_HOST_DEVICE bool operator() (const T t) const { return t ? true : false; }
 };
 
+///
+/// constant functor
+///
 template <typename T, typename R>
 struct constant_fun
 {
@@ -51,12 +61,18 @@ struct constant_fun
     typedef T argument_type;
     typedef R result_type;
 
+    /// constructor
+    ///
+    /// \param c    constant value
     constant_fun(R c) : constant(c) {}
 
     NIH_HOST_DEVICE R operator() (const T op) const { return constant; }
 
     R constant;
 };
+///
+/// A functor to return the constant 1 cast to a given type
+///
 template <typename T, typename R>
 struct one_fun
 {
@@ -66,6 +82,10 @@ struct one_fun
 
     NIH_HOST_DEVICE R operator() (const T op) const { return R(1); }
 };
+///
+/// A functor to return the either one or zero depending on the
+/// boolean predicate evaluation of the input.
+///
 struct one_or_zero
 {
     typedef unary_function_tag function_tag;
@@ -77,22 +97,33 @@ struct one_or_zero
         return op ? 1u : 0u;
     }
 };
+///
+/// A functor to negate the input value
+///
+template <typename T>
 struct not
 {
     typedef unary_function_tag function_tag;
-    typedef uint32 argument_type;
-    typedef uint32 result_type;
+    typedef T argument_type;
+    typedef T result_type;
 
-    NIH_HOST_DEVICE uint32 operator() (const uint32 op) const { return !op; }
+    NIH_HOST_DEVICE T operator() (const T op) const { return !op; }
 };
-struct uint_minus_one
+///
+/// A functor to return the input value minus 1
+///
+template <typename T>
+struct minus_one
 {
     typedef unary_function_tag function_tag;
-    typedef uint32      argument_type;
-    typedef uint32      result_type;
+    typedef T      argument_type;
+    typedef T      result_type;
 
-    NIH_HOST_DEVICE uint32 operator() (const uint32 op) const { return op - 1u; }
+    NIH_HOST_DEVICE T operator() (const T op) const { return op - T(1); }
 };
+///
+/// A functor to bind the first argument of a binary operator to a constant
+///
 template <typename F, typename C>
 struct binder1st
 {
@@ -107,6 +138,9 @@ struct binder1st
     F functor;
     C first;
 };
+///
+/// A functor to bind the second argument of a binary operator to a constant
+///
 template <typename F, typename C>
 struct binder2nd
 {
@@ -124,7 +158,9 @@ struct binder2nd
 template <typename F, typename C> binder1st<F,C> bind1st(const F& f, const C c) { return binder1st<F,C>( f, c ); }
 template <typename F, typename C> binder2nd<F,C> bind2nd(const F& f, const C c) { return binder2nd<F,C>( f, c ); }
 
+///
 /// return the second_argument component of the first_argument vector
+///
 template <typename Vector_type>
 struct component_functor
 {
@@ -135,7 +171,9 @@ struct component_functor
 
     NIH_HOST_DEVICE result_type operator() (const first_argument_type v, const second_argument_type i) const { return v[i]; }
 };
-/// square
+///
+/// square functor
+///
 template <typename T>
 struct sqr_functor
 {
@@ -145,7 +183,9 @@ struct sqr_functor
 
     NIH_HOST_DEVICE T operator() (const T& v) const { return v*v; }
 };
-/// greater than zero
+///
+/// greater than zero functor
+///
 template <typename T>
 struct greater_than_zero
 {
@@ -155,7 +195,9 @@ struct greater_than_zero
 
     NIH_HOST_DEVICE bool operator() (const T& v) const { return v > 0; }
 };
-/// equal to
+///
+/// equal to functor
+///
 template <typename T>
 struct equal_to
 {
@@ -166,7 +208,9 @@ struct equal_to
 
     NIH_HOST_DEVICE bool operator() (const T& op1, const T& op2) const { return op1 == op2; }
 };
-/// not equal to
+///
+/// not equal to functor
+///
 template <typename T>
 struct not_equal_to
 {
@@ -177,7 +221,9 @@ struct not_equal_to
 
     NIH_HOST_DEVICE bool operator() (const T& op1, const T& op2) const { return op1 != op2; }
 };
-/// equal to a given constant
+///
+/// A functor to compute equality to a given constant
+///
 template <typename T>
 struct eq_constant
 {
@@ -185,6 +231,9 @@ struct eq_constant
     typedef T       argument_type;
     typedef bool    result_type;
 
+    /// constructor
+    ///
+    /// \param c    constant value
     eq_constant(const T c) : m_c(c) {}
 
     NIH_HOST_DEVICE bool operator() (const T& v) const { return v == m_c; }
@@ -192,7 +241,9 @@ struct eq_constant
 private:
     const T m_c;
 };
-/// not equal to a given constant
+///
+/// A functor to compute inequality to a given constant
+///
 template <typename T>
 struct neq_constant
 {
@@ -200,6 +251,9 @@ struct neq_constant
     typedef T       argument_type;
     typedef bool    result_type;
 
+    /// constructor
+    ///
+    /// \param c    constant value
     neq_constant(const T c) : m_c(c) {}
 
     NIH_HOST_DEVICE bool operator() (const T& v) const { return v != m_c; }
@@ -207,7 +261,9 @@ struct neq_constant
 private:
     const T m_c;
 };
-/// if true
+///
+/// if true functor
+///
 template <typename T, typename R>
 struct if_true
 {
@@ -215,7 +271,11 @@ struct if_true
     typedef T       argument_type;
     typedef R       result_type;
 
-    if_true(const R m_r0, const R m_r1) : m_r_true(m_r0), m_r_false(m_r1) {}
+    /// constructor
+    ///
+    /// \param r0   true output value
+    /// \param r1   false output value
+    if_true(const R r0, const R r1) : m_r_true(r0), m_r_false(r1) {}
 
     NIH_HOST_DEVICE R operator() (const T& v) const { return v ? m_r_true : m_r_false; }
 
@@ -223,7 +283,9 @@ private:
     const R m_r_true;
     const R m_r_false;
 };
-/// if equal to a given constant
+///
+/// A functor to select between two output values based on equality to a given constant
+///
 template <typename T, typename R>
 struct if_constant
 {
@@ -231,7 +293,12 @@ struct if_constant
     typedef T       argument_type;
     typedef R       result_type;
 
-    if_constant(const T c, const R m_r0, const R m_r1) : m_c(c), m_r_true(m_r0), m_r_false(m_r1) {}
+    /// constructor
+    ///
+    /// \param c    constant value
+    /// \param r0   true output value
+    /// \param r1   false output value
+    if_constant(const T c, const R r0, const R r1) : m_c(c), m_r_true(r0), m_r_false(r1) {}
 
     NIH_HOST_DEVICE R operator() (const T& v) const { return v == m_c ? m_r_true : m_r_false; }
 
@@ -240,7 +307,9 @@ private:
     const R m_r_true;
     const R m_r_false;
 };
+///
 /// compose two unary functions
+///
 template <typename F1, typename F2>
 struct compose_unary
 {
@@ -256,7 +325,9 @@ private:
     const F1 m_fun1;
     const F2 m_fun2;
 };
+///
 /// compose a binary function after two unary ones
+///
 template <typename F, typename G1, typename G2>
 struct compose_binary
 {
@@ -276,7 +347,9 @@ private:
     const G1 m_g1;
     const G2 m_g2;
 };
+///
 /// compose an unary operator F1 with a binary operator F2
+///
 template <typename F1, typename F2>
 struct compose_unary_after_binary
 {
@@ -304,19 +377,23 @@ template <typename F1, typename F2>
 struct composition_type<F1,F2,unary_function_tag,unary_function_tag> { typedef compose_unary<F1,F2> type; };
 
 /// compose two functions
+///
 template <typename F1, typename F2>
 typename composition_type<F1,F2,typename F1::function_tag,typename F2::function_tag>::type compose(const F1 f1, const F2 f2)
 {
     return composition_type<F1,F2,typename F1::function_tag,typename F2::function_tag>::type( f1, f2 );
 }
 /// compose a binary function after two unary ones
+///
 template <typename F, typename G1, typename G2>
 compose_binary<F,G1,G2> compose(const F f, const G1 g1, const G2 g2)
 {
     return compose_binary<F,G1,G2>( f, g1, g2 );
 }
 
-/// min
+///
+/// minimum functor
+///
 template <typename T>
 struct min_functor
 {
@@ -326,7 +403,9 @@ struct min_functor
 
     NIH_HOST_DEVICE T operator() (const T a, const T b) const { return a < b ? a : b; }
 };
-/// max
+///
+/// maximum functor
+///
 template <typename T>
 struct max_functor
 {
@@ -337,6 +416,9 @@ struct max_functor
     NIH_HOST_DEVICE T operator() (const T a, const T b) const { return a > b ? a : b; }
 };
 
+///
+/// addition functor
+///
 template <typename T>
 struct add
 {
@@ -346,6 +428,9 @@ struct add
 
     NIH_HOST_DEVICE T operator() (const T op1, const T op2) const { return op1 + op2; }
 };
+///
+/// binary OR functor
+///
 template <typename T>
 struct binary_or
 {
@@ -355,6 +440,9 @@ struct binary_or
 
     NIH_HOST_DEVICE T operator() (const T op1, const T op2) const { return op1 | op2; }
 };
+///
+/// binary AND functor
+///
 template <typename T>
 struct binary_and
 {
@@ -365,12 +453,18 @@ struct binary_and
     NIH_HOST_DEVICE T operator() (const T op1, const T op2) const { return op1 & op2; }
 };
 
+///
+/// A functor to compute the binary AND with a mask
+///
 template <typename T>
 struct mask_and
 {
     typedef T      argument_type;
     typedef T      result_type;
 
+    /// constructor
+    ///
+    /// \param mask     mask value
     NIH_HOST_DEVICE mask_and(const T mask) : m_mask( mask ) {}
 
     NIH_HOST_DEVICE T operator() (const T op) const { return op & m_mask; }
@@ -379,12 +473,18 @@ private:
     const T m_mask;
 };
 
+///
+/// A functor to compute the binary OR with a mask
+///
 template <typename T>
 struct mask_or
 {
     typedef T      argument_type;
     typedef T      result_type;
 
+    /// constructor
+    ///
+    /// \param mask     mask value
     NIH_HOST_DEVICE mask_or(const T mask) : m_mask( mask ) {}
 
     NIH_HOST_DEVICE T operator() (const T op) const { return op | m_mask; }
@@ -393,12 +493,18 @@ private:
     const T m_mask;
 };
 
+///
+/// A functor to shift values to the left by a given amount of bits
+///
 template <typename T>
 struct l_bit_shift
 {
     typedef T argument_type;
     typedef T result_type;
 
+    /// constructor
+    ///
+    /// \param bits     shift size
     NIH_HOST_DEVICE l_bit_shift(const T bits) : m_bits( bits ) {}
 
     NIH_HOST_DEVICE  T operator() (const T x) const { return x << m_bits; }
@@ -406,12 +512,19 @@ struct l_bit_shift
 private:
     const T m_bits;
 };
+
+///
+/// A functor to shift values to the left by a given amount of bits
+///
 template <typename T>
 struct r_bit_shift
 {
     typedef T argument_type;
     typedef T result_type;
 
+    /// constructor
+    ///
+    /// \param bits     shift size
     NIH_HOST_DEVICE r_bit_shift(const T bits) : m_bits( bits ) {}
 
     NIH_HOST_DEVICE  T operator() (const T x) const { return x >> m_bits; }
@@ -420,15 +533,42 @@ private:
     const T m_bits;
 };
 
+///
+/// A functor to compute the clamped cosine of the angle formed with
+/// a given normal
+///
 template <typename Vector_type>
 struct clamped_cosine_fun
 {
     typedef Vector_type argument_type;
     typedef float       result_type;
 
+    /// constructor
+    ///
+    /// \param normal       reference normal
     NIH_HOST_DEVICE clamped_cosine_fun(const Vector_type& normal) : m_normal( normal ) {}
 
     NIH_HOST_DEVICE float operator() (const Vector_type& dir) const { return max( dot( dir, m_normal ), 0.0f ); }
+
+    const Vector_type m_normal;
+};
+
+///
+/// A functor to compute the absolute value of the cosine of the angle formed with
+/// a given normal
+///
+template <typename Vector_type>
+struct abs_cosine_fun
+{
+    typedef Vector_type argument_type;
+    typedef float       result_type;
+
+    /// constructor
+    ///
+    /// \param normal       reference normal
+    NIH_HOST_DEVICE abs_cosine_fun(const Vector_type& normal) : m_normal( normal ) {}
+
+    NIH_HOST_DEVICE float operator() (const Vector_type& dir) const { return fabsf( dot( dir, m_normal ) ); }
 
     const Vector_type m_normal;
 };

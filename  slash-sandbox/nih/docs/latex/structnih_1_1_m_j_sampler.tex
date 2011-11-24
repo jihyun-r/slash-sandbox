@@ -1,0 +1,89 @@
+\hypertarget{structnih_1_1_m_j_sampler}{
+\section{nih\-:\-:\-M\-J\-Sampler \-Struct \-Reference}
+\label{structnih_1_1_m_j_sampler}\index{nih\-::\-M\-J\-Sampler@{nih\-::\-M\-J\-Sampler}}
+}
+
+
+{\ttfamily \#include $<$sampler.\-h$>$}
+
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1_m_j_sampler_1_1_sample}{\-Sample}
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries \-Ordering} \{ {\bfseries k\-X\-Y}, 
+{\bfseries k\-Random}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{structnih_1_1_m_j_sampler_a7efa9e4be3bfab3bbeb2c0e1d293f608}{sample} (const uint32 samples\-\_\-x, const uint32 samples\-\_\-y, \hyperlink{structnih_1_1_vector}{\-Vector}$<$ \-T, 2 $>$ $\ast$samples, \-Ordering ordering=k\-Random)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{structnih_1_1_m_j_sampler_a162a0c19596eef3f9debe2ee0550c136}{sample} (const uint32 samples\-\_\-x, const uint32 samples\-\_\-y, \hyperlink{structnih_1_1_vector}{\-Vector}$<$ \-T, 3 $>$ $\ast$samples)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{structnih_1_1_m_j_sampler_a4c2fc9b264a9f2de35125d51e4e19fe4}{sample} (const uint32 samples\-\_\-x, const uint32 samples\-\_\-y, \hyperlink{structnih_1_1_vector}{\-Vector}$<$ \-T, 4 $>$ $\ast$samples, \-Ordering ordering=k\-Random)
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_m_j_sampler_a4de5d0a6e69b37828028501e16dbb143}{
+std\-::vector$<$ \hyperlink{structnih_1_1_m_j_sampler_1_1_sample}{\-Sample} $>$ {\bfseries m\-\_\-sample\-\_\-xy}}
+\label{structnih_1_1_m_j_sampler_a4de5d0a6e69b37828028501e16dbb143}
+
+\item 
+\hypertarget{structnih_1_1_m_j_sampler_a5280690591be240bb61c6cbb2db4fbcf}{
+\hyperlink{classnih_1_1_random}{\-Random} {\bfseries m\-\_\-random}}
+\label{structnih_1_1_m_j_sampler_a5280690591be240bb61c6cbb2db4fbcf}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Multi-\/\-Jittered \hyperlink{structnih_1_1_sampler}{\-Sampler} 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1_m_j_sampler_a7efa9e4be3bfab3bbeb2c0e1d293f608}{
+\index{nih\-::\-M\-J\-Sampler@{nih\-::\-M\-J\-Sampler}!sample@{sample}}
+\index{sample@{sample}!nih::MJSampler@{nih\-::\-M\-J\-Sampler}}
+\subsubsection[{sample}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void nih\-::\-M\-J\-Sampler\-::sample (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{samples\-\_\-x, }
+\item[{const uint32}]{samples\-\_\-y, }
+\item[{{\bf \-Vector}$<$ \-T, 2 $>$ $\ast$}]{samples, }
+\item[{\-Ordering}]{ordering = {\ttfamily k\-Random}}
+\end{DoxyParamCaption}
+)}}
+\label{structnih_1_1_m_j_sampler_a7efa9e4be3bfab3bbeb2c0e1d293f608}
+get a set of 2d stratified samples \hypertarget{structnih_1_1_m_j_sampler_a162a0c19596eef3f9debe2ee0550c136}{
+\index{nih\-::\-M\-J\-Sampler@{nih\-::\-M\-J\-Sampler}!sample@{sample}}
+\index{sample@{sample}!nih::MJSampler@{nih\-::\-M\-J\-Sampler}}
+\subsubsection[{sample}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void nih\-::\-M\-J\-Sampler\-::sample (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{samples\-\_\-x, }
+\item[{const uint32}]{samples\-\_\-y, }
+\item[{{\bf \-Vector}$<$ \-T, 3 $>$ $\ast$}]{samples}
+\end{DoxyParamCaption}
+)}}
+\label{structnih_1_1_m_j_sampler_a162a0c19596eef3f9debe2ee0550c136}
+get a set of 3d stratified samples the first 2 dimensions are multi-\/jittered, the third one is selected with latin hypercube sampliing wrt the first 2. \hypertarget{structnih_1_1_m_j_sampler_a4c2fc9b264a9f2de35125d51e4e19fe4}{
+\index{nih\-::\-M\-J\-Sampler@{nih\-::\-M\-J\-Sampler}!sample@{sample}}
+\index{sample@{sample}!nih::MJSampler@{nih\-::\-M\-J\-Sampler}}
+\subsubsection[{sample}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void nih\-::\-M\-J\-Sampler\-::sample (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{samples\-\_\-x, }
+\item[{const uint32}]{samples\-\_\-y, }
+\item[{{\bf \-Vector}$<$ \-T, 4 $>$ $\ast$}]{samples, }
+\item[{\-Ordering}]{ordering = {\ttfamily k\-Random}}
+\end{DoxyParamCaption}
+)}}
+\label{structnih_1_1_m_j_sampler_a4c2fc9b264a9f2de35125d51e4e19fe4}
+get a set of 4d stratified samples 
+
+\-The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\-C\-:/p4research/research/jpantaleoni/nih/sampling/\hyperlink{sampler_8h}{sampler.\-h}\item 
+\-C\-:/p4research/research/jpantaleoni/nih/sampling/sampler\-\_\-inline.\-h\end{DoxyCompactItemize}

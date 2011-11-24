@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file vector.h
+ *   \brief Define linear-algebra vector classes
+ */
+
 #pragma once
 
 #include <nih/basic/types.h>
@@ -34,6 +38,10 @@
 #include <cmath>
 
 namespace nih {
+
+/*! \addtogroup linalg Linear Algebra
+ *  \{
+ */
 
 ///
 /// Abstract linear algebra vector class, templated over type and dimension
@@ -45,17 +53,30 @@ struct Vector
 	typedef T           Field_type;
 	static const size_t kDimension = DIM;
 
+    /// empty constructor
+    ///
 	NIH_HOST NIH_DEVICE FORCE_INLINE Vector() {}
-	NIH_HOST NIH_DEVICE FORCE_INLINE explicit Vector(const T v)
+
+    /// copy constructor
+    ///
+    /// \param v    input vector
+    NIH_HOST NIH_DEVICE FORCE_INLINE explicit Vector(const T v)
 	{
 		for (size_t i = 0; i < kDimension; i++)
 			x[i] = v;
 	}
+    /// copy constructor
+    ///
+    /// \param v    input array
 	NIH_HOST NIH_DEVICE FORCE_INLINE explicit Vector(const T* v)
 	{
 		for (size_t i = 0; i < kDimension; i++)
 			x[i] = v[i];
 	}
+    /// constructor
+    ///
+    /// \param v    input DIM-1 vector
+    /// \param w    last component
 	NIH_HOST NIH_DEVICE FORCE_INLINE Vector(const Vector<T,DIM-1>& v, const T w)
 	{
 		for (size_t i = 0; i < DIM-1; i++)
@@ -64,15 +85,26 @@ struct Vector
 		x[DIM-1] = w;
 	}
 
+    /// assignment operator
+    ///
+    /// \param v    input vector
 	NIH_HOST NIH_DEVICE FORCE_INLINE Vector& operator=(const Vector& v)
 	{
 		for (size_t i = 0; i < kDimension; i++)
 			x[i] = v.x[i];
 		return *this;
 	}
+    /// const indexing operator
+    ///
+    /// \param i    component index
 	NIH_HOST NIH_DEVICE FORCE_INLINE const T& operator[](const size_t i) const	{ return x[i]; }
+    /// indexing operator
+    ///
+    /// \param i    component index
 	NIH_HOST NIH_DEVICE FORCE_INLINE T& operator[](const size_t i)		{ return x[i]; }
 
+    /// vector dimension
+    ///
 	NIH_HOST NIH_DEVICE size_t dimension() const { return kDimension; }
 
     // compatibility with std::vector and sparse/dynamic vectors
@@ -92,37 +124,65 @@ struct Vector<T,2>
 	typedef T           Field_type;
 	static const size_t kDimension = 2u;
 
+    /// empty constructor
+    ///
 	NIH_HOST NIH_DEVICE FORCE_INLINE Vector() {}
-	NIH_HOST NIH_DEVICE FORCE_INLINE explicit Vector(const T v)
+
+    /// copy constructor
+    ///
+    /// \param v    input vector
+    NIH_HOST NIH_DEVICE FORCE_INLINE explicit Vector(const T v)
 	{
 		for (size_t i = 0; i < kDimension; i++)
 			x[i] = v;
 	}
+    /// copy constructor
+    ///
+    /// \param v    input array
 	NIH_HOST NIH_DEVICE FORCE_INLINE explicit Vector(const T* v)
 	{
 		for (size_t i = 0; i < kDimension; i++)
 			x[i] = v[i];
 	}
+    /// component-wise constructor
+    ///
+    /// \param v0   component 0
+    /// \param v1   component 1
 	NIH_HOST NIH_DEVICE FORCE_INLINE Vector(const T v0, const T v1)
 	{
 		x[0] = v0;
 		x[1] = v1;
 	}
+    /// constructor
+    ///
+    /// \param v    input 1d vector
+    /// \param v1   second component
 	NIH_HOST NIH_DEVICE FORCE_INLINE Vector(const Vector<T,1>& v, const T v1)
 	{
 		x[0] = v[0];
 		x[1] = v1;
 	}
 
-	NIH_HOST NIH_DEVICE FORCE_INLINE Vector& operator=(const Vector& v)
+    /// assignment operator
+    ///
+    /// \param v    input vector
+    NIH_HOST NIH_DEVICE FORCE_INLINE Vector& operator=(const Vector& v)
 	{
 		for (size_t i = 0; i < kDimension; i++)
 			x[i] = v.x[i];
 		return *this;
 	}
+    /// const indexing operator
+    ///
+    /// \param i    component index
 	NIH_HOST NIH_DEVICE FORCE_INLINE const T& operator[](const size_t i) const	{ return x[i]; }
+    /// indexing operator
+    ///
+    /// \param i    component index
 	NIH_HOST NIH_DEVICE FORCE_INLINE T& operator[](const size_t i)		{ return x[i]; }
 
+    /// vector dimension
+    ///
 	NIH_HOST NIH_DEVICE size_t dimension() const { return kDimension; }
 
 	T x[2];
@@ -137,23 +197,41 @@ struct Vector<T,3>
 	typedef T           Field_type;
 	static const size_t kDimension = 3u;
 
+    /// empty constructor
+    ///
 	NIH_HOST NIH_DEVICE FORCE_INLINE Vector() {}
-	NIH_HOST NIH_DEVICE FORCE_INLINE explicit Vector(const T v)
+
+    /// copy constructor
+    ///
+    /// \param v    input vector
+    NIH_HOST NIH_DEVICE FORCE_INLINE explicit Vector(const T v)
 	{
 		for (size_t i = 0; i < kDimension; i++)
 			x[i] = v;
 	}
+    /// copy constructor
+    ///
+    /// \param v    input array
 	NIH_HOST NIH_DEVICE FORCE_INLINE explicit Vector(const T* v)
 	{
 		for (size_t i = 0; i < kDimension; i++)
 			x[i] = v[i];
 	}
-	NIH_HOST NIH_DEVICE FORCE_INLINE Vector(const T v0, const T v1, const T v2)
+    /// component-wise constructor
+    ///
+    /// \param v0   component 0
+    /// \param v1   component 1
+    /// \param v2   component 2
+    NIH_HOST NIH_DEVICE FORCE_INLINE Vector(const T v0, const T v1, const T v2)
 	{
 		x[0] = v0;
 		x[1] = v1;
 		x[2] = v2;
 	}
+    /// constructor
+    ///
+    /// \param v    input 2d vector
+    /// \param v3   third component
 	NIH_HOST NIH_DEVICE FORCE_INLINE Vector(const Vector<T,2>& v, const T v2)
 	{
 		x[0] = v[0];
@@ -161,15 +239,26 @@ struct Vector<T,3>
 		x[2] = v2;
 	}
 
-	NIH_HOST NIH_DEVICE FORCE_INLINE Vector& operator=(const Vector& v)
+    /// assignment operator
+    ///
+    /// \param v    input vector
+    NIH_HOST NIH_DEVICE FORCE_INLINE Vector& operator=(const Vector& v)
 	{
 		for (size_t i = 0; i < kDimension; i++)
 			x[i] = v.x[i];
 		return *this;
 	}
+    /// const indexing operator
+    ///
+    /// \param i    component index
 	NIH_HOST NIH_DEVICE FORCE_INLINE const T& operator[](const size_t i) const	{ return x[i]; }
+    /// indexing operator
+    ///
+    /// \param i    component index
 	NIH_HOST NIH_DEVICE FORCE_INLINE T& operator[](const size_t i)		{ return x[i]; }
 
+    /// vector dimension
+    ///
 	NIH_HOST NIH_DEVICE size_t dimension() const { return kDimension; }
 
 	T x[3];
@@ -185,17 +274,31 @@ struct Vector<T,4>
 	typedef T           Field_type;
 	static const size_t kDimension = 4u;
 
+    /// empty constructor
+    ///
 	NIH_HOST NIH_DEVICE FORCE_INLINE Vector() {}
+    /// copy constructor
+    ///
+    /// \param v    input vector
 	NIH_HOST NIH_DEVICE FORCE_INLINE explicit Vector(const T v)
 	{
 		for (size_t i = 0; i < kDimension; i++)
 			x[i] = v;
 	}
+    /// copy constructor
+    ///
+    /// \param v    input array
 	NIH_HOST NIH_DEVICE FORCE_INLINE explicit Vector(const T* v)
 	{
 		for (size_t i = 0; i < kDimension; i++)
 			x[i] = v[i];
 	}
+    /// component-wise constructor
+    ///
+    /// \param v0   component 0
+    /// \param v1   component 1
+    /// \param v2   component 2
+    /// \param v3   component 3
 	NIH_HOST NIH_DEVICE FORCE_INLINE Vector(const T v0, const T v1, const T v2, const T v3)
 	{
 		x[0] = v0;
@@ -203,6 +306,10 @@ struct Vector<T,4>
 		x[2] = v2;
 		x[3] = v3;
 	}
+    /// constructor
+    ///
+    /// \param v    input 3d vector
+    /// \param v3   fourth component
 	NIH_HOST NIH_DEVICE FORCE_INLINE Vector(const Vector<T,3>& v, const T v3)
 	{
 		x[0] = v[0];
@@ -211,317 +318,325 @@ struct Vector<T,4>
 		x[3] = v3;
 	}
 
+    /// assignment operator
+    ///
+    /// \param v    input vector
 	NIH_HOST NIH_DEVICE FORCE_INLINE Vector& operator=(const Vector& v)
 	{
 		for (size_t i = 0; i < kDimension; i++)
 			x[i] = v.x[i];
 		return *this;
 	}
+
+    /// const indexing operator
+    ///
+    /// \param i    component index
 	NIH_HOST NIH_DEVICE FORCE_INLINE const T& operator[](const size_t i) const	{ return x[i]; }
+    /// indexing operator
+    ///
+    /// \param i    component index
 	NIH_HOST NIH_DEVICE FORCE_INLINE T& operator[](const size_t i)		{ return x[i]; }
 
+    /// vector dimension
+    ///
 	NIH_HOST NIH_DEVICE size_t dimension() const { return kDimension; }
 
 	T x[4];
 };
 
+/// 2-dimensional swizzling
+///
+/// \param op   input vector
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE bool operator==(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2)
-{
-	for (size_t i = 0; i < DIM; i++)
-    {
-		if (op1[i] != op2[i])
-            return false;
-    }
-	return true;
-}
-template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE bool operator!=(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2)
-{
-	for (size_t i = 0; i < DIM; i++)
-    {
-		if (op1[i] != op2[i])
-            return true;
-    }
-	return false;
-}
+FORCE_INLINE NIH_HOST_DEVICE Vector<T,2> xy(const Vector<T,DIM>& op);
 
+/// 2-dimensional swizzling
+///
+/// \param op   input vector
+template <typename T, size_t DIM>
+FORCE_INLINE NIH_HOST_DEVICE Vector<T,2> yx(const Vector<T,DIM>& op);
 
+/// 3-dimensional swizzling
+///
+/// \param op   input vector
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> operator*(const Vector<T,DIM>& op1, const T op2)
-{
-	Vector<T,DIM> r;
-	for (size_t i = 0; i < DIM; i++)
-		r[i] = op1[i] * op2;
-	return r;
-}
-template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> operator/(const Vector<T,DIM>& op1, const T op2)
-{
-	Vector<T,DIM> r;
-	for (size_t i = 0; i < DIM; i++)
-		r[i] = op1[i] / op2;
-	return r;
-}
-template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> operator*(const T op1, const Vector<T,DIM>& op2)
-{
-	Vector<T,DIM> r;
-	for (size_t i = 0; i < DIM; i++)
-		r[i] = op1 * op2[i];
-	return r;
-}
-template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM>& operator*=(Vector<T,DIM>& op1, const T op2)
-{
-	for (size_t i = 0; i < DIM; i++)
-		op1[i] *= op2;
-	return op1;
-}
+FORCE_INLINE NIH_HOST_DEVICE Vector<T,3> xyz(const Vector<T,DIM>& op);
 
+/// 3-dimensional swizzling
+///
+/// \param op   input vector
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> operator+(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2)
-{
-	Vector<T,DIM> r;
-	for (size_t i = 0; i < DIM; i++)
-		r[i] = op1[i] + op2[i];
-	return r;
-}
-template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> operator-(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2)
-{
-	Vector<T,DIM> r;
-	for (size_t i = 0; i < DIM; i++)
-		r[i] = op1[i] - op2[i];
-	return r;
-}
-template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> operator*(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2)
-{
-	Vector<T,DIM> r;
-	for (size_t i = 0; i < DIM; i++)
-		r[i] = op1[i] * op2[i];
-	return r;
-}
-template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> operator/(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2)
-{
-	Vector<T,DIM> r;
-	for (size_t i = 0; i < DIM; i++)
-		r[i] = op1[i] / op2[i];
-	return r;
-}
+FORCE_INLINE NIH_HOST_DEVICE Vector<T,3> xzy(const Vector<T,DIM>& op);
 
+/// 3-dimensional swizzling
+///
+/// \param op   input vector
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM>& operator+=(Vector<T,DIM>& op1, const Vector<T,DIM>& op2)
-{
-	for (size_t i = 0; i < DIM; i++)
-		op1[i] += op2[i];
-	return op1;
-}
-template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM>& operator-=(Vector<T,DIM>& op1, const Vector<T,DIM>& op2)
-{
-	for (size_t i = 0; i < DIM; i++)
-		op1[i] -= op2[i];
-	return op1;
-}
-template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM>& operator*=(Vector<T,DIM>& op1, const Vector<T,DIM>& op2)
-{
-	for (size_t i = 0; i < DIM; i++)
-		op1[i] *= op2[i];
-	return op1;
-}
-template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM>& operator/=(Vector<T,DIM>& op1, const Vector<T,DIM>& op2)
-{
-	for (size_t i = 0; i < DIM; i++)
-		op1[i] /= op2[i];
-	return op1;
-}
-template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM>& operator/=(Vector<T,DIM>& op1, const T op2)
-{
-	for (size_t i = 0; i < DIM; i++)
-		op1[i] /= op2;
-	return op1;
-}
+FORCE_INLINE NIH_HOST_DEVICE Vector<T,3> zyx(const Vector<T,DIM>& op);
 
+/// 3-dimensional swizzling
+///
+/// \param op   input vector
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> operator-(const Vector<T,DIM>& op1)
-{
-	Vector<T,DIM> r;
-	for (size_t i = 0; i < DIM; i++)
-		r[i] = -op1[i];
-	return r;
-}
+FORCE_INLINE NIH_HOST_DEVICE Vector<T,3> zxy(const Vector<T,DIM>& op);
 
+/// 3-dimensional swizzling
+///
+/// \param op   input vector
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE T intensity(const Vector<T,DIM>& v)
-{
-	T r(0.0);
-	for (size_t i = 0; i < DIM; i++)
-		r += v[i];
+FORCE_INLINE NIH_HOST_DEVICE Vector<T,3> yxz(const Vector<T,DIM>& op);
 
-	return r / float(v.dimension());
-}
+/// 3-dimensional swizzling
+///
+/// \param op   input vector
+template <typename T, size_t DIM>
+FORCE_INLINE NIH_HOST_DEVICE Vector<T,3> yzx(const Vector<T,DIM>& op);
+
+/// equality predicate operator
+///
+/// \param op1  first vector
+/// \param op2  second vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE bool operator==(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2);
+
+/// inequality predicate operator
+///
+/// \param op1  first vector
+/// \param op2  second vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE bool operator!=(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2);
+
+/// multiplication operator
+///
+/// \param op1  first vector
+/// \param op2  second vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> operator*(const Vector<T,DIM>& op1, const T op2);
+
+/// division operator
+///
+/// \param op1  first vector
+/// \param op2  second vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> operator/(const Vector<T,DIM>& op1, const T op2);
+
+/// multiplication operator
+///
+/// \param op1  first vector
+/// \param op2  second vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> operator*(const T op1, const Vector<T,DIM>& op2);
+
+/// multiplication operator
+///
+/// \param op1  first vector
+/// \param op2  second vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM>& operator*=(Vector<T,DIM>& op1, const T op2);
+
+/// addition operator
+///
+/// \param op1  first vector
+/// \param op2  second vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> operator+(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2);
+
+/// subtraction operator
+///
+/// \param op1  first vector
+/// \param op2  second vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> operator-(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2);
+
+/// multiplication operator
+///
+/// \param op1  first vector
+/// \param op2  second vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> operator*(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2);
+
+/// division operator
+///
+/// \param op1  first vector
+/// \param op2  second vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> operator/(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2);
+
+/// addition operator
+///
+/// \param op1  first vector
+/// \param op2  second vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM>& operator+=(Vector<T,DIM>& op1, const Vector<T,DIM>& op2);
+
+/// subtraction operator
+///
+/// \param op1  first vector
+/// \param op2  second vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM>& operator-=(Vector<T,DIM>& op1, const Vector<T,DIM>& op2);
+
+/// multiplication operator
+///
+/// \param op1  first vector
+/// \param op2  second vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM>& operator*=(Vector<T,DIM>& op1, const Vector<T,DIM>& op2);
+
+/// division operator
+///
+/// \param op1  first vector
+/// \param op2  second vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM>& operator/=(Vector<T,DIM>& op1, const Vector<T,DIM>& op2);
+
+/// division operator
+///
+/// \param op1  first vector
+/// \param op2  second vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM>& operator/=(Vector<T,DIM>& op1, const T op2);
+
+/// negation operator
+///
+/// \param op1  input vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> operator-(const Vector<T,DIM>& op1);
+
+/// intensity
+///
+/// \param v  input vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE T intensity(const Vector<T,DIM>& v);
+
+/// intensity
+///
+/// \param v  input vector
 template <typename T>
-NIH_HOST NIH_DEVICE FORCE_INLINE T intensity(const T v) { return v; }
+NIH_HOST NIH_DEVICE FORCE_INLINE T intensity(const T v);
 
+/// dot product
+///
+/// \param op1  first vector
+/// \param op2  second vector
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE T dot(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2)
-{
-	T r(0.0);
-	for (size_t i = 0; i < DIM; i++)
-		r += op1[i] * op2[i];
+NIH_HOST NIH_DEVICE FORCE_INLINE T dot(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2);
 
-	return r;
-}
+/// cross product
+///
+/// \param op1  first vector
+/// \param op2  second vector
 template <typename T>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,3u> cross(const Vector<T,3u>& op1, const Vector<T,3u>& op2)
-{
-	return Vector<T,3u>(
-		op1[1]*op2[2] - op1[2]*op2[1],
-		op1[2]*op2[0] - op1[0]*op2[2],
-		op1[0]*op2[1] - op1[1]*op2[0]);
-}
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,3u> cross(const Vector<T,3u>& op1, const Vector<T,3u>& op2);
+
+/// reflect a vector against a given normal
+///
+/// \param I    input vector
+/// \param N    input normal
 template <typename T>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,3> reflect(const Vector<T,3> I, const Vector<T,3> N)
-{
-	return I - T(2.0)*dot(I,N)*N;
-}
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,3> reflect(const Vector<T,3> I, const Vector<T,3> N);
+
+/// return a vector orthogonal to a given one
+///
+/// \param v    input vector
 template <typename T>
-NIH_HOST NIH_DEVICE Vector<T,3>	orthogonal(const Vector<T,3> v)
-{
-    if (v[0]*v[0] < v[1]*v[1])
-	{
-		if (v[0]*v[0] < v[2]*v[2])
-		{
-			// r = -cross( v, (1,0,0) )
-			return Vector<T,3>( 0.0f, -v[2], v[1] );
-		}
-		else
-		{
-			// r = -cross( v, (0,0,1) )
-			return Vector<T,3>( -v[1], v[0], 0.0 );
-		}
-	}
-	else
-	{
-		if (v[1]*v[1] < v[2]*v[2])
-		{
-			// r = -cross( v, (0,1,0) )
-			return Vector<T,3>( v[2], 0.0, -v[0] );
-		}
-		else
-		{
-			// r = -cross( v, (0,0,1) )
-			return Vector<T,3>( -v[1], v[0], 0.0 );
-		}
-	}
-}
-template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE T euclidean_distance(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2)
-{
-	const Vector<T,DIM> d( op1 - op2 );
-	return sqrtf( dot( d, d ) );
-}
-template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE T square_euclidean_distance(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2)
-{
-	const Vector<T,DIM> d( op1 - op2 );
-	return dot( d, d );
-}
+NIH_HOST NIH_DEVICE Vector<T,3>	orthogonal(const Vector<T,3> v);
 
+/// Euclidean distance
+///
+/// \param op1  first point
+/// \param op2  second point
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE T norm(const Vector<T,DIM>& op)
-{
-	return sqrtf( dot( op, op ) );
-}
+NIH_HOST NIH_DEVICE FORCE_INLINE T euclidean_distance(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2);
 
+/// square Euclidean distance
+///
+/// \param op1  first point
+/// \param op2  second point
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE T sq_norm(const Vector<T,DIM>& op)
-{
-	return dot( op, op );
-}
+NIH_HOST NIH_DEVICE FORCE_INLINE T square_euclidean_distance(const Vector<T,DIM>& op1, const Vector<T,DIM>& op2);
 
+/// Euclidean norm
+///
+/// \param v    input vector
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> normalize(const Vector<T,DIM> v)
-{
-#ifdef __CUDACC__
-	const T invNorm = rsqrtf( dot( v, v ) );
-#else
-	const T invNorm = 1.0f / sqrtf( dot( v, v ) );
-#endif
-	return v * invNorm;
-}
+NIH_HOST NIH_DEVICE FORCE_INLINE T norm(const Vector<T,DIM>& op);
 
+/// square Euclidean norm
+///
+/// \param v    input vector
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE T max_comp(const Vector<T,DIM>& v)
-{
-	float r = v[0];
-	for (uint32 i = 1; i < DIM; i++)
-		r = max( r, v[i] );
-	return r;
-}
+NIH_HOST NIH_DEVICE FORCE_INLINE T sq_norm(const Vector<T,DIM>& op);
 
+/// normalize a vector
+///
+/// \param v    input vector
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE uint32 max_element(const Vector<T,DIM>& v)
-{
-	float  max_r = v[0];
-    uint32 max_i = 0u;
-	for (uint32 i = 1; i < DIM; i++)
-    {
-        if (max_r < v[i])
-        {
-            max_r = v[i];
-            max_i = i;
-        }
-    }
-	return max_i;
-}
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> normalize(const Vector<T,DIM> v);
 
+/// compute the minimum component
+///
+/// \param v    input vector
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> min(const Vector<T,DIM>& v1, const Vector<T,DIM>& v2)
-{
-	Vector<T,DIM> r;
-	for (uint32 i = 0; i < DIM; i++)
-		r[i] = min( v1[i], v2[i] );
-	return r;
-}
+NIH_HOST NIH_DEVICE FORCE_INLINE T min_comp(const Vector<T,DIM>& v);
+
+/// compute the maximum component
+///
+/// \param v    input vector
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> max(const Vector<T,DIM>& v1, const Vector<T,DIM>& v2)
-{
-	Vector<T,DIM> r;
-	for (uint32 i = 0; i < DIM; i++)
-		r[i] = max( v1[i], v2[i] );
-	return r;
-}
+NIH_HOST NIH_DEVICE FORCE_INLINE T max_comp(const Vector<T,DIM>& v);
+
+/// compute the minimum component
+///
+/// \param v    input vector
+template <typename T>
+NIH_HOST NIH_DEVICE FORCE_INLINE T min_comp(const Vector<T,3>& v);
+
+/// compute the maximum component
+///
+/// \param v    input vector
+template <typename T>
+NIH_HOST NIH_DEVICE FORCE_INLINE T max_comp(const Vector<T,3>& v);
+
+/// compute the index of the maximum element
+///
+/// \param v    input vector
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE uint32 max_element(const Vector<T,DIM>& v);
+
+/// compute the component-wise min between two vectors
+///
+/// \param v1    first operand
+/// \param v2    second operand
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> min(const Vector<T,DIM>& v1, const Vector<T,DIM>& v2);
+
+/// compute the component-wise max between two vectors
+///
+/// \param v1    first operand
+/// \param v2    second operand
+template <typename T, size_t DIM>
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> max(const Vector<T,DIM>& v1, const Vector<T,DIM>& v2);
 
 /// compute the largest dimension of a given vector
+///
+/// \param v    input vector
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE uint32 largest_dim(const Vector<T,DIM>& v)
-{
-	return uint32( std::max_element( &v[0], &v[0] + DIM ) - &v[0] );
-}
+NIH_HOST NIH_DEVICE FORCE_INLINE uint32 largest_dim(const Vector<T,DIM>& v);
 
 /// return a normal facing in the opposite direction wrt the view vector
+///
+/// \param n        normal vector
+/// \param view     view vector
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> face_forward(const Vector<T,DIM>& n, const Vector<T,DIM>& view)
-{
-    return dot( n, view ) > 0.0f ? -n : n;
-}
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> face_forward(const Vector<T,DIM>& n, const Vector<T,DIM>& view);
 
 /// compute the modulus of a vector
+///
+/// \param v    input vector
+/// \param m    modulus
 template <typename T, size_t DIM>
-NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> mod(const Vector<T,DIM>& v, const float m)
-{
-    Vector<T,DIM> r;
-	for (uint32 i = 0; i < DIM; i++)
-        r[i] = nih::mod( v[i], m );
-	return r;
-}
+NIH_HOST NIH_DEVICE FORCE_INLINE Vector<T,DIM> mod(const Vector<T,DIM>& v, const float m);
 
 typedef Vector<float,2> Vector2f;
 typedef Vector<float,3> Vector3f;
@@ -554,7 +669,7 @@ struct Vector_traits< Vector<T,DIM> >
 };
 
 ///
-/// Abstract linear algebra vector class, templated over type and specialized to dimension 4
+/// Abstract linear algebra vector class, templated over type and with dynamic dimension
 ///
 template <typename T>
 struct Dynamic_vector
@@ -562,27 +677,61 @@ struct Dynamic_vector
 	typedef T           value_type;
 	typedef T           Field_type;
 
+    /// empty constructor
+    ///
 	NIH_HOST FORCE_INLINE Dynamic_vector() {}
+
+    /// constructor
+    ///
+    /// \param dim  vector dimension
     NIH_HOST explicit Dynamic_vector(const size_t dim) : x( dim ) {}
+
+    /// constructor
+    ///
+    /// \param dim  vector dimension
+    /// \param v    scalar value
     NIH_HOST Dynamic_vector(const size_t dim, const T v) : x( dim, v ) {}
+
+    /// constructor
+    ///
+    /// \param dim  vector dimension
+    /// \param v    input array
     NIH_HOST Dynamic_vector(const size_t dim, const T* v) :
         x( dim )
 	{
 		for (size_t i = 0; i < dim; i++)
 			x[i] = v[i];
 	}
+    /// copy constructor
+    ///
+    /// \param v    input vector
     NIH_HOST FORCE_INLINE Dynamic_vector(const Dynamic_vector& v) : x( v.x ) {}
 
+    /// assignment operator
+    ///
+    /// \param v    input vector
 	NIH_HOST FORCE_INLINE Dynamic_vector& operator=(const Dynamic_vector& v)
 	{
         x = v.x;
 		return *this;
 	}
-	NIH_HOST FORCE_INLINE const T& operator[](const size_t i) const   { return x[i]; }
-	NIH_HOST FORCE_INLINE T&       operator[](const size_t i)         { return x[i]; }
 
+    /// const indexing operator
+    ///
+    /// \param i    component index
+    NIH_HOST FORCE_INLINE const T& operator[](const size_t i) const   { return x[i]; }
+    /// indexing operator
+    ///
+    /// \param i    component index
+    NIH_HOST FORCE_INLINE T&       operator[](const size_t i)         { return x[i]; }
+
+    /// vector dimension
+    ///
 	NIH_HOST FORCE_INLINE size_t dimension() const { return x.size(); }
 
+    /// resize dimension
+    ///
+    /// \param n   new vector size
     NIH_HOST void resize(const size_t n) { x.resize(n); }
 
     std::vector<T> x;
@@ -597,183 +746,72 @@ struct Vector_traits< Dynamic_vector<T> >
 
 
 template <typename T>
-NIH_HOST bool operator==(const Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2)
-{
-	for (size_t i = 0; i < op1.dimension(); i++)
-    {
-		if (op1[i] != op2[i])
-            return false;
-    }
-	return true;
-}
+NIH_HOST bool operator==(const Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2);
+
 template <typename T, size_t DIM>
-NIH_HOST bool operator!=(const Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2)
-{
-	for (size_t i = 0; i < op1.dimension(); i++)
-    {
-		if (op1[i] != op2[i])
-            return true;
-    }
-	return false;
-}
-
+NIH_HOST bool operator!=(const Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2);
 
 template <typename T>
-NIH_HOST FORCE_INLINE Dynamic_vector<T> operator*(const Dynamic_vector<T>& op1, const T op2)
-{
-	Dynamic_vector<T> r( op1.dimension() );
-	for (size_t i = 0; i < op1.dimension(); i++)
-		r[i] = op1[i] * op2;
-	return r;
-}
-template <typename T>
-NIH_HOST FORCE_INLINE Dynamic_vector<T> operator/(const Dynamic_vector<T>& op1, const T op2)
-{
-	Dynamic_vector<T> r( op1.dimension() );
-	for (size_t i = 0; i < op1.dimension(); i++)
-		r[i] = op1[i] / op2;
-	return r;
-}
-template <typename T>
-NIH_HOST FORCE_INLINE Dynamic_vector<T> operator*(const T op1, const Dynamic_vector<T>& op2)
-{
-	Dynamic_vector<T> r( op2.dimension() );
-	for (size_t i = 0; i < op2.dimension(); i++)
-		r[i] = op1 * op2[i];
-	return r;
-}
-template <typename T>
-NIH_HOST FORCE_INLINE Dynamic_vector<T>& operator*=(Dynamic_vector<T>& op1, const T op2)
-{
-	for (size_t i = 0; i < op1.dimension(); i++)
-		op1[i] *= op2;
-	return op1;
-}
+NIH_HOST FORCE_INLINE Dynamic_vector<T> operator*(const Dynamic_vector<T>& op1, const T op2);
 
 template <typename T>
-NIH_HOST FORCE_INLINE Dynamic_vector<T> operator+(const Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2)
-{
-	Dynamic_vector<T> r;
-	for (size_t i = 0; i < op1.dimension(); i++)
-		r[i] = op1[i] + op2[i];
-	return r;
-}
-template <typename T>
-NIH_HOST FORCE_INLINE Dynamic_vector<T> operator-(const Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2)
-{
-	Dynamic_vector<T> r( op1.dimension() );
-	for (size_t i = 0; i < op1.dimension(); i++)
-		r[i] = op1[i] - op2[i];
-	return r;
-}
-template <typename T>
-NIH_HOST FORCE_INLINE Dynamic_vector<T> operator*(const Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2)
-{
-	Dynamic_vector<T> r( op1.dimension() );
-	for (size_t i = 0; i < op1.dimension(); i++)
-		r[i] = op1[i] * op2[i];
-	return r;
-}
-template <typename T>
-NIH_HOST FORCE_INLINE Dynamic_vector<T> operator/(const Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2)
-{
-	Dynamic_vector<T> r( op1.dimension() );
-	for (size_t i = 0; i < op1.dimension(); i++)
-		r[i] = op1[i] / op2[i];
-	return r;
-}
+NIH_HOST FORCE_INLINE Dynamic_vector<T> operator/(const Dynamic_vector<T>& op1, const T op2);
 
 template <typename T>
-NIH_HOST FORCE_INLINE Dynamic_vector<T>& operator+=(Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2)
-{
-	for (size_t i = 0; i < op1.dimension(); i++)
-		op1[i] += op2[i];
-	return op1;
-}
-template <typename T>
-NIH_HOST FORCE_INLINE Dynamic_vector<T>& operator-=(Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2)
-{
-	for (size_t i = 0; i < op1.dimension(); i++)
-		op1[i] -= op2[i];
-	return op1;
-}
-template <typename T>
-NIH_HOST FORCE_INLINE Dynamic_vector<T>& operator*=(Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2)
-{
-	for (size_t i = 0; i < op1.dimension(); i++)
-		op1[i] *= op2[i];
-	return op1;
-}
-template <typename T>
-NIH_HOST FORCE_INLINE Dynamic_vector<T>& operator/=(Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2)
-{
-	for (size_t i = 0; i < op1.dimension(); i++)
-		op1[i] /= op2[i];
-	return op1;
-}
-template <typename T>
-NIH_HOST FORCE_INLINE Dynamic_vector<T>& operator/=(Dynamic_vector<T>& op1, const T op2)
-{
-	for (size_t i = 0; i < op1.dimension(); i++)
-		op1[i] /= op2;
-	return op1;
-}
+NIH_HOST FORCE_INLINE Dynamic_vector<T> operator*(const T op1, const Dynamic_vector<T>& op2);
 
 template <typename T>
-NIH_HOST FORCE_INLINE Dynamic_vector<T> operator-(const Dynamic_vector<T>& op1)
-{
-	Dynamic_vector<T> r( op1.dimension() );
-	for (size_t i = 0; i < op1.dimension(); i++)
-		r[i] = -op1[i];
-	return r;
-}
+NIH_HOST FORCE_INLINE Dynamic_vector<T>& operator*=(Dynamic_vector<T>& op1, const T op2);
 
 template <typename T>
-NIH_HOST FORCE_INLINE T intensity(const Dynamic_vector<T>& v)
-{
-	T r(0.0);
-	for (size_t i = 0; i < v.dimension(); i++)
-		r += v[i];
-
-	return r / float(v.dimension());
-}
+NIH_HOST FORCE_INLINE Dynamic_vector<T> operator+(const Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2);
 
 template <typename T>
-NIH_HOST FORCE_INLINE T dot(const Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2)
-{
-	T r(0.0);
-	for (size_t i = 0; i < op1.dimension(); i++)
-		r += op1[i] * op2[i];
-
-	return r;
-}
+NIH_HOST FORCE_INLINE Dynamic_vector<T> operator-(const Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2);
+template <typename T>
+NIH_HOST FORCE_INLINE Dynamic_vector<T> operator*(const Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2);
+template <typename T>
+NIH_HOST FORCE_INLINE Dynamic_vector<T> operator/(const Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2);
 
 template <typename T>
-NIH_HOST FORCE_INLINE T norm(const Dynamic_vector<T>& op)
-{
-	return sqrtf( dot( op, op ) );
-}
+NIH_HOST FORCE_INLINE Dynamic_vector<T>& operator+=(Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2);
 
 template <typename T>
-NIH_HOST FORCE_INLINE T sq_norm(const Dynamic_vector<T>& op)
-{
-	return dot( op, op );
-}
+NIH_HOST FORCE_INLINE Dynamic_vector<T>& operator-=(Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2);
 
 template <typename T>
-NIH_HOST FORCE_INLINE Dynamic_vector<T> normalize(const Dynamic_vector<T> v)
-{
-	const T invNorm = 1.0f / sqrtf( dot( v, v ) );
-	return v * invNorm;
-}
+NIH_HOST FORCE_INLINE Dynamic_vector<T>& operator*=(Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2);
 
 template <typename T>
-NIH_HOST FORCE_INLINE T max_comp(const Dynamic_vector<T>& v)
-{
-	float r = v[0];
-	for (uint32 i = 1; i < v.dimension(); i++)
-		r = max( r, v[i] );
-	return r;
-}
+NIH_HOST FORCE_INLINE Dynamic_vector<T>& operator/=(Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2);
+
+template <typename T>
+NIH_HOST FORCE_INLINE Dynamic_vector<T>& operator/=(Dynamic_vector<T>& op1, const T op2);
+
+template <typename T>
+NIH_HOST FORCE_INLINE Dynamic_vector<T> operator-(const Dynamic_vector<T>& op1);
+
+template <typename T>
+NIH_HOST FORCE_INLINE T intensity(const Dynamic_vector<T>& v);
+
+template <typename T>
+NIH_HOST FORCE_INLINE T dot(const Dynamic_vector<T>& op1, const Dynamic_vector<T>& op2);
+
+template <typename T>
+NIH_HOST FORCE_INLINE T norm(const Dynamic_vector<T>& op);
+
+template <typename T>
+NIH_HOST FORCE_INLINE T sq_norm(const Dynamic_vector<T>& op);
+
+template <typename T>
+NIH_HOST FORCE_INLINE Dynamic_vector<T> normalize(const Dynamic_vector<T> v);
+
+template <typename T>
+NIH_HOST FORCE_INLINE T max_comp(const Dynamic_vector<T>& v);
+
+/*! \}
+ */
 
 } // namespace nih
+
+#include <nih/linalg/vector_inline.h>

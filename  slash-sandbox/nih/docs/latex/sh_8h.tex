@@ -1,0 +1,38 @@
+\hypertarget{sh_8h}{
+\section{\-C\-:/p4research/research/jpantaleoni/nih/spherical/sh.h \-File \-Reference}
+\label{sh_8h}\index{\-C\-:/p4research/research/jpantaleoni/nih/spherical/sh.\-h@{\-C\-:/p4research/research/jpantaleoni/nih/spherical/sh.\-h}}
+}
+
+
+\-Defines spherical and zonal harmonics functions and classes.  
+
+
+{\ttfamily \#include $<$nih/basic/numbers.\-h$>$}\*
+{\ttfamily \#include $<$nih/linalg/vector.\-h$>$}\*
+{\ttfamily \#include $<$nih/analysis/project.\-h$>$}\*
+{\ttfamily \#include $<$nih/basic/functors.\-h$>$}\*
+{\ttfamily \#include $<$nih/spherical/sh\-\_\-inline.\-h$>$}\*
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1_s_h__basis}{nih\-::\-S\-H\-\_\-basis$<$ L $>$}
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Vector3 $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{group__spherical__functions_ga61b3dccbdbb3265ced8cfefc49c4f96c}{nih\-::sh} (const int32 l, const int32 m, const \-Vector3 \&v)
+\item 
+{\footnotesize template$<$int32 l, typename Vector3 $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{group__spherical__functions_ga84c13afac74205bed1f5f3a382088394}{nih\-::sh} (const int32 m, const \-Vector3 \&v)
+\item 
+{\footnotesize template$<$int32 l, int32 m, typename Vector3 $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{group__spherical__functions_ga093407ba5202540f5ca6cc3da2567970}{nih\-::sh} (const \-Vector3 \&v)
+\item 
+{\footnotesize template$<$typename Z\-H\-Vector , typename S\-H\-Vector , typename Vector3 $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E void \hyperlink{group__spherical__functions_gac4367786c521d9b0e54b08dd27bcc391}{nih\-::rotate\-\_\-\-Z\-H} (const int32 \-L, const \-Z\-H\-Vector \&zh\-\_\-coeff, const \-Vector3 \&d, \-S\-H\-Vector \&sh\-\_\-coeff)
+\item 
+{\footnotesize template$<$int32 \-L, typename Z\-H\-Vector , typename S\-H\-Vector , typename Vector3 $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E void \hyperlink{group__spherical__functions_gad3026df527a2ed22cead3594bdd25b19}{nih\-::rotate\-\_\-\-Z\-H} (const \-Z\-H\-Vector \&zh\-\_\-coeff, const \-Vector3 \&d, \-S\-H\-Vector \&sh\-\_\-coeff)
+\item 
+{\footnotesize template$<$int32 l, int32 m, typename Vector3 $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{group__spherical__functions_ga0cea7b5e2aa00742a2e8d00af322edf3}{nih\-::rotate\-\_\-\-Z\-H} (const float zh\-\_\-l, const \-Vector3 \&d)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Defines spherical and zonal harmonics functions and classes. 

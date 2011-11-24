@@ -27,6 +27,12 @@
 
 namespace nih {
 
+// rotate a zonal harmonics to an arbitrary direction vector
+//
+// \param L            number of bands
+// \param zh_coeff     input Zonal Harmonics coefficients
+// \param d            input vector
+// \param sh_coeff     output Spherical Harmonics coefficients
 template <typename ZHVector, typename SHVector, typename Vector3>
 NIH_HOST_DEVICE void rotate_ZH(const int32 L, const ZHVector& zh_coeff, const Vector3& d, SHVector& sh_coeff)
 {
@@ -35,6 +41,11 @@ NIH_HOST_DEVICE void rotate_ZH(const int32 L, const ZHVector& zh_coeff, const Ve
             sh_coeff[ l*l + m+l ] = sqrtf( 4.0f*M_PIf / float(2*l + 1) ) * zh_coeff[l] * sh( l, m, d );
 }
 
+// return the (l,m) spherical harmonics coefficient of a zonal harmonics
+// function rotated to match a given axis.
+//
+// \param zh_l         l-band zonal harmonics coefficient
+// \param d            input vector
 template <int32 l, int32 m, typename Vector3>
 NIH_HOST_DEVICE float rotate_ZH(const float zh_l, const Vector3& d)
 {
@@ -82,12 +93,23 @@ struct ZH_rotation<0>
     }
 };
 
+// rotate a zonal harmonics to an arbitrary direction vector, with
+// the number of bands specified at compile-time.
+//
+// \param zh_coeff     input Zonal Harmonics coefficients
+// \param d            input vector
+// \param sh_coeff     output Spherical Harmonics coefficients
 template <int32 L, typename ZHVector, typename SHVector, typename Vector3>
 NIH_HOST_DEVICE void rotate_ZH(const ZHVector& zh_coeff, const Vector3& d, SHVector& sh_coeff)
 {
     ZH_rotation<L-1>::eval( zh_coeff, d, sh_coeff );
 }
 
+// evaluate the (l,m)-th basis function on a given vector
+//
+// \param l    band index
+// \param m    subband index
+// \param v    input vector
 template <typename Vector3>
 NIH_HOST_DEVICE float sh(const int32 l, const int32 m, const Vector3& v)
 {
@@ -161,6 +183,10 @@ NIH_HOST_DEVICE float sh(const int32 l, const int32 m, const Vector3& v)
 #endif
     return 0.0f;
 }
+// evaluate the (l,m)-th basis function on a given vector, where
+// l and m are determined at compile-time.
+//
+// \param v    input vector
 template <int32 l, int32 m, typename Vector3>
 NIH_HOST_DEVICE float sh(const Vector3& v)
 {
@@ -215,6 +241,11 @@ NIH_HOST_DEVICE float sh(const Vector3& v)
     return 0.0f;
 }
 
+// evaluate the (l,m)-th basis function on a given vector, where
+// l is determined at compile-time.
+//
+// \param m    subband index
+// \param v    input vector
 template <int32 l, typename Vector3>
 NIH_HOST_DEVICE float sh(const int32 m, const Vector3& v)
 {
@@ -260,6 +291,58 @@ NIH_HOST_DEVICE float sh(const int32 m, const Vector3& v)
             return sh<3,-3>( v );
     }
     return 0.0f;
+}
+
+// evaluate the i-th coefficient at a given point
+//
+// \param i    coefficient index
+// \param d    direction vector
+template <int32 L>
+template <typename Vector3>
+NIH_HOST_DEVICE float SH_basis<L>::eval(const int32 i, const Vector3& d)
+{
+    if (i == 0)
+        return sh<0>( 0, d );
+    else if (i < 4)
+        return sh<1>( i - 2, d );
+    else if (i < 9)
+        return sh<2>( i - 6, d );
+    else
+        return sh<3>( i - 12, d );
+}
+
+// add a weighted basis expansion of a clamped cosine lobe to a given
+// set of coefficients
+//
+// \param normal   input normal
+// \param w        scalar weight
+// \param coeffs   input/output coefficients
+template <int32 L>
+NIH_HOST_DEVICE void SH_basis<L>::clamped_cosine(const Vector3f& normal, const float w, float* coeffs)
+{
+    const float zh[4] = {
+        0.886214f,
+        1.023202f,
+        0.495443f,
+        0.013224f };
+
+    float sh[COEFFS];
+    rotate_ZH<L>( zh, normal, sh );
+
+    for (uint32 i = 0; i < COEFFS; ++i)
+        coeffs[i] += sh[i] * w;
+}
+
+// return the basis expansion of a constant
+//
+// \param k        input constant
+// \param coeffs   output coefficients
+template <int32 L>
+NIH_HOST_DEVICE void SH_basis<L>::constant(float k, float* coeffs)
+{
+    coeffs[0] = k * 2.0f*sqrtf(M_PIf);
+    for (int32 i = 1; i < COEFFS; ++i)
+        coeffs[i] = 0.0f;
 }
 
 } // namespace nih

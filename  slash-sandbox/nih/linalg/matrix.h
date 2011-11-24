@@ -32,6 +32,10 @@
 
 namespace nih {
 
+/*! \addtogroup linalg Linear Algebra
+ *  \{
+ */
+
 ///
 /// A dense N x M matrix class over a templated type T.
 ///
@@ -129,6 +133,9 @@ NIH_HOST NIH_DEVICE inline Vector3f ptrans(const Matrix4x4f& m, const Vector3f& 
 
 /// transform a 3d vector with a perspective transform
 NIH_HOST NIH_DEVICE inline Vector3f vtrans(const Matrix4x4f& m, const Vector3f& v);
+
+/*! \}
+ */
 
 } // namespace nih
 

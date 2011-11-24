@@ -1,0 +1,303 @@
+\hypertarget{structnih_1_1_bvh__node}{
+\section{nih\-:\-:\-Bvh\-\_\-node \-Struct \-Reference}
+\label{structnih_1_1_bvh__node}\index{nih\-::\-Bvh\-\_\-node@{nih\-::\-Bvh\-\_\-node}}
+}
+
+
+{\ttfamily \#include $<$bvh.\-h$>$}
+
+\subsection*{\-Public \-Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_bvh__node_ac430632437ba9be16f431dd72b4a8c00}{
+typedef uint32 {\bfseries \-Type}}
+\label{structnih_1_1_bvh__node_ac430632437ba9be16f431dd72b4a8c00}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \hyperlink{structnih_1_1_bvh__node_a9c5cc985a82d40aa2261f54f4dd6cb48}{\-Bvh\-\_\-node} ()
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \hyperlink{structnih_1_1_bvh__node_a9e47e12cb0b74d5dab425d52728655dc}{\-Bvh\-\_\-node} (const \-Type type, const uint32 index, const uint32 skip\-\_\-node)
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E void \hyperlink{structnih_1_1_bvh__node_ab09c9d3422fee1af8c59f71af6ecf64a}{set\-\_\-type} (const \-Type type)
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E void \hyperlink{structnih_1_1_bvh__node_a06c1cb6707abd1528279589bece1219b}{set\-\_\-index} (const uint32 index)
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E void \hyperlink{structnih_1_1_bvh__node_a43b2efd756d9247f3346514acb6b42ef}{set\-\_\-skip\-\_\-node} (const uint32 index)
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E bool \hyperlink{structnih_1_1_bvh__node_aa05acdb24d7dcaa05c312f2c438b3222}{is\-\_\-leaf} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_bvh__node_a47f6279f9f1573509bd8432cbba838ba}{get\-\_\-index} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_bvh__node_abece4a67339eb87d77bcde89eddc99fd}{get\-\_\-leaf\-\_\-index} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_bvh__node_ad38cb99e5f6fd655af6e8564d33ec13b}{get\-\_\-skip\-\_\-node} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_bvh__node_a90bab612db7374f45473be06a157af25}{get\-\_\-child\-\_\-count} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_bvh__node_aaafd54ee653c9dd8a30df95050db0d1f}{get\-\_\-child} (const uint32 i) const 
+\end{DoxyCompactItemize}
+\subsection*{\-Static \-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_bvh__node_ac2b934af5e1eaf6ede62cdfbe787dd92}{packed\-\_\-data} (const \-Type type, const uint32 index)
+\item 
+static \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E void \hyperlink{structnih_1_1_bvh__node_a441932bfafb05c24dd7feaa01dde6eb9}{set\-\_\-type} (uint32 \&packed\-\_\-data, const \-Type type)
+\item 
+static \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E void \hyperlink{structnih_1_1_bvh__node_abd1eb29c4623fc3de7879dc0eb5695c5}{set\-\_\-index} (uint32 \&packed\-\_\-data, const uint32 index)
+\item 
+\hypertarget{structnih_1_1_bvh__node_a42e670ea779959874780e3220a402214}{
+static \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E bool {\bfseries is\-\_\-leaf} (const uint32 packed\-\_\-data)}
+\label{structnih_1_1_bvh__node_a42e670ea779959874780e3220a402214}
+
+\item 
+\hypertarget{structnih_1_1_bvh__node_accffa20e50a6076ceca639b7ad901218}{
+static \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E uint32 {\bfseries get\-\_\-index} (const uint32 packed\-\_\-data)}
+\label{structnih_1_1_bvh__node_accffa20e50a6076ceca639b7ad901218}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_bvh__node_aa6c1e279b4d20f76d4bc511e7a52e6d5}{
+uint32 {\bfseries m\-\_\-packed\-\_\-data}}
+\label{structnih_1_1_bvh__node_aa6c1e279b4d20f76d4bc511e7a52e6d5}
+
+\item 
+\hypertarget{structnih_1_1_bvh__node_a2404bbfd713c958c6e20b282786bf999}{
+uint32 {\bfseries m\-\_\-skip\-\_\-node}}
+\label{structnih_1_1_bvh__node_a2404bbfd713c958c6e20b282786bf999}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Static \-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_bvh__node_a889438f2fc6391772fe2e8023157e34e}{
+static const uint32 {\bfseries k\-Leaf} = (1u $<$$<$ 31u)}
+\label{structnih_1_1_bvh__node_a889438f2fc6391772fe2e8023157e34e}
+
+\item 
+\hypertarget{structnih_1_1_bvh__node_ae8120e97f8f1a15f95af7a382d10f444}{
+static const uint32 {\bfseries k\-Internal} = 0x00000000u}
+\label{structnih_1_1_bvh__node_ae8120e97f8f1a15f95af7a382d10f444}
+
+\item 
+\hypertarget{structnih_1_1_bvh__node_a80a999554f86a11a84130177ab202e15}{
+static const uint32 {\bfseries k\-Invalid} = uint32(-\/1)}
+\label{structnih_1_1_bvh__node_a80a999554f86a11a84130177ab202e15}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\hyperlink{structnih_1_1_bvh}{\-Bvh} node struct 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{structnih_1_1_bvh__node_a9c5cc985a82d40aa2261f54f4dd6cb48}{
+\index{nih\-::\-Bvh\-\_\-node@{nih\-::\-Bvh\-\_\-node}!\-Bvh\-\_\-node@{\-Bvh\-\_\-node}}
+\index{\-Bvh\-\_\-node@{\-Bvh\-\_\-node}!nih::Bvh_node@{nih\-::\-Bvh\-\_\-node}}
+\subsubsection[{\-Bvh\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E nih\-::\-Bvh\-\_\-node\-::\-Bvh\-\_\-node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bvh__node_a9c5cc985a82d40aa2261f54f4dd6cb48}
+empty constructor \hypertarget{structnih_1_1_bvh__node_a9e47e12cb0b74d5dab425d52728655dc}{
+\index{nih\-::\-Bvh\-\_\-node@{nih\-::\-Bvh\-\_\-node}!\-Bvh\-\_\-node@{\-Bvh\-\_\-node}}
+\index{\-Bvh\-\_\-node@{\-Bvh\-\_\-node}!nih::Bvh_node@{nih\-::\-Bvh\-\_\-node}}
+\subsubsection[{\-Bvh\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}nih\-::\-Bvh\-\_\-node\-::\-Bvh\-\_\-node (
+\begin{DoxyParamCaption}
+\item[{const \-Type}]{type, }
+\item[{const uint32}]{index, }
+\item[{const uint32}]{skip\-\_\-node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bvh__node_a9e47e12cb0b74d5dab425d52728655dc}
+full constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em type} & node type \\
+\hline
+{\em index} & child/leaf index \\
+\hline
+{\em skip\-\_\-node} & skip node index \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1_bvh__node_aaafd54ee653c9dd8a30df95050db0d1f}{
+\index{nih\-::\-Bvh\-\_\-node@{nih\-::\-Bvh\-\_\-node}!get\-\_\-child@{get\-\_\-child}}
+\index{get\-\_\-child@{get\-\_\-child}!nih::Bvh_node@{nih\-::\-Bvh\-\_\-node}}
+\subsubsection[{get\-\_\-child}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Bvh\-\_\-node\-::get\-\_\-child (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bvh__node_aaafd54ee653c9dd8a30df95050db0d1f}
+get i-\/th child
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em i} & child index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_bvh__node_a90bab612db7374f45473be06a157af25}{
+\index{nih\-::\-Bvh\-\_\-node@{nih\-::\-Bvh\-\_\-node}!get\-\_\-child\-\_\-count@{get\-\_\-child\-\_\-count}}
+\index{get\-\_\-child\-\_\-count@{get\-\_\-child\-\_\-count}!nih::Bvh_node@{nih\-::\-Bvh\-\_\-node}}
+\subsubsection[{get\-\_\-child\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Bvh\-\_\-node\-::get\-\_\-child\-\_\-count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bvh__node_a90bab612db7374f45473be06a157af25}
+get child count \hypertarget{structnih_1_1_bvh__node_a47f6279f9f1573509bd8432cbba838ba}{
+\index{nih\-::\-Bvh\-\_\-node@{nih\-::\-Bvh\-\_\-node}!get\-\_\-index@{get\-\_\-index}}
+\index{get\-\_\-index@{get\-\_\-index}!nih::Bvh_node@{nih\-::\-Bvh\-\_\-node}}
+\subsubsection[{get\-\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Bvh\-\_\-node\-::get\-\_\-index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bvh__node_a47f6279f9f1573509bd8432cbba838ba}
+get child/leaf index \hypertarget{structnih_1_1_bvh__node_abece4a67339eb87d77bcde89eddc99fd}{
+\index{nih\-::\-Bvh\-\_\-node@{nih\-::\-Bvh\-\_\-node}!get\-\_\-leaf\-\_\-index@{get\-\_\-leaf\-\_\-index}}
+\index{get\-\_\-leaf\-\_\-index@{get\-\_\-leaf\-\_\-index}!nih::Bvh_node@{nih\-::\-Bvh\-\_\-node}}
+\subsubsection[{get\-\_\-leaf\-\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Bvh\-\_\-node\-::get\-\_\-leaf\-\_\-index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bvh__node_abece4a67339eb87d77bcde89eddc99fd}
+get leaf index \hypertarget{structnih_1_1_bvh__node_ad38cb99e5f6fd655af6e8564d33ec13b}{
+\index{nih\-::\-Bvh\-\_\-node@{nih\-::\-Bvh\-\_\-node}!get\-\_\-skip\-\_\-node@{get\-\_\-skip\-\_\-node}}
+\index{get\-\_\-skip\-\_\-node@{get\-\_\-skip\-\_\-node}!nih::Bvh_node@{nih\-::\-Bvh\-\_\-node}}
+\subsubsection[{get\-\_\-skip\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Bvh\-\_\-node\-::get\-\_\-skip\-\_\-node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bvh__node_ad38cb99e5f6fd655af6e8564d33ec13b}
+get skip node index \hypertarget{structnih_1_1_bvh__node_aa05acdb24d7dcaa05c312f2c438b3222}{
+\index{nih\-::\-Bvh\-\_\-node@{nih\-::\-Bvh\-\_\-node}!is\-\_\-leaf@{is\-\_\-leaf}}
+\index{is\-\_\-leaf@{is\-\_\-leaf}!nih::Bvh_node@{nih\-::\-Bvh\-\_\-node}}
+\subsubsection[{is\-\_\-leaf}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E bool nih\-::\-Bvh\-\_\-node\-::is\-\_\-leaf (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bvh__node_aa05acdb24d7dcaa05c312f2c438b3222}
+is a leaf? \hypertarget{structnih_1_1_bvh__node_ac2b934af5e1eaf6ede62cdfbe787dd92}{
+\index{nih\-::\-Bvh\-\_\-node@{nih\-::\-Bvh\-\_\-node}!packed\-\_\-data@{packed\-\_\-data}}
+\index{packed\-\_\-data@{packed\-\_\-data}!nih::Bvh_node@{nih\-::\-Bvh\-\_\-node}}
+\subsubsection[{packed\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}static \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Bvh\-\_\-node\-::packed\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{const \-Type}]{type, }
+\item[{const uint32}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{structnih_1_1_bvh__node_ac2b934af5e1eaf6ede62cdfbe787dd92}
+compute packed data
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em type} & node type \\
+\hline
+{\em index} & child/leaf index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_bvh__node_a06c1cb6707abd1528279589bece1219b}{
+\index{nih\-::\-Bvh\-\_\-node@{nih\-::\-Bvh\-\_\-node}!set\-\_\-index@{set\-\_\-index}}
+\index{set\-\_\-index@{set\-\_\-index}!nih::Bvh_node@{nih\-::\-Bvh\-\_\-node}}
+\subsubsection[{set\-\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}void nih\-::\-Bvh\-\_\-node\-::set\-\_\-index (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bvh__node_a06c1cb6707abd1528279589bece1219b}
+set child/leaf index
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em index} & child/leaf index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_bvh__node_abd1eb29c4623fc3de7879dc0eb5695c5}{
+\index{nih\-::\-Bvh\-\_\-node@{nih\-::\-Bvh\-\_\-node}!set\-\_\-index@{set\-\_\-index}}
+\index{set\-\_\-index@{set\-\_\-index}!nih::Bvh_node@{nih\-::\-Bvh\-\_\-node}}
+\subsubsection[{set\-\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}static \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E void nih\-::\-Bvh\-\_\-node\-::set\-\_\-index (
+\begin{DoxyParamCaption}
+\item[{uint32 \&}]{packed\-\_\-data, }
+\item[{const uint32}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{structnih_1_1_bvh__node_abd1eb29c4623fc3de7879dc0eb5695c5}
+set child/leaf index into a packed data
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em packed\-\_\-data} & packed data \\
+\hline
+{\em index} & child/leaf index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_bvh__node_a43b2efd756d9247f3346514acb6b42ef}{
+\index{nih\-::\-Bvh\-\_\-node@{nih\-::\-Bvh\-\_\-node}!set\-\_\-skip\-\_\-node@{set\-\_\-skip\-\_\-node}}
+\index{set\-\_\-skip\-\_\-node@{set\-\_\-skip\-\_\-node}!nih::Bvh_node@{nih\-::\-Bvh\-\_\-node}}
+\subsubsection[{set\-\_\-skip\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}void nih\-::\-Bvh\-\_\-node\-::set\-\_\-skip\-\_\-node (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bvh__node_a43b2efd756d9247f3346514acb6b42ef}
+set skip node index
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em index} & skip node index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_bvh__node_ab09c9d3422fee1af8c59f71af6ecf64a}{
+\index{nih\-::\-Bvh\-\_\-node@{nih\-::\-Bvh\-\_\-node}!set\-\_\-type@{set\-\_\-type}}
+\index{set\-\_\-type@{set\-\_\-type}!nih::Bvh_node@{nih\-::\-Bvh\-\_\-node}}
+\subsubsection[{set\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}void nih\-::\-Bvh\-\_\-node\-::set\-\_\-type (
+\begin{DoxyParamCaption}
+\item[{const \-Type}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bvh__node_ab09c9d3422fee1af8c59f71af6ecf64a}
+set node type
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em type} & node type \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_bvh__node_a441932bfafb05c24dd7feaa01dde6eb9}{
+\index{nih\-::\-Bvh\-\_\-node@{nih\-::\-Bvh\-\_\-node}!set\-\_\-type@{set\-\_\-type}}
+\index{set\-\_\-type@{set\-\_\-type}!nih::Bvh_node@{nih\-::\-Bvh\-\_\-node}}
+\subsubsection[{set\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}static \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E void nih\-::\-Bvh\-\_\-node\-::set\-\_\-type (
+\begin{DoxyParamCaption}
+\item[{uint32 \&}]{packed\-\_\-data, }
+\item[{const \-Type}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{structnih_1_1_bvh__node_a441932bfafb05c24dd7feaa01dde6eb9}
+set node type into a packed data
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em packed\-\_\-data} & packed data \\
+\hline
+{\em type} & node type \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\-C\-:/p4research/research/jpantaleoni/nih/bvh/\hyperlink{bvh_8h}{bvh.\-h}\item 
+\-C\-:/p4research/research/jpantaleoni/nih/bvh/bvh\-\_\-inline.\-h\end{DoxyCompactItemize}

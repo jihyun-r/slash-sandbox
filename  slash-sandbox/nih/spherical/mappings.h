@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file mappings.h
+ *   \brief Defines various spherical mappings.
+ */
+
 #pragma once
 
 #include <nih/basic/numbers.h>
@@ -33,29 +37,52 @@
 
 namespace nih {
 
+/*! \addtogroup spherical_functions Spherical
+ *  \{
+ */
+
 /// maps a point in spherical coordinates to the unit sphere
+///
+/// \param uv   uv coordinates
 NIH_HOST NIH_DEVICE Vector3f from_spherical_coords(const Vector2f& uv);
 
 /// computes the spherical coordinates of a 3d point
+///
+/// \param vec  3d direction
 NIH_HOST NIH_DEVICE Vector2f to_spherical_coords(const Vector3f& vec);
 
-// seedx, seedy is point on [0,1]^2.  x, y is point on radius 1 disk
-NIH_HOST NIH_DEVICE Vector2f square_to_unit_disk(const Vector2f seed);
+/// map a point on [0,1]^2 to a uniformly distributed point on a disk of radius 1
+///
+/// \param uv   uv coordinates
+NIH_HOST NIH_DEVICE Vector2f square_to_unit_disk(const Vector2f uv);
 
-// diskx, disky is point on radius 1 disk.  x, y is point on [0,1]^2
+/// diskx, disky is point on radius 1 disk.  x, y is point on [0,1]^2
+///
+/// \param disk     disk point
 NIH_HOST NIH_DEVICE Vector2f unit_disk_to_square(const Vector2f disk);
 
 /// maps the unit square to the hemisphere with a cosine-weighted distribution
+///
+/// \param uv   uv coordinates
 NIH_HOST NIH_DEVICE Vector3f square_to_cosine_hemisphere(const Vector2f& uv);
 
 /// inverts the square to cosine-weighted hemisphere mapping
+///
+/// \param dir  3d direction
 NIH_HOST NIH_DEVICE Vector2f cosine_hemisphere_to_square(const Vector3f& dir);
 
 /// maps the unit square to the sphere with a uniform distribution
+///
+/// \param uv   uv coordinates
 NIH_HOST NIH_DEVICE Vector3f uniform_square_to_sphere(const Vector2f& uv);
 
 /// maps the sphere to a unit square with a uniform distribution
+///
+/// \param dir  3d direction
 NIH_HOST NIH_DEVICE Vector2f uniform_sphere_to_square(const Vector3f& vec);
+
+/*! \}
+ */
 
 } // namespace nih
 

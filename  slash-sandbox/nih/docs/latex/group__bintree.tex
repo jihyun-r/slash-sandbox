@@ -1,0 +1,53 @@
+\hypertarget{group__bintree}{
+\section{\-Binary \-Trees}
+\label{group__bintree}\index{\-Binary Trees@{\-Binary Trees}}
+}
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1cuda_1_1_bintree__context}{nih\-::cuda\-::\-Bintree\-\_\-context}
+\item 
+struct \hyperlink{structnih_1_1cuda_1_1_bintree__gen__context}{nih\-::cuda\-::\-Bintree\-\_\-gen\-\_\-context}
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Tree , typename Integer $>$ }\\void \hyperlink{group__bintree_gad76a50ae08ab4d525f748a7cbcc0fb6e}{nih\-::cuda\-::generate} (\-Bintree\-\_\-gen\-\_\-context \&context, const uint32 n\-\_\-codes, const \-Integer $\ast$codes, const uint32 bits, const uint32 max\-\_\-leaf\-\_\-size, const bool keep\-\_\-singletons, \-Tree \&tree)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{group__bintree_gad76a50ae08ab4d525f748a7cbcc0fb6e}{
+\index{\-Binary Trees@{\-Binary Trees}!generate@{generate}}
+\index{generate@{generate}!Binary Trees@{\-Binary Trees}}
+\subsubsection[{generate}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Tree , typename Integer $>$ void nih\-::cuda\-::generate (
+\begin{DoxyParamCaption}
+\item[{\-Bintree\-\_\-gen\-\_\-context \&}]{context, }
+\item[{const uint32}]{n\-\_\-codes, }
+\item[{const \-Integer $\ast$}]{codes, }
+\item[{const uint32}]{bits, }
+\item[{const uint32}]{max\-\_\-leaf\-\_\-size, }
+\item[{const bool}]{keep\-\_\-singletons, }
+\item[{\-Tree \&}]{tree}
+\end{DoxyParamCaption}
+)}}
+\label{group__bintree_gad76a50ae08ab4d525f748a7cbcc0fb6e}
+\-Generate a binary tree from a set of sorted integers, splitting the set top-\/down at each occurrence of a bit set to 1. \-In practice, if the integers are seen as \-Morton codes, this algorithm generates a middle-\/split k-\/d tree.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em context} & the generation context \\
+\hline
+{\em n\-\_\-codes} & number of entries in the input set of codes \\
+\hline
+{\em codes} & input set of codes \\
+\hline
+{\em bits} & number of bits per code \\
+\hline
+{\em max\-\_\-leaf\-\_\-size} & maximum target number of entries per leaf \\
+\hline
+{\em keep\-\_\-singletons} & mark whether to keep or suppress singleton nodes in the output tree \\
+\hline
+{\em tree} & output tree \\
+\hline
+\end{DoxyParams}

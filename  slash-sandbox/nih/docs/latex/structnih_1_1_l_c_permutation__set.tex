@@ -1,0 +1,85 @@
+\hypertarget{structnih_1_1_l_c_permutation__set}{
+\section{nih\-:\-:\-L\-C\-Permutation\-\_\-set \-Struct \-Reference}
+\label{structnih_1_1_l_c_permutation__set}\index{nih\-::\-L\-C\-Permutation\-\_\-set@{nih\-::\-L\-C\-Permutation\-\_\-set}}
+}
+
+
+{\ttfamily \#include $<$permutations.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structnih_1_1_l_c_permutation__set_a27bf54daea4b2ec9fef4dee8b040be09}{\-L\-C\-Permutation\-\_\-set} (const uint32 m, const uint32 n)
+\item 
+\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E uint32 \hyperlink{structnih_1_1_l_c_permutation__set_aa9b83972db397ad57e2d0ee55b5e7322}{operator()} (const uint32 permutation\-\_\-index, const uint32 element\-\_\-index) const 
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_l_c_permutation__set_a83c1fe552156c418b291a66c9cda7bef}{
+uint32 {\bfseries m\-\_\-\-M}}
+\label{structnih_1_1_l_c_permutation__set_a83c1fe552156c418b291a66c9cda7bef}
+
+\item 
+\hypertarget{structnih_1_1_l_c_permutation__set_ae8d3a78b024dc5e808b907af93b799e8}{
+std\-::vector$<$ nih\-::uint32 $>$ {\bfseries m\-\_\-\-A}}
+\label{structnih_1_1_l_c_permutation__set_ae8d3a78b024dc5e808b907af93b799e8}
+
+\item 
+\hypertarget{structnih_1_1_l_c_permutation__set_a0ce48c3b715e7e8e4415b797efc3918b}{
+std\-::vector$<$ nih\-::uint32 $>$ {\bfseries m\-\_\-\-C}}
+\label{structnih_1_1_l_c_permutation__set_a0ce48c3b715e7e8e4415b797efc3918b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-A permutation set based on linear congruences 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{structnih_1_1_l_c_permutation__set_a27bf54daea4b2ec9fef4dee8b040be09}{
+\index{nih\-::\-L\-C\-Permutation\-\_\-set@{nih\-::\-L\-C\-Permutation\-\_\-set}!\-L\-C\-Permutation\-\_\-set@{\-L\-C\-Permutation\-\_\-set}}
+\index{\-L\-C\-Permutation\-\_\-set@{\-L\-C\-Permutation\-\_\-set}!nih::LCPermutation_set@{nih\-::\-L\-C\-Permutation\-\_\-set}}
+\subsubsection[{\-L\-C\-Permutation\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}nih\-::\-L\-C\-Permutation\-\_\-set\-::\-L\-C\-Permutation\-\_\-set (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{m, }
+\item[{const uint32}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_l_c_permutation__set_a27bf54daea4b2ec9fef4dee8b040be09}
+\-Build n-\/permutations of the range \mbox{[}0,m), with n $<$$<$ m.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em m} & range size \\
+\hline
+{\em n} & number of permutations \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1_l_c_permutation__set_aa9b83972db397ad57e2d0ee55b5e7322}{
+\index{nih\-::\-L\-C\-Permutation\-\_\-set@{nih\-::\-L\-C\-Permutation\-\_\-set}!operator()@{operator()}}
+\index{operator()@{operator()}!nih::LCPermutation_set@{nih\-::\-L\-C\-Permutation\-\_\-set}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E uint32 nih\-::\-L\-C\-Permutation\-\_\-set\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{permutation\-\_\-index, }
+\item[{const uint32}]{element\-\_\-index}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_l_c_permutation__set_aa9b83972db397ad57e2d0ee55b5e7322}
+return the permuted position of a given index in a given permutation
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em permutation\-\_\-index} & permutation index \\
+\hline
+{\em element\-\_\-index} & element index \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\-C\-:/p4research/research/jpantaleoni/nih/sampling/\hyperlink{permutations_8h}{permutations.\-h}\end{DoxyCompactItemize}

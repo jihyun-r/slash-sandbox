@@ -1,0 +1,26 @@
+\hypertarget{packing_8h}{
+\section{\-C\-:/p4research/research/jpantaleoni/nih/bvh/cuda/packing.h \-File \-Reference}
+\label{packing_8h}\index{\-C\-:/p4research/research/jpantaleoni/nih/bvh/cuda/packing.\-h@{\-C\-:/p4research/research/jpantaleoni/nih/bvh/cuda/packing.\-h}}
+}
+
+
+\-Defines utility functions to pack a set of bvh nodes and their bboxes into a single set of 4d bboxes.  
+
+
+{\ttfamily \#include $<$nih/bvh/bvh.\-h$>$}\*
+{\ttfamily \#include $<$thrust/transform.\-h$>$}\*
+{\ttfamily \#include $<$thrust/tuple.\-h$>$}\*
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1cuda_1_1bvh__packing__functor}{nih\-::cuda\-::bvh\-\_\-packing\-\_\-functor}
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Node\-\_\-iterator , typename Bbox\-\_\-iterator , typename Output\-\_\-iterator $>$ }\\void {\bfseries nih\-::cuda\-::pack} (const uint32 n\-\_\-nodes, \-Node\-\_\-iterator nodes, \-Bbox\-\_\-iterator bboxes, \-Output\-\_\-iterator packed\-\_\-nodes)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Defines utility functions to pack a set of bvh nodes and their bboxes into a single set of 4d bboxes. 

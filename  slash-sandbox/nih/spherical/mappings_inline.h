@@ -29,7 +29,7 @@
 
 namespace nih {
 
-/// maps a point in spherical coordinates to the unit sphere
+// maps a point in spherical coordinates to the unit sphere
 inline NIH_HOST NIH_DEVICE Vector3f from_spherical_coords(const Vector2f& uv)
 {
 	return Vector3f(
@@ -37,7 +37,7 @@ inline NIH_HOST NIH_DEVICE Vector3f from_spherical_coords(const Vector2f& uv)
 		sinf(uv[0])*sinf(uv[1]),
 		cosf(uv[1]) );
 }
-/// computes the spherical coordinates of a 3d point
+// computes the spherical coordinates of a 3d point
 inline NIH_HOST NIH_DEVICE Vector2f to_spherical_coords(const Vector3f& vec)
 {
     // to spherical in [0,2pi] (phi) and [0,pi] (theta).
@@ -115,7 +115,7 @@ inline NIH_HOST NIH_DEVICE Vector2f unit_disk_to_square(const Vector2f disk)
 		(b + 1) / 2 );
 }
 
-/// maps the unit square to the hemisphere with a cosine-weighted distribution
+// maps the unit square to the hemisphere with a cosine-weighted distribution
 inline NIH_HOST NIH_DEVICE Vector3f square_to_cosine_hemisphere(const Vector2f& uv)
 {
 	const Vector2f disk = square_to_unit_disk( uv );
@@ -133,12 +133,12 @@ inline NIH_HOST NIH_DEVICE Vector3f square_to_cosine_hemisphere(const Vector2f& 
 //		sinf(phi)*sinTheta,
 //		cosTheta );
 }
-/// inverts the square to cosine-weighted hemisphere mapping
+// inverts the square to cosine-weighted hemisphere mapping
 inline NIH_HOST NIH_DEVICE Vector2f cosine_hemisphere_to_square(const Vector3f& dir)
 {
 	return unit_disk_to_square( Vector2f( dir[0], dir[1] ) );
 }
-/// maps the unit square to the sphere with a uniform distribution
+// maps the unit square to the sphere with a uniform distribution
 inline NIH_HOST NIH_DEVICE Vector3f uniform_square_to_sphere(const Vector2f& uv)
 {
 	const float cosTheta = uv[1]*2.0f - 1.0f;
@@ -150,7 +150,7 @@ inline NIH_HOST NIH_DEVICE Vector3f uniform_square_to_sphere(const Vector2f& uv)
 		fast_sin(phi)*sinTheta,
 		cosTheta );
 }
-/// maps the sphere to a unit square with a uniform distribution
+// maps the sphere to a unit square with a uniform distribution
 inline NIH_HOST NIH_DEVICE Vector2f uniform_sphere_to_square(const Vector3f& vec)
 {
 	const float cosTheta = vec[2];

@@ -1,0 +1,113 @@
+\hypertarget{structnih_1_1_b_f_tree}{
+\section{nih\-:\-:\-B\-F\-Tree$<$ \-Node\-\_\-iterator, \-Domain\-\_\-type $>$ \-Struct \-Template \-Reference}
+\label{structnih_1_1_b_f_tree}\index{nih\-::\-B\-F\-Tree$<$ Node\-\_\-iterator, Domain\-\_\-type $>$@{nih\-::\-B\-F\-Tree$<$ Node\-\_\-iterator, Domain\-\_\-type $>$}}
+}
+
+
+\-A simple \-Breadth-\/\-First \-Tree model implementation.  
+
+
+
+
+{\ttfamily \#include $<$model.\-h$>$}
+
+\subsection*{\-Public \-Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_b_f_tree_a49a71f0c9b5adbb2d0ecd7512cc5920c}{
+typedef \-Domain\-\_\-type {\bfseries domain\-\_\-type}}
+\label{structnih_1_1_b_f_tree_a49a71f0c9b5adbb2d0ecd7512cc5920c}
+
+\item 
+\hypertarget{structnih_1_1_b_f_tree_a0f627e9a846cc35b939b421b45f279d2}{
+typedef \-Node\-\_\-iterator {\bfseries node\-\_\-iterator}}
+\label{structnih_1_1_b_f_tree_a0f627e9a846cc35b939b421b45f279d2}
+
+\item 
+\hypertarget{structnih_1_1_b_f_tree_af59970d8c46be0390ce28e37acff3c85}{
+typedef std\-::iterator\-\_\-traits\*
+$<$ node\-\_\-iterator $>$\-::value\-\_\-type {\bfseries node\-\_\-type}}
+\label{structnih_1_1_b_f_tree_af59970d8c46be0390ce28e37acff3c85}
+
+\item 
+\hypertarget{structnih_1_1_b_f_tree_ab98a2162885f15d504cfa262b47bc771}{
+typedef \hyperlink{structnih_1_1breadth__first__tree}{breadth\-\_\-first\-\_\-tree} {\bfseries tree\-\_\-type}}
+\label{structnih_1_1_b_f_tree_ab98a2162885f15d504cfa262b47bc771}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_b_f_tree_afe4371df8f9c91081a16ff33098a1342}{
+\hyperlink{structnih_1_1_b_f_tree_afe4371df8f9c91081a16ff33098a1342}{\-B\-F\-Tree} ()}
+\label{structnih_1_1_b_f_tree_afe4371df8f9c91081a16ff33098a1342}
+
+\begin{DoxyCompactList}\small\item\em empty constructor \end{DoxyCompactList}\item 
+\hypertarget{structnih_1_1_b_f_tree_aff13c32b85c7604d9bc1d14fa5416334}{
+\hyperlink{structnih_1_1_b_f_tree_aff13c32b85c7604d9bc1d14fa5416334}{\-B\-F\-Tree} (const node\-\_\-iterator nodes, const uint32 n\-\_\-leaves, const uint2 $\ast$leaves, const uint32 n\-\_\-levels, const uint32 $\ast$levels)}
+\label{structnih_1_1_b_f_tree_aff13c32b85c7604d9bc1d14fa5416334}
+
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\hypertarget{structnih_1_1_b_f_tree_a39ddeb39862a4572fdfb08a631d5c85e}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_b_f_tree_a39ddeb39862a4572fdfb08a631d5c85e}{get\-\_\-level\-\_\-count} () const }
+\label{structnih_1_1_b_f_tree_a39ddeb39862a4572fdfb08a631d5c85e}
+
+\begin{DoxyCompactList}\small\item\em return the number of levels \end{DoxyCompactList}\item 
+\hypertarget{structnih_1_1_b_f_tree_ab9f387666c6110dc23033b43b2507477}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_b_f_tree_ab9f387666c6110dc23033b43b2507477}{get\-\_\-level} (const uint32 i) const }
+\label{structnih_1_1_b_f_tree_ab9f387666c6110dc23033b43b2507477}
+
+\begin{DoxyCompactList}\small\item\em return the i-\/th level \end{DoxyCompactList}\item 
+\hypertarget{structnih_1_1_b_f_tree_ac7d9b23a296d7c36eccdaaccfb90009e}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E node\-\_\-type \hyperlink{structnih_1_1_b_f_tree_ac7d9b23a296d7c36eccdaaccfb90009e}{get\-\_\-node} (const uint32 index) const }
+\label{structnih_1_1_b_f_tree_ac7d9b23a296d7c36eccdaaccfb90009e}
+
+\begin{DoxyCompactList}\small\item\em retrieve a node \end{DoxyCompactList}\item 
+\hypertarget{structnih_1_1_b_f_tree_acd4c65c4ddff86d0dbb3d57ac10f754e}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_b_f_tree_acd4c65c4ddff86d0dbb3d57ac10f754e}{get\-\_\-leaf\-\_\-count} () const }
+\label{structnih_1_1_b_f_tree_acd4c65c4ddff86d0dbb3d57ac10f754e}
+
+\begin{DoxyCompactList}\small\item\em return the number of leaves \end{DoxyCompactList}\item 
+\hypertarget{structnih_1_1_b_f_tree_a7990e513530c87c5f315895d160093ad}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint2 \hyperlink{structnih_1_1_b_f_tree_a7990e513530c87c5f315895d160093ad}{get\-\_\-leaf} (const uint32 index) const }
+\label{structnih_1_1_b_f_tree_a7990e513530c87c5f315895d160093ad}
+
+\begin{DoxyCompactList}\small\item\em retrieve a leaf \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_b_f_tree_a207f6d738f623e63072604330cb2c4e0}{
+const node\-\_\-iterator {\bfseries m\-\_\-nodes}}
+\label{structnih_1_1_b_f_tree_a207f6d738f623e63072604330cb2c4e0}
+
+\item 
+\hypertarget{structnih_1_1_b_f_tree_a93a8187164cac6aa7173a923da46dc17}{
+uint32 {\bfseries m\-\_\-leaf\-\_\-count}}
+\label{structnih_1_1_b_f_tree_a93a8187164cac6aa7173a923da46dc17}
+
+\item 
+\hypertarget{structnih_1_1_b_f_tree_a2f205903e5befb20ffdb3a32ac9aaa89}{
+const uint2 $\ast$ {\bfseries m\-\_\-leaves}}
+\label{structnih_1_1_b_f_tree_a2f205903e5befb20ffdb3a32ac9aaa89}
+
+\item 
+\hypertarget{structnih_1_1_b_f_tree_ad94ee066a43eca1292650e128ec6e752}{
+uint32 {\bfseries m\-\_\-level\-\_\-count}}
+\label{structnih_1_1_b_f_tree_ad94ee066a43eca1292650e128ec6e752}
+
+\item 
+\hypertarget{structnih_1_1_b_f_tree_abd65c782cabd3d0512eafec85e116d5a}{
+const uint32 $\ast$ {\bfseries m\-\_\-levels}}
+\label{structnih_1_1_b_f_tree_abd65c782cabd3d0512eafec85e116d5a}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\subsubsection*{template$<$typename Node\-\_\-iterator, typename Domain\-\_\-type$>$struct nih\-::\-B\-F\-Tree$<$ Node\-\_\-iterator, Domain\-\_\-type $>$}
+
+\-A simple \-Breadth-\/\-First \-Tree model implementation. 
+
+\-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\-C\-:/p4research/research/jpantaleoni/nih/tree/model.\-h\end{DoxyCompactItemize}

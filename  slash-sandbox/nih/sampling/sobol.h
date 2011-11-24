@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file sobol.h
+ *   \brief Define Sobol samplers and sequences.
+ */
+
 #pragma once
 
 #include <nih/basic/types.h>
@@ -33,89 +37,87 @@
 
 namespace nih {
 
+/*! \addtogroup sampling Sampling
+ *  \{
+ */
+
+///
+/// Sobol sampler class
+///
 class Sobol_sampler
 {
   public:
     static const unsigned int max = UINT_MAX;
 
-    FORCE_INLINE Sobol_sampler() {}
+    /// empty constructor
+    ///
+    FORCE_INLINE NIH_HOST_DEVICE Sobol_sampler();
 
-    FORCE_INLINE Sobol_sampler(unsigned int instance, unsigned int s = 0) : m_dim( unsigned int(-1) ), m_r(s), m_i(instance) {}
+    /// instance constructor
+    ///
+    /// \param instance     instance number
+    /// \param s            randomization seed
+    FORCE_INLINE NIH_HOST_DEVICE Sobol_sampler(unsigned int instance, unsigned int s = 0);
 
-    FORCE_INLINE float sample()
-    {
-      next_dim();
-      return float( sobol( m_i ) ) / float(UINT_MAX);
-    }
-    FORCE_INLINE float next() { return sample(); } // random number generator interface
+    /// return next sample
+    ///
+    FORCE_INLINE NIH_HOST_DEVICE float sample();
+    /// return next sample
+    ///
+    FORCE_INLINE NIH_HOST_DEVICE float next();
 
+    /// build generator matrices
+    ///
+    /// \param direction_numbers    input file of comma separated direction numbers
+    /// \param matrix_file          output file
     static void generator_matrices(
         const char* direction_numbers,
         const char* matrix_file);
 
   private:
-    FORCE_INLINE void next_dim()
-    {
-      ++m_dim;
-      m_r = m_r * 1103515245 + 12345;
-    }
+    /// advance to next dimension
+    ///
+    FORCE_INLINE NIH_HOST_DEVICE void next_dim();
 
-    FORCE_INLINE
-    unsigned int sobol( unsigned int i )
-    {
-      unsigned int m = (m_dim & (sobolDims-1)) << 5;
-      unsigned int result = 0;
+    /// return i-th Sobol number
+    ///
+    /// \param i    requested Sobol number
+    FORCE_INLINE NIH_HOST_DEVICE 
+    unsigned int sobol( unsigned int i );
 
-      for( ; i; i >>= 1, ++m )
-        result ^= s_sobolMat[m /*& (sobolDims*32-1)*/] * (i&1);
-
-      result ^= m_r;
-      return result;
-    }
-
+    /// build generator matrices
+    ///
     static int generator_matrix(
         const unsigned int a,
         const unsigned int s,
         const unsigned int * const m,
-        unsigned int * const matrix, const unsigned int matrixSize)
-    {
-        // determine degree of polynomial (could be optimized using __builtin_clz)
-        //int s = 0;
-        //for (int p = a >> 1; p; p >>= 1, s++);
+        unsigned int * const matrix, const unsigned int matrixSize);
 
-        // first columns correspond to m_1,...,m_s
-        for (unsigned int k = 0; k < s; ++k)
-            matrix[k] = m[k];
-
-        // the remaining direction numbers are obtained by recurrence
-        for (unsigned int k = s; k < matrixSize; k++) {
-            matrix[k] = (matrix[k - s] << s) ^ matrix[k - s];
-            // iterate over bits of polynomial
-            for (int i = int(s) - 1, p = a >> 1; i > 0; i--, p >>= 1)
-            {
-                if (p & 1)
-                    matrix[k] ^= (matrix[k - i] << i);
-            }
-        }
-        // k-th column is the binary expansion of m_k / 2^k
-        for (unsigned int k = 0; k < matrixSize; k++)
-            matrix[k] <<= matrixSize - k - 1;
-
-        return s;
-    }
-
-    unsigned int m_dim;
-    unsigned int m_r;
-    unsigned int m_i;
+    unsigned int  m_dim;
+    unsigned int  m_r;
+    unsigned int  m_i;
+    unsigned int* s_matrix;
 };
 
+///
+/// Sobol sequence interface
+///
 struct Sobol_sequence
 {
     typedef Sobol_sampler Sampler_type;
 
+    /// instance a Sobol sampler
+    ///
+    /// \param index    instance number
+    /// \param copy     randomization seed
     Sobol_sampler instance(
         const uint32 index,
         const uint32 copy = 0) const { return Sobol_sampler( index, copy ); }
 };
 
+/*! \}
+ */
+
 } // namespace nih
+
+#include <nih/sampling/sobol_inline.h>

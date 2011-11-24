@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file raw.h
+ *   \brief Defines utility functions to load/save raw images.
+ */
+
 #ifndef __NIH_RAW_H
 #define __NIH_RAW_H
 
@@ -33,11 +37,24 @@
 
 namespace nih {
 
+/*! \addtogroup image Image
+ *  \{
+ */
+
 /// save an image in the most proprietary raw floating point format
+///
+/// \param filename     output file name
+/// \param image        image to save
 bool save_raw(const char* filename, const Image<Vector3f>& image);
 
 /// load an image in the most proprietary raw floating point format
+///
+/// \param filename     input file name
+/// \param image        image to load
 bool load_raw(const char* filename, Image<Vector3f>& image);
+
+/*! \}
+ */
 
 } // namespace nih
 

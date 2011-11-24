@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file random.h
+ *   \brief Defines a random number generator class.
+ */
+
 #ifndef __NIH_RANDOM_H
 #define __NIH_RANDOM_H
 
@@ -33,6 +37,10 @@
 #include <algorithm>
 
 namespace nih {
+
+/*! \addtogroup sampling Sampling
+ *  \{
+ */
 
 #define MTRAND_TYPE		0
 #define SFMTRAND_TYPE	1
@@ -46,13 +54,19 @@ namespace nih {
 
 #include <nih/mtrand/mtrand.h>
 
+///
+/// Random number generator
+///
 class Random
 {
 public:
-	/// seed
+	/// reset the seed
+    ///
+    /// \param s    new seed
 	void seed(const uint32 s) { m_mt.seed(s); }
 
 	/// return a random [0,1) number
+    ///
 	float next() { return float( m_mt() ); }
 
 private:
@@ -82,13 +96,19 @@ private:
 
 #include <nih/mwcrand/mwcrand.h>
 
+///
+/// Random number generator
+///
 class Random
 {
 public:
-	/// seed
+	/// reset the seed
+    ///
+    /// \param s    new seed
 	void seed(const uint32 s) { m_mt.seed_random(s); }
 
 	/// return a random [0,1) number
+    ///
 	float next() { return float( m_mt.get_unit_float() ); }
 
 private:
@@ -96,6 +116,9 @@ private:
 };
 
 #endif
+
+/*! \}
+ */
 
 } // namespace nih
 

@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file bbox.h
+ *   \brief Defines an axis-aligned bounding box class.
+ */
+
 #pragma once
 
 #ifdef min
@@ -41,8 +45,12 @@
 
 namespace nih {
 
+/*! \addtogroup linalg Linear Algebra
+ *  \{
+ */
+
 ///
-/// Bbox class, templated over an arbitrary vector type
+/// Axis-Aligned Bounding Bbox class, templated over an arbitrary vector type
 ///
 template <typename Vector_t>
 struct Bbox
@@ -50,37 +58,69 @@ struct Bbox
 	typedef typename Vector_t::Field_type	Field_type;
 	typedef typename Vector_t				Vector_type;
 
+    /// empty constructor
+    ///
 	NIH_HOST NIH_DEVICE Bbox();
+
+    /// point constructor
+    ///
+    /// \param v    point
 	NIH_HOST NIH_DEVICE Bbox(
 		const Vector_t& v);
-	NIH_HOST NIH_DEVICE Bbox(
+
+    /// min/max constructor
+    ///
+    /// \param v1   min corner
+    /// \param v2   max corner
+    NIH_HOST NIH_DEVICE Bbox(
 		const Vector_t& v1,
 		const Vector_t& v2);
+
+    /// merging constructor
+    ///
+    /// \param bb1  first bbox
+    /// \param bb2  first bbox
 	NIH_HOST NIH_DEVICE Bbox(
 		const Bbox<Vector_t>& bb1,
 		const Bbox<Vector_t>& bb2);
-	NIH_HOST NIH_DEVICE Bbox(
+
+    /// copy constructor
+    ///
+    /// \param bb   bbox to copy
+    NIH_HOST NIH_DEVICE Bbox(
 		const Bbox<Vector_t>& bb);
 
-	NIH_HOST NIH_DEVICE void insert(
-		const Vector_t& v);
-	NIH_HOST NIH_DEVICE void insert(
-		const Bbox& v);
+    /// insert a point
+    ///
+    /// \param v    point to insert
+	NIH_HOST NIH_DEVICE void insert(const Vector_t& v);
 
+    /// insert a bbox
+    ///
+    /// \param v    bbox to insert
+	NIH_HOST NIH_DEVICE void insert(const Bbox& v);
+
+    /// clear bbox
+    ///
 	NIH_HOST NIH_DEVICE void clear();
 
+    /// const corner indexing operator
+    ///
+    /// \param i    corner to retrieve
 	NIH_HOST NIH_DEVICE const Vector_t& operator[](const size_t i) const	{ return (&m_min)[i]; }
+
+    /// corner indexing operator
+    ///
+    /// \param i    corner to retrieve
 	NIH_HOST NIH_DEVICE Vector_t& operator[](const size_t i)				{ return (&m_min)[i]; }
 
-	NIH_HOST NIH_DEVICE Bbox<Vector_t>& operator=(const Bbox<Vector_t>& bb)
-    {
-        m_min = bb.m_min;
-        m_max = bb.m_max;
-        return *this;
-    }
+    /// copy operator
+    ///
+    /// \param bb   bbox to copy
+    NIH_HOST NIH_DEVICE Bbox<Vector_t>& operator=(const Bbox<Vector_t>& bb);
 
-    Vector_t m_min;
-	Vector_t m_max;
+    Vector_t m_min; ///< min corner
+	Vector_t m_max; ///< max corner
 };
 
 typedef Bbox<Vector2f> Bbox2f;
@@ -90,37 +130,33 @@ typedef Bbox<Vector2d> Bbox2d;
 typedef Bbox<Vector3d> Bbox3d;
 typedef Bbox<Vector4d> Bbox4d;
 
-inline NIH_HOST NIH_DEVICE float area(const Bbox3f& bbox)
-{
-    const Vector3f edge = bbox[1] - bbox[0];
-    return edge[0] * edge[1] + edge[2] * (edge[0] + edge[1]);
-}
+/// compute the area of a 3d bbox
+///
+/// \param bbox     bbox object
+inline NIH_HOST_DEVICE float area(const Bbox3f& bbox);
 
+/// point-in-bbox inclusion predicate
+///
+/// \param bbox     bbox object
+/// \param p        point to test for inclusion
 template <typename Vector_t>
-inline NIH_HOST NIH_DEVICE bool contains(const Bbox<Vector_t>& bbox, const Vector_t& p)
-{
-    for (uint32 i = 0; i < p.dimension(); ++i)
-    {
-        if (p[i] < bbox[0][i] ||
-            p[i] > bbox[1][i])
-            return false;
-    }
-    return true;
-}
+inline NIH_HOST_DEVICE bool contains(const Bbox<Vector_t>& bbox, const Vector_t& p);
 
+/// point-to-bbox squared distance
+///
+/// \param bbox     bbox object
+/// \param p        point
 template <typename Vector_t>
-FORCE_INLINE NIH_HOST NIH_DEVICE float sq_distance(const Bbox<Vector_t>& bbox, const Vector_t& p)
-{
-    float r = 0.0f;
-    for (uint32 i = 0; i < p.dimension(); ++i)
-    {
-        const float dist = nih::max( bbox[0][i] - p[i], 0.0f ) +
-                           nih::max( p[i] - bbox[1][i], 0.0f );
+FORCE_INLINE NIH_HOST_DEVICE float sq_distance(const Bbox<Vector_t>& bbox, const Vector_t& p);
 
-        r += dist*dist;
-    }
-    return r;
-}
+/// returns the largest axis of a bbox
+///
+/// \param bbox     bbox object
+template <typename Vector_t>
+FORCE_INLINE NIH_HOST_DEVICE size_t largest_axis(const Bbox<Vector_t>& bbox);
+
+/*! \}
+ */
 
 } // namespace nih
 

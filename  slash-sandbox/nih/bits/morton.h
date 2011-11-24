@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file morton.h
+ *   \brief Defines some general purpose algorithms.
+ */
+
 #pragma once
 
 #include <nih/basic/types.h>
@@ -32,6 +36,10 @@
 namespace nih {
 
 /// compute the Morton code of a given 3d point
+///
+/// \param x    x component
+/// \param y    y component
+/// \param z    z component
 FORCE_INLINE NIH_HOST_DEVICE uint32 morton_code(
     uint32 x,
     uint32 y,
@@ -56,14 +64,18 @@ FORCE_INLINE NIH_HOST_DEVICE uint32 morton_code(
 }
 
 /// compute the 60-bit Morton code of a given 3d point
+///
+/// \param x    x component
+/// \param y    y component
+/// \param z    z component
 FORCE_INLINE NIH_HOST_DEVICE uint64 morton_code60(
     uint32 x,
     uint32 y,
     uint32 z)
 {
-    uint32 lo_x = x & uint32(0x000003FF);
-    uint32 lo_y = y & uint32(0x000003FF);
-    uint32 lo_z = z & uint32(0x000003FF);
+    uint32 lo_x = x & 1023u;
+    uint32 lo_y = y & 1023u;
+    uint32 lo_z = z & 1023u;
     uint32 hi_x = x >> 10u;
     uint32 hi_y = y >> 10u;
     uint32 hi_z = z >> 10u;
@@ -84,6 +96,9 @@ struct morton_functor {};
 template <>
 struct morton_functor<uint32>
 {
+    /// constructor
+    ///
+    /// \param bbox     global bounding box
     NIH_HOST_DEVICE morton_functor(const Bbox3f& bbox) :
         m_base( bbox[0] ),
         m_inv(
@@ -111,6 +126,9 @@ struct morton_functor<uint32>
 template <>
 struct morton_functor<uint64>
 {
+    /// constructor
+    ///
+    /// \param bbox     global bounding box
     NIH_HOST_DEVICE morton_functor(const Bbox3f& bbox) :
         m_base( bbox[0] ),
         m_inv(
