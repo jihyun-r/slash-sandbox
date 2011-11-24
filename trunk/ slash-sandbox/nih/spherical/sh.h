@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file sh.h
+ *   \brief Defines spherical and zonal harmonics functions and classes.
+ */
+
 #pragma once
 
 #include <nih/basic/numbers.h>
@@ -34,73 +38,106 @@
 
 namespace nih {
 
+/*! \addtogroup spherical_functions Spherical
+ *  \{
+ */
+
+/// evaluate the (l,m)-th basis function on a given vector
+///
+/// \param l    band index
+/// \param m    subband index
+/// \param v    input vector
 template <typename Vector3>
 NIH_HOST_DEVICE float sh(const int32 l, const int32 m, const Vector3& v);
 
+/// evaluate the (l,m)-th basis function on a given vector, where
+/// l is determined at compile-time.
+///
+/// \param m    subband index
+/// \param v    input vector
 template <int32 l, typename Vector3>
 NIH_HOST_DEVICE float sh(const int32 m, const Vector3& v);
 
+/// evaluate the (l,m)-th basis function on a given vector, where
+/// l and m are determined at compile-time.
+///
+/// \param v    input vector
 template <int32 l, int32 m, typename Vector3>
 NIH_HOST_DEVICE float sh(const Vector3& v);
 
+/// rotate a zonal harmonics to an arbitrary direction vector
+///
+/// \param L            number of bands
+/// \param zh_coeff     input Zonal Harmonics coefficients
+/// \param d            input vector
+/// \param sh_coeff     output Spherical Harmonics coefficients
 template <typename ZHVector, typename SHVector, typename Vector3>
 NIH_HOST_DEVICE void rotate_ZH(const int32 L, const ZHVector& zh_coeff, const Vector3& d, SHVector& sh_coeff);
 
+/// rotate a zonal harmonics to an arbitrary direction vector, with
+/// the number of bands specified at compile-time.
+///
+/// \param zh_coeff     input Zonal Harmonics coefficients
+/// \param d            input vector
+/// \param sh_coeff     output Spherical Harmonics coefficients
 template <int32 L, typename ZHVector, typename SHVector, typename Vector3>
 NIH_HOST_DEVICE void rotate_ZH(const ZHVector& zh_coeff, const Vector3& d, SHVector& sh_coeff);
 
+/// return the (l,m) spherical harmonics coefficient of a zonal harmonics
+/// function rotated to match a given axis.
+///
+/// \param zh_l         l-band zonal harmonics coefficient
+/// \param d            input vector
 template <int32 l, int32 m, typename Vector3>
 NIH_HOST_DEVICE float rotate_ZH(const float zh_l, const Vector3& d);
 
-
+///
+/// Spherical harmonics basis functions of order L
+///
 template <int32 L>
 struct SH_basis
 {
     static const int32 ORDER  = L;
     static const int32 COEFFS = L*L;
 
+    /// evaluate the i-th coefficient at a given point
+    ///
+    /// \param i    coefficient index
+    /// \param d    direction vector
     template <typename Vector3>
-    static NIH_HOST_DEVICE float eval(const int32 i, const Vector3& d)
-    {
-        if (i == 0)
-            return sh<0>( 0, d );
-        else if (i < 4)
-            return sh<1>( i - 2, d );
-        else if (i < 9)
-            return sh<2>( i - 6, d );
-        else
-            return sh<3>( i - 12, d );
-    }
+    static NIH_HOST_DEVICE float eval(const int32 i, const Vector3& d);
 
-    static NIH_HOST_DEVICE void clamped_cosine(const Vector3f& normal, const float w, float* coeffs)
-    {
-        const float zh[4] = {
-            0.891209f,
-            1.031964f,
-            0.506579f,
-            0.013224f };
+    /// add a weighted basis expansion of a clamped cosine lobe to a given
+    /// set of coefficients
+    ///
+    /// \param normal   input normal
+    /// \param w        scalar weight
+    /// \param coeffs   input/output coefficients
+    static NIH_HOST_DEVICE void clamped_cosine(const Vector3f& normal, const float w, float* coeffs);
 
-        float sh[COEFFS];
-        rotate_ZH<L>( zh, normal, sh );
+    /// return the basis expansion of a constant
+    ///
+    /// \param k        input constant
+    /// \param coeffs   output coefficients
+    static NIH_HOST_DEVICE void constant(float k, float* coeffs);
 
-        for (uint32 i = 0; i < COEFFS; ++i)
-            coeffs[i] += sh[i] * w;
-    }
-
-    static NIH_HOST_DEVICE void constant(float k, float* coeffs)
-    {
-        coeffs[0] = k * 2.0f*sqrtf(M_PIf);
-        for (int32 i = 1; i < COEFFS; ++i)
-            coeffs[i] = 0.0f;
-    }
-
+    /// return the integral of a spherical hamonics function
+    ///
     static NIH_HOST_DEVICE float integral(const float* coeffs) { return coeffs[0]; }
 
+    /// return the integral of a spherical hamonics function
+    ///
     template <typename Vector_type>
     static NIH_HOST_DEVICE float integral(const Vector_type& coeffs) { return coeffs[0]; }
 
+    /// solve the linear least squares projection for a set of coefficients
+    ///
+    /// \param coeffs   input projection coefficients
     static NIH_HOST_DEVICE void solve(float* coeffs) {}
 };
+
+/*! \}
+ */
 
 } // namespace nih
 

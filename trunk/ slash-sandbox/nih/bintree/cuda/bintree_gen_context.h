@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file bintree_gen_context.h
+ *   \brief Defines the context class for the binary tree generate() function.
+ */
+
 #pragma once
 
 #include <nih/basic/types.h>
@@ -32,6 +36,10 @@
 
 namespace nih {
 namespace cuda {
+
+/*! \addtogroup bintree Binary Trees
+ *  \{
+ */
 
 ///
 /// A context class for binary tree generate() function.
@@ -57,6 +65,9 @@ struct Bintree_gen_context
     uint32                              m_leaves;
     uint32                              m_levels[64];
 };
+
+/*! \}
+ */
 
 } // namespace cuda
 } // namespace nih

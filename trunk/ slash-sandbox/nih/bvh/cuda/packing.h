@@ -25,6 +25,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file packing.h
+ *   \brief Defines utility functions to pack a set of bvh nodes and their
+ *          bboxes into a single set of 4d bboxes.
+ */
+
 #pragma once
 
 #include <nih/bvh/bvh.h>

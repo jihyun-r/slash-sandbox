@@ -1,0 +1,200 @@
+\hypertarget{structnih_1_1_stats}{
+\section{nih\-:\-:\-Stats$<$ \-T $>$ \-Struct \-Template \-Reference}
+\label{structnih_1_1_stats}\index{nih\-::\-Stats$<$ T $>$@{nih\-::\-Stats$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$stats.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structnih_1_1_stats_a6e6d6f04266848eda17225b1f0402953}{\-Stats} ()
+\item 
+\hyperlink{structnih_1_1_stats_a882a0ca9d48e403ff6026936b669b1bb}{\-Stats} (const \-T min, const \-T max)
+\item 
+void \hyperlink{structnih_1_1_stats_a3cab0803fe20106b282de8d2e3dfcb3d}{operator+=} (const \-T v)
+\item 
+void \hyperlink{structnih_1_1_stats_aaddb68f2119f81f83c94ea2afe3e2aa0}{operator+=} (const \hyperlink{structnih_1_1_stats}{\-Stats}$<$ \-T $>$ \&v)
+\item 
+\-T \hyperlink{structnih_1_1_stats_af01f7f8dd7a128d55d408481e72d6615}{avg} () const 
+\item 
+\-T \hyperlink{structnih_1_1_stats_af08c497de2da6e0fb9f1e0e58cc7d7d5}{sum} () const 
+\item 
+\-T \hyperlink{structnih_1_1_stats_aa5f3bd77225bd4f92d7dfbf5b76eb2d0}{var} () const 
+\item 
+\-T \hyperlink{structnih_1_1_stats_af9a03822086e7f6f77cdb8d49bc191ad}{sigma} () const 
+\item 
+\-T \hyperlink{structnih_1_1_stats_a9004ea55168fe069477102bbc326fd30}{min} () const 
+\item 
+\-T \hyperlink{structnih_1_1_stats_a731ffdbad86052f9189e5dd7f89dcaba}{max} () const 
+\item 
+long long \hyperlink{structnih_1_1_stats_a5e68da5d70cd31130bca00c4224fe740}{count} () const 
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_stats_aaa7459733553c60fc382e5cf23305b06}{
+\-T {\bfseries m\-\_\-sum}}
+\label{structnih_1_1_stats_aaa7459733553c60fc382e5cf23305b06}
+
+\item 
+\hypertarget{structnih_1_1_stats_a05c76d0946fc5c28e4811769d7a17f65}{
+\-T {\bfseries m\-\_\-sum\-\_\-sq}}
+\label{structnih_1_1_stats_a05c76d0946fc5c28e4811769d7a17f65}
+
+\item 
+\hypertarget{structnih_1_1_stats_afce3a72167740b7dfaa6ee0f6f3c755d}{
+\-T {\bfseries m\-\_\-min}}
+\label{structnih_1_1_stats_afce3a72167740b7dfaa6ee0f6f3c755d}
+
+\item 
+\hypertarget{structnih_1_1_stats_a19922155e335a5b13681240ba4b1cd2c}{
+\-T {\bfseries m\-\_\-max}}
+\label{structnih_1_1_stats_a19922155e335a5b13681240ba4b1cd2c}
+
+\item 
+\hypertarget{structnih_1_1_stats_a851a2f8c0ddd9ca0b515a3f84e940a79}{
+long long {\bfseries m\-\_\-count}}
+\label{structnih_1_1_stats_a851a2f8c0ddd9ca0b515a3f84e940a79}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\subsubsection*{template$<$typename \-T$>$struct nih\-::\-Stats$<$ T $>$}
+
+\-A small helper class to keep statistics 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{structnih_1_1_stats_a6e6d6f04266848eda17225b1f0402953}{
+\index{nih\-::\-Stats@{nih\-::\-Stats}!\-Stats@{\-Stats}}
+\index{\-Stats@{\-Stats}!nih::Stats@{nih\-::\-Stats}}
+\subsubsection[{\-Stats}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ {\bf nih\-::\-Stats}$<$ \-T $>$\-::{\bf \-Stats} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_stats_a6e6d6f04266848eda17225b1f0402953}
+empty constructor \hypertarget{structnih_1_1_stats_a882a0ca9d48e403ff6026936b669b1bb}{
+\index{nih\-::\-Stats@{nih\-::\-Stats}!\-Stats@{\-Stats}}
+\index{\-Stats@{\-Stats}!nih::Stats@{nih\-::\-Stats}}
+\subsubsection[{\-Stats}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ {\bf nih\-::\-Stats}$<$ \-T $>$\-::{\bf \-Stats} (
+\begin{DoxyParamCaption}
+\item[{const \-T}]{min, }
+\item[{const \-T}]{max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_stats_a882a0ca9d48e403ff6026936b669b1bb}
+constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em min} & set the minimum value \\
+\hline
+{\em max} & set the maximum value \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1_stats_af01f7f8dd7a128d55d408481e72d6615}{
+\index{nih\-::\-Stats@{nih\-::\-Stats}!avg@{avg}}
+\index{avg@{avg}!nih::Stats@{nih\-::\-Stats}}
+\subsubsection[{avg}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-T {\bf nih\-::\-Stats}$<$ \-T $>$\-::avg (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_stats_af01f7f8dd7a128d55d408481e72d6615}
+return the average value \hypertarget{structnih_1_1_stats_a5e68da5d70cd31130bca00c4224fe740}{
+\index{nih\-::\-Stats@{nih\-::\-Stats}!count@{count}}
+\index{count@{count}!nih::Stats@{nih\-::\-Stats}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ long long {\bf nih\-::\-Stats}$<$ \-T $>$\-::count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_stats_a5e68da5d70cd31130bca00c4224fe740}
+return the total sample count \hypertarget{structnih_1_1_stats_a731ffdbad86052f9189e5dd7f89dcaba}{
+\index{nih\-::\-Stats@{nih\-::\-Stats}!max@{max}}
+\index{max@{max}!nih::Stats@{nih\-::\-Stats}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-T {\bf nih\-::\-Stats}$<$ \-T $>$\-::max (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_stats_a731ffdbad86052f9189e5dd7f89dcaba}
+return the maximum value \hypertarget{structnih_1_1_stats_a9004ea55168fe069477102bbc326fd30}{
+\index{nih\-::\-Stats@{nih\-::\-Stats}!min@{min}}
+\index{min@{min}!nih::Stats@{nih\-::\-Stats}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-T {\bf nih\-::\-Stats}$<$ \-T $>$\-::min (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_stats_a9004ea55168fe069477102bbc326fd30}
+return the minimum value \hypertarget{structnih_1_1_stats_a3cab0803fe20106b282de8d2e3dfcb3d}{
+\index{nih\-::\-Stats@{nih\-::\-Stats}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!nih::Stats@{nih\-::\-Stats}}
+\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ void {\bf nih\-::\-Stats}$<$ \-T $>$\-::operator+= (
+\begin{DoxyParamCaption}
+\item[{const \-T}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_stats_a3cab0803fe20106b282de8d2e3dfcb3d}
+accumulate a new value
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em v} & new value \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_stats_aaddb68f2119f81f83c94ea2afe3e2aa0}{
+\index{nih\-::\-Stats@{nih\-::\-Stats}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!nih::Stats@{nih\-::\-Stats}}
+\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ void {\bf nih\-::\-Stats}$<$ \-T $>$\-::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Stats}$<$ \-T $>$ \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_stats_aaddb68f2119f81f83c94ea2afe3e2aa0}
+accumulate some statistics
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em v} & new value \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_stats_af9a03822086e7f6f77cdb8d49bc191ad}{
+\index{nih\-::\-Stats@{nih\-::\-Stats}!sigma@{sigma}}
+\index{sigma@{sigma}!nih::Stats@{nih\-::\-Stats}}
+\subsubsection[{sigma}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-T {\bf nih\-::\-Stats}$<$ \-T $>$\-::sigma (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_stats_af9a03822086e7f6f77cdb8d49bc191ad}
+return the sample standard deviation \hypertarget{structnih_1_1_stats_af08c497de2da6e0fb9f1e0e58cc7d7d5}{
+\index{nih\-::\-Stats@{nih\-::\-Stats}!sum@{sum}}
+\index{sum@{sum}!nih::Stats@{nih\-::\-Stats}}
+\subsubsection[{sum}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-T {\bf nih\-::\-Stats}$<$ \-T $>$\-::sum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_stats_af08c497de2da6e0fb9f1e0e58cc7d7d5}
+return the total accumulated value \hypertarget{structnih_1_1_stats_aa5f3bd77225bd4f92d7dfbf5b76eb2d0}{
+\index{nih\-::\-Stats@{nih\-::\-Stats}!var@{var}}
+\index{var@{var}!nih::Stats@{nih\-::\-Stats}}
+\subsubsection[{var}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-T {\bf nih\-::\-Stats}$<$ \-T $>$\-::var (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_stats_aa5f3bd77225bd4f92d7dfbf5b76eb2d0}
+return the sample variance 
+
+\-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\-C\-:/p4research/research/jpantaleoni/nih/basic/\hyperlink{stats_8h}{stats.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,167 @@
+\hypertarget{structnih_1_1_bintree__node}{
+\section{nih\-:\-:\-Bintree\-\_\-node \-Struct \-Reference}
+\label{structnih_1_1_bintree__node}\index{nih\-::\-Bintree\-\_\-node@{nih\-::\-Bintree\-\_\-node}}
+}
+
+
+{\ttfamily \#include $<$bintree\-\_\-node.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \hyperlink{structnih_1_1_bintree__node_a33079a0b0d308fe465370427b478db6a}{\-Bintree\-\_\-node} ()
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \hyperlink{structnih_1_1_bintree__node_a370062edc3fc1ded73af4955a42cf027}{\-Bintree\-\_\-node} (bool child0, bool child1, uint32 index)
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_bintree__node_af4b179818797ff734098a088f6365a2e}{is\-\_\-leaf} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_bintree__node_a5316c0c669435ebb119ff2be7b39f5a6}{get\-\_\-child\-\_\-offset} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_bintree__node_aa67980d0e9f1ccae46bf3c9741539abe}{get\-\_\-leaf\-\_\-index} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_bintree__node_a8cad70c2ebcbe6cc9f339e751d9a38ba}{get\-\_\-child} (const uint32 i) const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E bool \hyperlink{structnih_1_1_bintree__node_a471bf83000ef72113a033539e19bf20b}{has\-\_\-child} (const uint32 i) const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_bintree__node_ac4859cefd9b6e3e3a27f1e850d1a4ad3}{get\-\_\-left} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_bintree__node_a2dd584ee8b3e54ff2488f66feb614fa5}{get\-\_\-right} () const 
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_bintree__node_ac2ec850a714d07a65e110c19a4acc7d9}{
+uint32 {\bfseries m\-\_\-packed\-\_\-info}}
+\label{structnih_1_1_bintree__node_ac2ec850a714d07a65e110c19a4acc7d9}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Static \-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_bintree__node_ad9537d28156e22422450c58aec8b6f5d}{
+static const uint32 {\bfseries k\-Invalid} = uint32(-\/1)}
+\label{structnih_1_1_bintree__node_ad9537d28156e22422450c58aec8b6f5d}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-A middle-\/split binary tree node. \-A node can either be a leaf and have no children, or be an internal split node. \-If a split node, it can either have one or two children\-: for example, it can have one if a set of points is concentrated in one half-\/space. 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{structnih_1_1_bintree__node_a33079a0b0d308fe465370427b478db6a}{
+\index{nih\-::\-Bintree\-\_\-node@{nih\-::\-Bintree\-\_\-node}!\-Bintree\-\_\-node@{\-Bintree\-\_\-node}}
+\index{\-Bintree\-\_\-node@{\-Bintree\-\_\-node}!nih::Bintree_node@{nih\-::\-Bintree\-\_\-node}}
+\subsubsection[{\-Bintree\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E nih\-::\-Bintree\-\_\-node\-::\-Bintree\-\_\-node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bintree__node_a33079a0b0d308fe465370427b478db6a}
+empty constructor \hypertarget{structnih_1_1_bintree__node_a370062edc3fc1ded73af4955a42cf027}{
+\index{nih\-::\-Bintree\-\_\-node@{nih\-::\-Bintree\-\_\-node}!\-Bintree\-\_\-node@{\-Bintree\-\_\-node}}
+\index{\-Bintree\-\_\-node@{\-Bintree\-\_\-node}!nih::Bintree_node@{nih\-::\-Bintree\-\_\-node}}
+\subsubsection[{\-Bintree\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E nih\-::\-Bintree\-\_\-node\-::\-Bintree\-\_\-node (
+\begin{DoxyParamCaption}
+\item[{bool}]{child0, }
+\item[{bool}]{child1, }
+\item[{uint32}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bintree__node_a370062edc3fc1ded73af4955a42cf027}
+full constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em child0} & first child activation predicate \\
+\hline
+{\em child1} & second child activation predicate \\
+\hline
+{\em index} & child index \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1_bintree__node_a8cad70c2ebcbe6cc9f339e751d9a38ba}{
+\index{nih\-::\-Bintree\-\_\-node@{nih\-::\-Bintree\-\_\-node}!get\-\_\-child@{get\-\_\-child}}
+\index{get\-\_\-child@{get\-\_\-child}!nih::Bintree_node@{nih\-::\-Bintree\-\_\-node}}
+\subsubsection[{get\-\_\-child}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Bintree\-\_\-node\-::get\-\_\-child (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bintree__node_a8cad70c2ebcbe6cc9f339e751d9a38ba}
+get i-\/th child (among the active ones)
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em i} & child index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_bintree__node_a5316c0c669435ebb119ff2be7b39f5a6}{
+\index{nih\-::\-Bintree\-\_\-node@{nih\-::\-Bintree\-\_\-node}!get\-\_\-child\-\_\-offset@{get\-\_\-child\-\_\-offset}}
+\index{get\-\_\-child\-\_\-offset@{get\-\_\-child\-\_\-offset}!nih::Bintree_node@{nih\-::\-Bintree\-\_\-node}}
+\subsubsection[{get\-\_\-child\-\_\-offset}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Bintree\-\_\-node\-::get\-\_\-child\-\_\-offset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bintree__node_a5316c0c669435ebb119ff2be7b39f5a6}
+get offset of the first child \hypertarget{structnih_1_1_bintree__node_aa67980d0e9f1ccae46bf3c9741539abe}{
+\index{nih\-::\-Bintree\-\_\-node@{nih\-::\-Bintree\-\_\-node}!get\-\_\-leaf\-\_\-index@{get\-\_\-leaf\-\_\-index}}
+\index{get\-\_\-leaf\-\_\-index@{get\-\_\-leaf\-\_\-index}!nih::Bintree_node@{nih\-::\-Bintree\-\_\-node}}
+\subsubsection[{get\-\_\-leaf\-\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Bintree\-\_\-node\-::get\-\_\-leaf\-\_\-index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bintree__node_aa67980d0e9f1ccae46bf3c9741539abe}
+get leaf index \hypertarget{structnih_1_1_bintree__node_ac4859cefd9b6e3e3a27f1e850d1a4ad3}{
+\index{nih\-::\-Bintree\-\_\-node@{nih\-::\-Bintree\-\_\-node}!get\-\_\-left@{get\-\_\-left}}
+\index{get\-\_\-left@{get\-\_\-left}!nih::Bintree_node@{nih\-::\-Bintree\-\_\-node}}
+\subsubsection[{get\-\_\-left}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Bintree\-\_\-node\-::get\-\_\-left (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bintree__node_ac4859cefd9b6e3e3a27f1e850d1a4ad3}
+get left partition (or k\-Invalid if not active) \hypertarget{structnih_1_1_bintree__node_a2dd584ee8b3e54ff2488f66feb614fa5}{
+\index{nih\-::\-Bintree\-\_\-node@{nih\-::\-Bintree\-\_\-node}!get\-\_\-right@{get\-\_\-right}}
+\index{get\-\_\-right@{get\-\_\-right}!nih::Bintree_node@{nih\-::\-Bintree\-\_\-node}}
+\subsubsection[{get\-\_\-right}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Bintree\-\_\-node\-::get\-\_\-right (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bintree__node_a2dd584ee8b3e54ff2488f66feb614fa5}
+get right partition (or k\-Invalid if not active) \hypertarget{structnih_1_1_bintree__node_a471bf83000ef72113a033539e19bf20b}{
+\index{nih\-::\-Bintree\-\_\-node@{nih\-::\-Bintree\-\_\-node}!has\-\_\-child@{has\-\_\-child}}
+\index{has\-\_\-child@{has\-\_\-child}!nih::Bintree_node@{nih\-::\-Bintree\-\_\-node}}
+\subsubsection[{has\-\_\-child}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E bool nih\-::\-Bintree\-\_\-node\-::has\-\_\-child (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bintree__node_a471bf83000ef72113a033539e19bf20b}
+is the i-\/th child active?
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em i} & child index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_bintree__node_af4b179818797ff734098a088f6365a2e}{
+\index{nih\-::\-Bintree\-\_\-node@{nih\-::\-Bintree\-\_\-node}!is\-\_\-leaf@{is\-\_\-leaf}}
+\index{is\-\_\-leaf@{is\-\_\-leaf}!nih::Bintree_node@{nih\-::\-Bintree\-\_\-node}}
+\subsubsection[{is\-\_\-leaf}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Bintree\-\_\-node\-::is\-\_\-leaf (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bintree__node_af4b179818797ff734098a088f6365a2e}
+is a leaf? 
+
+\-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\-C\-:/p4research/research/jpantaleoni/nih/bintree/\hyperlink{bintree__node_8h}{bintree\-\_\-node.\-h}\end{DoxyCompactItemize}

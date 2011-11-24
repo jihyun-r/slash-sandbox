@@ -25,23 +25,46 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file cp_rotations.h
+ *   \brief Defines utility classes to perform Cranley-Patterson rotations.
+ */
+
 #pragma once
 
 #include <nih/basic/numbers.h>
 
 namespace nih {
 
+/*! \addtogroup sampling Sampling
+ *  \{
+ */
+
+///
+/// Wrapper class to rotate the samples coming from a generator with
+/// a set of Cranley-Patterson rotations.
+///
 template <typename Generator>
 struct CP_rotator
 {
-    CP_rotator(Generator& gen, const float* rot, uint32 size, uint32 dim = 0) :
+    /// constructor
+    ///
+    /// \param gen      generator
+    /// \param rot      sequence of rotations
+    /// \param size     number of rotations
+    /// \param dim      initial dimension
+    NIH_HOST_DEVICE CP_rotator(Generator& gen, const float* rot, uint32 size, uint32 dim = 0) :
         m_gen( gen ), m_rot( rot ), m_size( size ), m_dim( dim ) {}
 
-	inline float next()
+    /// get the next sample
+    ///
+	inline NIH_HOST_DEVICE float next()
 	{
         return nih::mod( m_gen.next() + m_rot[m_dim++ & (m_size-1)], 1.0f );
     }
-	inline float density(const float x) const
+    /// probability density function
+    ///
+    /// \param x    sample location
+	inline NIH_HOST_DEVICE float density(const float x) const
 	{
         return 1.0f;
     }
@@ -52,15 +75,29 @@ struct CP_rotator
     uint32            m_dim;
 };
 
+///
+/// Wrapper class to rotate the samples coming from a sample sequence with
+/// a set of Cranley-Patterson rotations.
+///
 template <typename Sample_sequence>
 struct CP_rotated_sequence
 {
     typedef CP_rotator<typename Sample_sequence::Sampler_type> Sampler_type;
 
-    CP_rotated_sequence(Sample_sequence& sequence, const uint32 dims, const float* rot, uint32 size) :
+    /// constructor
+    ///
+    /// \param sequence sample sequence
+    /// \param dims     dimensionality of the sequence
+    /// \param rot      rotation set
+    /// \param size     size of the rotation set
+    NIH_HOST_DEVICE CP_rotated_sequence(Sample_sequence& sequence, const uint32 dims, const float* rot, uint32 size) :
         m_sequence( sequence ), m_rot( rot ), m_size( size ), m_dims( dims ) {}
 
-    Sampler_type instance(const uint32 index, const uint32 copy) const
+    /// instance
+    ///
+    /// \param index    sequence index
+    /// \param copy     sequence instance
+    Sampler_type NIH_HOST_DEVICE instance(const uint32 index, const uint32 copy) const
     {
         return Sampler_type( m_sequence.instance( index, copy ), m_rot, m_dims * m_size, copy * m_dims );
     }
@@ -70,5 +107,8 @@ struct CP_rotated_sequence
     uint32                m_size;
     uint32                m_dims;
 };
+
+/*! \}
+ */
 
 } // namespace nih

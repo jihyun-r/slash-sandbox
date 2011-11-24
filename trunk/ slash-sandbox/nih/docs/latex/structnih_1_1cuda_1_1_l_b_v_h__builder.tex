@@ -1,0 +1,129 @@
+\hypertarget{structnih_1_1cuda_1_1_l_b_v_h__builder}{
+\section{nih\-:\-:cuda\-:\-:\-L\-B\-V\-H\-\_\-builder$<$ \-Integer $>$ \-Struct \-Template \-Reference}
+\label{structnih_1_1cuda_1_1_l_b_v_h__builder}\index{nih\-::cuda\-::\-L\-B\-V\-H\-\_\-builder$<$ Integer $>$@{nih\-::cuda\-::\-L\-B\-V\-H\-\_\-builder$<$ Integer $>$}}
+}
+
+
+{\ttfamily \#include $<$lbvh\-\_\-builder.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structnih_1_1cuda_1_1_l_b_v_h__builder_a741aaa3327c755146ab412eb87431c0e}{\-L\-B\-V\-H\-\_\-builder} (thrust\-::device\-\_\-vector$<$ \hyperlink{structnih_1_1_bvh__node}{\-Bvh\-\_\-node} $>$ \&nodes, thrust\-::device\-\_\-vector$<$ uint2 $>$ \&leaves, thrust\-::device\-\_\-vector$<$ uint32 $>$ \&index)
+\item 
+{\footnotesize template$<$typename Iterator $>$ }\\void \hyperlink{structnih_1_1cuda_1_1_l_b_v_h__builder_abb1ce022488c550e59cc87cd3d7ff2db}{build} (const \hyperlink{structnih_1_1_bbox}{\-Bbox3f} bbox, const \-Iterator points\-\_\-begin, const \-Iterator points\-\_\-end, const uint32 max\-\_\-leaf\-\_\-size)
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1cuda_1_1_l_b_v_h__builder_a0b8eb3c5e55eb1c1b41745eebb6d5fe8}{
+thrust\-::device\-\_\-vector$<$ \hyperlink{structnih_1_1_bvh__node}{\-Bvh\-\_\-node} $>$ $\ast$ {\bfseries m\-\_\-nodes}}
+\label{structnih_1_1cuda_1_1_l_b_v_h__builder_a0b8eb3c5e55eb1c1b41745eebb6d5fe8}
+
+\item 
+\hypertarget{structnih_1_1cuda_1_1_l_b_v_h__builder_a6c9e55bc74cd538a570545b6e3d844d1}{
+thrust\-::device\-\_\-vector$<$ uint2 $>$ $\ast$ {\bfseries m\-\_\-leaves}}
+\label{structnih_1_1cuda_1_1_l_b_v_h__builder_a6c9e55bc74cd538a570545b6e3d844d1}
+
+\item 
+\hypertarget{structnih_1_1cuda_1_1_l_b_v_h__builder_adffd2893f591cbfdf739f4fed2286114}{
+thrust\-::device\-\_\-vector$<$ uint32 $>$ $\ast$ {\bfseries m\-\_\-index}}
+\label{structnih_1_1cuda_1_1_l_b_v_h__builder_adffd2893f591cbfdf739f4fed2286114}
+
+\item 
+\hypertarget{structnih_1_1cuda_1_1_l_b_v_h__builder_a376c30ff9138469f55d9430a16515688}{
+thrust\-::device\-\_\-vector$<$ \-Integer $>$ {\bfseries m\-\_\-codes}}
+\label{structnih_1_1cuda_1_1_l_b_v_h__builder_a376c30ff9138469f55d9430a16515688}
+
+\item 
+\hypertarget{structnih_1_1cuda_1_1_l_b_v_h__builder_a352b7b543cdf20e82f8eb7b54cfd8eff}{
+uint32 {\bfseries m\-\_\-levels} \mbox{[}64\mbox{]}}
+\label{structnih_1_1cuda_1_1_l_b_v_h__builder_a352b7b543cdf20e82f8eb7b54cfd8eff}
+
+\item 
+\hypertarget{structnih_1_1cuda_1_1_l_b_v_h__builder_afa6951af58c2fad682f53a49a532ebed}{
+\hyperlink{structnih_1_1_bbox}{\-Bbox3f} {\bfseries m\-\_\-bbox}}
+\label{structnih_1_1cuda_1_1_l_b_v_h__builder_afa6951af58c2fad682f53a49a532ebed}
+
+\item 
+\hypertarget{structnih_1_1cuda_1_1_l_b_v_h__builder_a3c66a96b0e21e87163c1eaf05ae6d141}{
+uint32 {\bfseries m\-\_\-node\-\_\-count}}
+\label{structnih_1_1cuda_1_1_l_b_v_h__builder_a3c66a96b0e21e87163c1eaf05ae6d141}
+
+\item 
+\hypertarget{structnih_1_1cuda_1_1_l_b_v_h__builder_aeb2d4f7c26131c35dc2027af6c77c7f3}{
+uint32 {\bfseries m\-\_\-leaf\-\_\-count}}
+\label{structnih_1_1cuda_1_1_l_b_v_h__builder_aeb2d4f7c26131c35dc2027af6c77c7f3}
+
+\item 
+\hypertarget{structnih_1_1cuda_1_1_l_b_v_h__builder_aa81c7e2cd1d6736939028e783d126281}{
+\hyperlink{structnih_1_1cuda_1_1_bintree__gen__context}{cuda\-::\-Bintree\-\_\-gen\-\_\-context} {\bfseries m\-\_\-kd\-\_\-context}}
+\label{structnih_1_1cuda_1_1_l_b_v_h__builder_aa81c7e2cd1d6736939028e783d126281}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\subsubsection*{template$<$typename Integer$>$struct nih\-::cuda\-::\-L\-B\-V\-H\-\_\-builder$<$ Integer $>$}
+
+\-G\-P\-U-\/based \-Linar \-B\-V\-H builder
+
+\-This class provides the context to generate \-L\-B\-V\-Hs on the \-G\-P\-U starting from a set of unordered points. \-The output is a set of nodes with the corresponding leaves and a set of primitive indices into the input set of points. \-The output leaves will specify contiguous ranges into this index. 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{structnih_1_1cuda_1_1_l_b_v_h__builder_a741aaa3327c755146ab412eb87431c0e}{
+\index{nih\-::cuda\-::\-L\-B\-V\-H\-\_\-builder@{nih\-::cuda\-::\-L\-B\-V\-H\-\_\-builder}!\-L\-B\-V\-H\-\_\-builder@{\-L\-B\-V\-H\-\_\-builder}}
+\index{\-L\-B\-V\-H\-\_\-builder@{\-L\-B\-V\-H\-\_\-builder}!nih::cuda::LBVH_builder@{nih\-::cuda\-::\-L\-B\-V\-H\-\_\-builder}}
+\subsubsection[{\-L\-B\-V\-H\-\_\-builder}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Integer $>$ {\bf nih\-::cuda\-::\-L\-B\-V\-H\-\_\-builder}$<$ \-Integer $>$\-::{\bf \-L\-B\-V\-H\-\_\-builder} (
+\begin{DoxyParamCaption}
+\item[{thrust\-::device\-\_\-vector$<$ {\bf \-Bvh\-\_\-node} $>$ \&}]{nodes, }
+\item[{thrust\-::device\-\_\-vector$<$ uint2 $>$ \&}]{leaves, }
+\item[{thrust\-::device\-\_\-vector$<$ uint32 $>$ \&}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1cuda_1_1_l_b_v_h__builder_a741aaa3327c755146ab412eb87431c0e}
+constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em nodes} & output nodes array \\
+\hline
+{\em leaves} & output leaf array \\
+\hline
+{\em index} & output index array \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1cuda_1_1_l_b_v_h__builder_abb1ce022488c550e59cc87cd3d7ff2db}{
+\index{nih\-::cuda\-::\-L\-B\-V\-H\-\_\-builder@{nih\-::cuda\-::\-L\-B\-V\-H\-\_\-builder}!build@{build}}
+\index{build@{build}!nih::cuda::LBVH_builder@{nih\-::cuda\-::\-L\-B\-V\-H\-\_\-builder}}
+\subsubsection[{build}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Integer $>$ template$<$typename Iterator $>$ void {\bf nih\-::cuda\-::\-L\-B\-V\-H\-\_\-builder}$<$ \-Integer $>$\-::build (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Bbox3f}}]{bbox, }
+\item[{const \-Iterator}]{points\-\_\-begin, }
+\item[{const \-Iterator}]{points\-\_\-end, }
+\item[{const uint32}]{max\-\_\-leaf\-\_\-size}
+\end{DoxyParamCaption}
+)}}
+\label{structnih_1_1cuda_1_1_l_b_v_h__builder_abb1ce022488c550e59cc87cd3d7ff2db}
+build a bvh given a set of points that will be reordered in-\/place
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em bbox} & global bbox \\
+\hline
+{\em points\-\_\-begin} & beginning of the point sequence to sort \\
+\hline
+{\em points\-\_\-end} & end of the point sequence to sort \\
+\hline
+{\em max\-\_\-leaf\-\_\-size} & maximum leaf size \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\-C\-:/p4research/research/jpantaleoni/nih/bvh/cuda/\hyperlink{lbvh__builder_8h}{lbvh\-\_\-builder.\-h}\item 
+\-C\-:/p4research/research/jpantaleoni/nih/bvh/cuda/lbvh\-\_\-builder\-\_\-inline.\-h\end{DoxyCompactItemize}

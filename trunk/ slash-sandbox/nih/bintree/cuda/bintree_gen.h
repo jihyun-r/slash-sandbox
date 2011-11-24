@@ -25,6 +25,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file bintree_gen.h
+ *   \brief Defines a function to generate a binary tree from a sequence of
+ *          sorted integers.
+ */
+
 #pragma once
 
 #include <nih/basic/types.h>
@@ -33,6 +38,10 @@
 
 namespace nih {
 namespace cuda {
+
+/*! \addtogroup bintree Binary Trees
+ *  \{
+ */
 
 ///
 /// Generate a binary tree from a set of sorted integers,
@@ -59,6 +68,9 @@ void generate(
     const uint32            max_leaf_size,
     const bool              keep_singletons,
     Tree&                   tree);
+
+/*! \}
+ */
 
 } // namespace cuda
 } // namespace nih

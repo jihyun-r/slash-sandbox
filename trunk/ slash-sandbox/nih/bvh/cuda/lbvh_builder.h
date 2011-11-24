@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file lbvh_builder.h
+ *   \brief Interface for a CUDA-based LBVH builder.
+ */
+
 #pragma once
 
 #include <nih/bvh/bvh.h>
@@ -37,18 +41,39 @@
 namespace nih {
 namespace cuda {
 
+/*! \addtogroup bvh Boundary Volume Hierarchies
+ *  \{
+ */
+
+///
 /// GPU-based Linar BVH builder
+///
+/// This class provides the context to generate LBVHs on the GPU
+/// starting from a set of unordered points.
+/// The output is a set of nodes with the corresponding leaves and
+/// a set of primitive indices into the input set of points.
+/// The output leaves will specify contiguous ranges into this index.
+///
 template <typename Integer>
 struct LBVH_builder
 {
     /// constructor
+    ///
+    /// \param nodes        output nodes array
+    /// \param leaves       output leaf array
+    /// \param index        output index array
     LBVH_builder(
         thrust::device_vector<Bvh_node>&         nodes,
         thrust::device_vector<uint2>&            leaves,
         thrust::device_vector<uint32>&           index) :
         m_nodes( &nodes ), m_leaves( &leaves ), m_index( &index ) {}
 
-    /// build a bvh given a set of points
+    /// build a bvh given a set of points that will be reordered in-place
+    ///
+    /// \param bbox             global bbox
+    /// \param points_begin     beginning of the point sequence to sort
+    /// \param points_end       end of the point sequence to sort
+    /// \param max_leaf_size    maximum leaf size
     template <typename Iterator>
     void build(
         const Bbox3f    bbox,
@@ -67,6 +92,9 @@ struct LBVH_builder
 
     cuda::Bintree_gen_context           m_kd_context;
 };
+
+/*! \}
+ */
 
 } // namespace cuda
 } // namespace nih

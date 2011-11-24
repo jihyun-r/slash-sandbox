@@ -89,8 +89,8 @@ __global__ void split_kernel(
 
     // loop through all logical blocks associated to this physical one
     for (uint32 base_idx = blockIdx.x * BLOCK_SIZE;
-        base_idx < in_tasks_count;
-        base_idx += grid_size)
+                base_idx < in_tasks_count;
+                base_idx += grid_size)
     {
         uint32 output_count = 0;
         uint32 split_index;
@@ -185,8 +185,8 @@ __global__ void gen_leaves_kernel(
 
     // loop through all logical blocks associated to this physical one
     for (uint32 base_idx = blockIdx.x * BLOCK_SIZE;
-        base_idx < in_tasks_count;
-        base_idx += grid_size)
+                base_idx < in_tasks_count;
+                base_idx += grid_size)
     {
         const uint32 task_id = threadIdx.x + base_idx;
 
@@ -295,7 +295,7 @@ void generate(
     const bool      keep_singletons,
     Tree&           tree)
 {
-    tree.reserve_nodes( (n_codes / max_leaf_size) * 2 );
+    tree.reserve_nodes( n_codes * 2 );
     tree.reserve_leaves( n_codes );
 
     // start building the octree
@@ -342,7 +342,7 @@ void generate(
         cudaThreadSynchronize();
 
         bintree::split(
-            tree.get_cuda_context(),
+            tree.get_context(),
             max_leaf_size,
             keep_singletons,
             codes,
@@ -374,7 +374,7 @@ void generate(
     if (context.m_counters[ in_queue ])
     {
         bintree::gen_leaves(
-            tree.get_cuda_context(),
+            tree.get_context(),
             context.m_counters[ in_queue ],
             task_queues[ in_queue ],
             skip_nodes[ in_queue ],

@@ -25,6 +25,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file reduce.h
+ *   \brief Defines utility function to reduce a set of values attached
+ *          to the elements in the leaves of a tree.
+ */
+
 #pragma once
 
 #include <nih/basic/types.h>

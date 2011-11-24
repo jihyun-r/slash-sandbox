@@ -1,0 +1,114 @@
+\hypertarget{classnih_1_1_bvh__builder}{
+\section{nih\-:\-:\-Bvh\-\_\-builder$<$ \-D\-I\-M $>$ \-Class \-Template \-Reference}
+\label{classnih_1_1_bvh__builder}\index{nih\-::\-Bvh\-\_\-builder$<$ D\-I\-M $>$@{nih\-::\-Bvh\-\_\-builder$<$ D\-I\-M $>$}}
+}
+
+
+{\ttfamily \#include $<$bvh.\-h$>$}
+
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1_bvh__builder_1_1_bvh__partitioner}{\-Bvh\-\_\-partitioner}
+\item 
+struct {\bfseries \-Node}
+\item 
+struct {\bfseries \-Point}
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classnih_1_1_bvh__builder_a74c08071203c4e009d9f803d2a5c7364}{
+typedef \hyperlink{structnih_1_1_vector}{\-Vector}$<$ float, \-D\-I\-M $>$ {\bfseries \-Vector\-\_\-type}}
+\label{classnih_1_1_bvh__builder_a74c08071203c4e009d9f803d2a5c7364}
+
+\item 
+\hypertarget{classnih_1_1_bvh__builder_a5fde43c1cd09a72e9ba3fda5cd9d95d6}{
+typedef \hyperlink{structnih_1_1_bbox}{\-Bbox}$<$ \hyperlink{structnih_1_1_vector}{\-Vector\-\_\-type} $>$ {\bfseries \-Bbox\-\_\-type}}
+\label{classnih_1_1_bvh__builder_a5fde43c1cd09a72e9ba3fda5cd9d95d6}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classnih_1_1_bvh__builder_a87624ad195c1b8951139d239cf451dd1}{\-Bvh\-\_\-builder} ()
+\item 
+void \hyperlink{classnih_1_1_bvh__builder_ab712d0638e70ef9ab13c8a83467f858c}{set\-\_\-params} (const uint32 max\-\_\-leaf\-\_\-size)
+\item 
+{\footnotesize template$<$typename Iterator $>$ }\\void \hyperlink{classnih_1_1_bvh__builder_a7f5972c2af54b5e320b5db4f6f5f4a49}{build} (const \-Iterator begin, const \-Iterator end, \hyperlink{structnih_1_1_bvh}{\-Bvh}$<$ \-D\-I\-M $>$ $\ast$bvh)
+\item 
+uint32 \hyperlink{classnih_1_1_bvh__builder_a7de508b4aad9d948bef5ff164bcb0c3f}{index} (const uint32 i)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\subsubsection*{template$<$uint32 \-D\-I\-M$>$class nih\-::\-Bvh\-\_\-builder$<$ D\-I\-M $>$}
+
+\-A bvh builder for sets of low dimensional bboxes 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classnih_1_1_bvh__builder_a87624ad195c1b8951139d239cf451dd1}{
+\index{nih\-::\-Bvh\-\_\-builder@{nih\-::\-Bvh\-\_\-builder}!\-Bvh\-\_\-builder@{\-Bvh\-\_\-builder}}
+\index{\-Bvh\-\_\-builder@{\-Bvh\-\_\-builder}!nih::Bvh_builder@{nih\-::\-Bvh\-\_\-builder}}
+\subsubsection[{\-Bvh\-\_\-builder}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32 \-D\-I\-M$>$ {\bf nih\-::\-Bvh\-\_\-builder}$<$ \-D\-I\-M $>$\-::{\bf \-Bvh\-\_\-builder} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_bvh__builder_a87624ad195c1b8951139d239cf451dd1}
+constructor 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classnih_1_1_bvh__builder_a7f5972c2af54b5e320b5db4f6f5f4a49}{
+\index{nih\-::\-Bvh\-\_\-builder@{nih\-::\-Bvh\-\_\-builder}!build@{build}}
+\index{build@{build}!nih::Bvh_builder@{nih\-::\-Bvh\-\_\-builder}}
+\subsubsection[{build}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32 \-D\-I\-M$>$ template$<$typename Iterator $>$ void {\bf nih\-::\-Bvh\-\_\-builder}$<$ \-D\-I\-M $>$\-::build (
+\begin{DoxyParamCaption}
+\item[{const \-Iterator}]{begin, }
+\item[{const \-Iterator}]{end, }
+\item[{{\bf \-Bvh}$<$ \-D\-I\-M $>$ $\ast$}]{bvh}
+\end{DoxyParamCaption}
+)}}
+\label{classnih_1_1_bvh__builder_a7f5972c2af54b5e320b5db4f6f5f4a49}
+build
+
+\-Iterator is supposed to dereference to a \-Vector$<$float,\-D\-I\-M$>$
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em begin} & first point \\
+\hline
+{\em end} & last point \\
+\hline
+{\em bvh} & output bvh \\
+\hline
+\end{DoxyParams}
+\hypertarget{classnih_1_1_bvh__builder_a7de508b4aad9d948bef5ff164bcb0c3f}{
+\index{nih\-::\-Bvh\-\_\-builder@{nih\-::\-Bvh\-\_\-builder}!index@{index}}
+\index{index@{index}!nih::Bvh_builder@{nih\-::\-Bvh\-\_\-builder}}
+\subsubsection[{index}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32 \-D\-I\-M$>$ uint32 {\bf nih\-::\-Bvh\-\_\-builder}$<$ \-D\-I\-M $>$\-::index (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_bvh__builder_a7de508b4aad9d948bef5ff164bcb0c3f}
+remapped point index \hypertarget{classnih_1_1_bvh__builder_ab712d0638e70ef9ab13c8a83467f858c}{
+\index{nih\-::\-Bvh\-\_\-builder@{nih\-::\-Bvh\-\_\-builder}!set\-\_\-params@{set\-\_\-params}}
+\index{set\-\_\-params@{set\-\_\-params}!nih::Bvh_builder@{nih\-::\-Bvh\-\_\-builder}}
+\subsubsection[{set\-\_\-params}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32 \-D\-I\-M$>$ void {\bf nih\-::\-Bvh\-\_\-builder}$<$ \-D\-I\-M $>$\-::set\-\_\-params (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{max\-\_\-leaf\-\_\-size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_bvh__builder_ab712d0638e70ef9ab13c8a83467f858c}
+set bvh parameters 
+\begin{DoxyParams}{\-Parameters}
+{\em max\-\_\-leaf\-\_\-size} & maximum leaf size \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\-C\-:/p4research/research/jpantaleoni/nih/bvh/\hyperlink{bvh_8h}{bvh.\-h}\item 
+\-C\-:/p4research/research/jpantaleoni/nih/bvh/bvh\-\_\-inline.\-h\end{DoxyCompactItemize}

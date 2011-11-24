@@ -45,9 +45,8 @@ void octree_test()
         h_points[i] = Vector4f( random.next(), random.next(), random.next(), 1.0f );
 
     thrust::device_vector<Vector4f> d_points( h_points );
-    thrust::device_vector<Vector4f> d_unsorted_points( h_points );
 
-    thrust::device_vector<Octree_node_base> octree_nodes;
+    thrust::device_vector<Octree_node> octree_nodes;
     thrust::device_vector<uint2>            octree_leaves;
     thrust::device_vector<uint32>           octree_index;
 
@@ -61,15 +60,13 @@ void octree_test()
 
     for (uint32 i = 0; i <= n_tests; ++i)
     {
-        d_points = d_unsorted_points;
-        cudaThreadSynchronize();
-
         float dtime;
         cudaEventRecord( start, 0 );
 
         builder.build(
             Bbox3f( Vector3f(0.0f), Vector3f(1.0f) ),
-            d_points,
+            d_points.begin(),
+            d_points.end(),
             16u );
 
         cudaEventRecord( stop, 0 );

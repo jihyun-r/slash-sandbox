@@ -26,6 +26,7 @@
  */
 
 #include <nih/bvh/cuda/lbvh_builder.h>
+#include <nih/bintree/bintree_gen.h>
 #include <nih/sampling/random.h>
 #include <nih/time/timer.h>
 #include <nih/basic/cuda_domains.h>
@@ -55,6 +56,58 @@ struct bbox_functor
         return result;
     }
 };
+
+/// A simple binary tree context implementation to be used with
+/// the Bvh generate() function.
+struct LBVH_context
+{
+    /// Cuda accessor struct
+    struct Context
+    {
+        NIH_HOST_DEVICE Context() {}
+        NIH_HOST_DEVICE Context(Bvh_node* nodes, uint2* leaves) :
+            m_nodes(nodes), m_leaves(leaves) {}
+
+        /// write a new node
+        NIH_HOST_DEVICE void write_node(const uint32 node, bool p1, bool p2, const uint32 offset, const uint32 skip_node)
+        {
+            const uint32 type = p1 == false && p2 == false ? Bvh_node::kLeaf : Bvh_node::kInternal;
+            m_nodes[ node ] = Bvh_node( type, offset, skip_node );
+        }
+        /// write a new leaf
+        NIH_HOST_DEVICE void write_leaf(const uint32 index, const uint32 begin, const uint32 end)
+        {
+            m_leaves[ index ] = make_uint2( begin, end );
+        }
+
+        Bvh_node*  m_nodes;    ///< node pointer
+        uint2*     m_leaves;   ///< leaf pointer
+    };
+
+    /// constructor
+    LBVH_context(
+        thrust::host_vector<Bvh_node>* nodes,
+        thrust::host_vector<uint2>*    leaves) :
+        m_nodes( nodes ), m_leaves( leaves ) {}
+
+        /// reserve space for more nodes
+    void reserve_nodes(const uint32 n) { if (m_nodes->size() < n) m_nodes->resize(n); }
+
+    /// reserve space for more leaves
+    void reserve_leaves(const uint32 n) { if (m_leaves->size() < n) m_leaves->resize(n); }
+
+    /// return a cuda context
+    Context get_context()
+    {
+        return Context(
+            thrust::raw_pointer_cast( &m_nodes->front() ),
+            thrust::raw_pointer_cast( &m_leaves->front() ) );
+    }
+
+    thrust::host_vector<Bvh_node>* m_nodes;
+    thrust::host_vector<uint2>*    m_leaves;
+};
+
 
 void lbvh_test()
 {
@@ -110,6 +163,78 @@ void lbvh_test()
     cudaEventDestroy( start );
     cudaEventDestroy( stop );
 
+    {
+        thrust::host_vector<uint64>   h_codes( builder.m_codes );
+        thrust::host_vector<Bvh_node> h_nodes;
+        thrust::host_vector<uint2>    h_leaves;
+
+        const uint32 n_codes = n_points;
+
+        LBVH_context tree( &h_nodes, &h_leaves );
+        generate(
+            n_codes,
+            &h_codes[0],
+            60,
+            16u,
+            false,
+            tree );
+
+        thrust::host_vector<Bvh_node> d_nodes( bvh_nodes );
+        thrust::host_vector<uint2>    d_leaves( bvh_leaves );
+
+        // traverse both trees top-down to see whether there's any inconsistencies...
+        uint32 h_node_id = 0;
+        uint32 d_node_id = 0;
+        uint32 node_index = 0;
+        uint32 leaf_index = 0;
+
+        while (h_node_id != uint32(-1))
+        {
+            if (d_node_id == uint32(-1))
+            {
+                fprintf(stderr, "device node is invalid!\n");
+                break;
+            }
+
+            Bvh_node h_node = h_nodes[ h_node_id ];
+            Bvh_node d_node = d_nodes[ d_node_id ];
+
+            if (h_node.is_leaf() != d_node.is_leaf())
+            {
+                fprintf(stderr, "host node and device node have different topology! (%u) (%s, %s)\n", node_index, h_node.is_leaf() ? "leaf" : "split", d_node.is_leaf() ? "leaf" : "split" );
+                break;
+            }
+
+            if (h_node.is_leaf())
+            {
+                const uint2 h_leaf = h_leaves[ h_node.get_leaf_index() ];
+                const uint2 d_leaf = d_leaves[ d_node.get_leaf_index() ];
+
+                if (h_leaf.x != d_leaf.x ||
+                    h_leaf.y != d_leaf.y)
+                {
+                    fprintf(stderr, "host and device leaves differ! [%u,%u) != [%u,%u) (%u:%u)\n",
+                        h_leaf.x, h_leaf.y,
+                        d_leaf.x, d_leaf.y,
+                        node_index, leaf_index );
+                    break;
+                }
+
+                h_node_id = h_node.get_skip_node();
+                d_node_id = d_node.get_skip_node();
+
+                leaf_index++;
+            }
+            else
+            {
+                h_node_id = h_node.get_child(0);
+                d_node_id = d_node.get_child(0);
+            }
+
+            node_index++;
+        }
+   }
+
     fprintf(stderr, "lbvh test... done\n");
     fprintf(stderr, "  time       : %f ms\n", time * 1000.0f );
     fprintf(stderr, "  points/sec : %f M\n", (n_points / time) / 1.0e6f );
@@ -121,7 +246,7 @@ void lbvh_test()
 
     fprintf(stderr, "lbvh bbox reduction test... started\n");
 
-    BFTree<Bvh_node,device_domain> bvh(
+    BFTree<Bvh_node*,device_domain> bvh(
         thrust::raw_pointer_cast( &bvh_nodes.front() ),
         builder.m_leaf_count,
         thrust::raw_pointer_cast( &bvh_leaves.front() ),

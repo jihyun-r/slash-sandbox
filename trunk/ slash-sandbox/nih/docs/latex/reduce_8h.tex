@@ -1,0 +1,24 @@
+\hypertarget{reduce_8h}{
+\section{\-C\-:/p4research/research/jpantaleoni/nih/tree/cuda/reduce.h \-File \-Reference}
+\label{reduce_8h}\index{\-C\-:/p4research/research/jpantaleoni/nih/tree/cuda/reduce.\-h@{\-C\-:/p4research/research/jpantaleoni/nih/tree/cuda/reduce.\-h}}
+}
+
+
+\-Defines utility function to reduce a set of values attached to the elements in the leaves of a tree.  
+
+
+{\ttfamily \#include $<$nih/basic/types.\-h$>$}\*
+{\ttfamily \#include $<$nih/tree/model.\-h$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$nih/tree/cuda/reduce\-\_\-inline.\-h$>$}\*
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Tree , typename Input\-\_\-iterator , typename Output\-\_\-iterator , typename Operator $>$ }\\void {\bfseries nih\-::cuda\-::tree\-\_\-reduce} (const \-Tree tree, const \-Input\-\_\-iterator in\-\_\-values, \-Output\-\_\-iterator leaf\-\_\-values, \-Output\-\_\-iterator node\-\_\-values, const \-Operator op, const typename std\-::iterator\-\_\-traits$<$ \-Output\-\_\-iterator $>$\-::value\-\_\-type def\-\_\-value)
+\item 
+{\footnotesize template$<$typename Tree , typename Input\-\_\-iterator , typename Output\-\_\-iterator , typename Operator $>$ }\\void {\bfseries nih\-::cuda\-::tree\-\_\-reduce} (const \-Tree tree, const \-Input\-\_\-iterator in\-\_\-values, \-Output\-\_\-iterator node\-\_\-values, const \-Operator op)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Defines utility function to reduce a set of values attached to the elements in the leaves of a tree. 

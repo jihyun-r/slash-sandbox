@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file scan.h
+ *   \brief Define CUDA based scan primitives.
+ */
+
 #pragma once
 
 #include <nih/basic/types.h>
@@ -32,7 +36,11 @@
 namespace nih {
 namespace cuda {
 
-// intra-warp inclusive scan
+/// intra-warp inclusive scan
+///
+/// \param val      per-threrad input value
+/// \param tidx     warp thread index
+/// \param red      scan result storage (2*WARP_SIZE elements)
 template <typename T> inline __device__ __forceinline__ T scan_warp(T val, const int32 tidx, volatile T *red)
 {
     // pad initial segment with zeros
@@ -48,14 +56,20 @@ template <typename T> inline __device__ __forceinline__ T scan_warp(T val, const
     val += red[tidx-16]; red[tidx] = val;
 	return val;
 }
-// return the total from a scan_warp
+/// return the total from a scan_warp
+///
+/// \param red      scan result storage
 template <typename T> inline __device__ __forceinline__ T scan_warp_total(volatile T *red) { return red[63]; }
 
-// alloc n elements per thread from a common pool
+/// alloc n elements per thread from a common pool, using a synchronous warp scan
+///
+/// \param n                number of elements to alloc
+/// \param warp_tid         warp thread index
+/// \param warp_red         temporary warp scan storage (2*WARP_SIZE elements)
+/// \param warp_broadcast   temporary warp broadcasting storage
 __device__ __forceinline__
 uint32 alloc(uint32 n, uint32* pool, const int32 warp_tid, volatile uint32* warp_red, volatile uint32* warp_broadcast)
 {
-//    return atomicAdd( pool, n );
     uint32 warp_scan  = scan_warp( n, warp_tid, warp_red ) - n;
     uint32 warp_count = scan_warp_total( warp_red );
     if (warp_tid == 0)
@@ -64,21 +78,25 @@ uint32 alloc(uint32 n, uint32* pool, const int32 warp_tid, volatile uint32* warp
     return *warp_broadcast + warp_scan;
 }
 
-// alloc zero or exactly N elements per thread from a common pool
+/// alloc zero or exactly N elements per thread from a common pool
+///
+/// \param p                allocation predicate
+/// \param warp_tid         warp thread id
+/// \param warp_broadcast   temporary warp broadcasting storage
 template <uint32 N>
 __device__ __forceinline__
 uint32 alloc(bool p, uint32* pool, const int32 warp_tid, volatile uint32* warp_broadcast)
 {
-    //return atomicAdd( pool, N );
     const uint32 warp_mask  = __ballot( p );
     const uint32 warp_count = __popc( warp_mask );
+    const uint32 warp_scan  = __popc( warp_mask << (warpSize - warp_tid) );
 
     // acquire an offset for this warp
-    if (warp_tid == 0 && warp_count)
+    if (warp_scan == 0 && p)
         *warp_broadcast = atomicAdd( pool, warp_count * N );
 
     // find offset
-    return *warp_broadcast + __popc( warp_mask << (warpSize - warp_tid) ) * N;
+    return *warp_broadcast + warp_scan * N;
 }
 
 } // namespace cuda

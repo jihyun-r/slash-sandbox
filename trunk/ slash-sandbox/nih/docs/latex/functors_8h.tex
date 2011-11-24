@@ -1,0 +1,112 @@
+\hypertarget{functors_8h}{
+\section{\-C\-:/p4research/research/jpantaleoni/nih/basic/functors.h \-File \-Reference}
+\label{functors_8h}\index{\-C\-:/p4research/research/jpantaleoni/nih/basic/functors.\-h@{\-C\-:/p4research/research/jpantaleoni/nih/basic/functors.\-h}}
+}
+
+
+\-Defines some general purpose functors.  
+
+
+{\ttfamily \#include $<$nih/basic/types.\-h$>$}\*
+{\ttfamily \#include $<$nih/linalg/vector.\-h$>$}\*
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1unary__function__tag}{nih\-::unary\-\_\-function\-\_\-tag}
+\item 
+struct \hyperlink{structnih_1_1binary__function__tag}{nih\-::binary\-\_\-function\-\_\-tag}
+\item 
+struct \hyperlink{structnih_1_1ternary__function__tag}{nih\-::ternary\-\_\-function\-\_\-tag}
+\item 
+struct \hyperlink{structnih_1_1default__predicate}{nih\-::default\-\_\-predicate$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1constant__fun}{nih\-::constant\-\_\-fun$<$ T, R $>$}
+\item 
+struct \hyperlink{structnih_1_1one__fun}{nih\-::one\-\_\-fun$<$ T, R $>$}
+\item 
+struct \hyperlink{structnih_1_1one__or__zero}{nih\-::one\-\_\-or\-\_\-zero}
+\item 
+struct \hyperlink{structnih_1_1not}{nih\-::not$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1minus__one}{nih\-::minus\-\_\-one$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1binder1st}{nih\-::binder1st$<$ F, C $>$}
+\item 
+struct \hyperlink{structnih_1_1binder2nd}{nih\-::binder2nd$<$ F, C $>$}
+\item 
+struct \hyperlink{structnih_1_1component__functor}{nih\-::component\-\_\-functor$<$ Vector\-\_\-type $>$}
+\item 
+struct \hyperlink{structnih_1_1sqr__functor}{nih\-::sqr\-\_\-functor$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1greater__than__zero}{nih\-::greater\-\_\-than\-\_\-zero$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1equal__to}{nih\-::equal\-\_\-to$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1not__equal__to}{nih\-::not\-\_\-equal\-\_\-to$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1eq__constant}{nih\-::eq\-\_\-constant$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1neq__constant}{nih\-::neq\-\_\-constant$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1if__true}{nih\-::if\-\_\-true$<$ T, R $>$}
+\item 
+struct \hyperlink{structnih_1_1if__constant}{nih\-::if\-\_\-constant$<$ T, R $>$}
+\item 
+struct \hyperlink{structnih_1_1compose__unary}{nih\-::compose\-\_\-unary$<$ F1, F2 $>$}
+\item 
+struct \hyperlink{structnih_1_1compose__binary}{nih\-::compose\-\_\-binary$<$ F, G1, G2 $>$}
+\item 
+struct \hyperlink{structnih_1_1compose__unary__after__binary}{nih\-::compose\-\_\-unary\-\_\-after\-\_\-binary$<$ F1, F2 $>$}
+\item 
+struct \hyperlink{structnih_1_1composition__type}{nih\-::composition\-\_\-type$<$ F1, F2, T1, T2 $>$}
+\item 
+struct \hyperlink{structnih_1_1composition__type_3_01_f1_00_01_f2_00_01unary__function__tag_00_01binary__function__tag_01_4}{nih\-::composition\-\_\-type$<$ F1, F2, unary\-\_\-function\-\_\-tag, binary\-\_\-function\-\_\-tag $>$}
+\item 
+struct \hyperlink{structnih_1_1composition__type_3_01_f1_00_01_f2_00_01unary__function__tag_00_01unary__function__tag_01_4}{nih\-::composition\-\_\-type$<$ F1, F2, unary\-\_\-function\-\_\-tag, unary\-\_\-function\-\_\-tag $>$}
+\item 
+struct \hyperlink{structnih_1_1min__functor}{nih\-::min\-\_\-functor$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1max__functor}{nih\-::max\-\_\-functor$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1add}{nih\-::add$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1binary__or}{nih\-::binary\-\_\-or$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1binary__and}{nih\-::binary\-\_\-and$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1mask__and}{nih\-::mask\-\_\-and$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1mask__or}{nih\-::mask\-\_\-or$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1l__bit__shift}{nih\-::l\-\_\-bit\-\_\-shift$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1r__bit__shift}{nih\-::r\-\_\-bit\-\_\-shift$<$ T $>$}
+\item 
+struct \hyperlink{structnih_1_1clamped__cosine__fun}{nih\-::clamped\-\_\-cosine\-\_\-fun$<$ Vector\-\_\-type $>$}
+\item 
+struct \hyperlink{structnih_1_1abs__cosine__fun}{nih\-::abs\-\_\-cosine\-\_\-fun$<$ Vector\-\_\-type $>$}
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacenih_a23438df35ff7805177fdda76d7d6e897}{
+{\footnotesize template$<$typename F , typename C $>$ }\\binder1st$<$ \-F, \-C $>$ {\bfseries nih\-::bind1st} (const \-F \&f, const \-C c)}
+\label{namespacenih_a23438df35ff7805177fdda76d7d6e897}
+
+\item 
+\hypertarget{namespacenih_a842029f290436e7ee329f609f5bce7d6}{
+{\footnotesize template$<$typename F , typename C $>$ }\\binder2nd$<$ \-F, \-C $>$ {\bfseries nih\-::bind2nd} (const \-F \&f, const \-C c)}
+\label{namespacenih_a842029f290436e7ee329f609f5bce7d6}
+
+\item 
+{\footnotesize template$<$typename F1 , typename F2 $>$ }\\composition\-\_\-type$<$ \-F1, \-F2, \*
+typename \-F1\-::function\-\_\-tag, \*
+typename \-F2\-::function\-\_\-tag $>$\*
+\-::type {\bfseries nih\-::compose} (const \-F1 f1, const \-F2 f2)
+\item 
+{\footnotesize template$<$typename F , typename G1 , typename G2 $>$ }\\compose\-\_\-binary$<$ \-F, \-G1, \-G2 $>$ {\bfseries nih\-::compose} (const \-F f, const \-G1 g1, const \-G2 g2)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Defines some general purpose functors. 

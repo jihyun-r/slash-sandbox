@@ -25,31 +25,53 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file weyl.h
+ *   \brief Define a Weyl sequence sampler.
+ */
+
 #pragma once
 
 #include <nih/basic/types.h>
-//#include <nih/basic/primes.h>
 #include <limits.h>
 
 namespace nih {
 
+/*! \addtogroup sampling Sampling
+ *  \{
+ */
+
+///
+/// Weyl sequence sampler class
+///
 class Weyl_sampler
 {
   public:
+    /// empty constructor
+    ///
     NIH_HOST_DEVICE FORCE_INLINE Weyl_sampler() : m_dim( unsigned int(-1) ), m_r(0), m_i(1) {}
 
+    /// constructor
+    ///
+    /// \param instance     instance number
+    /// \param seed         randomization seed
     NIH_HOST_DEVICE FORCE_INLINE Weyl_sampler(unsigned int instance, unsigned int seed = 1) : m_dim( unsigned int(-1) ), m_r(seed), m_i(instance+1) {}
 
+    /// return next sample
+    ///
     NIH_HOST_DEVICE FORCE_INLINE float sample()
     {
         next_dim();
         //return nih::mod( float(m_i) * m_r, 1.0f );
         return nih::mod( float(m_i) * (float(m_r) / float(UINT_MAX)), 1.0f );
     }
+    /// return next sample
+    ///
     NIH_HOST_DEVICE FORCE_INLINE float next() { return sample(); } // random number generator interface
 
   private:
 
+    /// advance to next dimension
+    ///
     NIH_HOST_DEVICE FORCE_INLINE void next_dim()
     {
         m_dim++;
@@ -59,8 +81,10 @@ class Weyl_sampler
 
     unsigned int m_dim;
     unsigned int m_r;
-    //float        m_r;
     unsigned int m_i;
 };
+
+/*! \}
+ */
 
 } // namespace nih

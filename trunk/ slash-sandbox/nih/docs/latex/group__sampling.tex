@@ -1,0 +1,229 @@
+\hypertarget{group__sampling}{
+\section{\-Sampling}
+\label{group__sampling}\index{\-Sampling@{\-Sampling}}
+}
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1_c_p__rotator}{nih\-::\-C\-P\-\_\-rotator$<$ Generator $>$}
+\item 
+struct \hyperlink{structnih_1_1_c_p__rotated__sequence}{nih\-::\-C\-P\-\_\-rotated\-\_\-sequence$<$ Sample\-\_\-sequence $>$}
+\item 
+struct \hyperlink{structnih_1_1_base__distribution}{nih\-::\-Base\-\_\-distribution$<$ Derived\-\_\-type $>$}
+\item 
+struct \hyperlink{structnih_1_1_uniform__distribution}{nih\-::\-Uniform\-\_\-distribution}
+\item 
+struct \hyperlink{structnih_1_1_cosine__distribution}{nih\-::\-Cosine\-\_\-distribution}
+\item 
+struct \hyperlink{structnih_1_1_pareto__distribution}{nih\-::\-Pareto\-\_\-distribution}
+\item 
+struct \hyperlink{structnih_1_1_bounded__pareto__distribution}{nih\-::\-Bounded\-\_\-pareto\-\_\-distribution}
+\item 
+struct \hyperlink{structnih_1_1_bounded__exponential}{nih\-::\-Bounded\-\_\-exponential}
+\item 
+struct \hyperlink{structnih_1_1_cauchy__distribution}{nih\-::\-Cauchy\-\_\-distribution}
+\item 
+struct \hyperlink{structnih_1_1_exponential__distribution}{nih\-::\-Exponential\-\_\-distribution}
+\item 
+struct \hyperlink{structnih_1_1_gaussian__distribution__2d}{nih\-::\-Gaussian\-\_\-distribution\-\_\-2d}
+\item 
+struct \hyperlink{structnih_1_1_transform__generator}{nih\-::\-Transform\-\_\-generator$<$ Generator, Distribution $>$}
+\item 
+struct \hyperlink{structnih_1_1_gaussian__generator}{nih\-::\-Gaussian\-\_\-generator}
+\item 
+struct \hyperlink{structnih_1_1_l_c_permutation__set}{nih\-::\-L\-C\-Permutation\-\_\-set}
+\item 
+struct \hyperlink{structnih_1_1_permutation__set}{nih\-::\-Permutation\-\_\-set}
+\item 
+struct \hyperlink{structnih_1_1_permuted__sequence}{nih\-::\-Permuted\-\_\-sequence$<$ Permutation\-\_\-sequence, Sample\-\_\-sequence $>$}
+\item 
+class \hyperlink{classnih_1_1_random}{nih\-::\-Random}
+\item 
+struct \hyperlink{structnih_1_1_sample__vector}{nih\-::\-Sample\-\_\-vector$<$ Iterator $>$}
+\item 
+struct \hyperlink{structnih_1_1_sampler}{nih\-::\-Sampler}
+\item 
+struct \hyperlink{structnih_1_1_m_j_sampler}{nih\-::\-M\-J\-Sampler}
+\item 
+class \hyperlink{classnih_1_1_sample__combiner}{nih\-::\-Sample\-\_\-combiner$<$ Image\-\_\-type $>$}
+\item 
+class \hyperlink{classnih_1_1_sample__layer}{nih\-::\-Sample\-\_\-layer$<$ Image\-\_\-type1, Image\-\_\-type2 $>$}
+\item 
+class \hyperlink{classnih_1_1_sample__window}{nih\-::\-Sample\-\_\-window$<$ Image\-\_\-type $>$}
+\item 
+struct \hyperlink{structnih_1_1_sample__transformation}{nih\-::\-Sample\-\_\-transformation}
+\item 
+class \hyperlink{classnih_1_1_sobol__sampler}{nih\-::\-Sobol\-\_\-sampler}
+\item 
+struct \hyperlink{structnih_1_1_sobol__sequence}{nih\-::\-Sobol\-\_\-sequence}
+\item 
+class \hyperlink{classnih_1_1_weyl__sampler}{nih\-::\-Weyl\-\_\-sampler}
+\end{DoxyCompactItemize}
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__sampling_ga0602a8d929019640555bc6f299536346}{
+\#define {\bfseries \-M\-T\-R\-A\-N\-D\-\_\-\-T\-Y\-P\-E}~0}
+\label{group__sampling_ga0602a8d929019640555bc6f299536346}
+
+\item 
+\hypertarget{group__sampling_gaba19be52cf7d6a5f72d16f67d09a356a}{
+\#define {\bfseries \-S\-F\-M\-T\-R\-A\-N\-D\-\_\-\-T\-Y\-P\-E}~1}
+\label{group__sampling_gaba19be52cf7d6a5f72d16f67d09a356a}
+
+\item 
+\hypertarget{group__sampling_ga7b5ef73a43bc588bf9f9a163c3bd891e}{
+\#define {\bfseries \-M\-W\-C\-R\-A\-N\-D\-\_\-\-T\-Y\-P\-E}~2}
+\label{group__sampling_ga7b5ef73a43bc588bf9f9a163c3bd891e}
+
+\item 
+\hypertarget{group__sampling_ga925679f23db78f6e2bc1b23186586d1e}{
+\#define {\bfseries \-R\-A\-N\-D\-O\-M\-\_\-\-T\-Y\-P\-E}~\-S\-F\-M\-T\-R\-A\-N\-D\-\_\-\-T\-Y\-P\-E}
+\label{group__sampling_ga925679f23db78f6e2bc1b23186586d1e}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Sequence $>$ }\\void \hyperlink{group__sampling_gafa69bcf9de5f02f4e1b33f60c6f33db9}{nih\-::permute} (\-Random \&random, const uint32 n, \-Sequence seq)
+\item 
+{\footnotesize template$<$typename Generator , uint32 \-D\-I\-M$>$ }\\\-Vector$<$ float, \-D\-I\-M $>$ \hyperlink{group__sampling_gabb2dd2ed5d619ca9c891ed4ce050fa6a}{nih\-::brownian\-\_\-bridge} (const uint32 \-L, const uint32 t, \-Generator gaussian)
+\item 
+{\footnotesize template$<$uint32 \-D\-I\-M, typename Distribution , typename Sampler\-\_\-type $>$ }\\\-Vector$<$ float, \-D\-I\-M $>$ \hyperlink{group__sampling_ga1e80545c2d9cb0ccdc535bd7bbc6b003}{nih\-::generate\-\_\-point} (\-Sampler\-\_\-type \&sampler, \-Distribution \&gaussian)
+\item 
+{\footnotesize template$<$uint32 \-D\-I\-M, typename Sequence , typename Distribution $>$ }\\\-Vector$<$ float, \-D\-I\-M $>$ \hyperlink{group__sampling_gadd2480f0c83af4a386b888ed7ed8e955}{nih\-::brownian\-\_\-bridge} (\-Distribution \&gaussian, const float sigma, const uint32 \-N, const uint32 i, const uint32 \-L, const uint32 t, const \-Sequence \&sequence)
+\item 
+uint32 \hyperlink{group__sampling_ga7f85d8d007bbaa744e558171b0064b8e}{nih\-::sample\-\_\-cdf} (const float x, const std\-::vector$<$ float $>$ \&cdf, float \&pdf)
+\item 
+uint32 \hyperlink{group__sampling_gae3dbf9f72ee99070878574ef9543785e}{nih\-::sample\-\_\-cdf} (const float x, const uint32 n, const float $\ast$cdf, float \&pdf)
+\item 
+float \hyperlink{group__sampling_ga2ba33066ab272bd8b90be1046198a124}{nih\-::sample\-\_\-cdf\-\_\-cont} (const float x, const std\-::vector$<$ float $>$ \&cdf, float \&pdf)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{group__sampling_gabb2dd2ed5d619ca9c891ed4ce050fa6a}{
+\index{\-Sampling@{\-Sampling}!brownian\-\_\-bridge@{brownian\-\_\-bridge}}
+\index{brownian\-\_\-bridge@{brownian\-\_\-bridge}!Sampling@{\-Sampling}}
+\subsubsection[{brownian\-\_\-bridge}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Generator , uint32 \-D\-I\-M$>$ \-Vector$<$ float, \-D\-I\-M $>$ nih\-::brownian\-\_\-bridge (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{\-L, }
+\item[{const uint32}]{t, }
+\item[{\-Generator}]{gaussian}
+\end{DoxyParamCaption}
+)}}
+\label{group__sampling_gabb2dd2ed5d619ca9c891ed4ce050fa6a}
+\-Evaluate a \-D\-I\-M-\/dimensional \-Brownian bridge of length \-L at time t, using a black-\/box \-Gaussian generator. \hypertarget{group__sampling_gadd2480f0c83af4a386b888ed7ed8e955}{
+\index{\-Sampling@{\-Sampling}!brownian\-\_\-bridge@{brownian\-\_\-bridge}}
+\index{brownian\-\_\-bridge@{brownian\-\_\-bridge}!Sampling@{\-Sampling}}
+\subsubsection[{brownian\-\_\-bridge}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32 \-D\-I\-M, typename Sequence , typename Distribution $>$ \-Vector$<$ float, \-D\-I\-M $>$ nih\-::brownian\-\_\-bridge (
+\begin{DoxyParamCaption}
+\item[{\-Distribution \&}]{gaussian, }
+\item[{const float}]{sigma, }
+\item[{const uint32}]{\-N, }
+\item[{const uint32}]{i, }
+\item[{const uint32}]{\-L, }
+\item[{const uint32}]{t, }
+\item[{const \-Sequence \&}]{sequence}
+\end{DoxyParamCaption}
+)}}
+\label{group__sampling_gadd2480f0c83af4a386b888ed7ed8e955}
+\-Evaluate the i/\-N-\/th \-D\-I\-M-\/dimensional \-Brownian bridge of length \-L at time t. \-The bridges are created using \-L copies of a \-D\-I\-M-\/dimensional \-Sobol sequence, first permuted and then shifted through \-Cranley-\/\-Patterson rotations. \-The vector of permutations must contain \-L permutations of the indices \mbox{[}0,\-N-\/1\mbox{]}, and the vector of rotations must contain \-L $\ast$ (\-D\-I\-M + (\-D\-I\-M \& 1)) entries. \hypertarget{group__sampling_ga1e80545c2d9cb0ccdc535bd7bbc6b003}{
+\index{\-Sampling@{\-Sampling}!generate\-\_\-point@{generate\-\_\-point}}
+\index{generate\-\_\-point@{generate\-\_\-point}!Sampling@{\-Sampling}}
+\subsubsection[{generate\-\_\-point}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32 \-D\-I\-M, typename Distribution , typename Sampler\-\_\-type $>$ \-Vector$<$ float, \-D\-I\-M $>$ nih\-::generate\-\_\-point (
+\begin{DoxyParamCaption}
+\item[{\-Sampler\-\_\-type \&}]{sampler, }
+\item[{\-Distribution \&}]{gaussian}
+\end{DoxyParamCaption}
+)}}
+\label{group__sampling_ga1e80545c2d9cb0ccdc535bd7bbc6b003}
+\-A simple utility function to generate a \-D\-I\-M-\/dimensional \-Gaussian point using the i-\/th point of a sample sequence, shifted by a \-Cranley-\/\-Patterson rotation. \hypertarget{group__sampling_gafa69bcf9de5f02f4e1b33f60c6f33db9}{
+\index{\-Sampling@{\-Sampling}!permute@{permute}}
+\index{permute@{permute}!Sampling@{\-Sampling}}
+\subsubsection[{permute}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Sequence $>$ void nih\-::permute (
+\begin{DoxyParamCaption}
+\item[{\-Random \&}]{random, }
+\item[{const uint32}]{n, }
+\item[{\-Sequence}]{seq}
+\end{DoxyParamCaption}
+)}}
+\label{group__sampling_gafa69bcf9de5f02f4e1b33f60c6f33db9}
+permute a set of n elements randomly
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em random} & random number generator \\
+\hline
+{\em n} & set size \\
+\hline
+{\em seq} & element sequence \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__sampling_ga7f85d8d007bbaa744e558171b0064b8e}{
+\index{\-Sampling@{\-Sampling}!sample\-\_\-cdf@{sample\-\_\-cdf}}
+\index{sample\-\_\-cdf@{sample\-\_\-cdf}!Sampling@{\-Sampling}}
+\subsubsection[{sample\-\_\-cdf}]{\setlength{\rightskip}{0pt plus 5cm}uint32 nih\-::sample\-\_\-cdf (
+\begin{DoxyParamCaption}
+\item[{const float}]{x, }
+\item[{const std\-::vector$<$ float $>$ \&}]{cdf, }
+\item[{float \&}]{pdf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{group__sampling_ga7f85d8d007bbaa744e558171b0064b8e}
+sample a cdf
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em x} & input value \\
+\hline
+{\em cdf} & cdf to sample from \\
+\hline
+{\em pdf} & output pdf \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__sampling_gae3dbf9f72ee99070878574ef9543785e}{
+\index{\-Sampling@{\-Sampling}!sample\-\_\-cdf@{sample\-\_\-cdf}}
+\index{sample\-\_\-cdf@{sample\-\_\-cdf}!Sampling@{\-Sampling}}
+\subsubsection[{sample\-\_\-cdf}]{\setlength{\rightskip}{0pt plus 5cm}uint32 nih\-::sample\-\_\-cdf (
+\begin{DoxyParamCaption}
+\item[{const float}]{x, }
+\item[{const uint32}]{n, }
+\item[{const float $\ast$}]{cdf, }
+\item[{float \&}]{pdf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{group__sampling_gae3dbf9f72ee99070878574ef9543785e}
+sample a cdf
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em x} & input value \\
+\hline
+{\em cdf} & cdf to sample from \\
+\hline
+{\em pdf} & output pdf \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__sampling_ga2ba33066ab272bd8b90be1046198a124}{
+\index{\-Sampling@{\-Sampling}!sample\-\_\-cdf\-\_\-cont@{sample\-\_\-cdf\-\_\-cont}}
+\index{sample\-\_\-cdf\-\_\-cont@{sample\-\_\-cdf\-\_\-cont}!Sampling@{\-Sampling}}
+\subsubsection[{sample\-\_\-cdf\-\_\-cont}]{\setlength{\rightskip}{0pt plus 5cm}float nih\-::sample\-\_\-cdf\-\_\-cont (
+\begin{DoxyParamCaption}
+\item[{const float}]{x, }
+\item[{const std\-::vector$<$ float $>$ \&}]{cdf, }
+\item[{float \&}]{pdf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{group__sampling_ga2ba33066ab272bd8b90be1046198a124}
+sample a cdf with continuous uniform distribution inside the bins
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em x} & input value \\
+\hline
+{\em cdf} & cdf to sample from \\
+\hline
+{\em pdf} & output pdf \\
+\hline
+\end{DoxyParams}

@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file algorithms.h
+ *   \brief Defines some general purpose algorithms.
+ */
+
 #pragma once
 
 #include <nih/basic/types.h>
@@ -32,6 +36,10 @@
 namespace nih {
 
 /// find the first element in a sequence for which a given predicate evaluates to true
+///
+/// \param begin        sequence start iterator
+/// \param n            sequence size
+/// \param predicate    unary predicate
 template <typename Iterator, typename Predicate>
 FORCE_INLINE NIH_HOST_DEVICE Iterator find_pivot(
     Iterator        begin,
@@ -43,20 +51,6 @@ FORCE_INLINE NIH_HOST_DEVICE Iterator find_pivot(
         return predicate( begin[0] ) ? begin + n : begin;
 
     // perform a binary search over the given range
-/*    uint32 lo = 0;
-    uint32 hi = n-1;
-
-    while (hi - lo > 1)
-    {
-        const uint32 mid = (lo + hi) / 2;
-
-        if (predicate( begin[ mid ] ))
-            hi = mid;
-        else
-            lo = mid;
-    }
-    return begin + lo + (predicate( begin[lo] ) ? 0u : 1);
-    */
     uint32 count = n;
 
     while (count > 0)
@@ -66,6 +60,41 @@ FORCE_INLINE NIH_HOST_DEVICE Iterator find_pivot(
         Iterator mid = begin + count2;
 
         if (predicate( *mid ) == false)
+            begin = ++mid, count -= count2 + 1;
+        else
+            count = count2;
+    }
+	return begin;
+}
+
+/// find the lower bound in a sequence
+///
+/// \param x        element to find
+/// \param begin    sequence start iterator
+/// \param n        sequence size
+template <typename Iterator, typename Value>
+FORCE_INLINE NIH_HOST_DEVICE Iterator lower_bound(
+    const Value     x,
+    Iterator        begin,
+    const uint32    n)
+{
+    // check whether this segment is all left or right of x
+    if (x < begin[0])
+        return begin;
+
+    if (begin[n-1] < x)
+        return begin + n;
+
+    // perform a binary search over the given range
+    uint32 count = n;
+
+    while (count > 0)
+    {
+        const uint32 count2 = count / 2;
+
+        Iterator mid = begin + count2;
+
+        if (*mid < x)
             begin = ++mid, count -= count2 + 1;
         else
             count = count2;

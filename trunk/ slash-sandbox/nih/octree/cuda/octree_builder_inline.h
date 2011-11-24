@@ -145,7 +145,7 @@ __global__ void collect_octants_kernel(
     uint32*             out_tasks_count,
     Split_task*         out_tasks,
     uint32*             out_nodes_count,
-    Octree_node_base*   out_nodes)
+    Octree_node*   out_nodes)
 {
     const uint32 LOG_WARP_SIZE = 5;
     const uint32 WARP_SIZE = 1u << LOG_WARP_SIZE;
@@ -198,7 +198,7 @@ __global__ void collect_octants_kernel(
 
             // write the parent node
             if (task_id < in_tasks_count)
-                out_nodes[ node ] = Octree_node_base( result.bitmask, node_offset );
+                out_nodes[ node ] = Octree_node( result.bitmask, node_offset );
 
             // write out all outputs
             for (uint32 i = 0; i < result.node_count; ++i)
@@ -209,7 +209,7 @@ __global__ void collect_octants_kernel(
                 if (kd_node.is_leaf() == false)
                     out_tasks[ task_offset++ ] = Split_task( node_offset, 0, 0, kd_node_index );
                 else
-                    out_nodes[ node_offset ] = Octree_node_base( kd_node.get_child_offset() );
+                    out_nodes[ node_offset ] = Octree_node( kd_node.get_child_offset() );
 
                 node_offset++;
             }
@@ -218,14 +218,14 @@ __global__ void collect_octants_kernel(
 }
 
 // collect octants from a kd-tree
-void collect_octants(
+inline void collect_octants(
     const Kd_node*      kd_nodes,
     const uint32        in_tasks_count,
     const Split_task*   in_tasks,
     uint32*             out_tasks_count,
     Split_task*         out_tasks,
     uint32*             out_nodes_count,
-    Octree_node_base*   out_nodes)
+    Octree_node*   out_nodes)
 {
     const uint32 BLOCK_SIZE = 128;
     const size_t max_blocks = thrust::detail::device::cuda::arch::max_active_blocks(collect_octants_kernel<BLOCK_SIZE>, BLOCK_SIZE, 0);
@@ -249,14 +249,16 @@ void collect_octants(
 
 // build an octree given a set of points
 template <typename Integer>
+template <typename Iterator>
 void Octree_builder<Integer>::build(
     const Bbox3f                           bbox,
-    const thrust::device_vector<Vector4f>& points,
+    const Iterator                         points_begin,
+    const Iterator                         points_end,
     const uint32                           max_leaf_size)
 { 
     typedef cuda::Bintree_gen_context::Split_task Split_task;
 
-    const uint32 n_points = uint32( points.size() );
+    const uint32 n_points = uint32( points_end - points_begin );
 
     m_bbox = bbox;
     need_space( m_codes, n_points );
@@ -266,8 +268,8 @@ void Octree_builder<Integer>::build(
 
     // compute the Morton code for each point
     thrust::transform(
-        points.begin(),
-        points.begin() + n_points,
+        points_begin,
+        points_begin + n_points,
         m_codes.begin(),
         morton_functor<Integer>( bbox ) );
 

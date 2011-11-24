@@ -25,12 +25,19 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*! \file cuda_config.h
+ *   \brief Defines a simple CUDA configuration class holding common constants.
+ */
+
 #pragma once
 
 #include <nih/basic/types.h>
 
 namespace nih {
 
+///
+/// CUDA configuration constants
+///
 struct CUDA_config
 {
     static const uint32 log_WARP_SIZE = 5;

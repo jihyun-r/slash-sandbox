@@ -92,6 +92,14 @@ void Bbox<Vector_t>::clear()
 }
 
 template <typename Vector_t>
+Bbox<Vector_t>& Bbox<Vector_t>::operator=(const Bbox<Vector_t>& bb)
+{
+    m_min = bb.m_min;
+    m_max = bb.m_max;
+    return *this;
+}
+
+template <typename Vector_t>
 size_t largest_axis(const Bbox<Vector_t>& bbox)
 {
 	typedef typename Vector_t::Field_type Field_type;
@@ -109,6 +117,49 @@ size_t largest_axis(const Bbox<Vector_t>& bbox)
 		}
 	}
 	return axis;
+}
+
+// compute the area of a 3d bbox
+//
+// \param bbox     bbox object
+float area(const Bbox3f& bbox)
+{
+    const Vector3f edge = bbox[1] - bbox[0];
+    return edge[0] * edge[1] + edge[2] * (edge[0] + edge[1]);
+}
+
+// point-in-bbox inclusion predicate
+//
+// \param bbox     bbox object
+// \param p        point to test for inclusion
+template <typename Vector_t>
+bool contains(const Bbox<Vector_t>& bbox, const Vector_t& p)
+{
+    for (uint32 i = 0; i < p.dimension(); ++i)
+    {
+        if (p[i] < bbox[0][i] ||
+            p[i] > bbox[1][i])
+            return false;
+    }
+    return true;
+}
+
+// point-to-bbox squared distance
+//
+// \param bbox     bbox object
+// \param p        point
+template <typename Vector_t>
+float sq_distance(const Bbox<Vector_t>& bbox, const Vector_t& p)
+{
+    float r = 0.0f;
+    for (uint32 i = 0; i < p.dimension(); ++i)
+    {
+        const float dist = nih::max( bbox[0][i] - p[i], 0.0f ) +
+                           nih::max( p[i] - bbox[1][i], 0.0f );
+
+        r += dist*dist;
+    }
+    return r;
 }
 
 } // namespace nih

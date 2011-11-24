@@ -25,10 +25,34 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#pragma once
+
 #define KUO
 
 #if 1
+
+const unsigned int sobolDims = 128; // must be a power of 2
+
+static unsigned int s_sobolMat[] = {
 #include <nih/sampling/sobol_matrices_128.h>
+};
+#ifdef __CUDACC__
+    __constant__ unsigned int c_sobolMat[sobolDims*32] = {
+    #include <nih/sampling/sobol_matrices_128.h>
+    };
+#endif
+
 #else
+
+const unsigned int sobolDims = 16384; // must be a power of 2
+
+static unsigned int s_sobolMat[] = {
 #include <nih/sampling/sobol_matrices_21201.h>
+};
+#ifdef __CUDACC__
+    __constant__ unsigned int c_sobolMat[sobolDims*32] = {
+    #include <nih/sampling/sobol_matrices_21201.h>
+    };
+#endif
+
 #endif

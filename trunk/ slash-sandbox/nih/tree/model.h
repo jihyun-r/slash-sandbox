@@ -27,17 +27,20 @@
 
 #pragma once
 
+#include <iterator>
+
 namespace nih {
 
 struct breadth_first_tree {};
 struct depth_first_tree   {};
 
 /// A simple Breadth-First Tree model implementation
-template <typename Node_type, typename Domain_type>
+template <typename Node_iterator, typename Domain_type>
 struct BFTree
 {
     typedef Domain_type         domain_type;
-    typedef Node_type           node_type;
+    typedef Node_iterator       node_iterator;
+    typedef typename std::iterator_traits<node_iterator>::value_type node_type;
     typedef breadth_first_tree  tree_type;
 
     /// empty constructor
@@ -45,11 +48,11 @@ struct BFTree
 
     /// constructor
     BFTree(
-        const node_type* nodes,
-        const uint32     n_leaves,
-        const uint2*     leaves,
-        const uint32     n_levels,
-        const uint32*    levels) : 
+        const node_iterator nodes,
+        const uint32        n_leaves,
+        const uint2*        leaves,
+        const uint32        n_levels,
+        const uint32*       levels) : 
         m_nodes( nodes ),
         m_leaf_count( n_leaves ),
         m_leaves( leaves ),
@@ -78,11 +81,11 @@ struct BFTree
         return m_leaves[ index ];
     }
 
-    const node_type* m_nodes;
-    uint32           m_leaf_count;
-    const uint2*     m_leaves;
-    uint32           m_level_count;
-    const uint32*    m_levels;
+    const node_iterator m_nodes;
+    uint32              m_leaf_count;
+    const uint2*        m_leaves;
+    uint32              m_level_count;
+    const uint32*       m_levels;
 };
 
 } // namespace nih

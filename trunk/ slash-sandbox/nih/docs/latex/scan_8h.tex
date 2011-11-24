@@ -1,0 +1,25 @@
+\hypertarget{scan_8h}{
+\section{\-C\-:/p4research/research/jpantaleoni/nih/basic/cuda/scan.h \-File \-Reference}
+\label{scan_8h}\index{\-C\-:/p4research/research/jpantaleoni/nih/basic/cuda/scan.\-h@{\-C\-:/p4research/research/jpantaleoni/nih/basic/cuda/scan.\-h}}
+}
+
+
+\-Define \-C\-U\-D\-A based scan primitives.  
+
+
+{\ttfamily \#include $<$nih/basic/types.\-h$>$}\*
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\-\_\-\-\_\-device\-\_\-\-\_\- \-\_\-\-\_\-forceinline\-\_\-\-\_\- \-T {\bfseries nih\-::cuda\-::scan\-\_\-warp} (\-T val, const int32 tidx, volatile \-T $\ast$red)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\-\_\-\-\_\-device\-\_\-\-\_\- \-\_\-\-\_\-forceinline\-\_\-\-\_\- \-T {\bfseries nih\-::cuda\-::scan\-\_\-warp\-\_\-total} (volatile \-T $\ast$red)
+\item 
+\-\_\-\-\_\-device\-\_\-\-\_\- \-\_\-\-\_\-forceinline\-\_\-\-\_\- uint32 {\bfseries nih\-::cuda\-::alloc} (uint32 n, uint32 $\ast$pool, const int32 warp\-\_\-tid, volatile uint32 $\ast$warp\-\_\-red, volatile uint32 $\ast$warp\-\_\-broadcast)
+\item 
+{\footnotesize template$<$uint32 \-N$>$ }\\\-\_\-\-\_\-device\-\_\-\-\_\- \-\_\-\-\_\-forceinline\-\_\-\-\_\- uint32 {\bfseries nih\-::cuda\-::alloc} (bool p, uint32 $\ast$pool, const int32 warp\-\_\-tid, volatile uint32 $\ast$warp\-\_\-broadcast)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Define \-C\-U\-D\-A based scan primitives. 
