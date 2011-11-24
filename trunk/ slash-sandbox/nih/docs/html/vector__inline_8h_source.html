@@ -107,48 +107,48 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00028"></a>00028 <span class="keyword">namespace </span>nih {
 <a name="l00029"></a>00029 
 <a name="l00030"></a>00030 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00031"></a><a class="code" href="group__linalg.html#gab815e30e4a8c47b3ff177de0ba4162cb">00031</a> FORCE_INLINE NIH_HOST_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_012_01_4.html">Vector&lt;T,2&gt;</a> <a class="code" href="group__linalg.html#gab815e30e4a8c47b3ff177de0ba4162cb">xy</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
+<a name="l00031"></a><a class="code" href="group__vectors.html#gab815e30e4a8c47b3ff177de0ba4162cb">00031</a> FORCE_INLINE NIH_HOST_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_012_01_4.html">Vector&lt;T,2&gt;</a> <a class="code" href="group__vectors.html#gab815e30e4a8c47b3ff177de0ba4162cb">xy</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
 <a name="l00032"></a>00032 {
 <a name="l00033"></a>00033     <span class="keywordflow">return</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_012_01_4.html">Vector&lt;T,2&gt;</a>( op[0], op[1] );
 <a name="l00034"></a>00034 }
 <a name="l00035"></a>00035 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00036"></a><a class="code" href="group__linalg.html#gaa33a532874bb7f0c3977391f83dc64a3">00036</a> FORCE_INLINE NIH_HOST_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_012_01_4.html">Vector&lt;T,2&gt;</a> <a class="code" href="group__linalg.html#gaa33a532874bb7f0c3977391f83dc64a3">yx</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
+<a name="l00036"></a><a class="code" href="group__vectors.html#gaa33a532874bb7f0c3977391f83dc64a3">00036</a> FORCE_INLINE NIH_HOST_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_012_01_4.html">Vector&lt;T,2&gt;</a> <a class="code" href="group__vectors.html#gaa33a532874bb7f0c3977391f83dc64a3">yx</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
 <a name="l00037"></a>00037 {
 <a name="l00038"></a>00038     <span class="keywordflow">return</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_012_01_4.html">Vector&lt;T,2&gt;</a>( op[1], op[0] );
 <a name="l00039"></a>00039 }
 <a name="l00040"></a>00040 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00041"></a><a class="code" href="group__linalg.html#ga283f58e199d448be6746baec9dec6ac1">00041</a> FORCE_INLINE NIH_HOST_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> <a class="code" href="group__linalg.html#ga283f58e199d448be6746baec9dec6ac1">xyz</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
+<a name="l00041"></a><a class="code" href="group__vectors.html#ga283f58e199d448be6746baec9dec6ac1">00041</a> FORCE_INLINE NIH_HOST_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> <a class="code" href="group__vectors.html#ga283f58e199d448be6746baec9dec6ac1">xyz</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
 <a name="l00042"></a>00042 {
 <a name="l00043"></a>00043     <span class="keywordflow">return</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>( op[0], op[1], op[2] );
 <a name="l00044"></a>00044 }
 <a name="l00045"></a>00045 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00046"></a><a class="code" href="group__linalg.html#ga789568ee5abe245a1789c972459d9208">00046</a> FORCE_INLINE NIH_HOST_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> <a class="code" href="group__linalg.html#ga789568ee5abe245a1789c972459d9208">xzy</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
+<a name="l00046"></a><a class="code" href="group__vectors.html#ga789568ee5abe245a1789c972459d9208">00046</a> FORCE_INLINE NIH_HOST_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> <a class="code" href="group__vectors.html#ga789568ee5abe245a1789c972459d9208">xzy</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
 <a name="l00047"></a>00047 {
 <a name="l00048"></a>00048     <span class="keywordflow">return</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>( op[0], op[2], op[1] );
 <a name="l00049"></a>00049 }
 <a name="l00050"></a>00050 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00051"></a><a class="code" href="group__linalg.html#ga8ba75af33f38985f639aa3f3abe0dce2">00051</a> FORCE_INLINE NIH_HOST_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> <a class="code" href="group__linalg.html#ga8ba75af33f38985f639aa3f3abe0dce2">zyx</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
+<a name="l00051"></a><a class="code" href="group__vectors.html#ga8ba75af33f38985f639aa3f3abe0dce2">00051</a> FORCE_INLINE NIH_HOST_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> <a class="code" href="group__vectors.html#ga8ba75af33f38985f639aa3f3abe0dce2">zyx</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
 <a name="l00052"></a>00052 {
 <a name="l00053"></a>00053     <span class="keywordflow">return</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>( op[2], op[1], op[0] );
 <a name="l00054"></a>00054 }
 <a name="l00055"></a>00055 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00056"></a><a class="code" href="group__linalg.html#ga531fcf7af9a93262536231c3fb69cb4f">00056</a> FORCE_INLINE NIH_HOST_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> <a class="code" href="group__linalg.html#ga531fcf7af9a93262536231c3fb69cb4f">zxy</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
+<a name="l00056"></a><a class="code" href="group__vectors.html#ga531fcf7af9a93262536231c3fb69cb4f">00056</a> FORCE_INLINE NIH_HOST_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> <a class="code" href="group__vectors.html#ga531fcf7af9a93262536231c3fb69cb4f">zxy</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
 <a name="l00057"></a>00057 {
 <a name="l00058"></a>00058     <span class="keywordflow">return</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>( op[2], op[0], op[1] );
 <a name="l00059"></a>00059 }
 <a name="l00060"></a>00060 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00061"></a><a class="code" href="group__linalg.html#gaacc6c8319788b93e1cf61288299530ca">00061</a> FORCE_INLINE NIH_HOST_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> <a class="code" href="group__linalg.html#gaacc6c8319788b93e1cf61288299530ca">yxz</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
+<a name="l00061"></a><a class="code" href="group__vectors.html#gaacc6c8319788b93e1cf61288299530ca">00061</a> FORCE_INLINE NIH_HOST_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> <a class="code" href="group__vectors.html#gaacc6c8319788b93e1cf61288299530ca">yxz</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
 <a name="l00062"></a>00062 {
 <a name="l00063"></a>00063     <span class="keywordflow">return</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>( op[1], op[0], op[2] );
 <a name="l00064"></a>00064 }
 <a name="l00065"></a>00065 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00066"></a><a class="code" href="group__linalg.html#ga5bae4031dc463ce54993a932a5671a17">00066</a> FORCE_INLINE NIH_HOST_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> <a class="code" href="group__linalg.html#ga5bae4031dc463ce54993a932a5671a17">yzx</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
+<a name="l00066"></a><a class="code" href="group__vectors.html#ga5bae4031dc463ce54993a932a5671a17">00066</a> FORCE_INLINE NIH_HOST_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> <a class="code" href="group__vectors.html#ga5bae4031dc463ce54993a932a5671a17">yzx</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
 <a name="l00067"></a>00067 {
 <a name="l00068"></a>00068     <span class="keywordflow">return</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>( op[1], op[2], op[0] );
 <a name="l00069"></a>00069 }
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00072"></a><a class="code" href="group__linalg.html#gaabd17838f41c1637cb84a3cfe31dfb0b">00072</a> NIH_HOST NIH_DEVICE <span class="keywordtype">bool</span> <a class="code" href="group__linalg.html#gaabd17838f41c1637cb84a3cfe31dfb0b">operator==</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
+<a name="l00072"></a><a class="code" href="group__vectors.html#gaabd17838f41c1637cb84a3cfe31dfb0b">00072</a> NIH_HOST NIH_DEVICE <span class="keywordtype">bool</span> <a class="code" href="group__vectors.html#gaabd17838f41c1637cb84a3cfe31dfb0b">operator==</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
 <a name="l00073"></a>00073 {
 <a name="l00074"></a>00074         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
 <a name="l00075"></a>00075     {
@@ -158,7 +158,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00079"></a>00079         <span class="keywordflow">return</span> <span class="keyword">true</span>;
 <a name="l00080"></a>00080 }
 <a name="l00081"></a>00081 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00082"></a><a class="code" href="group__linalg.html#ga884852dfe6e126e524af6c966fd3fa8e">00082</a> NIH_HOST NIH_DEVICE <span class="keywordtype">bool</span> <a class="code" href="group__linalg.html#ga884852dfe6e126e524af6c966fd3fa8e">operator!=</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
+<a name="l00082"></a><a class="code" href="group__vectors.html#ga884852dfe6e126e524af6c966fd3fa8e">00082</a> NIH_HOST NIH_DEVICE <span class="keywordtype">bool</span> <a class="code" href="group__vectors.html#ga884852dfe6e126e524af6c966fd3fa8e">operator!=</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
 <a name="l00083"></a>00083 {
 <a name="l00084"></a>00084         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
 <a name="l00085"></a>00085     {
@@ -170,7 +170,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00091"></a>00091 
 <a name="l00092"></a>00092 
 <a name="l00093"></a>00093 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00094"></a><a class="code" href="group__linalg.html#ga400f2fbe2094965df70010d98a05e1fc">00094</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> operator*(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> T op2)
+<a name="l00094"></a><a class="code" href="group__vectors.html#ga400f2fbe2094965df70010d98a05e1fc">00094</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> operator*(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> T op2)
 <a name="l00095"></a>00095 {
 <a name="l00096"></a>00096         <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> r;
 <a name="l00097"></a>00097         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
@@ -178,7 +178,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00099"></a>00099         <span class="keywordflow">return</span> r;
 <a name="l00100"></a>00100 }
 <a name="l00101"></a>00101 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00102"></a><a class="code" href="group__linalg.html#gafe00990ed787cec75b986c394b7f5e0f">00102</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__linalg.html#gafe00990ed787cec75b986c394b7f5e0f">operator/</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> T op2)
+<a name="l00102"></a><a class="code" href="group__vectors.html#gafe00990ed787cec75b986c394b7f5e0f">00102</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__vectors.html#gafe00990ed787cec75b986c394b7f5e0f">operator/</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> T op2)
 <a name="l00103"></a>00103 {
 <a name="l00104"></a>00104         <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> r;
 <a name="l00105"></a>00105         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
@@ -186,7 +186,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00107"></a>00107         <span class="keywordflow">return</span> r;
 <a name="l00108"></a>00108 }
 <a name="l00109"></a>00109 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00110"></a><a class="code" href="group__linalg.html#gaea85e6f752c95162ffe3388dd87d57d4">00110</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> operator*(<span class="keyword">const</span> T op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
+<a name="l00110"></a><a class="code" href="group__vectors.html#gaea85e6f752c95162ffe3388dd87d57d4">00110</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> operator*(<span class="keyword">const</span> T op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
 <a name="l00111"></a>00111 {
 <a name="l00112"></a>00112         <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> r;
 <a name="l00113"></a>00113         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
@@ -194,7 +194,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00115"></a>00115         <span class="keywordflow">return</span> r;
 <a name="l00116"></a>00116 }
 <a name="l00117"></a>00117 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00118"></a><a class="code" href="group__linalg.html#gabaaa34dafadbdbaaff130b02d28b3ad1">00118</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; <a class="code" href="group__linalg.html#gabaaa34dafadbdbaaff130b02d28b3ad1">operator*=</a>(<a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> T op2)
+<a name="l00118"></a><a class="code" href="group__vectors.html#gabaaa34dafadbdbaaff130b02d28b3ad1">00118</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; <a class="code" href="group__vectors.html#gabaaa34dafadbdbaaff130b02d28b3ad1">operator*=</a>(<a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> T op2)
 <a name="l00119"></a>00119 {
 <a name="l00120"></a>00120         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
 <a name="l00121"></a>00121                 op1[i] *= op2;
@@ -202,7 +202,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00123"></a>00123 }
 <a name="l00124"></a>00124 
 <a name="l00125"></a>00125 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00126"></a><a class="code" href="group__linalg.html#ga9235b9ea803b8d0ef379565a3ff7dd76">00126</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__linalg.html#ga9235b9ea803b8d0ef379565a3ff7dd76">operator+</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
+<a name="l00126"></a><a class="code" href="group__vectors.html#ga9235b9ea803b8d0ef379565a3ff7dd76">00126</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__vectors.html#ga9235b9ea803b8d0ef379565a3ff7dd76">operator+</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
 <a name="l00127"></a>00127 {
 <a name="l00128"></a>00128         <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> r;
 <a name="l00129"></a>00129         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
@@ -210,7 +210,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00131"></a>00131         <span class="keywordflow">return</span> r;
 <a name="l00132"></a>00132 }
 <a name="l00133"></a>00133 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00134"></a><a class="code" href="group__linalg.html#ga8782aba246b1da852d9f4390d22336f8">00134</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__linalg.html#ga8782aba246b1da852d9f4390d22336f8">operator-</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
+<a name="l00134"></a><a class="code" href="group__vectors.html#ga8782aba246b1da852d9f4390d22336f8">00134</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__vectors.html#ga8782aba246b1da852d9f4390d22336f8">operator-</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
 <a name="l00135"></a>00135 {
 <a name="l00136"></a>00136         <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> r;
 <a name="l00137"></a>00137         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
@@ -218,7 +218,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00139"></a>00139         <span class="keywordflow">return</span> r;
 <a name="l00140"></a>00140 }
 <a name="l00141"></a>00141 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00142"></a><a class="code" href="group__linalg.html#gafd7b9505e791364aa7e9b2d4598d00a6">00142</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> operator*(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
+<a name="l00142"></a><a class="code" href="group__vectors.html#gafd7b9505e791364aa7e9b2d4598d00a6">00142</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> operator*(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
 <a name="l00143"></a>00143 {
 <a name="l00144"></a>00144         <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> r;
 <a name="l00145"></a>00145         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
@@ -226,7 +226,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00147"></a>00147         <span class="keywordflow">return</span> r;
 <a name="l00148"></a>00148 }
 <a name="l00149"></a>00149 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00150"></a><a class="code" href="group__linalg.html#ga7989586a3f3db4aa98a7866a4cdf080b">00150</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__linalg.html#gafe00990ed787cec75b986c394b7f5e0f">operator/</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
+<a name="l00150"></a><a class="code" href="group__vectors.html#ga7989586a3f3db4aa98a7866a4cdf080b">00150</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__vectors.html#gafe00990ed787cec75b986c394b7f5e0f">operator/</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
 <a name="l00151"></a>00151 {
 <a name="l00152"></a>00152         <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> r;
 <a name="l00153"></a>00153         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
@@ -235,35 +235,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00156"></a>00156 }
 <a name="l00157"></a>00157 
 <a name="l00158"></a>00158 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00159"></a><a class="code" href="group__linalg.html#ga4226e5c3bf0305cf0a0459bf43564223">00159</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; <a class="code" href="group__linalg.html#ga4226e5c3bf0305cf0a0459bf43564223">operator+=</a>(<a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
+<a name="l00159"></a><a class="code" href="group__vectors.html#ga4226e5c3bf0305cf0a0459bf43564223">00159</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; <a class="code" href="group__vectors.html#ga4226e5c3bf0305cf0a0459bf43564223">operator+=</a>(<a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
 <a name="l00160"></a>00160 {
 <a name="l00161"></a>00161         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
 <a name="l00162"></a>00162                 op1[i] += op2[i];
 <a name="l00163"></a>00163         <span class="keywordflow">return</span> op1;
 <a name="l00164"></a>00164 }
 <a name="l00165"></a>00165 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00166"></a><a class="code" href="group__linalg.html#ga6c534bcb2f6acc627ea0988b2de4f73e">00166</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; <a class="code" href="group__linalg.html#ga6c534bcb2f6acc627ea0988b2de4f73e">operator-=</a>(<a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
+<a name="l00166"></a><a class="code" href="group__vectors.html#ga6c534bcb2f6acc627ea0988b2de4f73e">00166</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; <a class="code" href="group__vectors.html#ga6c534bcb2f6acc627ea0988b2de4f73e">operator-=</a>(<a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
 <a name="l00167"></a>00167 {
 <a name="l00168"></a>00168         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
 <a name="l00169"></a>00169                 op1[i] -= op2[i];
 <a name="l00170"></a>00170         <span class="keywordflow">return</span> op1;
 <a name="l00171"></a>00171 }
 <a name="l00172"></a>00172 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00173"></a><a class="code" href="group__linalg.html#ga9719feff779258b2681dc8e81ee1a592">00173</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; <a class="code" href="group__linalg.html#gabaaa34dafadbdbaaff130b02d28b3ad1">operator*=</a>(<a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
+<a name="l00173"></a><a class="code" href="group__vectors.html#ga9719feff779258b2681dc8e81ee1a592">00173</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; <a class="code" href="group__vectors.html#gabaaa34dafadbdbaaff130b02d28b3ad1">operator*=</a>(<a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
 <a name="l00174"></a>00174 {
 <a name="l00175"></a>00175         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
 <a name="l00176"></a>00176                 op1[i] *= op2[i];
 <a name="l00177"></a>00177         <span class="keywordflow">return</span> op1;
 <a name="l00178"></a>00178 }
 <a name="l00179"></a>00179 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00180"></a><a class="code" href="group__linalg.html#ga04e63000d70a03c13098b6b7303a29e9">00180</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; <a class="code" href="group__linalg.html#ga04e63000d70a03c13098b6b7303a29e9">operator/=</a>(<a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
+<a name="l00180"></a><a class="code" href="group__vectors.html#ga04e63000d70a03c13098b6b7303a29e9">00180</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; <a class="code" href="group__vectors.html#ga04e63000d70a03c13098b6b7303a29e9">operator/=</a>(<a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
 <a name="l00181"></a>00181 {
 <a name="l00182"></a>00182         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
 <a name="l00183"></a>00183                 op1[i] /= op2[i];
 <a name="l00184"></a>00184         <span class="keywordflow">return</span> op1;
 <a name="l00185"></a>00185 }
 <a name="l00186"></a>00186 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00187"></a><a class="code" href="group__linalg.html#gabcfc0bf4057eca196b46247e7294a526">00187</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; <a class="code" href="group__linalg.html#ga04e63000d70a03c13098b6b7303a29e9">operator/=</a>(<a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> T op2)
+<a name="l00187"></a><a class="code" href="group__vectors.html#gabcfc0bf4057eca196b46247e7294a526">00187</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; <a class="code" href="group__vectors.html#ga04e63000d70a03c13098b6b7303a29e9">operator/=</a>(<a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> T op2)
 <a name="l00188"></a>00188 {
 <a name="l00189"></a>00189         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
 <a name="l00190"></a>00190                 op1[i] /= op2;
@@ -271,7 +271,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00192"></a>00192 }
 <a name="l00193"></a>00193 
 <a name="l00194"></a>00194 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00195"></a><a class="code" href="group__linalg.html#ga0f199097d81599a09c0607600e63b26a">00195</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__linalg.html#ga8782aba246b1da852d9f4390d22336f8">operator-</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1)
+<a name="l00195"></a><a class="code" href="group__vectors.html#ga0f199097d81599a09c0607600e63b26a">00195</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__vectors.html#ga8782aba246b1da852d9f4390d22336f8">operator-</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1)
 <a name="l00196"></a>00196 {
 <a name="l00197"></a>00197         <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> r;
 <a name="l00198"></a>00198         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
@@ -280,7 +280,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00201"></a>00201 }
 <a name="l00202"></a>00202 
 <a name="l00203"></a>00203 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00204"></a><a class="code" href="group__linalg.html#ga0de5bc91fec52d0b92e059ebf5d389ec">00204</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__linalg.html#ga0de5bc91fec52d0b92e059ebf5d389ec">intensity</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v)
+<a name="l00204"></a><a class="code" href="group__vectors.html#ga0de5bc91fec52d0b92e059ebf5d389ec">00204</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__vectors.html#ga0de5bc91fec52d0b92e059ebf5d389ec">intensity</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v)
 <a name="l00205"></a>00205 {
 <a name="l00206"></a>00206         T r(0.0);
 <a name="l00207"></a>00207         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
@@ -289,10 +289,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00210"></a>00210         <span class="keywordflow">return</span> r / float(v.<a class="code" href="structnih_1_1_vector.html#acc8500e147b270f614715c49b04e333b">dimension</a>());
 <a name="l00211"></a>00211 }
 <a name="l00212"></a>00212 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00213"></a><a class="code" href="group__linalg.html#ga5aba2566a39c58297e8f97bcf771519f">00213</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__linalg.html#ga0de5bc91fec52d0b92e059ebf5d389ec">intensity</a>(<span class="keyword">const</span> T v) { <span class="keywordflow">return</span> v; }
+<a name="l00213"></a><a class="code" href="group__vectors.html#ga5aba2566a39c58297e8f97bcf771519f">00213</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__vectors.html#ga0de5bc91fec52d0b92e059ebf5d389ec">intensity</a>(<span class="keyword">const</span> T v) { <span class="keywordflow">return</span> v; }
 <a name="l00214"></a>00214 
 <a name="l00215"></a>00215 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00216"></a><a class="code" href="group__linalg.html#ga299bb7e770db20680a383864db4bd843">00216</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__linalg.html#ga299bb7e770db20680a383864db4bd843">dot</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
+<a name="l00216"></a><a class="code" href="group__vectors.html#ga299bb7e770db20680a383864db4bd843">00216</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__vectors.html#ga299bb7e770db20680a383864db4bd843">dot</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
 <a name="l00217"></a>00217 {
 <a name="l00218"></a>00218         T r(0.0);
 <a name="l00219"></a>00219         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; DIM; i++)
@@ -301,7 +301,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00222"></a>00222         <span class="keywordflow">return</span> r;
 <a name="l00223"></a>00223 }
 <a name="l00224"></a>00224 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00225"></a><a class="code" href="group__linalg.html#ga14de1c4465c863797732d372f933a932">00225</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,3u&gt;</a> <a class="code" href="group__linalg.html#ga14de1c4465c863797732d372f933a932">cross</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,3u&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,3u&gt;</a>&amp; op2)
+<a name="l00225"></a><a class="code" href="group__vectors.html#ga14de1c4465c863797732d372f933a932">00225</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,3u&gt;</a> <a class="code" href="group__vectors.html#ga14de1c4465c863797732d372f933a932">cross</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,3u&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,3u&gt;</a>&amp; op2)
 <a name="l00226"></a>00226 {
 <a name="l00227"></a>00227         <span class="keywordflow">return</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,3u&gt;</a>(
 <a name="l00228"></a>00228                 op1[1]*op2[2] - op1[2]*op2[1],
@@ -309,12 +309,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00230"></a>00230                 op1[0]*op2[1] - op1[1]*op2[0]);
 <a name="l00231"></a>00231 }
 <a name="l00232"></a>00232 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00233"></a><a class="code" href="group__linalg.html#ga45b100c1ab0f691ea58662e70c0801c3">00233</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> <a class="code" href="group__linalg.html#ga45b100c1ab0f691ea58662e70c0801c3">reflect</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> I, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> N)
+<a name="l00233"></a><a class="code" href="group__vectors.html#ga45b100c1ab0f691ea58662e70c0801c3">00233</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> <a class="code" href="group__vectors.html#ga45b100c1ab0f691ea58662e70c0801c3">reflect</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> I, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> N)
 <a name="l00234"></a>00234 {
-<a name="l00235"></a>00235         <span class="keywordflow">return</span> I - T(2.0)*<a class="code" href="group__linalg.html#ga299bb7e770db20680a383864db4bd843">dot</a>(I,N)*N;
+<a name="l00235"></a>00235         <span class="keywordflow">return</span> I - T(2.0)*<a class="code" href="group__vectors.html#ga299bb7e770db20680a383864db4bd843">dot</a>(I,N)*N;
 <a name="l00236"></a>00236 }
 <a name="l00237"></a>00237 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00238"></a><a class="code" href="group__linalg.html#gac2324a31b7a178eaea07e98f0b13f292">00238</a> NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> <a class="code" href="group__linalg.html#gac2324a31b7a178eaea07e98f0b13f292">orthogonal</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> v)
+<a name="l00238"></a><a class="code" href="group__vectors.html#gac2324a31b7a178eaea07e98f0b13f292">00238</a> NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> <a class="code" href="group__vectors.html#gac2324a31b7a178eaea07e98f0b13f292">orthogonal</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a> v)
 <a name="l00239"></a>00239 {
 <a name="l00240"></a>00240     <span class="keywordflow">if</span> (v[0]*v[0] &lt; v[1]*v[1])
 <a name="l00241"></a>00241         {
@@ -344,70 +344,70 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00265"></a>00265         }
 <a name="l00266"></a>00266 }
 <a name="l00267"></a>00267 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00268"></a><a class="code" href="group__linalg.html#gad840e1ac601434335deb2ac40bdf71dc">00268</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__linalg.html#gad840e1ac601434335deb2ac40bdf71dc">euclidean_distance</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
+<a name="l00268"></a><a class="code" href="group__vectors.html#gad840e1ac601434335deb2ac40bdf71dc">00268</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__vectors.html#gad840e1ac601434335deb2ac40bdf71dc">euclidean_distance</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
 <a name="l00269"></a>00269 {
 <a name="l00270"></a>00270         <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> d( op1 - op2 );
-<a name="l00271"></a>00271         <span class="keywordflow">return</span> sqrtf( <a class="code" href="group__linalg.html#ga299bb7e770db20680a383864db4bd843">dot</a>( d, d ) );
+<a name="l00271"></a>00271         <span class="keywordflow">return</span> sqrtf( <a class="code" href="group__vectors.html#ga299bb7e770db20680a383864db4bd843">dot</a>( d, d ) );
 <a name="l00272"></a>00272 }
 <a name="l00273"></a>00273 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00274"></a><a class="code" href="group__linalg.html#ga21d1cd79e48416f289f7b0e55f3b32dc">00274</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__linalg.html#ga21d1cd79e48416f289f7b0e55f3b32dc">square_euclidean_distance</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
+<a name="l00274"></a><a class="code" href="group__vectors.html#ga21d1cd79e48416f289f7b0e55f3b32dc">00274</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__vectors.html#ga21d1cd79e48416f289f7b0e55f3b32dc">square_euclidean_distance</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op2)
 <a name="l00275"></a>00275 {
 <a name="l00276"></a>00276         <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> d( op1 - op2 );
-<a name="l00277"></a>00277         <span class="keywordflow">return</span> <a class="code" href="group__linalg.html#ga299bb7e770db20680a383864db4bd843">dot</a>( d, d );
+<a name="l00277"></a>00277         <span class="keywordflow">return</span> <a class="code" href="group__vectors.html#ga299bb7e770db20680a383864db4bd843">dot</a>( d, d );
 <a name="l00278"></a>00278 }
 <a name="l00279"></a>00279 
 <a name="l00280"></a>00280 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00281"></a><a class="code" href="group__linalg.html#gaef3221bb95a71d1743f7df1673082cbf">00281</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__linalg.html#gaef3221bb95a71d1743f7df1673082cbf">norm</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
+<a name="l00281"></a><a class="code" href="group__vectors.html#gaef3221bb95a71d1743f7df1673082cbf">00281</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__vectors.html#gaef3221bb95a71d1743f7df1673082cbf">norm</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
 <a name="l00282"></a>00282 {
-<a name="l00283"></a>00283         <span class="keywordflow">return</span> sqrtf( <a class="code" href="group__linalg.html#ga299bb7e770db20680a383864db4bd843">dot</a>( op, op ) );
+<a name="l00283"></a>00283         <span class="keywordflow">return</span> sqrtf( <a class="code" href="group__vectors.html#ga299bb7e770db20680a383864db4bd843">dot</a>( op, op ) );
 <a name="l00284"></a>00284 }
 <a name="l00285"></a>00285 
 <a name="l00286"></a>00286 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00287"></a><a class="code" href="group__linalg.html#ga9c4ac20ce07631b820678349b4c46698">00287</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__linalg.html#ga9c4ac20ce07631b820678349b4c46698">sq_norm</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
+<a name="l00287"></a><a class="code" href="group__vectors.html#ga9c4ac20ce07631b820678349b4c46698">00287</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__vectors.html#ga9c4ac20ce07631b820678349b4c46698">sq_norm</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; op)
 <a name="l00288"></a>00288 {
-<a name="l00289"></a>00289         <span class="keywordflow">return</span> <a class="code" href="group__linalg.html#ga299bb7e770db20680a383864db4bd843">dot</a>( op, op );
+<a name="l00289"></a>00289         <span class="keywordflow">return</span> <a class="code" href="group__vectors.html#ga299bb7e770db20680a383864db4bd843">dot</a>( op, op );
 <a name="l00290"></a>00290 }
 <a name="l00291"></a>00291 
 <a name="l00292"></a>00292 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00293"></a><a class="code" href="group__linalg.html#gae244399ef06f44b09f0a908aa406c037">00293</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__linalg.html#gae244399ef06f44b09f0a908aa406c037">normalize</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> v)
+<a name="l00293"></a><a class="code" href="group__vectors.html#gae244399ef06f44b09f0a908aa406c037">00293</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__vectors.html#gae244399ef06f44b09f0a908aa406c037">normalize</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> v)
 <a name="l00294"></a>00294 {
 <a name="l00295"></a>00295 <span class="preprocessor">#ifdef __CUDACC__</span>
-<a name="l00296"></a>00296 <span class="preprocessor"></span>        <span class="keyword">const</span> T invNorm = rsqrtf( <a class="code" href="group__linalg.html#ga299bb7e770db20680a383864db4bd843">dot</a>( v, v ) );
+<a name="l00296"></a>00296 <span class="preprocessor"></span>        <span class="keyword">const</span> T invNorm = rsqrtf( <a class="code" href="group__vectors.html#ga299bb7e770db20680a383864db4bd843">dot</a>( v, v ) );
 <a name="l00297"></a>00297 <span class="preprocessor">#else</span>
-<a name="l00298"></a>00298 <span class="preprocessor"></span>        <span class="keyword">const</span> T invNorm = 1.0f / sqrtf( <a class="code" href="group__linalg.html#ga299bb7e770db20680a383864db4bd843">dot</a>( v, v ) );
+<a name="l00298"></a>00298 <span class="preprocessor"></span>        <span class="keyword">const</span> T invNorm = 1.0f / sqrtf( <a class="code" href="group__vectors.html#ga299bb7e770db20680a383864db4bd843">dot</a>( v, v ) );
 <a name="l00299"></a>00299 <span class="preprocessor">#endif</span>
 <a name="l00300"></a>00300 <span class="preprocessor"></span>        <span class="keywordflow">return</span> v * invNorm;
 <a name="l00301"></a>00301 }
 <a name="l00302"></a>00302 
 <a name="l00303"></a>00303 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00304"></a><a class="code" href="group__linalg.html#ga643f06fe0c1d7d9d1ae9fe81e61c389e">00304</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__linalg.html#ga643f06fe0c1d7d9d1ae9fe81e61c389e">min_comp</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v)
+<a name="l00304"></a><a class="code" href="group__vectors.html#ga643f06fe0c1d7d9d1ae9fe81e61c389e">00304</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__vectors.html#ga643f06fe0c1d7d9d1ae9fe81e61c389e">min_comp</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v)
 <a name="l00305"></a>00305 {
 <a name="l00306"></a>00306         <span class="keywordtype">float</span> r = v[0];
 <a name="l00307"></a>00307         <span class="keywordflow">for</span> (uint32 i = 1; i &lt; DIM; i++)
-<a name="l00308"></a>00308         r = <a class="code" href="group__linalg.html#ga5809911d15c32de18955c59865379695">nih::min</a>( r, v[i] );
+<a name="l00308"></a>00308         r = <a class="code" href="group__vectors.html#ga5809911d15c32de18955c59865379695">nih::min</a>( r, v[i] );
 <a name="l00309"></a>00309         <span class="keywordflow">return</span> r;
 <a name="l00310"></a>00310 }
 <a name="l00311"></a>00311 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00312"></a><a class="code" href="group__linalg.html#gab4b34a60142a60bb290dfba1709c85f4">00312</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__linalg.html#gab4b34a60142a60bb290dfba1709c85f4">max_comp</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v)
+<a name="l00312"></a><a class="code" href="group__vectors.html#gab4b34a60142a60bb290dfba1709c85f4">00312</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__vectors.html#gab4b34a60142a60bb290dfba1709c85f4">max_comp</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v)
 <a name="l00313"></a>00313 {
 <a name="l00314"></a>00314         <span class="keywordtype">float</span> r = v[0];
 <a name="l00315"></a>00315         <span class="keywordflow">for</span> (uint32 i = 1; i &lt; DIM; i++)
-<a name="l00316"></a>00316                 r = <a class="code" href="group__linalg.html#gab2b34b1991185fc29890973777b60e54">nih::max</a>( r, v[i] );
+<a name="l00316"></a>00316                 r = <a class="code" href="group__vectors.html#gab2b34b1991185fc29890973777b60e54">nih::max</a>( r, v[i] );
 <a name="l00317"></a>00317         <span class="keywordflow">return</span> r;
 <a name="l00318"></a>00318 }
 <a name="l00319"></a>00319 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00320"></a><a class="code" href="group__linalg.html#ga0d2289c0f68f0b9f497a1e4bc62399e0">00320</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__linalg.html#ga643f06fe0c1d7d9d1ae9fe81e61c389e">min_comp</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>&amp; v)
+<a name="l00320"></a><a class="code" href="group__vectors.html#ga0d2289c0f68f0b9f497a1e4bc62399e0">00320</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__vectors.html#ga643f06fe0c1d7d9d1ae9fe81e61c389e">min_comp</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>&amp; v)
 <a name="l00321"></a>00321 {
-<a name="l00322"></a>00322     <span class="keywordflow">return</span> <a class="code" href="group__linalg.html#ga5809911d15c32de18955c59865379695">nih::min</a>( v[0], <a class="code" href="group__linalg.html#ga5809911d15c32de18955c59865379695">nih::min</a>( v[1], v[2] ) );
+<a name="l00322"></a>00322     <span class="keywordflow">return</span> <a class="code" href="group__vectors.html#ga5809911d15c32de18955c59865379695">nih::min</a>( v[0], <a class="code" href="group__vectors.html#ga5809911d15c32de18955c59865379695">nih::min</a>( v[1], v[2] ) );
 <a name="l00323"></a>00323 }
 <a name="l00324"></a>00324 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00325"></a><a class="code" href="group__linalg.html#gafccc66f85211e07bb1abee7f8fc0a281">00325</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__linalg.html#gab4b34a60142a60bb290dfba1709c85f4">max_comp</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>&amp; v)
+<a name="l00325"></a><a class="code" href="group__vectors.html#gafccc66f85211e07bb1abee7f8fc0a281">00325</a> NIH_HOST NIH_DEVICE FORCE_INLINE T <a class="code" href="group__vectors.html#gab4b34a60142a60bb290dfba1709c85f4">max_comp</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector_3_01_t_00_013_01_4.html">Vector&lt;T,3&gt;</a>&amp; v)
 <a name="l00326"></a>00326 {
-<a name="l00327"></a>00327     <span class="keywordflow">return</span> <a class="code" href="group__linalg.html#gab2b34b1991185fc29890973777b60e54">nih::max</a>( v[0], <a class="code" href="group__linalg.html#gab2b34b1991185fc29890973777b60e54">nih::max</a>( v[1], v[2] ) );
+<a name="l00327"></a>00327     <span class="keywordflow">return</span> <a class="code" href="group__vectors.html#gab2b34b1991185fc29890973777b60e54">nih::max</a>( v[0], <a class="code" href="group__vectors.html#gab2b34b1991185fc29890973777b60e54">nih::max</a>( v[1], v[2] ) );
 <a name="l00328"></a>00328 }
 <a name="l00329"></a>00329 
 <a name="l00330"></a>00330 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00331"></a><a class="code" href="group__linalg.html#ga549a2d3c8b77b652dc1cd56c1d119b77">00331</a> NIH_HOST NIH_DEVICE FORCE_INLINE uint32 <a class="code" href="group__linalg.html#ga549a2d3c8b77b652dc1cd56c1d119b77">max_element</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v)
+<a name="l00331"></a><a class="code" href="group__vectors.html#ga549a2d3c8b77b652dc1cd56c1d119b77">00331</a> NIH_HOST NIH_DEVICE FORCE_INLINE uint32 <a class="code" href="group__vectors.html#ga549a2d3c8b77b652dc1cd56c1d119b77">max_element</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v)
 <a name="l00332"></a>00332 {
 <a name="l00333"></a>00333         <span class="keywordtype">float</span>  max_r = v[0];
 <a name="l00334"></a>00334     uint32 max_i = 0u;
@@ -423,45 +423,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00344"></a>00344 }
 <a name="l00345"></a>00345 
 <a name="l00346"></a>00346 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00347"></a><a class="code" href="group__linalg.html#ga5809911d15c32de18955c59865379695">00347</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__linalg.html#ga5809911d15c32de18955c59865379695">min</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v2)
+<a name="l00347"></a><a class="code" href="group__vectors.html#ga5809911d15c32de18955c59865379695">00347</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__vectors.html#ga5809911d15c32de18955c59865379695">min</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v2)
 <a name="l00348"></a>00348 {
 <a name="l00349"></a>00349         <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> r;
 <a name="l00350"></a>00350         <span class="keywordflow">for</span> (uint32 i = 0; i &lt; DIM; i++)
-<a name="l00351"></a>00351                 r[i] = <a class="code" href="group__linalg.html#ga5809911d15c32de18955c59865379695">nih::min</a>( v1[i], v2[i] );
+<a name="l00351"></a>00351                 r[i] = <a class="code" href="group__vectors.html#ga5809911d15c32de18955c59865379695">nih::min</a>( v1[i], v2[i] );
 <a name="l00352"></a>00352         <span class="keywordflow">return</span> r;
 <a name="l00353"></a>00353 }
 <a name="l00354"></a>00354 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00355"></a><a class="code" href="group__linalg.html#gab2b34b1991185fc29890973777b60e54">00355</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__linalg.html#gab2b34b1991185fc29890973777b60e54">max</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v2)
+<a name="l00355"></a><a class="code" href="group__vectors.html#gab2b34b1991185fc29890973777b60e54">00355</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__vectors.html#gab2b34b1991185fc29890973777b60e54">max</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v1, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v2)
 <a name="l00356"></a>00356 {
 <a name="l00357"></a>00357         <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> r;
 <a name="l00358"></a>00358         <span class="keywordflow">for</span> (uint32 i = 0; i &lt; DIM; i++)
-<a name="l00359"></a>00359                 r[i] = <a class="code" href="group__linalg.html#gab2b34b1991185fc29890973777b60e54">nih::max</a>( v1[i], v2[i] );
+<a name="l00359"></a>00359                 r[i] = <a class="code" href="group__vectors.html#gab2b34b1991185fc29890973777b60e54">nih::max</a>( v1[i], v2[i] );
 <a name="l00360"></a>00360         <span class="keywordflow">return</span> r;
 <a name="l00361"></a>00361 }
 <a name="l00362"></a>00362 
 <a name="l00364"></a>00364 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00365"></a><a class="code" href="group__linalg.html#ga22cda565844e9049dd1438a376c2e198">00365</a> NIH_HOST NIH_DEVICE FORCE_INLINE uint32 <a class="code" href="group__linalg.html#ga22cda565844e9049dd1438a376c2e198" title="compute the largest dimension of a given vector">largest_dim</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v)
+<a name="l00365"></a><a class="code" href="group__vectors.html#ga22cda565844e9049dd1438a376c2e198">00365</a> NIH_HOST NIH_DEVICE FORCE_INLINE uint32 <a class="code" href="group__vectors.html#ga22cda565844e9049dd1438a376c2e198" title="compute the largest dimension of a given vector">largest_dim</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v)
 <a name="l00366"></a>00366 {
-<a name="l00367"></a>00367         <span class="keywordflow">return</span> uint32( <a class="code" href="group__linalg.html#ga549a2d3c8b77b652dc1cd56c1d119b77">std::max_element</a>( &amp;v[0], &amp;v[0] + DIM ) - &amp;v[0] );
+<a name="l00367"></a>00367         <span class="keywordflow">return</span> uint32( <a class="code" href="group__vectors.html#ga549a2d3c8b77b652dc1cd56c1d119b77">std::max_element</a>( &amp;v[0], &amp;v[0] + DIM ) - &amp;v[0] );
 <a name="l00368"></a>00368 }
 <a name="l00369"></a>00369 
 <a name="l00371"></a>00371 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00372"></a><a class="code" href="group__linalg.html#ga396a9bd50b2cf3f00afd4f806ce544f3">00372</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__linalg.html#ga396a9bd50b2cf3f00afd4f806ce544f3" title="return a normal facing in the opposite direction wrt the view vector">face_forward</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; n, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; view)
+<a name="l00372"></a><a class="code" href="group__vectors.html#ga396a9bd50b2cf3f00afd4f806ce544f3">00372</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__vectors.html#ga396a9bd50b2cf3f00afd4f806ce544f3" title="return a normal facing in the opposite direction wrt the view vector">face_forward</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; n, <span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; view)
 <a name="l00373"></a>00373 {
-<a name="l00374"></a>00374     <span class="keywordflow">return</span> <a class="code" href="group__linalg.html#ga299bb7e770db20680a383864db4bd843">dot</a>( n, view ) &gt; 0.0f ? -n : n;
+<a name="l00374"></a>00374     <span class="keywordflow">return</span> <a class="code" href="group__vectors.html#ga299bb7e770db20680a383864db4bd843">dot</a>( n, view ) &gt; 0.0f ? -n : n;
 <a name="l00375"></a>00375 }
 <a name="l00376"></a>00376 
 <a name="l00378"></a>00378 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00379"></a><a class="code" href="group__linalg.html#ga278bc40e135ff21dd4c80375feccc703">00379</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__linalg.html#ga278bc40e135ff21dd4c80375feccc703" title="compute the modulus of a vector">mod</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v, <span class="keyword">const</span> <span class="keywordtype">float</span> m)
+<a name="l00379"></a><a class="code" href="group__vectors.html#ga278bc40e135ff21dd4c80375feccc703">00379</a> NIH_HOST NIH_DEVICE FORCE_INLINE <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> <a class="code" href="group__vectors.html#ga278bc40e135ff21dd4c80375feccc703" title="compute the modulus of a vector">mod</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a>&amp; v, <span class="keyword">const</span> <span class="keywordtype">float</span> m)
 <a name="l00380"></a>00380 {
 <a name="l00381"></a>00381     <a class="code" href="structnih_1_1_vector.html">Vector&lt;T,DIM&gt;</a> r;
 <a name="l00382"></a>00382         <span class="keywordflow">for</span> (uint32 i = 0; i &lt; DIM; i++)
-<a name="l00383"></a>00383         r[i] = <a class="code" href="group__linalg.html#ga278bc40e135ff21dd4c80375feccc703" title="compute the modulus of a vector">nih::mod</a>( v[i], m );
+<a name="l00383"></a>00383         r[i] = <a class="code" href="group__vectors.html#ga278bc40e135ff21dd4c80375feccc703" title="compute the modulus of a vector">nih::mod</a>( v[i], m );
 <a name="l00384"></a>00384         <span class="keywordflow">return</span> r;
 <a name="l00385"></a>00385 }
 <a name="l00386"></a>00386 
 <a name="l00387"></a>00387 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00388"></a>00388 NIH_HOST <span class="keywordtype">bool</span> <a class="code" href="group__linalg.html#gaabd17838f41c1637cb84a3cfe31dfb0b">operator==</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
+<a name="l00388"></a>00388 NIH_HOST <span class="keywordtype">bool</span> <a class="code" href="group__vectors.html#gaabd17838f41c1637cb84a3cfe31dfb0b">operator==</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
 <a name="l00389"></a>00389 {
 <a name="l00390"></a>00390         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; op1.dimension(); i++)
 <a name="l00391"></a>00391     {
@@ -471,7 +471,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00395"></a>00395         <span class="keywordflow">return</span> <span class="keyword">true</span>;
 <a name="l00396"></a>00396 }
 <a name="l00397"></a>00397 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> DIM&gt;
-<a name="l00398"></a>00398 NIH_HOST <span class="keywordtype">bool</span> <a class="code" href="group__linalg.html#ga884852dfe6e126e524af6c966fd3fa8e">operator!=</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
+<a name="l00398"></a>00398 NIH_HOST <span class="keywordtype">bool</span> <a class="code" href="group__vectors.html#ga884852dfe6e126e524af6c966fd3fa8e">operator!=</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
 <a name="l00399"></a>00399 {
 <a name="l00400"></a>00400         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; op1.dimension(); i++)
 <a name="l00401"></a>00401     {
@@ -491,7 +491,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00415"></a>00415         <span class="keywordflow">return</span> r;
 <a name="l00416"></a>00416 }
 <a name="l00417"></a>00417 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00418"></a>00418 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt; <a class="code" href="group__linalg.html#gafe00990ed787cec75b986c394b7f5e0f">operator/</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> T op2)
+<a name="l00418"></a>00418 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt; <a class="code" href="group__vectors.html#gafe00990ed787cec75b986c394b7f5e0f">operator/</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> T op2)
 <a name="l00419"></a>00419 {
 <a name="l00420"></a>00420         Dynamic_vector&lt;T&gt; r( op1.dimension() );
 <a name="l00421"></a>00421         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; op1.dimension(); i++)
@@ -507,7 +507,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00431"></a>00431         <span class="keywordflow">return</span> r;
 <a name="l00432"></a>00432 }
 <a name="l00433"></a>00433 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00434"></a>00434 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt;&amp; <a class="code" href="group__linalg.html#gabaaa34dafadbdbaaff130b02d28b3ad1">operator*=</a>(Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> T op2)
+<a name="l00434"></a>00434 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt;&amp; <a class="code" href="group__vectors.html#gabaaa34dafadbdbaaff130b02d28b3ad1">operator*=</a>(Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> T op2)
 <a name="l00435"></a>00435 {
 <a name="l00436"></a>00436         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; op1.dimension(); i++)
 <a name="l00437"></a>00437                 op1[i] *= op2;
@@ -515,7 +515,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00439"></a>00439 }
 <a name="l00440"></a>00440 
 <a name="l00441"></a>00441 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00442"></a>00442 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt; <a class="code" href="group__linalg.html#ga9235b9ea803b8d0ef379565a3ff7dd76">operator+</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
+<a name="l00442"></a>00442 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt; <a class="code" href="group__vectors.html#ga9235b9ea803b8d0ef379565a3ff7dd76">operator+</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
 <a name="l00443"></a>00443 {
 <a name="l00444"></a>00444         Dynamic_vector&lt;T&gt; r;
 <a name="l00445"></a>00445         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; op1.dimension(); i++)
@@ -523,7 +523,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00447"></a>00447         <span class="keywordflow">return</span> r;
 <a name="l00448"></a>00448 }
 <a name="l00449"></a>00449 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00450"></a>00450 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt; <a class="code" href="group__linalg.html#ga8782aba246b1da852d9f4390d22336f8">operator-</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
+<a name="l00450"></a>00450 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt; <a class="code" href="group__vectors.html#ga8782aba246b1da852d9f4390d22336f8">operator-</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
 <a name="l00451"></a>00451 {
 <a name="l00452"></a>00452         Dynamic_vector&lt;T&gt; r( op1.dimension() );
 <a name="l00453"></a>00453         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; op1.dimension(); i++)
@@ -539,7 +539,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00463"></a>00463         <span class="keywordflow">return</span> r;
 <a name="l00464"></a>00464 }
 <a name="l00465"></a>00465 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00466"></a>00466 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt; <a class="code" href="group__linalg.html#gafe00990ed787cec75b986c394b7f5e0f">operator/</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
+<a name="l00466"></a>00466 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt; <a class="code" href="group__vectors.html#gafe00990ed787cec75b986c394b7f5e0f">operator/</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
 <a name="l00467"></a>00467 {
 <a name="l00468"></a>00468         Dynamic_vector&lt;T&gt; r( op1.dimension() );
 <a name="l00469"></a>00469         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; op1.dimension(); i++)
@@ -548,35 +548,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00472"></a>00472 }
 <a name="l00473"></a>00473 
 <a name="l00474"></a>00474 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00475"></a>00475 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt;&amp; <a class="code" href="group__linalg.html#ga4226e5c3bf0305cf0a0459bf43564223">operator+=</a>(Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
+<a name="l00475"></a>00475 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt;&amp; <a class="code" href="group__vectors.html#ga4226e5c3bf0305cf0a0459bf43564223">operator+=</a>(Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
 <a name="l00476"></a>00476 {
 <a name="l00477"></a>00477         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; op1.dimension(); i++)
 <a name="l00478"></a>00478                 op1[i] += op2[i];
 <a name="l00479"></a>00479         <span class="keywordflow">return</span> op1;
 <a name="l00480"></a>00480 }
 <a name="l00481"></a>00481 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00482"></a>00482 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt;&amp; <a class="code" href="group__linalg.html#ga6c534bcb2f6acc627ea0988b2de4f73e">operator-=</a>(Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
+<a name="l00482"></a>00482 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt;&amp; <a class="code" href="group__vectors.html#ga6c534bcb2f6acc627ea0988b2de4f73e">operator-=</a>(Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
 <a name="l00483"></a>00483 {
 <a name="l00484"></a>00484         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; op1.dimension(); i++)
 <a name="l00485"></a>00485                 op1[i] -= op2[i];
 <a name="l00486"></a>00486         <span class="keywordflow">return</span> op1;
 <a name="l00487"></a>00487 }
 <a name="l00488"></a>00488 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00489"></a>00489 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt;&amp; <a class="code" href="group__linalg.html#gabaaa34dafadbdbaaff130b02d28b3ad1">operator*=</a>(Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
+<a name="l00489"></a>00489 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt;&amp; <a class="code" href="group__vectors.html#gabaaa34dafadbdbaaff130b02d28b3ad1">operator*=</a>(Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
 <a name="l00490"></a>00490 {
 <a name="l00491"></a>00491         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; op1.dimension(); i++)
 <a name="l00492"></a>00492                 op1[i] *= op2[i];
 <a name="l00493"></a>00493         <span class="keywordflow">return</span> op1;
 <a name="l00494"></a>00494 }
 <a name="l00495"></a>00495 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00496"></a>00496 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt;&amp; <a class="code" href="group__linalg.html#ga04e63000d70a03c13098b6b7303a29e9">operator/=</a>(Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
+<a name="l00496"></a>00496 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt;&amp; <a class="code" href="group__vectors.html#ga04e63000d70a03c13098b6b7303a29e9">operator/=</a>(Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
 <a name="l00497"></a>00497 {
 <a name="l00498"></a>00498         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; op1.dimension(); i++)
 <a name="l00499"></a>00499                 op1[i] /= op2[i];
 <a name="l00500"></a>00500         <span class="keywordflow">return</span> op1;
 <a name="l00501"></a>00501 }
 <a name="l00502"></a>00502 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00503"></a>00503 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt;&amp; <a class="code" href="group__linalg.html#ga04e63000d70a03c13098b6b7303a29e9">operator/=</a>(Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> T op2)
+<a name="l00503"></a>00503 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt;&amp; <a class="code" href="group__vectors.html#ga04e63000d70a03c13098b6b7303a29e9">operator/=</a>(Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> T op2)
 <a name="l00504"></a>00504 {
 <a name="l00505"></a>00505         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; op1.dimension(); i++)
 <a name="l00506"></a>00506                 op1[i] /= op2;
@@ -584,7 +584,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00508"></a>00508 }
 <a name="l00509"></a>00509 
 <a name="l00510"></a>00510 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00511"></a>00511 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt; <a class="code" href="group__linalg.html#ga8782aba246b1da852d9f4390d22336f8">operator-</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op1)
+<a name="l00511"></a>00511 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt; <a class="code" href="group__vectors.html#ga8782aba246b1da852d9f4390d22336f8">operator-</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op1)
 <a name="l00512"></a>00512 {
 <a name="l00513"></a>00513         Dynamic_vector&lt;T&gt; r( op1.dimension() );
 <a name="l00514"></a>00514         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; op1.dimension(); i++)
@@ -593,7 +593,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00517"></a>00517 }
 <a name="l00518"></a>00518 
 <a name="l00519"></a>00519 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00520"></a>00520 NIH_HOST FORCE_INLINE T <a class="code" href="group__linalg.html#ga0de5bc91fec52d0b92e059ebf5d389ec">intensity</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; v)
+<a name="l00520"></a>00520 NIH_HOST FORCE_INLINE T <a class="code" href="group__vectors.html#ga0de5bc91fec52d0b92e059ebf5d389ec">intensity</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; v)
 <a name="l00521"></a>00521 {
 <a name="l00522"></a>00522         T r(0.0);
 <a name="l00523"></a>00523         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; v.dimension(); i++)
@@ -603,7 +603,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00527"></a>00527 }
 <a name="l00528"></a>00528 
 <a name="l00529"></a>00529 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00530"></a>00530 NIH_HOST FORCE_INLINE T <a class="code" href="group__linalg.html#ga299bb7e770db20680a383864db4bd843">dot</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
+<a name="l00530"></a>00530 NIH_HOST FORCE_INLINE T <a class="code" href="group__vectors.html#ga299bb7e770db20680a383864db4bd843">dot</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op1, <span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op2)
 <a name="l00531"></a>00531 {
 <a name="l00532"></a>00532         T r(0.0);
 <a name="l00533"></a>00533         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; op1.dimension(); i++)
@@ -613,30 +613,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00537"></a>00537 }
 <a name="l00538"></a>00538 
 <a name="l00539"></a>00539 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00540"></a>00540 NIH_HOST FORCE_INLINE T <a class="code" href="group__linalg.html#gaef3221bb95a71d1743f7df1673082cbf">norm</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op)
+<a name="l00540"></a>00540 NIH_HOST FORCE_INLINE T <a class="code" href="group__vectors.html#gaef3221bb95a71d1743f7df1673082cbf">norm</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op)
 <a name="l00541"></a>00541 {
-<a name="l00542"></a>00542         <span class="keywordflow">return</span> sqrtf( <a class="code" href="group__linalg.html#ga299bb7e770db20680a383864db4bd843">dot</a>( op, op ) );
+<a name="l00542"></a>00542         <span class="keywordflow">return</span> sqrtf( <a class="code" href="group__vectors.html#ga299bb7e770db20680a383864db4bd843">dot</a>( op, op ) );
 <a name="l00543"></a>00543 }
 <a name="l00544"></a>00544 
 <a name="l00545"></a>00545 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00546"></a>00546 NIH_HOST FORCE_INLINE T <a class="code" href="group__linalg.html#ga9c4ac20ce07631b820678349b4c46698">sq_norm</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op)
+<a name="l00546"></a>00546 NIH_HOST FORCE_INLINE T <a class="code" href="group__vectors.html#ga9c4ac20ce07631b820678349b4c46698">sq_norm</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; op)
 <a name="l00547"></a>00547 {
-<a name="l00548"></a>00548         <span class="keywordflow">return</span> <a class="code" href="group__linalg.html#ga299bb7e770db20680a383864db4bd843">dot</a>( op, op );
+<a name="l00548"></a>00548         <span class="keywordflow">return</span> <a class="code" href="group__vectors.html#ga299bb7e770db20680a383864db4bd843">dot</a>( op, op );
 <a name="l00549"></a>00549 }
 <a name="l00550"></a>00550 
 <a name="l00551"></a>00551 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00552"></a>00552 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt; <a class="code" href="group__linalg.html#gae244399ef06f44b09f0a908aa406c037">normalize</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt; v)
+<a name="l00552"></a>00552 NIH_HOST FORCE_INLINE Dynamic_vector&lt;T&gt; <a class="code" href="group__vectors.html#gae244399ef06f44b09f0a908aa406c037">normalize</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt; v)
 <a name="l00553"></a>00553 {
-<a name="l00554"></a>00554         <span class="keyword">const</span> T invNorm = 1.0f / sqrtf( <a class="code" href="group__linalg.html#ga299bb7e770db20680a383864db4bd843">dot</a>( v, v ) );
+<a name="l00554"></a>00554         <span class="keyword">const</span> T invNorm = 1.0f / sqrtf( <a class="code" href="group__vectors.html#ga299bb7e770db20680a383864db4bd843">dot</a>( v, v ) );
 <a name="l00555"></a>00555         <span class="keywordflow">return</span> v * invNorm;
 <a name="l00556"></a>00556 }
 <a name="l00557"></a>00557 
 <a name="l00558"></a>00558 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00559"></a>00559 NIH_HOST FORCE_INLINE T <a class="code" href="group__linalg.html#gab4b34a60142a60bb290dfba1709c85f4">max_comp</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; v)
+<a name="l00559"></a>00559 NIH_HOST FORCE_INLINE T <a class="code" href="group__vectors.html#gab4b34a60142a60bb290dfba1709c85f4">max_comp</a>(<span class="keyword">const</span> Dynamic_vector&lt;T&gt;&amp; v)
 <a name="l00560"></a>00560 {
 <a name="l00561"></a>00561         <span class="keywordtype">float</span> r = v[0];
 <a name="l00562"></a>00562         <span class="keywordflow">for</span> (uint32 i = 1; i &lt; v.dimension(); i++)
-<a name="l00563"></a>00563                 r = <a class="code" href="group__linalg.html#gab2b34b1991185fc29890973777b60e54">max</a>( r, v[i] );
+<a name="l00563"></a>00563                 r = <a class="code" href="group__vectors.html#gab2b34b1991185fc29890973777b60e54">max</a>( r, v[i] );
 <a name="l00564"></a>00564         <span class="keywordflow">return</span> r;
 <a name="l00565"></a>00565 }
 <a name="l00566"></a>00566 
@@ -660,7 +660,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 24 2011 14:20:21 for nih by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 24 2011 14:41:37 for nih by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

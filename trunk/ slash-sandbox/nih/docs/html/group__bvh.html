@@ -70,7 +70,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Boundary Volume Hierarchies</div>  </div>
 </div>
@@ -80,9 +81,57 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Classes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnih_1_1cuda_1_1_binned__sah__builder.html">nih::cuda::Binned_sah_builder</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnih_1_1cuda_1_1_l_b_v_h__builder.html">nih::cuda::LBVH_builder&lt; Integer &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnih_1_1cuda_1_1bvh__packing__functor.html">nih::cuda::bvh_packing_functor</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnih_1_1cuda_1_1_sah__builder.html">nih::cuda::Sah_builder</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">GPU-based SAH BVH builder.  <a href="structnih_1_1cuda_1_1_sah__builder.html#details">More...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;typename Node_iterator , typename Bbox_iterator , typename Output_iterator &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__bvh.html#ga6e090f607737d9e380e3f2cc04bca282">nih::cuda::pack</a> (const uint32 n_nodes, Node_iterator nodes, Bbox_iterator bboxes, Output_iterator packed_nodes)</td></tr>
 </table>
+<hr/><h2>Function Documentation</h2>
+<a class="anchor" id="ga6e090f607737d9e380e3f2cc04bca282"></a><!-- doxytag: member="nih::cuda::pack" ref="ga6e090f607737d9e380e3f2cc04bca282" args="(const uint32 n_nodes, Node_iterator nodes, Bbox_iterator bboxes, Output_iterator packed_nodes)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Node_iterator , typename Bbox_iterator , typename Output_iterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void nih::cuda::pack </td>
+          <td>(</td>
+          <td class="paramtype">const uint32&#160;</td>
+          <td class="paramname"><em>n_nodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Node_iterator&#160;</td>
+          <td class="paramname"><em>nodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Bbox_iterator&#160;</td>
+          <td class="paramname"><em>bboxes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Output_iterator&#160;</td>
+          <td class="paramname"><em>packed_nodes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Pack a set of bvh nodes and their bboxes into a single set of (4d) bboxes. The input and output bbox arrays can be the same. </p>
+
+</div>
+</div>
 </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -101,7 +150,7 @@ Classes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 24 2011 14:20:22 for nih by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 24 2011 14:41:38 for nih by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

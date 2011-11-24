@@ -2,1340 +2,212 @@
 \section{\-Linear \-Algebra}
 \label{group__linalg}\index{\-Linear Algebra@{\-Linear Algebra}}
 }
-\subsection*{\-Classes}
+\subsection*{\-Modules}
 \begin{DoxyCompactItemize}
 \item 
-struct \hyperlink{structnih_1_1_bbox}{nih\-::\-Bbox$<$ Vector\-\_\-t $>$}
+\hyperlink{group__bboxes}{\-Bounding Boxes}
 \item 
-struct \hyperlink{structnih_1_1_matrix}{nih\-::\-Matrix$<$ T, N, M $>$}
+\hyperlink{group__matrices}{\-Matrices}
 \item 
-struct \hyperlink{structnih_1_1_vector}{nih\-::\-Vector$<$ T, D\-I\-M $>$}
-\item 
-struct \hyperlink{structnih_1_1_vector_3_01_t_00_012_01_4}{nih\-::\-Vector$<$ T, 2 $>$}
-\item 
-struct \hyperlink{structnih_1_1_vector_3_01_t_00_013_01_4}{nih\-::\-Vector$<$ T, 3 $>$}
-\item 
-struct \hyperlink{structnih_1_1_vector_3_01_t_00_014_01_4}{nih\-::\-Vector$<$ T, 4 $>$}
-\item 
-struct \hyperlink{structnih_1_1_vector__traits}{nih\-::\-Vector\-\_\-traits$<$ T $>$}
-\item 
-struct \hyperlink{structnih_1_1_vector__traits_3_01_t_01_5_01_4}{nih\-::\-Vector\-\_\-traits$<$ T $\ast$ $>$}
-\item 
-struct \hyperlink{structnih_1_1_vector__traits_3_01_vector_3_01_t_00_01_d_i_m_01_4_01_4}{nih\-::\-Vector\-\_\-traits$<$ Vector$<$ T, D\-I\-M $>$ $>$}
-\item 
-struct \hyperlink{structnih_1_1_dynamic__vector}{nih\-::\-Dynamic\-\_\-vector$<$ T $>$}
-\item 
-struct \hyperlink{structnih_1_1_vector__traits_3_01_dynamic__vector_3_01_t_01_4_01_4}{nih\-::\-Vector\-\_\-traits$<$ Dynamic\-\_\-vector$<$ T $>$ $>$}
+\hyperlink{group__vectors}{\-Vectors}
 \end{DoxyCompactItemize}
 \subsection*{\-Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{group__linalg_ga5ebd3a6c3e9a5a8ac883e5a87bf821e6}{
-typedef \-Bbox$<$ \-Vector2f $>$ {\bfseries nih\-::\-Bbox2f}}
-\label{group__linalg_ga5ebd3a6c3e9a5a8ac883e5a87bf821e6}
+\hypertarget{group__linalg_ga57a6a191f034235a2090e25f7e4216bc}{
+typedef \-T {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::value\-\_\-type}}
+\label{group__linalg_ga57a6a191f034235a2090e25f7e4216bc}
 
 \item 
-\hypertarget{group__linalg_ga4454301371a3ef18876d4c33f9b15418}{
-typedef \-Bbox$<$ \-Vector3f $>$ {\bfseries nih\-::\-Bbox3f}}
-\label{group__linalg_ga4454301371a3ef18876d4c33f9b15418}
+\hypertarget{group__linalg_ga084e3e4c41631a62d3eeeb2b434fa821}{
+typedef \-T {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::\-Field\-\_\-type}}
+\label{group__linalg_ga084e3e4c41631a62d3eeeb2b434fa821}
 
 \item 
-\hypertarget{group__linalg_ga276df7c674fca6914e123dcf4df166ed}{
-typedef \-Bbox$<$ \-Vector4f $>$ {\bfseries nih\-::\-Bbox4f}}
-\label{group__linalg_ga276df7c674fca6914e123dcf4df166ed}
+\hypertarget{group__linalg_ga5fda3b8edf6f01802cb90be364fb25a6}{
+typedef \-Vector$<$ \-T, \-M $>$ {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::row\-\_\-vector}}
+\label{group__linalg_ga5fda3b8edf6f01802cb90be364fb25a6}
 
 \item 
-\hypertarget{group__linalg_ga70a3a6e123309089469f924018908bae}{
-typedef \-Bbox$<$ \-Vector2d $>$ {\bfseries nih\-::\-Bbox2d}}
-\label{group__linalg_ga70a3a6e123309089469f924018908bae}
-
-\item 
-\hypertarget{group__linalg_ga073517d49cea29e74f704677e268f215}{
-typedef \-Bbox$<$ \-Vector3d $>$ {\bfseries nih\-::\-Bbox3d}}
-\label{group__linalg_ga073517d49cea29e74f704677e268f215}
-
-\item 
-\hypertarget{group__linalg_ga6079eb49bd961dbb56b17e1e657eb2dd}{
-typedef \-Bbox$<$ \-Vector4d $>$ {\bfseries nih\-::\-Bbox4d}}
-\label{group__linalg_ga6079eb49bd961dbb56b17e1e657eb2dd}
-
-\item 
-\hypertarget{group__linalg_ga068289888360ffe2e4c54644a89c3bde}{
-typedef \-Matrix$<$ float, 3, 3 $>$ {\bfseries nih\-::\-Matrix3x3f}}
-\label{group__linalg_ga068289888360ffe2e4c54644a89c3bde}
-
-\item 
-\hypertarget{group__linalg_gaa34814c8fbeebc00b3aacbbb9a802a0f}{
-typedef \-Matrix$<$ double, 3, 3 $>$ {\bfseries nih\-::\-Matrix3x3d}}
-\label{group__linalg_gaa34814c8fbeebc00b3aacbbb9a802a0f}
-
-\item 
-\hypertarget{group__linalg_gab91e326c8a8aefd74552fcf7453d9edf}{
-typedef \-Matrix$<$ float, 4, 4 $>$ {\bfseries nih\-::\-Matrix4x4f}}
-\label{group__linalg_gab91e326c8a8aefd74552fcf7453d9edf}
-
-\item 
-\hypertarget{group__linalg_gae98749c4d28911f80b68e56efb46b7c8}{
-typedef \-Matrix$<$ double, 4, 4 $>$ {\bfseries nih\-::\-Matrix4x4d}}
-\label{group__linalg_gae98749c4d28911f80b68e56efb46b7c8}
-
-\item 
-\hypertarget{group__linalg_gabbcc1381565199b14a44e3afc944ca17}{
-typedef \-Vector$<$ float, 2 $>$ {\bfseries nih\-::\-Vector2f}}
-\label{group__linalg_gabbcc1381565199b14a44e3afc944ca17}
-
-\item 
-\hypertarget{group__linalg_ga0647b3ed4341a247c1e76e5b53093b5f}{
-typedef \-Vector$<$ float, 3 $>$ {\bfseries nih\-::\-Vector3f}}
-\label{group__linalg_ga0647b3ed4341a247c1e76e5b53093b5f}
-
-\item 
-\hypertarget{group__linalg_ga7995ea0516a644636ad92f4b7bc04eaa}{
-typedef \-Vector$<$ float, 4 $>$ {\bfseries nih\-::\-Vector4f}}
-\label{group__linalg_ga7995ea0516a644636ad92f4b7bc04eaa}
-
-\item 
-\hypertarget{group__linalg_ga4fc7e6a2c6996a3e747fbedbb67e1863}{
-typedef \-Vector$<$ double, 2 $>$ {\bfseries nih\-::\-Vector2d}}
-\label{group__linalg_ga4fc7e6a2c6996a3e747fbedbb67e1863}
-
-\item 
-\hypertarget{group__linalg_ga7c1aad15ff15343ac537134d394ef70c}{
-typedef \-Vector$<$ double, 3 $>$ {\bfseries nih\-::\-Vector3d}}
-\label{group__linalg_ga7c1aad15ff15343ac537134d394ef70c}
-
-\item 
-\hypertarget{group__linalg_gaf88cc8ac3ee4154632f9ab07406e2921}{
-typedef \-Vector$<$ double, 4 $>$ {\bfseries nih\-::\-Vector4d}}
-\label{group__linalg_gaf88cc8ac3ee4154632f9ab07406e2921}
-
-\item 
-\hypertarget{group__linalg_ga5ce7ab86d5f4892fa9c675180f5859d7}{
-typedef \-Vector$<$ int32, 2 $>$ {\bfseries nih\-::\-Vector2i}}
-\label{group__linalg_ga5ce7ab86d5f4892fa9c675180f5859d7}
-
-\item 
-\hypertarget{group__linalg_gad0b51f8145e2a7f3065115fecdfd8609}{
-typedef \-Vector$<$ int32, 3 $>$ {\bfseries nih\-::\-Vector3i}}
-\label{group__linalg_gad0b51f8145e2a7f3065115fecdfd8609}
-
-\item 
-\hypertarget{group__linalg_ga2d7d8141688508f19e965e06e48636de}{
-typedef \-Vector$<$ int32, 4 $>$ {\bfseries nih\-::\-Vector4i}}
-\label{group__linalg_ga2d7d8141688508f19e965e06e48636de}
+\hypertarget{group__linalg_ga163c5c162d300e8dccac52a74a8df252}{
+typedef \-Vector$<$ \-T, \-N $>$ {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::column\-\_\-vector}}
+\label{group__linalg_ga163c5c162d300e8dccac52a74a8df252}
 
 \end{DoxyCompactItemize}
 \subsection*{\-Functions}
 \begin{DoxyCompactItemize}
 \item 
-\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{group__linalg_gaceb0562c9b45c828b66c12f65bd85d8b}{nih\-::area} (const \-Bbox3f \&bbox)
-\item 
-{\footnotesize template$<$typename Vector\-\_\-t $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E bool \hyperlink{group__linalg_gaddb50572c7ac110eddcc46bb6cf6fcc5}{nih\-::contains} (const \-Bbox$<$ \-Vector\-\_\-t $>$ \&bbox, const \-Vector\-\_\-t \&p)
-\item 
-{\footnotesize template$<$typename Vector\-\_\-t $>$ }\\\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{group__linalg_gae81285029f77d03eb828a15fb90ffede}{nih\-::sq\-\_\-distance} (const \-Bbox$<$ \-Vector\-\_\-t $>$ \&bbox, const \-Vector\-\_\-t \&p)
-\item 
-{\footnotesize template$<$typename Vector\-\_\-t $>$ }\\\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E size\-\_\-t \hyperlink{group__linalg_ga38d296764ec08b5bb7cb072460967e00}{nih\-::largest\-\_\-axis} (const \-Bbox$<$ \-Vector\-\_\-t $>$ \&bbox)
-\item 
-\hypertarget{group__linalg_ga9d891cd64a82aefc62f28dca0061a99f}{
-{\footnotesize template$<$typename T , int \-N, int \-M, int \-Q$>$ }\\\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-Matrix$<$ \-T, \-N, \-Q $>$ \& {\bfseries nih\-::multiply} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, const \-Matrix$<$ \-T, \-M, \-Q $>$ \&, \-Matrix$<$ \-T, \-N, \-Q $>$ \&)}
-\label{group__linalg_ga9d891cd64a82aefc62f28dca0061a99f}
+\hypertarget{group__linalg_gad99cac2fa7a266adca8e5465f27025cc}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::\-Matrix} (const \-T s)}
+\label{group__linalg_gad99cac2fa7a266adca8e5465f27025cc}
 
 \item 
-\hypertarget{group__linalg_gae27c9ec1c67d6ccc566ccef54d6134ec}{
-{\footnotesize template$<$typename T , int \-N, int \-M, int \-Q$>$ }\\\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-Matrix$<$ \-T, \-N, \-Q $>$ {\bfseries nih\-::operator$\ast$} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, const \-Matrix$<$ \-T, \-M, \-Q $>$ \&)}
-\label{group__linalg_gae27c9ec1c67d6ccc566ccef54d6134ec}
+\hypertarget{group__linalg_gaa7cf9f899c88482c15424af1275d6d08}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::\-Matrix} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&)}
+\label{group__linalg_gaa7cf9f899c88482c15424af1275d6d08}
 
 \item 
-\hypertarget{group__linalg_ga3b402229a02f14d9742452c586f5215d}{
-{\footnotesize template$<$typename T , int \-N, int \-M$>$ }\\\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-Vector$<$ \-T, \-M $>$ \& {\bfseries nih\-::multiply} (const \-Vector$<$ \-T, \-N $>$ \&, const \-Matrix$<$ \-T, \-N, \-M $>$ \&, \-Vector$<$ \-T, \-M $>$ \&)}
-\label{group__linalg_ga3b402229a02f14d9742452c586f5215d}
+\hypertarget{group__linalg_ga601e9514aa1a6e2e23b470be0e5fb4a5}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::\-Matrix} (const \-Vector$<$ \-T, \-M $>$ $\ast$v)}
+\label{group__linalg_ga601e9514aa1a6e2e23b470be0e5fb4a5}
 
 \item 
-\hypertarget{group__linalg_ga0f199ec8806602a51e72f64b9ee2860c}{
-{\footnotesize template$<$typename T , int \-N, int \-M$>$ }\\\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-Vector$<$ \-T, \-N $>$ \& {\bfseries nih\-::multiply} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, const \-Vector$<$ \-T, \-M $>$ \&, \-Vector$<$ \-T, \-N $>$ \&)}
-\label{group__linalg_ga0f199ec8806602a51e72f64b9ee2860c}
+\hypertarget{group__linalg_ga3976c6f3ec3cf25394d133f7b87b885e}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::\-Matrix} (const \-T $\ast$v)}
+\label{group__linalg_ga3976c6f3ec3cf25394d133f7b87b885e}
 
 \item 
-\hypertarget{group__linalg_ga3585b1336ed34f070bbffd8904057a72}{
-{\footnotesize template$<$typename T , int \-N, int \-M$>$ }\\\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-Matrix$<$ \-T, \-M, \-N $>$ {\bfseries nih\-::transpose} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&)}
-\label{group__linalg_ga3585b1336ed34f070bbffd8904057a72}
+\hypertarget{group__linalg_gae3c59b44be7eeb23031a3d614fb6fb19}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::\-Matrix} (const \-T $\ast$$\ast$v)}
+\label{group__linalg_gae3c59b44be7eeb23031a3d614fb6fb19}
 
 \item 
-\hypertarget{group__linalg_ga317a79a13fca76856e3c4500ec8eeffa}{
-{\footnotesize template$<$typename T , int \-N, int \-M$>$ }\\\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-Matrix$<$ \-T, \-M, \-N $>$ \& {\bfseries nih\-::transpose} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, \-Matrix$<$ \-T, \-M, \-N $>$ \&)}
-\label{group__linalg_ga317a79a13fca76856e3c4500ec8eeffa}
+\hypertarget{group__linalg_ga0dbf1c87533b9e9f78c6421ae43c33ec}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Matrix$<$ \-T, \*
+\-N, \-M $>$ \& {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator=} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&)}
+\label{group__linalg_ga0dbf1c87533b9e9f78c6421ae43c33ec}
 
 \item 
-\hypertarget{group__linalg_ga0f2181373ff7ef8ed392ccf8f92b8b97}{
-{\footnotesize template$<$typename T , int \-N, int \-M$>$ }\\\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S bool {\bfseries nih\-::invert} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, \-Matrix$<$ \-T, \-M, \-N $>$ \&)}
-\label{group__linalg_ga0f2181373ff7ef8ed392ccf8f92b8b97}
+\hypertarget{group__linalg_ga08b2e9e0a7182126090bde9bc9744458}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Matrix$<$ \-T, \*
+\-N, \-M $>$ \& {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator+=} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&)}
+\label{group__linalg_ga08b2e9e0a7182126090bde9bc9744458}
 
 \item 
-\hypertarget{group__linalg_ga23f8ea3658a91f52bf853a4865f7df80}{
-{\footnotesize template$<$typename T , int \-N, int \-M$>$ }\\\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-T {\bfseries nih\-::det} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&)}
-\label{group__linalg_ga23f8ea3658a91f52bf853a4865f7df80}
+\hypertarget{group__linalg_gabb807e11d90f62076f083093ed4852c4}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Matrix$<$ \-T, \*
+\-N, \-M $>$ \& {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator-\/=} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&)}
+\label{group__linalg_gabb807e11d90f62076f083093ed4852c4}
 
 \item 
-\hypertarget{group__linalg_ga5d92f3307949b63085b54c2c4d14cb78}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Matrix$<$ \-T, 4, 4 $>$ \hyperlink{group__linalg_ga5d92f3307949b63085b54c2c4d14cb78}{nih\-::translate} (const \-Vector$<$ \-T, 3 $>$ \&vec)}
-\label{group__linalg_ga5d92f3307949b63085b54c2c4d14cb78}
-
-\begin{DoxyCompactList}\small\item\em build a 3d translation matrix \end{DoxyCompactList}\item 
-\hypertarget{group__linalg_gad1ee54c47ad750f6485c00f707dd978c}{
-{\footnotesize template$<$typename T $>$ }\\\-Matrix$<$ \-T, 4, 4 $>$ \hyperlink{group__linalg_gad1ee54c47ad750f6485c00f707dd978c}{nih\-::perspective} (\-T fovy, \-T aspect, \-T z\-Near, \-T z\-Far)}
-\label{group__linalg_gad1ee54c47ad750f6485c00f707dd978c}
-
-\begin{DoxyCompactList}\small\item\em build a 3d perspective matrix \end{DoxyCompactList}\item 
-\hypertarget{group__linalg_ga9df91e2ecf368ee7e7b9dddce3a7f3d1}{
-{\footnotesize template$<$typename T $>$ }\\\-Matrix$<$ \-T, 4, 4 $>$ \hyperlink{group__linalg_ga9df91e2ecf368ee7e7b9dddce3a7f3d1}{nih\-::look\-\_\-at} (const \-Vector$<$ \-T, 3 $>$ \&eye, const \-Vector$<$ \-T, 3 $>$ \&center, const \-Vector$<$ \-T, 3 $>$ \&up)}
-\label{group__linalg_ga9df91e2ecf368ee7e7b9dddce3a7f3d1}
-
-\begin{DoxyCompactList}\small\item\em build a 3d look at matrix \end{DoxyCompactList}\item 
-\hypertarget{group__linalg_gaf42e47e61afca06aff0efdbb26cfc1ef}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Matrix$<$ \-T, 4, 4 $>$ \hyperlink{group__linalg_gaf42e47e61afca06aff0efdbb26cfc1ef}{nih\-::rotation\-\_\-around\-\_\-\-X} (const \-T q)}
-\label{group__linalg_gaf42e47e61afca06aff0efdbb26cfc1ef}
-
-\begin{DoxyCompactList}\small\item\em build a 3d rotation around the \-X axis \end{DoxyCompactList}\item 
-\hypertarget{group__linalg_ga21af57144d9398e235230c2096f64655}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Matrix$<$ \-T, 4, 4 $>$ \hyperlink{group__linalg_ga21af57144d9398e235230c2096f64655}{nih\-::rotation\-\_\-around\-\_\-\-Y} (const \-T q)}
-\label{group__linalg_ga21af57144d9398e235230c2096f64655}
-
-\begin{DoxyCompactList}\small\item\em build a 3d rotation around the \-Y axis \end{DoxyCompactList}\item 
-\hypertarget{group__linalg_gaa52af0191054c50d9ebd145331c61a78}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Matrix$<$ \-T, 4, 4 $>$ \hyperlink{group__linalg_gaa52af0191054c50d9ebd145331c61a78}{nih\-::rotation\-\_\-around\-\_\-\-Z} (const \-T q)}
-\label{group__linalg_gaa52af0191054c50d9ebd145331c61a78}
-
-\begin{DoxyCompactList}\small\item\em build a 3d rotation around the \-Z axis \end{DoxyCompactList}\item 
-\hypertarget{group__linalg_ga33d8b434a7554e170c48d85be8a45efd}{
-\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Vector3f \hyperlink{group__linalg_ga33d8b434a7554e170c48d85be8a45efd}{nih\-::ptrans} (const \-Matrix4x4f \&m, const \-Vector3f \&v)}
-\label{group__linalg_ga33d8b434a7554e170c48d85be8a45efd}
-
-\begin{DoxyCompactList}\small\item\em transform a 3d point with a perspective transform \end{DoxyCompactList}\item 
-\hypertarget{group__linalg_ga90f6d2850e286d194db09300a4d99537}{
-\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Vector3f \hyperlink{group__linalg_ga90f6d2850e286d194db09300a4d99537}{nih\-::vtrans} (const \-Matrix4x4f \&m, const \-Vector3f \&v)}
-\label{group__linalg_ga90f6d2850e286d194db09300a4d99537}
-
-\begin{DoxyCompactList}\small\item\em transform a 3d vector with a perspective transform \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-Vector$<$ \-T, 2 $>$ \hyperlink{group__linalg_gab815e30e4a8c47b3ff177de0ba4162cb}{nih\-::xy} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-Vector$<$ \-T, 2 $>$ \hyperlink{group__linalg_gaa33a532874bb7f0c3977391f83dc64a3}{nih\-::yx} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-Vector$<$ \-T, 3 $>$ \hyperlink{group__linalg_ga283f58e199d448be6746baec9dec6ac1}{nih\-::xyz} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-Vector$<$ \-T, 3 $>$ \hyperlink{group__linalg_ga789568ee5abe245a1789c972459d9208}{nih\-::xzy} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-Vector$<$ \-T, 3 $>$ \hyperlink{group__linalg_ga8ba75af33f38985f639aa3f3abe0dce2}{nih\-::zyx} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-Vector$<$ \-T, 3 $>$ \hyperlink{group__linalg_ga531fcf7af9a93262536231c3fb69cb4f}{nih\-::zxy} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-Vector$<$ \-T, 3 $>$ \hyperlink{group__linalg_gaacc6c8319788b93e1cf61288299530ca}{nih\-::yxz} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-Vector$<$ \-T, 3 $>$ \hyperlink{group__linalg_ga5bae4031dc463ce54993a932a5671a17}{nih\-::yzx} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E bool \hyperlink{group__linalg_gaabd17838f41c1637cb84a3cfe31dfb0b}{nih\-::operator==} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E bool \hyperlink{group__linalg_ga884852dfe6e126e524af6c966fd3fa8e}{nih\-::operator!=} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \hyperlink{group__linalg_ga400f2fbe2094965df70010d98a05e1fc}{nih\-::operator$\ast$} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-T op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \hyperlink{group__linalg_gafe00990ed787cec75b986c394b7f5e0f}{nih\-::operator/} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-T op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \hyperlink{group__linalg_gaea85e6f752c95162ffe3388dd87d57d4}{nih\-::operator$\ast$} (const \-T op1, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \& \hyperlink{group__linalg_gabaaa34dafadbdbaaff130b02d28b3ad1}{nih\-::operator$\ast$=} (\-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-T op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \hyperlink{group__linalg_ga9235b9ea803b8d0ef379565a3ff7dd76}{nih\-::operator+} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \hyperlink{group__linalg_ga8782aba246b1da852d9f4390d22336f8}{nih\-::operator-\/} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \hyperlink{group__linalg_gafd7b9505e791364aa7e9b2d4598d00a6}{nih\-::operator$\ast$} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \hyperlink{group__linalg_ga7989586a3f3db4aa98a7866a4cdf080b}{nih\-::operator/} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \& \hyperlink{group__linalg_ga4226e5c3bf0305cf0a0459bf43564223}{nih\-::operator+=} (\-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \& \hyperlink{group__linalg_ga6c534bcb2f6acc627ea0988b2de4f73e}{nih\-::operator-\/=} (\-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \& \hyperlink{group__linalg_ga9719feff779258b2681dc8e81ee1a592}{nih\-::operator$\ast$=} (\-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \& \hyperlink{group__linalg_ga04e63000d70a03c13098b6b7303a29e9}{nih\-::operator/=} (\-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \& \hyperlink{group__linalg_gabcfc0bf4057eca196b46247e7294a526}{nih\-::operator/=} (\-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-T op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \hyperlink{group__linalg_ga0f199097d81599a09c0607600e63b26a}{nih\-::operator-\/} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op1)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T \hyperlink{group__linalg_ga0de5bc91fec52d0b92e059ebf5d389ec}{nih\-::intensity} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&v)
-\item 
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T \hyperlink{group__linalg_ga5aba2566a39c58297e8f97bcf771519f}{nih\-::intensity} (const \-T v)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T \hyperlink{group__linalg_ga299bb7e770db20680a383864db4bd843}{nih\-::dot} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op2)
-\item 
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, 3u $>$ \hyperlink{group__linalg_ga14de1c4465c863797732d372f933a932}{nih\-::cross} (const \-Vector$<$ \-T, 3u $>$ \&op1, const Vector$<$ T, 3u $>$ \&op2)
-\item 
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, 3 $>$ \hyperlink{group__linalg_ga45b100c1ab0f691ea58662e70c0801c3}{nih\-::reflect} (const \-Vector$<$ \-T, 3 $>$ \-I, const \-Vector$<$ \-T, 3 $>$ \-N)
-\item 
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Vector$<$ \-T, 3 $>$ \hyperlink{group__linalg_gac2324a31b7a178eaea07e98f0b13f292}{nih\-::orthogonal} (const \-Vector$<$ \-T, 3 $>$ v)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T \hyperlink{group__linalg_gad840e1ac601434335deb2ac40bdf71dc}{nih\-::euclidean\-\_\-distance} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T \hyperlink{group__linalg_ga21d1cd79e48416f289f7b0e55f3b32dc}{nih\-::square\-\_\-euclidean\-\_\-distance} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op1, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T \hyperlink{group__linalg_gaef3221bb95a71d1743f7df1673082cbf}{nih\-::norm} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T \hyperlink{group__linalg_ga9c4ac20ce07631b820678349b4c46698}{nih\-::sq\-\_\-norm} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&op)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \hyperlink{group__linalg_gae244399ef06f44b09f0a908aa406c037}{nih\-::normalize} (const \-Vector$<$ \-T, \-D\-I\-M $>$ v)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T \hyperlink{group__linalg_ga643f06fe0c1d7d9d1ae9fe81e61c389e}{nih\-::min\-\_\-comp} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&v)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T \hyperlink{group__linalg_gab4b34a60142a60bb290dfba1709c85f4}{nih\-::max\-\_\-comp} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&v)
-\item 
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T \hyperlink{group__linalg_ga0d2289c0f68f0b9f497a1e4bc62399e0}{nih\-::min\-\_\-comp} (const \-Vector$<$ \-T, 3 $>$ \&v)
-\item 
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T \hyperlink{group__linalg_gafccc66f85211e07bb1abee7f8fc0a281}{nih\-::max\-\_\-comp} (const \-Vector$<$ \-T, 3 $>$ \&v)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E uint32 \hyperlink{group__linalg_ga549a2d3c8b77b652dc1cd56c1d119b77}{nih\-::max\-\_\-element} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&v)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \hyperlink{group__linalg_ga5809911d15c32de18955c59865379695}{nih\-::min} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&v1, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&v2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \hyperlink{group__linalg_gab2b34b1991185fc29890973777b60e54}{nih\-::max} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&v1, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&v2)
-\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E uint32 \hyperlink{group__linalg_ga22cda565844e9049dd1438a376c2e198}{nih\-::largest\-\_\-dim} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&v)
-\begin{DoxyCompactList}\small\item\em compute the largest dimension of a given vector \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \hyperlink{group__linalg_ga396a9bd50b2cf3f00afd4f806ce544f3}{nih\-::face\-\_\-forward} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&n, const \-Vector$<$ \-T, \-D\-I\-M $>$ \&view)
-\begin{DoxyCompactList}\small\item\em return a normal facing in the opposite direction wrt the view vector \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
-\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \hyperlink{group__linalg_ga278bc40e135ff21dd4c80375feccc703}{nih\-::mod} (const \-Vector$<$ \-T, \-D\-I\-M $>$ \&v, const float m)
-\begin{DoxyCompactList}\small\item\em compute the modulus of a vector \end{DoxyCompactList}\item 
-\hypertarget{group__linalg_ga42ddf0baa76ea97ab1ba69f017746b64}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T bool {\bfseries nih\-::operator==} (const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op1, const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op2)}
-\label{group__linalg_ga42ddf0baa76ea97ab1ba69f017746b64}
+\hypertarget{group__linalg_ga2f749df29033f0659b3de33cca270b1d}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Matrix$<$ \-T, \*
+\-N, \-M $>$ \& {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator$\ast$=} (\-T)}
+\label{group__linalg_ga2f749df29033f0659b3de33cca270b1d}
 
 \item 
-\hypertarget{group__linalg_ga19ea070e035fcdc97bbab34cdfde4c10}{
-{\footnotesize template$<$typename T , size\-\_\-t \-D\-I\-M$>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T bool {\bfseries nih\-::operator!=} (const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op1, const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op2)}
-\label{group__linalg_ga19ea070e035fcdc97bbab34cdfde4c10}
+\hypertarget{group__linalg_ga0b8324135764fc785a39bcc7737c53f2}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Matrix$<$ \-T, \*
+\-N, \-M $>$ \& {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator/=} (\-T)}
+\label{group__linalg_ga0b8324135764fc785a39bcc7737c53f2}
 
 \item 
-\hypertarget{group__linalg_gad6b82f45e24cda7119205693d7235750}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \*
-\-Dynamic\-\_\-vector$<$ \-T $>$ {\bfseries nih\-::operator$\ast$} (const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op1, const \-T op2)}
-\label{group__linalg_gad6b82f45e24cda7119205693d7235750}
+\hypertarget{group__linalg_ga7d8d41af5d8c106a2a62c27c6271c318}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E const \*
+\-Vector$<$ \-T, \-M $>$ \& {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator\mbox{[}$\,$\mbox{]}} (int) const }
+\label{group__linalg_ga7d8d41af5d8c106a2a62c27c6271c318}
 
 \item 
-\hypertarget{group__linalg_ga866cbec9ab0c98fda2dd23d72fa3394c}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \*
-\-Dynamic\-\_\-vector$<$ \-T $>$ {\bfseries nih\-::operator/} (const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op1, const \-T op2)}
-\label{group__linalg_ga866cbec9ab0c98fda2dd23d72fa3394c}
+\hypertarget{group__linalg_ga4925f21801c31cc9388d6f8eb1f4ab96}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Vector$<$ \-T, \*
+\-M $>$ \& {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator\mbox{[}$\,$\mbox{]}} (int)}
+\label{group__linalg_ga4925f21801c31cc9388d6f8eb1f4ab96}
 
 \item 
-\hypertarget{group__linalg_gaa682bf56e1568bea95c4a02ef638ed42}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \*
-\-Dynamic\-\_\-vector$<$ \-T $>$ {\bfseries nih\-::operator$\ast$} (const \-T op1, const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op2)}
-\label{group__linalg_gaa682bf56e1568bea95c4a02ef638ed42}
+\hypertarget{group__linalg_ga395ae2b1d7ac2d89345384ccbe8a76ae}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E const \*
+\-Vector$<$ \-T, \-M $>$ \& {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::get} (int) const }
+\label{group__linalg_ga395ae2b1d7ac2d89345384ccbe8a76ae}
 
 \item 
-\hypertarget{group__linalg_gaafcb7f500fcb5c8227c8c0b5f0161493}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \*
-\-Dynamic\-\_\-vector$<$ \-T $>$ \& {\bfseries nih\-::operator$\ast$=} (\-Dynamic\-\_\-vector$<$ \-T $>$ \&op1, const \-T op2)}
-\label{group__linalg_gaafcb7f500fcb5c8227c8c0b5f0161493}
+\hypertarget{group__linalg_gaecc60423b4fcded657b4f9bf42e25c5c}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E void {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::set} (int, const \-Vector$<$ \-T, \-M $>$ \&)}
+\label{group__linalg_gaecc60423b4fcded657b4f9bf42e25c5c}
 
 \item 
-\hypertarget{group__linalg_ga76724637f0956192e7a27a921043fa37}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \*
-\-Dynamic\-\_\-vector$<$ \-T $>$ {\bfseries nih\-::operator+} (const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op1, const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op2)}
-\label{group__linalg_ga76724637f0956192e7a27a921043fa37}
+\hypertarget{group__linalg_gae6ddc1c3fb0eb0318233f95e7d382894}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-T {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator()} (int i, int j) const }
+\label{group__linalg_gae6ddc1c3fb0eb0318233f95e7d382894}
 
 \item 
-\hypertarget{group__linalg_ga6d28166a3044ce64d8a2ab00822cb0d4}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \*
-\-Dynamic\-\_\-vector$<$ \-T $>$ {\bfseries nih\-::operator-\/} (const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op1, const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op2)}
-\label{group__linalg_ga6d28166a3044ce64d8a2ab00822cb0d4}
+\hypertarget{group__linalg_gaf4a309500232a6e6663faa045fe258d7}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-T \& {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator()} (int i, int j)}
+\label{group__linalg_gaf4a309500232a6e6663faa045fe258d7}
 
 \item 
-\hypertarget{group__linalg_gaad54f453a918650977e577d1f1295942}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \*
-\-Dynamic\-\_\-vector$<$ \-T $>$ {\bfseries nih\-::operator$\ast$} (const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op1, const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op2)}
-\label{group__linalg_gaad54f453a918650977e577d1f1295942}
-
-\item 
-\hypertarget{group__linalg_gab31a91c8d2c51f20dd314272f8416391}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \*
-\-Dynamic\-\_\-vector$<$ \-T $>$ {\bfseries nih\-::operator/} (const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op1, const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op2)}
-\label{group__linalg_gab31a91c8d2c51f20dd314272f8416391}
-
-\item 
-\hypertarget{group__linalg_gabb3d30c7da278fc844597f94d0a15fec}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \*
-\-Dynamic\-\_\-vector$<$ \-T $>$ \& {\bfseries nih\-::operator+=} (\-Dynamic\-\_\-vector$<$ \-T $>$ \&op1, const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op2)}
-\label{group__linalg_gabb3d30c7da278fc844597f94d0a15fec}
-
-\item 
-\hypertarget{group__linalg_ga82cdc8251f47077b9f8c1039ef58cf49}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \*
-\-Dynamic\-\_\-vector$<$ \-T $>$ \& {\bfseries nih\-::operator-\/=} (\-Dynamic\-\_\-vector$<$ \-T $>$ \&op1, const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op2)}
-\label{group__linalg_ga82cdc8251f47077b9f8c1039ef58cf49}
-
-\item 
-\hypertarget{group__linalg_gaed066074df6e2c212e0391c9ad7f3ab4}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \*
-\-Dynamic\-\_\-vector$<$ \-T $>$ \& {\bfseries nih\-::operator$\ast$=} (\-Dynamic\-\_\-vector$<$ \-T $>$ \&op1, const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op2)}
-\label{group__linalg_gaed066074df6e2c212e0391c9ad7f3ab4}
-
-\item 
-\hypertarget{group__linalg_ga39a60ac993fe55bd154195143103db47}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \*
-\-Dynamic\-\_\-vector$<$ \-T $>$ \& {\bfseries nih\-::operator/=} (\-Dynamic\-\_\-vector$<$ \-T $>$ \&op1, const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op2)}
-\label{group__linalg_ga39a60ac993fe55bd154195143103db47}
-
-\item 
-\hypertarget{group__linalg_gaea3d6db75903c3527b138f4f0fefca65}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \*
-\-Dynamic\-\_\-vector$<$ \-T $>$ \& {\bfseries nih\-::operator/=} (\-Dynamic\-\_\-vector$<$ \-T $>$ \&op1, const \-T op2)}
-\label{group__linalg_gaea3d6db75903c3527b138f4f0fefca65}
-
-\item 
-\hypertarget{group__linalg_ga95b070c73b1d688ad69d771bd8805c2a}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \*
-\-Dynamic\-\_\-vector$<$ \-T $>$ {\bfseries nih\-::operator-\/} (const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op1)}
-\label{group__linalg_ga95b070c73b1d688ad69d771bd8805c2a}
-
-\item 
-\hypertarget{group__linalg_ga1e83c791b1d46a853b46036c61531ebe}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T {\bfseries nih\-::intensity} (const \-Dynamic\-\_\-vector$<$ \-T $>$ \&v)}
-\label{group__linalg_ga1e83c791b1d46a853b46036c61531ebe}
-
-\item 
-\hypertarget{group__linalg_ga72d06d3777274c5086cec87f3e99e461}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T {\bfseries nih\-::dot} (const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op1, const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op2)}
-\label{group__linalg_ga72d06d3777274c5086cec87f3e99e461}
-
-\item 
-\hypertarget{group__linalg_ga49ad4aac876edfaa63728dc050676fba}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T {\bfseries nih\-::norm} (const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op)}
-\label{group__linalg_ga49ad4aac876edfaa63728dc050676fba}
-
-\item 
-\hypertarget{group__linalg_ga9bb86f8547e3fa69786ebd68dc89057d}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T {\bfseries nih\-::sq\-\_\-norm} (const \-Dynamic\-\_\-vector$<$ \-T $>$ \&op)}
-\label{group__linalg_ga9bb86f8547e3fa69786ebd68dc89057d}
-
-\item 
-\hypertarget{group__linalg_ga2cd050854a2ba194a8a51654c94ff3ca}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \*
-\-Dynamic\-\_\-vector$<$ \-T $>$ {\bfseries nih\-::normalize} (const \-Dynamic\-\_\-vector$<$ \-T $>$ v)}
-\label{group__linalg_ga2cd050854a2ba194a8a51654c94ff3ca}
-
-\item 
-\hypertarget{group__linalg_ga49b988bb0618de2ec668efe484c47e43}{
-{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T {\bfseries nih\-::max\-\_\-comp} (const \-Dynamic\-\_\-vector$<$ \-T $>$ \&v)}
-\label{group__linalg_ga49b988bb0618de2ec668efe484c47e43}
+\hypertarget{group__linalg_ga20d0e32d5bf4cbea9002479abf0d034b}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-T {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::det} () const }
+\label{group__linalg_ga20d0e32d5bf4cbea9002479abf0d034b}
 
 \end{DoxyCompactItemize}
-
-
-\subsection{\-Function \-Documentation}
-\hypertarget{group__linalg_gaceb0562c9b45c828b66c12f65bd85d8b}{
-\index{\-Linear Algebra@{\-Linear Algebra}!area@{area}}
-\index{area@{area}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{area}]{\setlength{\rightskip}{0pt plus 5cm}float nih\-::area (
-\begin{DoxyParamCaption}
-\item[{const \-Bbox3f \&}]{bbox}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
-\label{group__linalg_gaceb0562c9b45c828b66c12f65bd85d8b}
-compute the area of a 3d bbox
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em bbox} & bbox object \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gaddb50572c7ac110eddcc46bb6cf6fcc5}{
-\index{\-Linear Algebra@{\-Linear Algebra}!contains@{contains}}
-\index{contains@{contains}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{contains}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Vector\-\_\-t $>$ bool nih\-::contains (
-\begin{DoxyParamCaption}
-\item[{const \-Bbox$<$ \-Vector\-\_\-t $>$ \&}]{bbox, }
-\item[{const \-Vector\-\_\-t \&}]{p}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
-\label{group__linalg_gaddb50572c7ac110eddcc46bb6cf6fcc5}
-point-\/in-\/bbox inclusion predicate
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em bbox} & bbox object \\
-\hline
-{\em p} & point to test for inclusion \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga14de1c4465c863797732d372f933a932}{
-\index{\-Linear Algebra@{\-Linear Algebra}!cross@{cross}}
-\index{cross@{cross}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{cross}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, 3u $>$ nih\-::cross (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, 3u $>$ \&}]{op1, }
-\item[{const \-Vector$<$ \-T, 3u $>$ \&}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga14de1c4465c863797732d372f933a932}
-cross product
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga299bb7e770db20680a383864db4bd843}{
-\index{\-Linear Algebra@{\-Linear Algebra}!dot@{dot}}
-\index{dot@{dot}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{dot}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T nih\-::dot (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga299bb7e770db20680a383864db4bd843}
-dot product
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gad840e1ac601434335deb2ac40bdf71dc}{
-\index{\-Linear Algebra@{\-Linear Algebra}!euclidean\-\_\-distance@{euclidean\-\_\-distance}}
-\index{euclidean\-\_\-distance@{euclidean\-\_\-distance}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{euclidean\-\_\-distance}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T nih\-::euclidean\-\_\-distance (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gad840e1ac601434335deb2ac40bdf71dc}
-\-Euclidean distance
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first point \\
-\hline
-{\em op2} & second point \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga396a9bd50b2cf3f00afd4f806ce544f3}{
-\index{\-Linear Algebra@{\-Linear Algebra}!face\-\_\-forward@{face\-\_\-forward}}
-\index{face\-\_\-forward@{face\-\_\-forward}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{face\-\_\-forward}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ nih\-::face\-\_\-forward (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{n, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{view}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga396a9bd50b2cf3f00afd4f806ce544f3}
-
-
-return a normal facing in the opposite direction wrt the view vector 
-
-return a normal facing in the opposite direction wrt the view vector
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em n} & normal vector \\
-\hline
-{\em view} & view vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga0de5bc91fec52d0b92e059ebf5d389ec}{
-\index{\-Linear Algebra@{\-Linear Algebra}!intensity@{intensity}}
-\index{intensity@{intensity}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{intensity}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T nih\-::intensity (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{v}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga0de5bc91fec52d0b92e059ebf5d389ec}
-intensity
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em v} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga5aba2566a39c58297e8f97bcf771519f}{
-\index{\-Linear Algebra@{\-Linear Algebra}!intensity@{intensity}}
-\index{intensity@{intensity}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{intensity}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T nih\-::intensity (
-\begin{DoxyParamCaption}
-\item[{const \-T}]{v}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga5aba2566a39c58297e8f97bcf771519f}
-intensity
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em v} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga38d296764ec08b5bb7cb072460967e00}{
-\index{\-Linear Algebra@{\-Linear Algebra}!largest\-\_\-axis@{largest\-\_\-axis}}
-\index{largest\-\_\-axis@{largest\-\_\-axis}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{largest\-\_\-axis}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Vector\-\_\-t $>$ size\-\_\-t nih\-::largest\-\_\-axis (
-\begin{DoxyParamCaption}
-\item[{const \-Bbox$<$ \-Vector\-\_\-t $>$ \&}]{bbox}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga38d296764ec08b5bb7cb072460967e00}
-returns the largest axis of a bbox
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em bbox} & bbox object \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga22cda565844e9049dd1438a376c2e198}{
-\index{\-Linear Algebra@{\-Linear Algebra}!largest\-\_\-dim@{largest\-\_\-dim}}
-\index{largest\-\_\-dim@{largest\-\_\-dim}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{largest\-\_\-dim}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E uint32 nih\-::largest\-\_\-dim (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{v}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga22cda565844e9049dd1438a376c2e198}
-
-
-compute the largest dimension of a given vector 
-
-compute the largest dimension of a given vector
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em v} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gab2b34b1991185fc29890973777b60e54}{
-\index{\-Linear Algebra@{\-Linear Algebra}!max@{max}}
-\index{max@{max}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ nih\-::max (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{v1, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{v2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gab2b34b1991185fc29890973777b60e54}
-compute the component-\/wise max between two vectors
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em v1} & first operand \\
-\hline
-{\em v2} & second operand \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gab4b34a60142a60bb290dfba1709c85f4}{
-\index{\-Linear Algebra@{\-Linear Algebra}!max\-\_\-comp@{max\-\_\-comp}}
-\index{max\-\_\-comp@{max\-\_\-comp}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{max\-\_\-comp}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T nih\-::max\-\_\-comp (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{v}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gab4b34a60142a60bb290dfba1709c85f4}
-compute the maximum component
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em v} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gafccc66f85211e07bb1abee7f8fc0a281}{
-\index{\-Linear Algebra@{\-Linear Algebra}!max\-\_\-comp@{max\-\_\-comp}}
-\index{max\-\_\-comp@{max\-\_\-comp}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{max\-\_\-comp}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T nih\-::max\-\_\-comp (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, 3 $>$ \&}]{v}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gafccc66f85211e07bb1abee7f8fc0a281}
-compute the maximum component
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em v} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga549a2d3c8b77b652dc1cd56c1d119b77}{
-\index{\-Linear Algebra@{\-Linear Algebra}!max\-\_\-element@{max\-\_\-element}}
-\index{max\-\_\-element@{max\-\_\-element}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{max\-\_\-element}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E uint32 nih\-::max\-\_\-element (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{v}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga549a2d3c8b77b652dc1cd56c1d119b77}
-compute the index of the maximum element
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em v} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga5809911d15c32de18955c59865379695}{
-\index{\-Linear Algebra@{\-Linear Algebra}!min@{min}}
-\index{min@{min}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ nih\-::min (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{v1, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{v2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga5809911d15c32de18955c59865379695}
-compute the component-\/wise min between two vectors
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em v1} & first operand \\
-\hline
-{\em v2} & second operand \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga643f06fe0c1d7d9d1ae9fe81e61c389e}{
-\index{\-Linear Algebra@{\-Linear Algebra}!min\-\_\-comp@{min\-\_\-comp}}
-\index{min\-\_\-comp@{min\-\_\-comp}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{min\-\_\-comp}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T nih\-::min\-\_\-comp (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{v}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga643f06fe0c1d7d9d1ae9fe81e61c389e}
-compute the minimum component
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em v} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga0d2289c0f68f0b9f497a1e4bc62399e0}{
-\index{\-Linear Algebra@{\-Linear Algebra}!min\-\_\-comp@{min\-\_\-comp}}
-\index{min\-\_\-comp@{min\-\_\-comp}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{min\-\_\-comp}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T nih\-::min\-\_\-comp (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, 3 $>$ \&}]{v}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga0d2289c0f68f0b9f497a1e4bc62399e0}
-compute the minimum component
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em v} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga278bc40e135ff21dd4c80375feccc703}{
-\index{\-Linear Algebra@{\-Linear Algebra}!mod@{mod}}
-\index{mod@{mod}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{mod}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ nih\-::mod (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{v, }
-\item[{const float}]{m}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga278bc40e135ff21dd4c80375feccc703}
-
-
-compute the modulus of a vector 
-
-compute the modulus of a vector
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em v} & input vector \\
-\hline
-{\em m} & modulus \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gaef3221bb95a71d1743f7df1673082cbf}{
-\index{\-Linear Algebra@{\-Linear Algebra}!norm@{norm}}
-\index{norm@{norm}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{norm}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T nih\-::norm (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gaef3221bb95a71d1743f7df1673082cbf}
-\-Euclidean norm
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em v} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gae244399ef06f44b09f0a908aa406c037}{
-\index{\-Linear Algebra@{\-Linear Algebra}!normalize@{normalize}}
-\index{normalize@{normalize}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{normalize}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ nih\-::normalize (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$}]{v}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gae244399ef06f44b09f0a908aa406c037}
-normalize a vector
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em v} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga884852dfe6e126e524af6c966fd3fa8e}{
-\index{\-Linear Algebra@{\-Linear Algebra}!operator!=@{operator!=}}
-\index{operator!=@{operator!=}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E bool nih\-::operator!= (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga884852dfe6e126e524af6c966fd3fa8e}
-inequality predicate operator
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga400f2fbe2094965df70010d98a05e1fc}{
-\index{\-Linear Algebra@{\-Linear Algebra}!operator$\ast$@{operator$\ast$}}
-\index{operator$\ast$@{operator$\ast$}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ nih\-::operator$\ast$ (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-T}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga400f2fbe2094965df70010d98a05e1fc}
-multiplication operator
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gaea85e6f752c95162ffe3388dd87d57d4}{
-\index{\-Linear Algebra@{\-Linear Algebra}!operator$\ast$@{operator$\ast$}}
-\index{operator$\ast$@{operator$\ast$}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ nih\-::operator$\ast$ (
-\begin{DoxyParamCaption}
-\item[{const \-T}]{op1, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gaea85e6f752c95162ffe3388dd87d57d4}
-multiplication operator
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gafd7b9505e791364aa7e9b2d4598d00a6}{
-\index{\-Linear Algebra@{\-Linear Algebra}!operator$\ast$@{operator$\ast$}}
-\index{operator$\ast$@{operator$\ast$}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ nih\-::operator$\ast$ (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gafd7b9505e791364aa7e9b2d4598d00a6}
-multiplication operator
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gabaaa34dafadbdbaaff130b02d28b3ad1}{
-\index{\-Linear Algebra@{\-Linear Algebra}!operator$\ast$=@{operator$\ast$=}}
-\index{operator$\ast$=@{operator$\ast$=}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{operator$\ast$=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \& nih\-::operator$\ast$= (
-\begin{DoxyParamCaption}
-\item[{\-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-T}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gabaaa34dafadbdbaaff130b02d28b3ad1}
-multiplication operator
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga9719feff779258b2681dc8e81ee1a592}{
-\index{\-Linear Algebra@{\-Linear Algebra}!operator$\ast$=@{operator$\ast$=}}
-\index{operator$\ast$=@{operator$\ast$=}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{operator$\ast$=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \& nih\-::operator$\ast$= (
-\begin{DoxyParamCaption}
-\item[{\-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga9719feff779258b2681dc8e81ee1a592}
-multiplication operator
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga9235b9ea803b8d0ef379565a3ff7dd76}{
-\index{\-Linear Algebra@{\-Linear Algebra}!operator+@{operator+}}
-\index{operator+@{operator+}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ nih\-::operator+ (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga9235b9ea803b8d0ef379565a3ff7dd76}
-addition operator
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga4226e5c3bf0305cf0a0459bf43564223}{
-\index{\-Linear Algebra@{\-Linear Algebra}!operator+=@{operator+=}}
-\index{operator+=@{operator+=}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \& nih\-::operator+= (
-\begin{DoxyParamCaption}
-\item[{\-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga4226e5c3bf0305cf0a0459bf43564223}
-addition operator
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga8782aba246b1da852d9f4390d22336f8}{
-\index{\-Linear Algebra@{\-Linear Algebra}!operator-\/@{operator-\/}}
-\index{operator-\/@{operator-\/}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ nih\-::operator-\/ (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga8782aba246b1da852d9f4390d22336f8}
-subtraction operator
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga0f199097d81599a09c0607600e63b26a}{
-\index{\-Linear Algebra@{\-Linear Algebra}!operator-\/@{operator-\/}}
-\index{operator-\/@{operator-\/}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ nih\-::operator-\/ (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga0f199097d81599a09c0607600e63b26a}
-negation operator
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga6c534bcb2f6acc627ea0988b2de4f73e}{
-\index{\-Linear Algebra@{\-Linear Algebra}!operator-\/=@{operator-\/=}}
-\index{operator-\/=@{operator-\/=}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{operator-\/=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \& nih\-::operator-\/= (
-\begin{DoxyParamCaption}
-\item[{\-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga6c534bcb2f6acc627ea0988b2de4f73e}
-subtraction operator
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gafe00990ed787cec75b986c394b7f5e0f}{
-\index{\-Linear Algebra@{\-Linear Algebra}!operator/@{operator/}}
-\index{operator/@{operator/}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ nih\-::operator/ (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-T}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gafe00990ed787cec75b986c394b7f5e0f}
-division operator
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga7989586a3f3db4aa98a7866a4cdf080b}{
-\index{\-Linear Algebra@{\-Linear Algebra}!operator/@{operator/}}
-\index{operator/@{operator/}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ nih\-::operator/ (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga7989586a3f3db4aa98a7866a4cdf080b}
-division operator
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga04e63000d70a03c13098b6b7303a29e9}{
-\index{\-Linear Algebra@{\-Linear Algebra}!operator/=@{operator/=}}
-\index{operator/=@{operator/=}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{operator/=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \& nih\-::operator/= (
-\begin{DoxyParamCaption}
-\item[{\-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga04e63000d70a03c13098b6b7303a29e9}
-division operator
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gabcfc0bf4057eca196b46247e7294a526}{
-\index{\-Linear Algebra@{\-Linear Algebra}!operator/=@{operator/=}}
-\index{operator/=@{operator/=}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{operator/=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, \-D\-I\-M $>$ \& nih\-::operator/= (
-\begin{DoxyParamCaption}
-\item[{\-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-T}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gabcfc0bf4057eca196b46247e7294a526}
-division operator
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gaabd17838f41c1637cb84a3cfe31dfb0b}{
-\index{\-Linear Algebra@{\-Linear Algebra}!operator==@{operator==}}
-\index{operator==@{operator==}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E bool nih\-::operator== (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gaabd17838f41c1637cb84a3cfe31dfb0b}
-equality predicate operator
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first vector \\
-\hline
-{\em op2} & second vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gac2324a31b7a178eaea07e98f0b13f292}{
-\index{\-Linear Algebra@{\-Linear Algebra}!orthogonal@{orthogonal}}
-\index{orthogonal@{orthogonal}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{orthogonal}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Vector$<$ \-T, 3 $>$ nih\-::orthogonal (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, 3 $>$}]{v}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gac2324a31b7a178eaea07e98f0b13f292}
-return a vector orthogonal to a given one
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em v} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga45b100c1ab0f691ea58662e70c0801c3}{
-\index{\-Linear Algebra@{\-Linear Algebra}!reflect@{reflect}}
-\index{reflect@{reflect}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{reflect}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-Vector$<$ \-T, 3 $>$ nih\-::reflect (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, 3 $>$}]{\-I, }
-\item[{const \-Vector$<$ \-T, 3 $>$}]{\-N}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga45b100c1ab0f691ea58662e70c0801c3}
-reflect a vector against a given normal
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em \-I} & input vector \\
-\hline
-{\em \-N} & input normal \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gae81285029f77d03eb828a15fb90ffede}{
-\index{\-Linear Algebra@{\-Linear Algebra}!sq\-\_\-distance@{sq\-\_\-distance}}
-\index{sq\-\_\-distance@{sq\-\_\-distance}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{sq\-\_\-distance}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Vector\-\_\-t $>$ float nih\-::sq\-\_\-distance (
-\begin{DoxyParamCaption}
-\item[{const \-Bbox$<$ \-Vector\-\_\-t $>$ \&}]{bbox, }
-\item[{const \-Vector\-\_\-t \&}]{p}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gae81285029f77d03eb828a15fb90ffede}
-point-\/to-\/bbox squared distance
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em bbox} & bbox object \\
-\hline
-{\em p} & point \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga9c4ac20ce07631b820678349b4c46698}{
-\index{\-Linear Algebra@{\-Linear Algebra}!sq\-\_\-norm@{sq\-\_\-norm}}
-\index{sq\-\_\-norm@{sq\-\_\-norm}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{sq\-\_\-norm}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T nih\-::sq\-\_\-norm (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga9c4ac20ce07631b820678349b4c46698}
-square \-Euclidean norm
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em v} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga21d1cd79e48416f289f7b0e55f3b32dc}{
-\index{\-Linear Algebra@{\-Linear Algebra}!square\-\_\-euclidean\-\_\-distance@{square\-\_\-euclidean\-\_\-distance}}
-\index{square\-\_\-euclidean\-\_\-distance@{square\-\_\-euclidean\-\_\-distance}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{square\-\_\-euclidean\-\_\-distance}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T nih\-::square\-\_\-euclidean\-\_\-distance (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op1, }
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op2}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga21d1cd79e48416f289f7b0e55f3b32dc}
-square \-Euclidean distance
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op1} & first point \\
-\hline
-{\em op2} & second point \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gab815e30e4a8c47b3ff177de0ba4162cb}{
-\index{\-Linear Algebra@{\-Linear Algebra}!xy@{xy}}
-\index{xy@{xy}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{xy}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \-Vector$<$ \-T, 2 $>$ nih\-::xy (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gab815e30e4a8c47b3ff177de0ba4162cb}
-2-\/dimensional swizzling
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga283f58e199d448be6746baec9dec6ac1}{
-\index{\-Linear Algebra@{\-Linear Algebra}!xyz@{xyz}}
-\index{xyz@{xyz}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{xyz}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \-Vector$<$ \-T, 3 $>$ nih\-::xyz (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga283f58e199d448be6746baec9dec6ac1}
-3-\/dimensional swizzling
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga789568ee5abe245a1789c972459d9208}{
-\index{\-Linear Algebra@{\-Linear Algebra}!xzy@{xzy}}
-\index{xzy@{xzy}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{xzy}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \-Vector$<$ \-T, 3 $>$ nih\-::xzy (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga789568ee5abe245a1789c972459d9208}
-3-\/dimensional swizzling
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gaa33a532874bb7f0c3977391f83dc64a3}{
-\index{\-Linear Algebra@{\-Linear Algebra}!yx@{yx}}
-\index{yx@{yx}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{yx}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \-Vector$<$ \-T, 2 $>$ nih\-::yx (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gaa33a532874bb7f0c3977391f83dc64a3}
-2-\/dimensional swizzling
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_gaacc6c8319788b93e1cf61288299530ca}{
-\index{\-Linear Algebra@{\-Linear Algebra}!yxz@{yxz}}
-\index{yxz@{yxz}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{yxz}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \-Vector$<$ \-T, 3 $>$ nih\-::yxz (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_gaacc6c8319788b93e1cf61288299530ca}
-3-\/dimensional swizzling
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga5bae4031dc463ce54993a932a5671a17}{
-\index{\-Linear Algebra@{\-Linear Algebra}!yzx@{yzx}}
-\index{yzx@{yzx}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{yzx}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \-Vector$<$ \-T, 3 $>$ nih\-::yzx (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga5bae4031dc463ce54993a932a5671a17}
-3-\/dimensional swizzling
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga531fcf7af9a93262536231c3fb69cb4f}{
-\index{\-Linear Algebra@{\-Linear Algebra}!zxy@{zxy}}
-\index{zxy@{zxy}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{zxy}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \-Vector$<$ \-T, 3 $>$ nih\-::zxy (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga531fcf7af9a93262536231c3fb69cb4f}
-3-\/dimensional swizzling
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op} & input vector \\
-\hline
-\end{DoxyParams}
-\hypertarget{group__linalg_ga8ba75af33f38985f639aa3f3abe0dce2}{
-\index{\-Linear Algebra@{\-Linear Algebra}!zyx@{zyx}}
-\index{zyx@{zyx}!Linear Algebra@{\-Linear Algebra}}
-\subsubsection[{zyx}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , size\-\_\-t \-D\-I\-M$>$ \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \-Vector$<$ \-T, 3 $>$ nih\-::zyx (
-\begin{DoxyParamCaption}
-\item[{const \-Vector$<$ \-T, \-D\-I\-M $>$ \&}]{op}
-\end{DoxyParamCaption}
-)}}
-\label{group__linalg_ga8ba75af33f38985f639aa3f3abe0dce2}
-3-\/dimensional swizzling
-
-
-\begin{DoxyParams}{\-Parameters}
-{\em op} & input vector \\
-\hline
-\end{DoxyParams}
+\subsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__linalg_ga412525ee29436819434578b8dbd60a1e}{
+\-Vector$<$ \-T, \-M $>$ {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::r} \mbox{[}\-N\mbox{]}}
+\label{group__linalg_ga412525ee29436819434578b8dbd60a1e}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__linalg_gaa4d859c0fbdb4cf65243ef2761b7aeb7}{
+\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E int {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator==} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, const \-Matrix$<$ \-T, \-N, \-M $>$ \&)}
+\label{group__linalg_gaa4d859c0fbdb4cf65243ef2761b7aeb7}
+
+\item 
+\hypertarget{group__linalg_ga443999af1925e0d0e44f8441c73ff2cc}{
+\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E int {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator!=} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, const \-Matrix$<$ \-T, \-N, \-M $>$ \&)}
+\label{group__linalg_ga443999af1925e0d0e44f8441c73ff2cc}
+
+\item 
+\hypertarget{group__linalg_ga5c7fa91653401bed75a2c3b0b1678c18}{
+\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
+\-Matrix$<$ \-T, \-N, \-M $>$ {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator-\/} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&)}
+\label{group__linalg_ga5c7fa91653401bed75a2c3b0b1678c18}
+
+\item 
+\hypertarget{group__linalg_gaa7b9b7b0244fcc9a64f4f4bb45a20aca}{
+\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
+\-Matrix$<$ \-T, \-N, \-M $>$ {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator+} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, const \-Matrix$<$ \-T, \-N, \-M $>$ \&)}
+\label{group__linalg_gaa7b9b7b0244fcc9a64f4f4bb45a20aca}
+
+\item 
+\hypertarget{group__linalg_ga1ea26a7b60552c90fe0b1a70483a8a0b}{
+\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
+\-Matrix$<$ \-T, \-N, \-M $>$ {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator-\/} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, const \-Matrix$<$ \-T, \-N, \-M $>$ \&)}
+\label{group__linalg_ga1ea26a7b60552c90fe0b1a70483a8a0b}
+
+\item 
+\hypertarget{group__linalg_ga9edaf812fed1fb430494129e31049c9e}{
+\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
+\-Matrix$<$ \-T, \-N, \-M $>$ {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator$\ast$} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, \-T)}
+\label{group__linalg_ga9edaf812fed1fb430494129e31049c9e}
+
+\item 
+\hypertarget{group__linalg_ga420f26f0c8944b7baf09ae4e35e532cb}{
+\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
+\-Matrix$<$ \-T, \-N, \-M $>$ {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator$\ast$} (\-T, const \-Matrix$<$ \-T, \-N, \-M $>$ \&)}
+\label{group__linalg_ga420f26f0c8944b7baf09ae4e35e532cb}
+
+\item 
+\hypertarget{group__linalg_ga75d351600704ea2bc1ac3bc7e957f23e}{
+\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
+\-Vector$<$ \-T, \-M $>$ {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator$\ast$} (const \-Vector$<$ \-T, \-N $>$ \&, const \-Matrix$<$ \-T, \-N, \-M $>$ \&)}
+\label{group__linalg_ga75d351600704ea2bc1ac3bc7e957f23e}
+
+\item 
+\hypertarget{group__linalg_ga2080215f8cfbc3d8e28117203bd3f64a}{
+\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
+\-Vector$<$ \-T, \-N $>$ {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator$\ast$} (const \-Vector$<$ \-T, \-N $>$ \&, const \-Matrix$<$ \-T, \-N, \-N $>$ \&)}
+\label{group__linalg_ga2080215f8cfbc3d8e28117203bd3f64a}
+
+\item 
+\hypertarget{group__linalg_ga90e49771ff8faf34b8affca8fb924030}{
+\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
+\-Vector$<$ \-T, \-N $>$ {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator$\ast$} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, const \-Vector$<$ \-T, \-M $>$ \&)}
+\label{group__linalg_ga90e49771ff8faf34b8affca8fb924030}
+
+\item 
+\hypertarget{group__linalg_ga02179c82f9486c57d27e245c57a87e53}{
+\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
+\-Vector$<$ \-T, \-N $>$ {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator$\ast$} (const \-Matrix$<$ \-T, \-N, \-N $>$ \&, const \-Vector$<$ \-T, \-N $>$ \&)}
+\label{group__linalg_ga02179c82f9486c57d27e245c57a87e53}
+
+\item 
+\hypertarget{group__linalg_ga24d2f0d22492f9e3d3807af392e5fd12}{
+\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \*
+\-Matrix$<$ \-T, \-N, \-M $>$ {\bfseries nih\-::\-Matrix$<$ T, N, M $>$\-::operator/} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, \-T)}
+\label{group__linalg_ga24d2f0d22492f9e3d3807af392e5fd12}
+
+\end{DoxyCompactItemize}

@@ -492,7 +492,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00413"></a>00413         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00414"></a>00414 }
 <a name="l00415"></a>00415 
-<a name="l00416"></a>00416 <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt; Sparse_matrix&lt;T&gt;&amp; <a class="code" href="group__linalg.html#gabaaa34dafadbdbaaff130b02d28b3ad1">Sparse_matrix&lt;T&gt;::operator *= </a>(<span class="keyword">const</span> T&amp; k)
+<a name="l00416"></a>00416 <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt; Sparse_matrix&lt;T&gt;&amp; <a class="code" href="group__vectors.html#gabaaa34dafadbdbaaff130b02d28b3ad1">Sparse_matrix&lt;T&gt;::operator *= </a>(<span class="keyword">const</span> T&amp; k)
 <a name="l00417"></a>00417 {
 <a name="l00418"></a>00418         <span class="keywordflow">for</span> (int32 i = 0; i &lt; dSize; i++)
 <a name="l00419"></a>00419                 dEntries[i].dVal *= k;
@@ -500,7 +500,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00421"></a>00421         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00422"></a>00422 }
 <a name="l00423"></a>00423 
-<a name="l00424"></a>00424 <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt; Sparse_matrix&lt;T&gt;&amp; <a class="code" href="group__linalg.html#ga04e63000d70a03c13098b6b7303a29e9">Sparse_matrix&lt;T&gt;::operator /= </a>(<span class="keyword">const</span> T&amp; k)
+<a name="l00424"></a>00424 <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt; Sparse_matrix&lt;T&gt;&amp; <a class="code" href="group__vectors.html#ga04e63000d70a03c13098b6b7303a29e9">Sparse_matrix&lt;T&gt;::operator /= </a>(<span class="keyword">const</span> T&amp; k)
 <a name="l00425"></a>00425 {
 <a name="l00426"></a>00426         <span class="keywordflow">for</span> (int32 i = 0; i &lt; dSize; i++)
 <a name="l00427"></a>00427                 dEntries[i].dVal /= k;
@@ -713,11 +713,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00634"></a>00634         dVal = it.dVal;
 <a name="l00635"></a>00635         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00636"></a>00636 }
-<a name="l00637"></a>00637 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">bool</span> <a class="code" href="group__linalg.html#gaabd17838f41c1637cb84a3cfe31dfb0b">Sparse_matrix_entry&lt;T&gt;::operator == </a>(<span class="keyword">const</span> Sparse_matrix_entry&lt;T&gt;&amp; it)<span class="keyword"> const</span>
+<a name="l00637"></a>00637 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">bool</span> <a class="code" href="group__vectors.html#gaabd17838f41c1637cb84a3cfe31dfb0b">Sparse_matrix_entry&lt;T&gt;::operator == </a>(<span class="keyword">const</span> Sparse_matrix_entry&lt;T&gt;&amp; it)<span class="keyword"> const</span>
 <a name="l00638"></a>00638 <span class="keyword"></span>{
 <a name="l00639"></a>00639         <span class="keywordflow">return</span> (dRow == it.dRow) &amp;&amp; (dCol == it.dCol) &amp;&amp; (dVal == it.dVal);
 <a name="l00640"></a>00640 }
-<a name="l00641"></a>00641 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">bool</span> <a class="code" href="group__linalg.html#ga884852dfe6e126e524af6c966fd3fa8e">Sparse_matrix_entry&lt;T&gt;::operator != </a>(<span class="keyword">const</span> Sparse_matrix_entry&lt;T&gt;&amp; it)<span class="keyword"> const</span>
+<a name="l00641"></a>00641 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">bool</span> <a class="code" href="group__vectors.html#ga884852dfe6e126e524af6c966fd3fa8e">Sparse_matrix_entry&lt;T&gt;::operator != </a>(<span class="keyword">const</span> Sparse_matrix_entry&lt;T&gt;&amp; it)<span class="keyword"> const</span>
 <a name="l00642"></a>00642 <span class="keyword"></span>{
 <a name="l00643"></a>00643         <span class="keywordflow">return</span> (dRow != it.dRow) || (dCol != it.dCol) || (dVal != it.dVal);
 <a name="l00644"></a>00644 }
@@ -807,25 +807,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00728"></a>00728         dK--;
 <a name="l00729"></a>00729         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00730"></a>00730 }
-<a name="l00731"></a>00731 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::iterator&amp; <a class="code" href="group__linalg.html#ga4226e5c3bf0305cf0a0459bf43564223">Sparse_matrix&lt;T&gt;::iterator::operator+= </a>(int32 n)
+<a name="l00731"></a>00731 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::iterator&amp; <a class="code" href="group__vectors.html#ga4226e5c3bf0305cf0a0459bf43564223">Sparse_matrix&lt;T&gt;::iterator::operator+= </a>(int32 n)
 <a name="l00732"></a>00732 {
 <a name="l00733"></a>00733         dK += n;
 <a name="l00734"></a>00734         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00735"></a>00735 }
-<a name="l00736"></a>00736 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::iterator&amp; <a class="code" href="group__linalg.html#ga6c534bcb2f6acc627ea0988b2de4f73e">Sparse_matrix&lt;T&gt;::iterator::operator-= </a>(int32 n)
+<a name="l00736"></a>00736 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::iterator&amp; <a class="code" href="group__vectors.html#ga6c534bcb2f6acc627ea0988b2de4f73e">Sparse_matrix&lt;T&gt;::iterator::operator-= </a>(int32 n)
 <a name="l00737"></a>00737 {
 <a name="l00738"></a>00738         dK -= n;
 <a name="l00739"></a>00739         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00740"></a>00740 }
-<a name="l00741"></a>00741 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::iterator <a class="code" href="group__linalg.html#ga9235b9ea803b8d0ef379565a3ff7dd76">Sparse_matrix&lt;T&gt;::iterator::operator + </a>(int32 n)<span class="keyword"> const</span>
+<a name="l00741"></a>00741 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::iterator <a class="code" href="group__vectors.html#ga9235b9ea803b8d0ef379565a3ff7dd76">Sparse_matrix&lt;T&gt;::iterator::operator + </a>(int32 n)<span class="keyword"> const</span>
 <a name="l00742"></a>00742 <span class="keyword"></span>{
 <a name="l00743"></a>00743         <span class="keywordflow">return</span> iterator( dM, dK + n );
 <a name="l00744"></a>00744 }
-<a name="l00745"></a>00745 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::iterator <a class="code" href="group__linalg.html#ga8782aba246b1da852d9f4390d22336f8">Sparse_matrix&lt;T&gt;::iterator::operator - </a>(int32 n)<span class="keyword"> const</span>
+<a name="l00745"></a>00745 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::iterator <a class="code" href="group__vectors.html#ga8782aba246b1da852d9f4390d22336f8">Sparse_matrix&lt;T&gt;::iterator::operator - </a>(int32 n)<span class="keyword"> const</span>
 <a name="l00746"></a>00746 <span class="keyword"></span>{
 <a name="l00747"></a>00747         <span class="keywordflow">return</span> iterator( dM, dK - n );
 <a name="l00748"></a>00748 }
-<a name="l00749"></a>00749 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; int32 <a class="code" href="group__linalg.html#ga8782aba246b1da852d9f4390d22336f8">Sparse_matrix&lt;T&gt;::iterator::operator - </a>(<span class="keyword">const</span> <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::iterator&amp; it)<span class="keyword"> const</span>
+<a name="l00749"></a>00749 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; int32 <a class="code" href="group__vectors.html#ga8782aba246b1da852d9f4390d22336f8">Sparse_matrix&lt;T&gt;::iterator::operator - </a>(<span class="keyword">const</span> <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::iterator&amp; it)<span class="keyword"> const</span>
 <a name="l00750"></a>00750 <span class="keyword"></span>{
 <a name="l00751"></a>00751         <span class="keywordflow">return</span> dK - it.dK;
 <a name="l00752"></a>00752 }
@@ -916,25 +916,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00837"></a>00837         dK--;
 <a name="l00838"></a>00838         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00839"></a>00839 }
-<a name="l00840"></a>00840 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::const_iterator&amp; <a class="code" href="group__linalg.html#ga4226e5c3bf0305cf0a0459bf43564223">Sparse_matrix&lt;T&gt;::const_iterator::operator+= </a>(int32 n)
+<a name="l00840"></a>00840 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::const_iterator&amp; <a class="code" href="group__vectors.html#ga4226e5c3bf0305cf0a0459bf43564223">Sparse_matrix&lt;T&gt;::const_iterator::operator+= </a>(int32 n)
 <a name="l00841"></a>00841 {
 <a name="l00842"></a>00842         dK += n;
 <a name="l00843"></a>00843         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00844"></a>00844 }
-<a name="l00845"></a>00845 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::const_iterator&amp; <a class="code" href="group__linalg.html#ga6c534bcb2f6acc627ea0988b2de4f73e">Sparse_matrix&lt;T&gt;::const_iterator::operator-= </a>(int32 n)
+<a name="l00845"></a>00845 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::const_iterator&amp; <a class="code" href="group__vectors.html#ga6c534bcb2f6acc627ea0988b2de4f73e">Sparse_matrix&lt;T&gt;::const_iterator::operator-= </a>(int32 n)
 <a name="l00846"></a>00846 {
 <a name="l00847"></a>00847         dK -= n;
 <a name="l00848"></a>00848         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00849"></a>00849 }
-<a name="l00850"></a>00850 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::const_iterator <a class="code" href="group__linalg.html#ga9235b9ea803b8d0ef379565a3ff7dd76">Sparse_matrix&lt;T&gt;::const_iterator::operator + </a>(int32 n)<span class="keyword"> const</span>
+<a name="l00850"></a>00850 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::const_iterator <a class="code" href="group__vectors.html#ga9235b9ea803b8d0ef379565a3ff7dd76">Sparse_matrix&lt;T&gt;::const_iterator::operator + </a>(int32 n)<span class="keyword"> const</span>
 <a name="l00851"></a>00851 <span class="keyword"></span>{
 <a name="l00852"></a>00852         <span class="keywordflow">return</span> const_iterator( dM, dK + n );
 <a name="l00853"></a>00853 }
-<a name="l00854"></a>00854 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::const_iterator <a class="code" href="group__linalg.html#ga8782aba246b1da852d9f4390d22336f8">Sparse_matrix&lt;T&gt;::const_iterator::operator - </a>(int32 n)<span class="keyword"> const</span>
+<a name="l00854"></a>00854 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::const_iterator <a class="code" href="group__vectors.html#ga8782aba246b1da852d9f4390d22336f8">Sparse_matrix&lt;T&gt;::const_iterator::operator - </a>(int32 n)<span class="keyword"> const</span>
 <a name="l00855"></a>00855 <span class="keyword"></span>{
 <a name="l00856"></a>00856         <span class="keywordflow">return</span> const_iterator( dM, dK - n );
 <a name="l00857"></a>00857 }
-<a name="l00858"></a>00858 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; int32 <a class="code" href="group__linalg.html#ga8782aba246b1da852d9f4390d22336f8">Sparse_matrix&lt;T&gt;::const_iterator::operator - </a>(<span class="keyword">const</span> <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::const_iterator&amp; it)<span class="keyword"> const</span>
+<a name="l00858"></a>00858 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; int32 <a class="code" href="group__vectors.html#ga8782aba246b1da852d9f4390d22336f8">Sparse_matrix&lt;T&gt;::const_iterator::operator - </a>(<span class="keyword">const</span> <span class="keyword">typename</span> Sparse_matrix&lt;T&gt;::const_iterator&amp; it)<span class="keyword"> const</span>
 <a name="l00859"></a>00859 <span class="keyword"></span>{
 <a name="l00860"></a>00860         <span class="keywordflow">return</span> dK - it.dK;
 <a name="l00861"></a>00861 }
@@ -976,7 +976,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 24 2011 14:20:21 for nih by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 24 2011 14:41:37 for nih by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

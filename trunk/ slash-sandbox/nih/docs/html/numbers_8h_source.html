@@ -138,23 +138,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00061"></a>00061         <span class="keywordflow">return</span> (x - <span class="keywordtype">float</span>(y) &gt; 0.5f) ? float(y)+1.0f : float(y);
 <a name="l00062"></a>00062 }
 <a name="l00063"></a>00063 
-<a name="l00065"></a>00065 <span class="keyword">inline</span> NIH_HOST_DEVICE <span class="keywordtype">float</span> <a class="code" href="group__linalg.html#ga5809911d15c32de18955c59865379695">min</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> a, <span class="keyword">const</span> <span class="keywordtype">float</span> b) { <span class="keywordflow">return</span> a &lt; b ? a : b; }
+<a name="l00065"></a>00065 <span class="keyword">inline</span> NIH_HOST_DEVICE <span class="keywordtype">float</span> <a class="code" href="group__vectors.html#ga5809911d15c32de18955c59865379695">min</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> a, <span class="keyword">const</span> <span class="keywordtype">float</span> b) { <span class="keywordflow">return</span> a &lt; b ? a : b; }
 <a name="l00066"></a>00066 
-<a name="l00068"></a>00068 <span class="keyword">inline</span> NIH_HOST_DEVICE <span class="keywordtype">float</span> <a class="code" href="group__linalg.html#gab2b34b1991185fc29890973777b60e54">max</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> a, <span class="keyword">const</span> <span class="keywordtype">float</span> b) { <span class="keywordflow">return</span> a &gt; b ? a : b; }
+<a name="l00068"></a>00068 <span class="keyword">inline</span> NIH_HOST_DEVICE <span class="keywordtype">float</span> <a class="code" href="group__vectors.html#gab2b34b1991185fc29890973777b60e54">max</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> a, <span class="keyword">const</span> <span class="keywordtype">float</span> b) { <span class="keywordflow">return</span> a &gt; b ? a : b; }
 <a name="l00069"></a>00069 
-<a name="l00071"></a>00071 <span class="keyword">inline</span> NIH_HOST_DEVICE int32 <a class="code" href="group__linalg.html#ga5809911d15c32de18955c59865379695">min</a>(<span class="keyword">const</span> int32 a, <span class="keyword">const</span> int32 b) { <span class="keywordflow">return</span> a &lt; b ? a : b; }
+<a name="l00071"></a>00071 <span class="keyword">inline</span> NIH_HOST_DEVICE int32 <a class="code" href="group__vectors.html#ga5809911d15c32de18955c59865379695">min</a>(<span class="keyword">const</span> int32 a, <span class="keyword">const</span> int32 b) { <span class="keywordflow">return</span> a &lt; b ? a : b; }
 <a name="l00072"></a>00072 
-<a name="l00074"></a>00074 <span class="keyword">inline</span> NIH_HOST_DEVICE int32 <a class="code" href="group__linalg.html#gab2b34b1991185fc29890973777b60e54">max</a>(<span class="keyword">const</span> int32 a, <span class="keyword">const</span> int32 b) { <span class="keywordflow">return</span> a &gt; b ? a : b; }
+<a name="l00074"></a>00074 <span class="keyword">inline</span> NIH_HOST_DEVICE int32 <a class="code" href="group__vectors.html#gab2b34b1991185fc29890973777b60e54">max</a>(<span class="keyword">const</span> int32 a, <span class="keyword">const</span> int32 b) { <span class="keywordflow">return</span> a &gt; b ? a : b; }
 <a name="l00075"></a>00075 
-<a name="l00077"></a>00077 <span class="keyword">inline</span> NIH_HOST_DEVICE uint32 <a class="code" href="group__linalg.html#ga5809911d15c32de18955c59865379695">min</a>(<span class="keyword">const</span> uint32 a, <span class="keyword">const</span> uint32 b) { <span class="keywordflow">return</span> a &lt; b ? a : b; }
+<a name="l00077"></a>00077 <span class="keyword">inline</span> NIH_HOST_DEVICE uint32 <a class="code" href="group__vectors.html#ga5809911d15c32de18955c59865379695">min</a>(<span class="keyword">const</span> uint32 a, <span class="keyword">const</span> uint32 b) { <span class="keywordflow">return</span> a &lt; b ? a : b; }
 <a name="l00078"></a>00078 
-<a name="l00080"></a>00080 <span class="keyword">inline</span> NIH_HOST_DEVICE uint32 <a class="code" href="group__linalg.html#gab2b34b1991185fc29890973777b60e54">max</a>(<span class="keyword">const</span> uint32 a, <span class="keyword">const</span> uint32 b) { <span class="keywordflow">return</span> a &gt; b ? a : b; }
+<a name="l00080"></a>00080 <span class="keyword">inline</span> NIH_HOST_DEVICE uint32 <a class="code" href="group__vectors.html#gab2b34b1991185fc29890973777b60e54">max</a>(<span class="keyword">const</span> uint32 a, <span class="keyword">const</span> uint32 b) { <span class="keywordflow">return</span> a &gt; b ? a : b; }
 <a name="l00081"></a>00081 
 <a name="l00083"></a>00083 <span class="keyword">inline</span> NIH_HOST_DEVICE uint32 quantize(<span class="keyword">const</span> <span class="keywordtype">float</span> x, <span class="keyword">const</span> uint32 n)
 <a name="l00084"></a>00084 {
-<a name="l00085"></a>00085         <span class="keywordflow">return</span> (uint32)<a class="code" href="group__linalg.html#gab2b34b1991185fc29890973777b60e54">max</a>( <a class="code" href="group__linalg.html#ga5809911d15c32de18955c59865379695">min</a>( int32( x * <span class="keywordtype">float</span>(n) ), int32(n-1) ), int32(0) );
+<a name="l00085"></a>00085         <span class="keywordflow">return</span> (uint32)<a class="code" href="group__vectors.html#gab2b34b1991185fc29890973777b60e54">max</a>( <a class="code" href="group__vectors.html#ga5809911d15c32de18955c59865379695">min</a>( int32( x * <span class="keywordtype">float</span>(n) ), int32(n-1) ), int32(0) );
 <a name="l00086"></a>00086 }
-<a name="l00088"></a>00088 <span class="keyword">inline</span> <span class="keywordtype">float</span> NIH_HOST_DEVICE <a class="code" href="group__linalg.html#ga278bc40e135ff21dd4c80375feccc703" title="compute the modulus of a vector">mod</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> x, <span class="keyword">const</span> <span class="keywordtype">float</span> m) { <span class="keywordflow">return</span> x &gt; 0.0f ? fmodf( x, m ) : m - fmodf( -x, m ); }
+<a name="l00088"></a>00088 <span class="keyword">inline</span> <span class="keywordtype">float</span> NIH_HOST_DEVICE <a class="code" href="group__vectors.html#ga278bc40e135ff21dd4c80375feccc703" title="compute the modulus of a vector">mod</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> x, <span class="keyword">const</span> <span class="keywordtype">float</span> m) { <span class="keywordflow">return</span> x &gt; 0.0f ? fmodf( x, m ) : m - fmodf( -x, m ); }
 <a name="l00089"></a>00089 
 <a name="l00090"></a>00090 <span class="keyword">inline</span> NIH_HOST_DEVICE uint32 log2(uint32 n)
 <a name="l00091"></a>00091 {
@@ -222,10 +222,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00153"></a>00153 <span class="preprocessor"></span>        <span class="keyword">static</span> T min()
 <a name="l00154"></a>00154     {
 <a name="l00155"></a>00155         <span class="keywordflow">return</span> std::numeric_limits&lt;T&gt;::is_integer ?
-<a name="l00156"></a>00156              <a class="code" href="group__linalg.html#ga5809911d15c32de18955c59865379695">std::numeric_limits&lt;T&gt;::min</a>() :
-<a name="l00157"></a>00157             -<a class="code" href="group__linalg.html#gab2b34b1991185fc29890973777b60e54">std::numeric_limits&lt;T&gt;::max</a>();
+<a name="l00156"></a>00156              <a class="code" href="group__vectors.html#ga5809911d15c32de18955c59865379695">std::numeric_limits&lt;T&gt;::min</a>() :
+<a name="l00157"></a>00157             -<a class="code" href="group__vectors.html#gab2b34b1991185fc29890973777b60e54">std::numeric_limits&lt;T&gt;::max</a>();
 <a name="l00158"></a>00158     }
-<a name="l00159"></a>00159         <span class="keyword">static</span> T max() { <span class="keywordflow">return</span> <a class="code" href="group__linalg.html#gab2b34b1991185fc29890973777b60e54">std::numeric_limits&lt;T&gt;::max</a>(); }
+<a name="l00159"></a>00159         <span class="keyword">static</span> T max() { <span class="keywordflow">return</span> <a class="code" href="group__vectors.html#gab2b34b1991185fc29890973777b60e54">std::numeric_limits&lt;T&gt;::max</a>(); }
 <a name="l00160"></a>00160 <span class="preprocessor">#endif</span>
 <a name="l00161"></a>00161 <span class="preprocessor"></span>};
 <a name="l00162"></a>00162 
@@ -288,7 +288,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 24 2011 14:20:21 for nih by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 24 2011 14:41:36 for nih by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

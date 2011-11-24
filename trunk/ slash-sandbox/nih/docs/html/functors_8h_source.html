@@ -494,7 +494,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00545"></a>00545 
 <a name="l00549"></a><a class="code" href="structnih_1_1clamped__cosine__fun.html#a84b1ff420bf0e6e7ff652eb4c19a1ed9">00549</a>     NIH_HOST_DEVICE <a class="code" href="structnih_1_1clamped__cosine__fun.html#a84b1ff420bf0e6e7ff652eb4c19a1ed9">clamped_cosine_fun</a>(<span class="keyword">const</span> Vector_type&amp; normal) : m_normal( normal ) {}
 <a name="l00550"></a>00550 
-<a name="l00551"></a>00551     NIH_HOST_DEVICE <span class="keywordtype">float</span> operator() (<span class="keyword">const</span> Vector_type&amp; dir)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="group__linalg.html#gab2b34b1991185fc29890973777b60e54">max</a>( <a class="code" href="group__linalg.html#ga299bb7e770db20680a383864db4bd843">dot</a>( dir, m_normal ), 0.0f ); }
+<a name="l00551"></a>00551     NIH_HOST_DEVICE <span class="keywordtype">float</span> operator() (<span class="keyword">const</span> Vector_type&amp; dir)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="group__vectors.html#gab2b34b1991185fc29890973777b60e54">max</a>( <a class="code" href="group__vectors.html#ga299bb7e770db20680a383864db4bd843">dot</a>( dir, m_normal ), 0.0f ); }
 <a name="l00552"></a>00552 
 <a name="l00553"></a>00553     <span class="keyword">const</span> Vector_type m_normal;
 <a name="l00554"></a>00554 };
@@ -507,7 +507,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00565"></a>00565 
 <a name="l00569"></a><a class="code" href="structnih_1_1abs__cosine__fun.html#a9522a3b7785ea2f28b9446471ae7a9d7">00569</a>     NIH_HOST_DEVICE <a class="code" href="structnih_1_1abs__cosine__fun.html#a9522a3b7785ea2f28b9446471ae7a9d7">abs_cosine_fun</a>(<span class="keyword">const</span> Vector_type&amp; normal) : m_normal( normal ) {}
 <a name="l00570"></a>00570 
-<a name="l00571"></a>00571     NIH_HOST_DEVICE <span class="keywordtype">float</span> operator() (<span class="keyword">const</span> Vector_type&amp; dir)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> fabsf( <a class="code" href="group__linalg.html#ga299bb7e770db20680a383864db4bd843">dot</a>( dir, m_normal ) ); }
+<a name="l00571"></a>00571     NIH_HOST_DEVICE <span class="keywordtype">float</span> operator() (<span class="keyword">const</span> Vector_type&amp; dir)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> fabsf( <a class="code" href="group__vectors.html#ga299bb7e770db20680a383864db4bd843">dot</a>( dir, m_normal ) ); }
 <a name="l00572"></a>00572 
 <a name="l00573"></a>00573     <span class="keyword">const</span> Vector_type m_normal;
 <a name="l00574"></a>00574 };
@@ -532,7 +532,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 24 2011 14:20:21 for nih by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 24 2011 14:41:36 for nih by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

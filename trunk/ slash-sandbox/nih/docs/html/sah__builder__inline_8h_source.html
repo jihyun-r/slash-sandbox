@@ -136,7 +136,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00057"></a>00057     <span class="keywordflow">return</span> dtime;
 <a name="l00058"></a>00058 }
 <a name="l00059"></a>00059 
-<a name="l00060"></a>00060 FORCE_INLINE NIH_HOST_DEVICE uint32 <a class="code" href="group__linalg.html#ga38d296764ec08b5bb7cb072460967e00">largest_axis</a>(<span class="keyword">const</span> float3 edge)
+<a name="l00060"></a>00060 FORCE_INLINE NIH_HOST_DEVICE uint32 <a class="code" href="group__bboxes.html#ga38d296764ec08b5bb7cb072460967e00">largest_axis</a>(<span class="keyword">const</span> float3 edge)
 <a name="l00061"></a>00061 {
 <a name="l00062"></a>00062     <span class="keywordflow">return</span> edge.x &gt; edge.y ?
 <a name="l00063"></a>00063         (edge.x &gt; edge.z ? 0 : 2) :
@@ -163,7 +163,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00087"></a>00087 
 <a name="l00088"></a>00088         <span class="keyword">const</span> float3 delta = make_float3( bmax.x - bmin.x, bmax.y - bmin.y, bmax.z - bmin.z );
 <a name="l00089"></a>00089 
-<a name="l00090"></a>00090         <span class="keyword">const</span> uint32 axis = <a class="code" href="group__linalg.html#ga38d296764ec08b5bb7cb072460967e00">largest_axis</a>( delta );
+<a name="l00090"></a>00090         <span class="keyword">const</span> uint32 axis = <a class="code" href="group__bboxes.html#ga38d296764ec08b5bb7cb072460967e00">largest_axis</a>( delta );
 <a name="l00091"></a>00091 
 <a name="l00092"></a>00092         uint32 l;
 <a name="l00093"></a>00093         l  = delta.x &lt; 1.0e-8f ? 0u : quantize( (bbox[0][0] - bmin.x) / delta.x, 1024 );
@@ -441,7 +441,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00365"></a>00365     cudaEventDestroy( start );
 <a name="l00366"></a>00366     cudaEventDestroy( stop );
 <a name="l00367"></a>00367 
-<a name="l00368"></a>00368     m_temp_storage = <a class="code" href="group__linalg.html#gab2b34b1991185fc29890973777b60e54">nih::max</a>( storage, m_temp_storage );
+<a name="l00368"></a>00368     m_temp_storage = <a class="code" href="group__vectors.html#gab2b34b1991185fc29890973777b60e54">nih::max</a>( storage, m_temp_storage );
 <a name="l00369"></a>00369 }
 <a name="l00370"></a>00370 
 <a name="l00371"></a>00371 } <span class="comment">// namespace cuda</span>
@@ -465,7 +465,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 24 2011 14:20:21 for nih by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 24 2011 14:41:36 for nih by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

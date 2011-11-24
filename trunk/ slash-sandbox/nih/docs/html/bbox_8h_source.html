@@ -120,68 +120,68 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00045"></a>00045 
 <a name="l00046"></a>00046 <span class="keyword">namespace </span>nih {
 <a name="l00047"></a>00047 
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Vector_t&gt;
-<a name="l00056"></a><a class="code" href="structnih_1_1_bbox.html">00056</a> <span class="keyword">struct </span><a class="code" href="structnih_1_1_bbox.html">Bbox</a>
-<a name="l00057"></a>00057 {
-<a name="l00058"></a>00058         <span class="keyword">typedef</span> <span class="keyword">typename</span> Vector_t::Field_type   Field_type;
-<a name="l00059"></a>00059         <span class="keyword">typedef</span> <span class="keyword">typename</span> Vector_t                               Vector_type;
-<a name="l00060"></a>00060 
-<a name="l00063"></a>00063         NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_bbox.html#ac674f03e9e984723f2398447391e0807">Bbox</a>();
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Vector_t&gt;
+<a name="l00060"></a><a class="code" href="structnih_1_1_bbox.html">00060</a> <span class="keyword">struct </span><a class="code" href="structnih_1_1_bbox.html">Bbox</a>
+<a name="l00061"></a>00061 {
+<a name="l00062"></a>00062         <span class="keyword">typedef</span> <span class="keyword">typename</span> Vector_t::Field_type   Field_type;
+<a name="l00063"></a>00063         <span class="keyword">typedef</span> <span class="keyword">typename</span> Vector_t                               Vector_type;
 <a name="l00064"></a>00064 
-<a name="l00068"></a>00068         NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_bbox.html#ac674f03e9e984723f2398447391e0807">Bbox</a>(
-<a name="l00069"></a>00069                 <span class="keyword">const</span> Vector_t&amp; v);
-<a name="l00070"></a>00070 
-<a name="l00075"></a>00075     NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_bbox.html#ac674f03e9e984723f2398447391e0807">Bbox</a>(
-<a name="l00076"></a>00076                 <span class="keyword">const</span> Vector_t&amp; v1,
-<a name="l00077"></a>00077                 <span class="keyword">const</span> Vector_t&amp; v2);
-<a name="l00078"></a>00078 
-<a name="l00083"></a>00083         NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_bbox.html#ac674f03e9e984723f2398447391e0807">Bbox</a>(
-<a name="l00084"></a>00084                 <span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector_t&gt;</a>&amp; bb1,
-<a name="l00085"></a>00085                 <span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector_t&gt;</a>&amp; bb2);
-<a name="l00086"></a>00086 
-<a name="l00090"></a>00090     NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_bbox.html#ac674f03e9e984723f2398447391e0807">Bbox</a>(
-<a name="l00091"></a>00091                 <span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector_t&gt;</a>&amp; bb);
-<a name="l00092"></a>00092 
-<a name="l00096"></a>00096         NIH_HOST NIH_DEVICE <span class="keywordtype">void</span> <a class="code" href="structnih_1_1_bbox.html#aaf285b037bc220098333d91de589d010">insert</a>(<span class="keyword">const</span> Vector_t&amp; v);
-<a name="l00097"></a>00097 
-<a name="l00101"></a>00101         NIH_HOST NIH_DEVICE <span class="keywordtype">void</span> <a class="code" href="structnih_1_1_bbox.html#aaf285b037bc220098333d91de589d010">insert</a>(<span class="keyword">const</span> Bbox&amp; v);
-<a name="l00102"></a>00102 
-<a name="l00105"></a>00105         NIH_HOST NIH_DEVICE <span class="keywordtype">void</span> <a class="code" href="structnih_1_1_bbox.html#a0908567fff19b639c7d6e875acbef265">clear</a>();
+<a name="l00067"></a>00067         NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_bbox.html#ac674f03e9e984723f2398447391e0807">Bbox</a>();
+<a name="l00068"></a>00068 
+<a name="l00072"></a>00072         NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_bbox.html#ac674f03e9e984723f2398447391e0807">Bbox</a>(
+<a name="l00073"></a>00073                 <span class="keyword">const</span> Vector_t&amp; v);
+<a name="l00074"></a>00074 
+<a name="l00079"></a>00079     NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_bbox.html#ac674f03e9e984723f2398447391e0807">Bbox</a>(
+<a name="l00080"></a>00080                 <span class="keyword">const</span> Vector_t&amp; v1,
+<a name="l00081"></a>00081                 <span class="keyword">const</span> Vector_t&amp; v2);
+<a name="l00082"></a>00082 
+<a name="l00087"></a>00087         NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_bbox.html#ac674f03e9e984723f2398447391e0807">Bbox</a>(
+<a name="l00088"></a>00088                 <span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector_t&gt;</a>&amp; bb1,
+<a name="l00089"></a>00089                 <span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector_t&gt;</a>&amp; bb2);
+<a name="l00090"></a>00090 
+<a name="l00094"></a>00094     NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_bbox.html#ac674f03e9e984723f2398447391e0807">Bbox</a>(
+<a name="l00095"></a>00095                 <span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector_t&gt;</a>&amp; bb);
+<a name="l00096"></a>00096 
+<a name="l00100"></a>00100         NIH_HOST NIH_DEVICE <span class="keywordtype">void</span> <a class="code" href="structnih_1_1_bbox.html#aaf285b037bc220098333d91de589d010">insert</a>(<span class="keyword">const</span> Vector_t&amp; v);
+<a name="l00101"></a>00101 
+<a name="l00105"></a>00105         NIH_HOST NIH_DEVICE <span class="keywordtype">void</span> <a class="code" href="structnih_1_1_bbox.html#aaf285b037bc220098333d91de589d010">insert</a>(<span class="keyword">const</span> Bbox&amp; v);
 <a name="l00106"></a>00106 
-<a name="l00110"></a><a class="code" href="structnih_1_1_bbox.html#a773d6d63c51cfc017aa0da640a5f9373">00110</a>         NIH_HOST NIH_DEVICE <span class="keyword">const</span> Vector_t&amp; <a class="code" href="structnih_1_1_bbox.html#a773d6d63c51cfc017aa0da640a5f9373">operator[]</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span> i)<span class="keyword"> const    </span>{ <span class="keywordflow">return</span> (&amp;<a class="code" href="structnih_1_1_bbox.html#a1d8ccda901cd9ecfe7ad40d046362936" title="min corner">m_min</a>)[i]; }
-<a name="l00111"></a>00111 
-<a name="l00115"></a><a class="code" href="structnih_1_1_bbox.html#a561f0308c267706fe7460ee916c52037">00115</a>         NIH_HOST NIH_DEVICE Vector_t&amp; <a class="code" href="structnih_1_1_bbox.html#a561f0308c267706fe7460ee916c52037">operator[]</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span> i)                                { <span class="keywordflow">return</span> (&amp;<a class="code" href="structnih_1_1_bbox.html#a1d8ccda901cd9ecfe7ad40d046362936" title="min corner">m_min</a>)[i]; }
-<a name="l00116"></a>00116 
-<a name="l00120"></a>00120     NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector_t&gt;</a>&amp; <a class="code" href="structnih_1_1_bbox.html#a73597545739fe5df476167b616ffc247">operator=</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector_t&gt;</a>&amp; bb);
-<a name="l00121"></a>00121 
-<a name="l00122"></a><a class="code" href="structnih_1_1_bbox.html#a1d8ccda901cd9ecfe7ad40d046362936">00122</a>     Vector_t <a class="code" href="structnih_1_1_bbox.html#a1d8ccda901cd9ecfe7ad40d046362936" title="min corner">m_min</a>; 
-<a name="l00123"></a><a class="code" href="structnih_1_1_bbox.html#acf51fbadf69955a4a12641d96b17a9b8">00123</a>         Vector_t <a class="code" href="structnih_1_1_bbox.html#acf51fbadf69955a4a12641d96b17a9b8" title="max corner">m_max</a>; 
-<a name="l00124"></a>00124 };
+<a name="l00109"></a>00109         NIH_HOST NIH_DEVICE <span class="keywordtype">void</span> <a class="code" href="structnih_1_1_bbox.html#a0908567fff19b639c7d6e875acbef265">clear</a>();
+<a name="l00110"></a>00110 
+<a name="l00114"></a><a class="code" href="structnih_1_1_bbox.html#a773d6d63c51cfc017aa0da640a5f9373">00114</a>         NIH_HOST NIH_DEVICE <span class="keyword">const</span> Vector_t&amp; <a class="code" href="structnih_1_1_bbox.html#a773d6d63c51cfc017aa0da640a5f9373">operator[]</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span> i)<span class="keyword"> const    </span>{ <span class="keywordflow">return</span> (&amp;<a class="code" href="structnih_1_1_bbox.html#a1d8ccda901cd9ecfe7ad40d046362936" title="min corner">m_min</a>)[i]; }
+<a name="l00115"></a>00115 
+<a name="l00119"></a><a class="code" href="structnih_1_1_bbox.html#a561f0308c267706fe7460ee916c52037">00119</a>         NIH_HOST NIH_DEVICE Vector_t&amp; <a class="code" href="structnih_1_1_bbox.html#a561f0308c267706fe7460ee916c52037">operator[]</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span> i)                                { <span class="keywordflow">return</span> (&amp;<a class="code" href="structnih_1_1_bbox.html#a1d8ccda901cd9ecfe7ad40d046362936" title="min corner">m_min</a>)[i]; }
+<a name="l00120"></a>00120 
+<a name="l00124"></a>00124     NIH_HOST NIH_DEVICE <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector_t&gt;</a>&amp; <a class="code" href="structnih_1_1_bbox.html#a73597545739fe5df476167b616ffc247">operator=</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector_t&gt;</a>&amp; bb);
 <a name="l00125"></a>00125 
-<a name="l00126"></a>00126 <span class="keyword">typedef</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector2f&gt;</a> <a class="code" href="structnih_1_1_bbox.html">Bbox2f</a>;
-<a name="l00127"></a>00127 <span class="keyword">typedef</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector3f&gt;</a> <a class="code" href="structnih_1_1_bbox.html">Bbox3f</a>;
-<a name="l00128"></a>00128 <span class="keyword">typedef</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector4f&gt;</a> <a class="code" href="structnih_1_1_bbox.html">Bbox4f</a>;
-<a name="l00129"></a>00129 <span class="keyword">typedef</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector2d&gt;</a> <a class="code" href="structnih_1_1_bbox.html">Bbox2d</a>;
-<a name="l00130"></a>00130 <span class="keyword">typedef</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector3d&gt;</a> <a class="code" href="structnih_1_1_bbox.html">Bbox3d</a>;
-<a name="l00131"></a>00131 <span class="keyword">typedef</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector4d&gt;</a> <a class="code" href="structnih_1_1_bbox.html">Bbox4d</a>;
-<a name="l00132"></a>00132 
-<a name="l00136"></a>00136 <span class="keyword">inline</span> NIH_HOST_DEVICE <span class="keywordtype">float</span> <a class="code" href="group__linalg.html#gaceb0562c9b45c828b66c12f65bd85d8b">area</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox3f</a>&amp; bbox);
-<a name="l00137"></a>00137 
-<a name="l00142"></a>00142 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Vector_t&gt;
-<a name="l00143"></a>00143 <span class="keyword">inline</span> NIH_HOST_DEVICE <span class="keywordtype">bool</span> <a class="code" href="group__linalg.html#gaddb50572c7ac110eddcc46bb6cf6fcc5">contains</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector_t&gt;</a>&amp; bbox, <span class="keyword">const</span> Vector_t&amp; p);
-<a name="l00144"></a>00144 
-<a name="l00149"></a>00149 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Vector_t&gt;
-<a name="l00150"></a>00150 FORCE_INLINE NIH_HOST_DEVICE <span class="keywordtype">float</span> <a class="code" href="group__linalg.html#gae81285029f77d03eb828a15fb90ffede">sq_distance</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector_t&gt;</a>&amp; bbox, <span class="keyword">const</span> Vector_t&amp; p);
-<a name="l00151"></a>00151 
-<a name="l00155"></a>00155 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Vector_t&gt;
-<a name="l00156"></a>00156 FORCE_INLINE NIH_HOST_DEVICE <span class="keywordtype">size_t</span> <a class="code" href="group__linalg.html#ga38d296764ec08b5bb7cb072460967e00">largest_axis</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector_t&gt;</a>&amp; bbox);
-<a name="l00157"></a>00157 
-<a name="l00161"></a>00161 } <span class="comment">// namespace nih</span>
-<a name="l00162"></a>00162 
-<a name="l00163"></a>00163 <span class="preprocessor">#include &lt;nih/linalg/bbox_inline.h&gt;</span>
+<a name="l00126"></a><a class="code" href="structnih_1_1_bbox.html#a1d8ccda901cd9ecfe7ad40d046362936">00126</a>     Vector_t <a class="code" href="structnih_1_1_bbox.html#a1d8ccda901cd9ecfe7ad40d046362936" title="min corner">m_min</a>; 
+<a name="l00127"></a><a class="code" href="structnih_1_1_bbox.html#acf51fbadf69955a4a12641d96b17a9b8">00127</a>         Vector_t <a class="code" href="structnih_1_1_bbox.html#acf51fbadf69955a4a12641d96b17a9b8" title="max corner">m_max</a>; 
+<a name="l00128"></a>00128 };
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130 <span class="keyword">typedef</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector2f&gt;</a> <a class="code" href="structnih_1_1_bbox.html">Bbox2f</a>;
+<a name="l00131"></a>00131 <span class="keyword">typedef</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector3f&gt;</a> <a class="code" href="structnih_1_1_bbox.html">Bbox3f</a>;
+<a name="l00132"></a>00132 <span class="keyword">typedef</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector4f&gt;</a> <a class="code" href="structnih_1_1_bbox.html">Bbox4f</a>;
+<a name="l00133"></a>00133 <span class="keyword">typedef</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector2d&gt;</a> <a class="code" href="structnih_1_1_bbox.html">Bbox2d</a>;
+<a name="l00134"></a>00134 <span class="keyword">typedef</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector3d&gt;</a> <a class="code" href="structnih_1_1_bbox.html">Bbox3d</a>;
+<a name="l00135"></a>00135 <span class="keyword">typedef</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector4d&gt;</a> <a class="code" href="structnih_1_1_bbox.html">Bbox4d</a>;
+<a name="l00136"></a>00136 
+<a name="l00140"></a>00140 <span class="keyword">inline</span> NIH_HOST_DEVICE <span class="keywordtype">float</span> <a class="code" href="group__bboxes.html#gaceb0562c9b45c828b66c12f65bd85d8b">area</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox3f</a>&amp; bbox);
+<a name="l00141"></a>00141 
+<a name="l00146"></a>00146 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Vector_t&gt;
+<a name="l00147"></a>00147 <span class="keyword">inline</span> NIH_HOST_DEVICE <span class="keywordtype">bool</span> <a class="code" href="group__bboxes.html#gaddb50572c7ac110eddcc46bb6cf6fcc5">contains</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector_t&gt;</a>&amp; bbox, <span class="keyword">const</span> Vector_t&amp; p);
+<a name="l00148"></a>00148 
+<a name="l00153"></a>00153 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Vector_t&gt;
+<a name="l00154"></a>00154 FORCE_INLINE NIH_HOST_DEVICE <span class="keywordtype">float</span> <a class="code" href="group__bboxes.html#gae81285029f77d03eb828a15fb90ffede">sq_distance</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector_t&gt;</a>&amp; bbox, <span class="keyword">const</span> Vector_t&amp; p);
+<a name="l00155"></a>00155 
+<a name="l00159"></a>00159 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Vector_t&gt;
+<a name="l00160"></a>00160 FORCE_INLINE NIH_HOST_DEVICE <span class="keywordtype">size_t</span> <a class="code" href="group__bboxes.html#ga38d296764ec08b5bb7cb072460967e00">largest_axis</a>(<span class="keyword">const</span> <a class="code" href="structnih_1_1_bbox.html">Bbox&lt;Vector_t&gt;</a>&amp; bbox);
+<a name="l00161"></a>00161 
+<a name="l00165"></a>00165 } <span class="comment">// namespace nih</span>
+<a name="l00166"></a>00166 
+<a name="l00167"></a>00167 <span class="preprocessor">#include &lt;nih/linalg/bbox_inline.h&gt;</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -201,7 +201,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 24 2011 14:20:21 for nih by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 24 2011 14:41:36 for nih by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>
