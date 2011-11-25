@@ -37,7 +37,7 @@
 
 namespace nih {
 
-/*! \addtogroup image Image
+/*! \addtogroup images Images
  *  \{
  */
 

@@ -39,6 +39,10 @@
 namespace nih {
 
 /*! \addtogroup spherical_functions Spherical
+ */
+
+/*! \addtogroup spherical Spherical and Zonal Harmonics
+ *  \ingroup spherical_functions
  *  \{
  */
 

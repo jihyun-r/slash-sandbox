@@ -46,6 +46,10 @@
 namespace nih {
 
 /*! \addtogroup linalg Linear Algebra
+ */
+
+/*! \addtogroup bboxes Bounding Boxes
+ *  \ingroup linalg
  *  \{
  */
 
@@ -79,7 +83,7 @@ struct Bbox
     /// merging constructor
     ///
     /// \param bb1  first bbox
-    /// \param bb2  first bbox
+    /// \param bb2  second bbox
 	NIH_HOST NIH_DEVICE Bbox(
 		const Bbox<Vector_t>& bb1,
 		const Bbox<Vector_t>& bb2);

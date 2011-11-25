@@ -40,6 +40,10 @@
 namespace nih {
 
 /*! \addtogroup sampling Sampling
+ */
+
+/*! \addtogroup permutations Permutations
+ *  \ingroup sampling
  *  \{
  */
 

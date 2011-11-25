@@ -40,6 +40,10 @@
 namespace nih {
 
 /*! \addtogroup linalg Linear Algebra
+ */
+
+/*! \addtogroup vectors Vectors
+ *  \ingroup linalg
  *  \{
  */
 

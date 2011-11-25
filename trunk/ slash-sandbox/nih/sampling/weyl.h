@@ -37,6 +37,10 @@
 namespace nih {
 
 /*! \addtogroup sampling Sampling
+ */
+
+/*! \addtogroup weyl Weyl Sequences
+ *  \ingroup sampling
  *  \{
  */
 

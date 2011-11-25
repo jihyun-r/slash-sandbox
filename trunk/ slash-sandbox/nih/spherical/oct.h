@@ -45,6 +45,10 @@
 namespace nih {
 
 /*! \addtogroup spherical_functions Spherical
+ */
+
+/*! \addtogroup octahedral_functions Octahedral Functions
+ *  \ingroup spherical_functions
  *  \{
  */
 

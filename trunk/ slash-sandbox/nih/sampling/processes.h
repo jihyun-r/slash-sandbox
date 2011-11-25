@@ -39,6 +39,10 @@
 namespace nih {
 
 /*! \addtogroup sampling Sampling
+ */
+
+/*! \addtogroup processes Stochastic Processes
+ *  \ingroup sampling
  *  \{
  */
 

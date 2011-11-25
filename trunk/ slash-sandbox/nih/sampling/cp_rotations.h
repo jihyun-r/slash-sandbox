@@ -36,6 +36,10 @@
 namespace nih {
 
 /*! \addtogroup sampling Sampling
+ */
+
+/*! \addtogroup cp_rotations Cranley-Patterson Rotations
+ *  \ingroup sampling
  *  \{
  */
 
