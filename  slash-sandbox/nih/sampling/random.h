@@ -39,6 +39,10 @@
 namespace nih {
 
 /*! \addtogroup sampling Sampling
+ */
+
+/*! \addtogroup random Random Sequences
+ *  \ingroup sampling
  *  \{
  */
 

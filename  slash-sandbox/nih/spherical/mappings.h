@@ -38,6 +38,10 @@
 namespace nih {
 
 /*! \addtogroup spherical_functions Spherical
+ */
+
+/*! \addtogroup spherical_mappings Spherical Mappings
+ *  \ingroup spherical_functions
  *  \{
  */
 

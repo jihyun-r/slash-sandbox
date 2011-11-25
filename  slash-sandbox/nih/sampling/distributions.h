@@ -37,6 +37,10 @@
 namespace nih {
 
 /*! \addtogroup sampling Sampling
+ */
+
+/*! \addtogroup distributions Distributions
+ *  \ingroup sampling
  *  \{
  */
 

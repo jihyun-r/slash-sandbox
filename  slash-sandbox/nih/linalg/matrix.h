@@ -36,6 +36,11 @@ namespace nih {
  *  \{
  */
 
+/*! \addtogroup matrices Matrices
+ *  \ingroup linalg
+ *  \{
+ */
+
 ///
 /// A dense N x M matrix class over a templated type T.
 ///

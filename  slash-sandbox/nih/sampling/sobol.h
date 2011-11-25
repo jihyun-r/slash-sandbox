@@ -38,6 +38,10 @@
 namespace nih {
 
 /*! \addtogroup sampling Sampling
+ */
+
+/*! \addtogroup sobol Sobol Sequences
+ *  \ingroup sampling
  *  \{
  */
 
