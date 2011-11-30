@@ -65,7 +65,7 @@ namespace sah {
 
 } // namespace sah
 
-/*! \addtogroup bvh Boundary Volume Hierarchies
+/*! \addtogroup bvh Bounding Volume Hierarchies
  *  \{
  */
 

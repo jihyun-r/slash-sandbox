@@ -3,7 +3,7 @@ var NAVTREE =
   [ "nih", "index.html", [
     [ "Modules", "modules.html", [
       [ "Binary Trees", "group__bintree.html", null ],
-      [ "Boundary Volume Hierarchies", "group__bvh.html", null ],
+      [ "Bounding Volume Hierarchies", "group__bvh.html", null ],
       [ "Images", "group__images.html", null ],
       [ "Linear Algebra", "group__linalg.html", [
         [ "Bounding Boxes", "group__bboxes.html", null ],

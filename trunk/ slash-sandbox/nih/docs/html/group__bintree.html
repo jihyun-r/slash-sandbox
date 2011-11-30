@@ -174,7 +174,30 @@ template&lt;typename Tree , typename Integer &gt; </div>
   </table>
   </dd>
 </dl>
-<p>The following code snippet shows how to use this builder:</p>
+<p>The Tree template parameter has to provide the following interface:</p>
+<div class="fragment"><pre class="fragment"> <span class="keyword">struct </span>Tree
+ {
+    <span class="keywordtype">void</span> reserve_nodes(<span class="keyword">const</span> uint32 n);  <span class="comment">// reserve space for n nodes</span>
+    <span class="keywordtype">void</span> reserve_leaves(<span class="keyword">const</span> uint32 n); <span class="comment">// reserve space for n leaves</span>
+
+    Context get_context();           <span class="comment">// get a context to write nodes/leaves</span>
+
+    <span class="keyword">struct </span>Context
+    {
+        <span class="keywordtype">void</span> write_node(
+           <span class="keyword">const</span> uint32 node,        <span class="comment">// node to write</span>
+           <span class="keyword">const</span> <span class="keywordtype">bool</span>   left_child,  <span class="comment">// specify whether the node has a left child</span>
+           <span class="keyword">const</span> <span class="keywordtype">bool</span>   right_child, <span class="comment">// specify whether the node has a right child</span>
+           <span class="keyword">const</span> uint32 offset,      <span class="comment">// child offset</span>
+           <span class="keyword">const</span> uint32 skip_node);  <span class="comment">// skip node</span>
+
+        <span class="keywordtype">void</span> write_leaf(
+           <span class="keyword">const</span> uint32 index,       <span class="comment">// leaf to write</span>
+           <span class="keyword">const</span> uint32 begin,       <span class="comment">// leaf range begin</span>
+           <span class="keyword">const</span> uint32 end);        <span class="comment">// leaf range end</span>
+    };
+ };
+</pre></div><p>The following code snippet shows how to use this builder:</p>
 <div class="fragment"><pre class="fragment"><span class="preprocessor"> #include &lt;nih/bintree/cuda/bintree_gen.h&gt;</span>
 <span class="preprocessor"> #include &lt;<a class="code" href="bintree__context_8h.html" title="Defines a simple binary tree context implementation to be used with the Bintree generate() function...">nih/bintree/cuda/bintree_context.h</a>&gt;</span>
 <span class="preprocessor"> #include &lt;<a class="code" href="morton_8h.html" title="Defines some general purpose algorithms.">nih/bits/morton.h</a>&gt;</span>
@@ -232,7 +255,7 @@ template&lt;typename Tree , typename Integer &gt; </div>
 </div>
 
 
-    <li class="footer">Generated on Thu Nov 24 2011 17:30:08 for nih by
+    <li class="footer">Generated on Sun Nov 27 2011 22:16:01 for nih by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>
