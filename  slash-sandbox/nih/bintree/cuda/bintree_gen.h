@@ -59,6 +59,33 @@ namespace cuda {
 ///                         in the output tree
 /// \param tree             output tree
 ///
+/// The Tree template parameter has to provide the following interface:
+///
+/// \code
+/// struct Tree
+/// {
+///    void reserve_nodes(const uint32 n);  // reserve space for n nodes
+///    void reserve_leaves(const uint32 n); // reserve space for n leaves
+///
+///    Context get_context();           // get a context to write nodes/leaves
+///
+///    struct Context
+///    {
+///        void write_node(
+///           const uint32 node,        // node to write
+///           const bool   left_child,  // specify whether the node has a left child
+///           const bool   right_child, // specify whether the node has a right child
+///           const uint32 offset,      // child offset
+///           const uint32 skip_node);  // skip node
+///
+///        void write_leaf(
+///           const uint32 index,       // leaf to write
+///           const uint32 begin,       // leaf range begin
+///           const uint32 end);        // leaf range end
+///    };
+/// };
+/// \endcode
+///
 /// The following code snippet shows how to use this builder:
 ///
 /// \code

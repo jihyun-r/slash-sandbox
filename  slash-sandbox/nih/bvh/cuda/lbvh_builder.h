@@ -41,7 +41,7 @@
 namespace nih {
 namespace cuda {
 
-/*! \addtogroup bvh Boundary Volume Hierarchies
+/*! \addtogroup bvh Bounding Volume Hierarchies
  *  \{
  */
 

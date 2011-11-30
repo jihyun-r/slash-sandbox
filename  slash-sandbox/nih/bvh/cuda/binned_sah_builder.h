@@ -83,7 +83,7 @@ namespace binned_sah {
 
 } // namespace binned_sah
 
-/*! \addtogroup bvh Boundary Volume Hierarchies
+/*! \addtogroup bvh Bounding Volume Hierarchies
  *  \{
  */
 
