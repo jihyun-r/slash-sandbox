@@ -105,7 +105,7 @@ __global__ void init_bins_kernel(const uint32 BINS, const uint32 n_nodes, Bins b
 void init_bins(const uint32 BINS, const uint32 n_nodes, Bins bins)
 {
     const uint32 BLOCK_SIZE = SAH_SINGLE_WARP ? 32 : 256;
-    const size_t max_blocks = SAH_SINGLE_WARP ? 1 : thrust::detail::device::cuda::arch::max_active_blocks(init_bins_kernel, BLOCK_SIZE, 0);
+    const size_t max_blocks = SAH_SINGLE_WARP ? 1 : thrust::detail::backend::cuda::arch::max_active_blocks(init_bins_kernel, BLOCK_SIZE, 0);
     const size_t n_blocks   = nih::min( max_blocks, (n_nodes*BINS*3 + BLOCK_SIZE-1) / BLOCK_SIZE );
 
     init_bins_kernel<<<n_blocks,BLOCK_SIZE>>>( BINS, n_nodes, bins );
@@ -303,7 +303,7 @@ void sah_split(
     const float     max_cost)
 {
     const uint32 BLOCK_SIZE = SAH_SINGLE_WARP ? 32 : 256;
-    const size_t max_blocks = SAH_SINGLE_WARP ? 1 : thrust::detail::device::cuda::arch::max_active_blocks(sah_split_kernel, BLOCK_SIZE, 0);
+    const size_t max_blocks = SAH_SINGLE_WARP ? 1 : thrust::detail::backend::cuda::arch::max_active_blocks(sah_split_kernel, BLOCK_SIZE, 0);
     const size_t n_blocks   = nih::min( max_blocks, (qin.size + BLOCK_SIZE-1) / BLOCK_SIZE );
 
     sah_split_kernel<<<n_blocks,BLOCK_SIZE>>> (
@@ -404,7 +404,7 @@ void distribute_objects(
     uint32*         new_index)
 {
     const uint32 BLOCK_SIZE = SAH_SINGLE_WARP ? 32 : 256;
-    const size_t max_blocks = SAH_SINGLE_WARP ? 1  : thrust::detail::device::cuda::arch::max_active_blocks(distribute_objects_kernel, BLOCK_SIZE, 0);
+    const size_t max_blocks = SAH_SINGLE_WARP ? 1  : thrust::detail::backend::cuda::arch::max_active_blocks(distribute_objects_kernel, BLOCK_SIZE, 0);
     const size_t n_blocks   = nih::min( max_blocks, (n_objects + BLOCK_SIZE-1) / BLOCK_SIZE );
 
     distribute_objects_kernel<<<n_blocks,BLOCK_SIZE>>> (
@@ -459,7 +459,7 @@ void setup_leaves(
     uint2*          leaves)
 {
     const uint32 BLOCK_SIZE = SAH_SINGLE_WARP ? 32 : 256;
-    const size_t max_blocks = SAH_SINGLE_WARP ? 1  : thrust::detail::device::cuda::arch::max_active_blocks(setup_leaves_kernel, BLOCK_SIZE, 0);
+    const size_t max_blocks = SAH_SINGLE_WARP ? 1  : thrust::detail::backend::cuda::arch::max_active_blocks(setup_leaves_kernel, BLOCK_SIZE, 0);
     const size_t n_blocks   = nih::min( max_blocks, (n_objects + BLOCK_SIZE-1) / BLOCK_SIZE );
 
     setup_leaves_kernel<<<n_blocks,BLOCK_SIZE>>> (

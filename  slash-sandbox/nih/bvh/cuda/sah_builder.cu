@@ -293,7 +293,7 @@ void eval_splits(
     const float     max_cost)
 {
     const uint32 BLOCK_SIZE = 256;
-    const size_t max_blocks = thrust::detail::device::cuda::arch::max_active_blocks(eval_splits_kernel, BLOCK_SIZE, 0);
+    const size_t max_blocks = thrust::detail::backend::cuda::arch::max_active_blocks(eval_splits_kernel, BLOCK_SIZE, 0);
     const size_t n_blocks   = nih::min( max_blocks, (n_nodes + BLOCK_SIZE-1) / BLOCK_SIZE );
 
     eval_splits_kernel<<<n_blocks,BLOCK_SIZE>>> (
@@ -365,7 +365,7 @@ void assign_objects(
     uint32*         leaf_ids)
 {
     const uint32 BLOCK_SIZE = 256;
-    const size_t max_blocks = thrust::detail::device::cuda::arch::max_active_blocks(assign_objects_kernel, BLOCK_SIZE, 0);
+    const size_t max_blocks = thrust::detail::backend::cuda::arch::max_active_blocks(assign_objects_kernel, BLOCK_SIZE, 0);
     const size_t n_blocks   = nih::min( max_blocks, (n_objects + BLOCK_SIZE-1) / BLOCK_SIZE );
 
     assign_objects_kernel<<<n_blocks,BLOCK_SIZE>>> (
@@ -476,7 +476,7 @@ void compute_bins(
     Bvh_node*       bvh_nodes)
 {
     const uint32 BLOCK_SIZE = 256;
-    const size_t max_blocks = thrust::detail::device::cuda::arch::max_active_blocks(compute_bins_kernel, BLOCK_SIZE, 0);
+    const size_t max_blocks = thrust::detail::backend::cuda::arch::max_active_blocks(compute_bins_kernel, BLOCK_SIZE, 0);
     const size_t n_blocks   = nih::min( max_blocks, (n_segments + BLOCK_SIZE-1) / BLOCK_SIZE );
 
     compute_bins_kernel<<<n_blocks,BLOCK_SIZE>>> (
@@ -532,7 +532,7 @@ void build_head_pointers(
     uint32*         segment_heads)
 {
     const uint32 BLOCK_SIZE = 256;
-    const size_t max_blocks = thrust::detail::device::cuda::arch::max_active_blocks(build_head_pointers_kernel, BLOCK_SIZE, 0);
+    const size_t max_blocks = thrust::detail::backend::cuda::arch::max_active_blocks(build_head_pointers_kernel, BLOCK_SIZE, 0);
     const size_t n_blocks   = nih::min( max_blocks, (n_objects + BLOCK_SIZE-1) / BLOCK_SIZE );
 
     build_head_pointers_kernel<<<n_blocks,BLOCK_SIZE>>> (
@@ -584,7 +584,7 @@ void setup_leaves(
     uint2*          leaves)
 {
     const uint32 BLOCK_SIZE = 256;
-    const size_t max_blocks = thrust::detail::device::cuda::arch::max_active_blocks(setup_leaves_kernel, BLOCK_SIZE, 0);
+    const size_t max_blocks = thrust::detail::backend::cuda::arch::max_active_blocks(setup_leaves_kernel, BLOCK_SIZE, 0);
     const size_t n_blocks   = nih::min( max_blocks, (n_objects + BLOCK_SIZE-1) / BLOCK_SIZE );
 
     setup_leaves_kernel<<<n_blocks,BLOCK_SIZE>>> (
@@ -731,8 +731,8 @@ void find_best_splits(
 {
     const uint32 BLOCK_SIZE = 256;
     const size_t max_blocks = nih::min(
-        thrust::detail::device::cuda::arch::max_active_blocks(find_best_splits_kernel, BLOCK_SIZE, 0),
-        thrust::detail::device::cuda::arch::max_active_blocks(assign_best_splits_kernel, BLOCK_SIZE, 0) );
+        thrust::detail::backend::cuda::arch::max_active_blocks(find_best_splits_kernel, BLOCK_SIZE, 0),
+        thrust::detail::backend::cuda::arch::max_active_blocks(assign_best_splits_kernel, BLOCK_SIZE, 0) );
     const size_t n_blocks   = nih::min( max_blocks, (n_objects + BLOCK_SIZE-1) / BLOCK_SIZE );
 
     init_splits_kernel<<<n_blocks,BLOCK_SIZE>>> (

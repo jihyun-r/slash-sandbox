@@ -174,7 +174,7 @@ inline void update_bins(
     Bins            bins)
 {
     const uint32 BLOCK_SIZE = SAH_SINGLE_WARP ? 32 : 128;
-    const size_t max_blocks = SAH_SINGLE_WARP ? 1 : thrust::detail::device::cuda::arch::max_active_blocks(update_bins_kernel<Iterator>, BLOCK_SIZE, 0);
+    const size_t max_blocks = SAH_SINGLE_WARP ? 1 : thrust::detail::backend::cuda::arch::max_active_blocks(update_bins_kernel<Iterator>, BLOCK_SIZE, 0);
     const size_t n_blocks   = nih::min( max_blocks, (n_objects + BLOCK_SIZE-1) / BLOCK_SIZE );
 
     update_bins_kernel<<<n_blocks,BLOCK_SIZE>>> (
