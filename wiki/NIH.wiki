@@ -2,7 +2,7 @@
 
 = Introduction =
 
-*NIH* is a simple library for performing _all kinds of basic stuff_ that
+*nih* is a simple library for performing _all kinds of basic stuff_ that
 the author wouldn't want *Not* to be *Invented Here*.
 
 Parts of it are somewhat graphics oriented, containing fast algorithms
@@ -14,3 +14,9 @@ just as well (as long as dependencies are respected).
 
 check out the
 [http://slash-sandbox.googlecode.com/svn/trunk/%20slash-sandbox/nih/docs/html/modules.html Doxygen documentation]
+
+== dependencies ==
+
+ * CUDA 4.1
+ * Thrust
+ * back40computing
