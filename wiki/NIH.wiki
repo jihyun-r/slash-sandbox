@@ -19,4 +19,4 @@ check out the
 
  * CUDA 4.1
  * Thrust
- * back40computing
+ * [http://code.google.com/p/back40computing back40computing]
