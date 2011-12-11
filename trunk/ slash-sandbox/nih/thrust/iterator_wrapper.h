@@ -91,15 +91,15 @@ struct iterator_wrapper<thrust::detail::cuda_device_space_tag,Iterator>
     typedef Iterator                                                            iterator_type;
     typedef typename thrust::iterator_traits<Iterator>::difference_type         difference_type;
     typedef typename thrust::iterator_traits<Iterator>::value_type              value_type;
-    typedef typename thrust::detail::device::dereference_result<Iterator>::type reference;
+    typedef typename thrust::detail::backend::dereference_result<Iterator>::type reference;
     typedef typename thrust::iterator_traits<Iterator>::iterator_category       iterator_category;
 
     typedef iterator_wrapper<thrust::detail::cuda_device_space_tag,Iterator> type;
 
     NIH_HOST_DEVICE iterator_wrapper(Iterator it) : m_it( it ) {}
 
-    NIH_DEVICE reference operator* () const { return thrust::detail::device::dereference( m_it ); }
-    NIH_DEVICE reference operator[] (const difference_type n) const { return thrust::detail::device::dereference( m_it, n ); }
+    NIH_DEVICE reference operator* () const { return thrust::detail::backend::dereference( m_it ); }
+    NIH_DEVICE reference operator[] (const difference_type n) const { return thrust::detail::backend::dereference( m_it, n ); }
 
     NIH_HOST_DEVICE type& operator+= (const difference_type n)
     {

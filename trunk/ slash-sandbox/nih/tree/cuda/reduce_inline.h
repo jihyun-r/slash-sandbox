@@ -28,7 +28,7 @@
 #pragma once
 
 #include <nih/basic/types.h>
-#include <thrust/detail/device/dereference.h>
+#include <thrust/detail/backend/dereference.h>
 
 namespace nih {
 namespace cuda {
@@ -62,9 +62,9 @@ __global__ void reduce_leaves_kernel(
 
             typename std::iterator_traits<Output_iterator>::value_type value = def_value;
             for (uint32 i = begin; i < end; ++i)
-                value = op( value, thrust::detail::device::dereference( in_values + i ) );
+                value = op( value, thrust::detail::backend::dereference( in_values + i ) );
 
-            thrust::detail::device::dereference( out_values, leaf_id ) = value;
+            thrust::detail::backend::dereference( out_values, leaf_id ) = value;
         }
     }
 }
@@ -81,7 +81,7 @@ void reduce_leaves(
     const uint32 n_leaves = tree.get_leaf_count();
 
     const uint32 BLOCK_SIZE = 128;
-    const size_t max_blocks = thrust::detail::device::cuda::arch::max_active_blocks(reduce_leaves_kernel<BLOCK_SIZE, Tree, Input_iterator, Output_iterator, Operator>, BLOCK_SIZE, 0);
+    const size_t max_blocks = thrust::detail::backend::cuda::arch::max_active_blocks(reduce_leaves_kernel<BLOCK_SIZE, Tree, Input_iterator, Output_iterator, Operator>, BLOCK_SIZE, 0);
     const size_t n_blocks   = nih::min( max_blocks, (n_leaves + BLOCK_SIZE-1) / BLOCK_SIZE );
 
     reduce_leaves_kernel<BLOCK_SIZE> <<<n_blocks,BLOCK_SIZE>>> (
@@ -122,7 +122,7 @@ __global__ void reduce_level_kernel(
             {
                 // copy the corresponding leaf value
                 const uint32 leaf_index = node.get_leaf_index();
-                thrust::detail::device::dereference( out_values + node_id ) = thrust::detail::device::dereference( leaf_values + leaf_index );
+                thrust::detail::backend::dereference( out_values + node_id ) = thrust::detail::backend::dereference( leaf_values + leaf_index );
             }
             else
             {
@@ -130,11 +130,11 @@ __global__ void reduce_level_kernel(
                 const uint32 n_children = node.get_child_count();
 
                 typename std::iterator_traits<Output_iterator>::value_type value =
-                    thrust::detail::device::dereference( out_values, node.get_child(0) );
+                    thrust::detail::backend::dereference( out_values, node.get_child(0) );
                 for (uint32 i = 1; i < n_children; ++i)
-                    value = op( value, thrust::detail::device::dereference( out_values, node.get_child(i) ) );
+                    value = op( value, thrust::detail::backend::dereference( out_values, node.get_child(i) ) );
 
-                thrust::detail::device::dereference( out_values, node_id ) = value;
+                thrust::detail::backend::dereference( out_values, node_id ) = value;
             }
         }
     }
@@ -153,7 +153,7 @@ void reduce_level(
     const uint32 n_entries = end - begin;
 
     const uint32 BLOCK_SIZE = 128;
-    const size_t max_blocks = thrust::detail::device::cuda::arch::max_active_blocks(reduce_level_kernel<BLOCK_SIZE, Tree, Leaf_iterator, Output_iterator, Operator>, BLOCK_SIZE, 0);
+    const size_t max_blocks = thrust::detail::backend::cuda::arch::max_active_blocks(reduce_level_kernel<BLOCK_SIZE, Tree, Leaf_iterator, Output_iterator, Operator>, BLOCK_SIZE, 0);
     const size_t n_blocks   = nih::min( max_blocks, (n_entries + BLOCK_SIZE-1) / BLOCK_SIZE );
 
     reduce_level_kernel<BLOCK_SIZE> <<<n_blocks,BLOCK_SIZE>>> (

@@ -228,7 +228,7 @@ inline void collect_octants(
     Octree_node*   out_nodes)
 {
     const uint32 BLOCK_SIZE = 128;
-    const size_t max_blocks = thrust::detail::device::cuda::arch::max_active_blocks(collect_octants_kernel<BLOCK_SIZE>, BLOCK_SIZE, 0);
+    const size_t max_blocks = thrust::detail::backend::cuda::arch::max_active_blocks(collect_octants_kernel<BLOCK_SIZE>, BLOCK_SIZE, 0);
     const size_t n_blocks   = nih::min( max_blocks, (in_tasks_count + BLOCK_SIZE-1) / BLOCK_SIZE );
     const size_t grid_size  = n_blocks * BLOCK_SIZE;
 
