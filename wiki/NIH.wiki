@@ -17,7 +17,7 @@ just as well (as long as dependencies are respected).
 check out the
 [http://slash-sandbox.googlecode.com/svn/trunk/%20slash-sandbox/nih/docs/html/modules.html Doxygen documentation]
 
-== dependencies ==
+== External Dependencies ==
 
  * CUDA 4.1
  * Thrust
