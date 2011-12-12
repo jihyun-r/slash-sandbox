@@ -6,7 +6,8 @@
 efficiently that the author wouldn't want *not* to be *invented here* - and that will necessarily be such for anybody else but him. ;)
 Truth is, it just sounded good as a namespace.
 
-Parts of it are somewhat graphics oriented, containing fast algorithms
+Besides simple classes for manipulating small objects from linear algebra and
+monte carlo and quasi-monte carlo sampling, it contains fast algorithms
 for point cloud manipulation, hierarchy building and stuff like that.
 
 As a library, it's supposed to be highly modular: one can simply include
