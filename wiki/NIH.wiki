@@ -3,10 +3,12 @@
 = Introduction =
 
 *nih* is a simple library for performing _all kinds of basic stuff_ that
-the author wouldn't want *Not* to be *Invented Here*.
+the author wouldn't want *not* to be *invented here* - and that will
+necessarily be such for anybody else but him. ;)
+Truth is, it just sounded good as a namespace.
 
 Parts of it are somewhat graphics oriented, containing fast algorithms
-for point cloud manipulation and stuff like that.
+for point cloud manipulation, hierarchy building and stuff like that.
 
 As a library, it's supposed to be highly modular: one can simply include
 a subset of its modules in its own project and everything should work
