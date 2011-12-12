@@ -4,7 +4,7 @@
 
 *nih* is a simple library for performing _all kinds of basic graphics stuff_
 efficiently that the author wouldn't want *not* to be *invented here* - and that will necessarily be such for anybody else but him. ;)
-Truth is, it just sounded good as a namespace.
+Truth is, this tiny name just sounded good as a short, easy namespace.
 
 Besides simple classes for manipulating small objects from linear algebra and
 monte carlo and quasi-monte carlo sampling, it contains fast algorithms
