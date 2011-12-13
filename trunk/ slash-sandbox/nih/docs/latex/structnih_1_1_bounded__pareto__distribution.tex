@@ -1,0 +1,89 @@
+\hypertarget{structnih_1_1_bounded__pareto__distribution}{
+\section{nih\-:\-:\-Bounded\-\_\-pareto\-\_\-distribution \-Struct \-Reference}
+\label{structnih_1_1_bounded__pareto__distribution}\index{nih\-::\-Bounded\-\_\-pareto\-\_\-distribution@{nih\-::\-Bounded\-\_\-pareto\-\_\-distribution}}
+}
+
+
+{\ttfamily \#include $<$distributions.\-h$>$}
+
+
+
+\-Inherits \hyperlink{structnih_1_1_base__distribution}{nih\-::\-Base\-\_\-distribution$<$ Bounded\-\_\-pareto\-\_\-distribution $>$}.
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \hyperlink{structnih_1_1_bounded__pareto__distribution_a9ca7eeb175f3f614b7f2d8a58001e8d7}{\-Bounded\-\_\-pareto\-\_\-distribution} (const float a, const float min, const float max)
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{structnih_1_1_bounded__pareto__distribution_ab7bcf61d38254eeb3b5898dfdf7b54e5}{map} (const float \-U) const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{structnih_1_1_bounded__pareto__distribution_aecd459146a179522bcae18e18876ba9a}{density} (const float x) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Bounded \-Pareto distribution 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{structnih_1_1_bounded__pareto__distribution_a9ca7eeb175f3f614b7f2d8a58001e8d7}{
+\index{nih\-::\-Bounded\-\_\-pareto\-\_\-distribution@{nih\-::\-Bounded\-\_\-pareto\-\_\-distribution}!\-Bounded\-\_\-pareto\-\_\-distribution@{\-Bounded\-\_\-pareto\-\_\-distribution}}
+\index{\-Bounded\-\_\-pareto\-\_\-distribution@{\-Bounded\-\_\-pareto\-\_\-distribution}!nih::Bounded_pareto_distribution@{nih\-::\-Bounded\-\_\-pareto\-\_\-distribution}}
+\subsubsection[{\-Bounded\-\_\-pareto\-\_\-distribution}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E nih\-::\-Bounded\-\_\-pareto\-\_\-distribution\-::\-Bounded\-\_\-pareto\-\_\-distribution (
+\begin{DoxyParamCaption}
+\item[{const float}]{a, }
+\item[{const float}]{min, }
+\item[{const float}]{max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bounded__pareto__distribution_a9ca7eeb175f3f614b7f2d8a58001e8d7}
+constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em a} & distribution parameter \\
+\hline
+{\em min} & distribution parameter \\
+\hline
+{\em max} & distribution parameter \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1_bounded__pareto__distribution_aecd459146a179522bcae18e18876ba9a}{
+\index{nih\-::\-Bounded\-\_\-pareto\-\_\-distribution@{nih\-::\-Bounded\-\_\-pareto\-\_\-distribution}!density@{density}}
+\index{density@{density}!nih::Bounded_pareto_distribution@{nih\-::\-Bounded\-\_\-pareto\-\_\-distribution}}
+\subsubsection[{density}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float nih\-::\-Bounded\-\_\-pareto\-\_\-distribution\-::density (
+\begin{DoxyParamCaption}
+\item[{const float}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bounded__pareto__distribution_aecd459146a179522bcae18e18876ba9a}
+probability density function
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em x} & sample location \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_bounded__pareto__distribution_ab7bcf61d38254eeb3b5898dfdf7b54e5}{
+\index{nih\-::\-Bounded\-\_\-pareto\-\_\-distribution@{nih\-::\-Bounded\-\_\-pareto\-\_\-distribution}!map@{map}}
+\index{map@{map}!nih::Bounded_pareto_distribution@{nih\-::\-Bounded\-\_\-pareto\-\_\-distribution}}
+\subsubsection[{map}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float nih\-::\-Bounded\-\_\-pareto\-\_\-distribution\-::map (
+\begin{DoxyParamCaption}
+\item[{const float}]{\-U}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_bounded__pareto__distribution_ab7bcf61d38254eeb3b5898dfdf7b54e5}
+transform a uniformly distributed number through the distribution
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \-U} & real number to transform \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+sampling/\hyperlink{distributions_8h}{distributions.\-h}\end{DoxyCompactItemize}

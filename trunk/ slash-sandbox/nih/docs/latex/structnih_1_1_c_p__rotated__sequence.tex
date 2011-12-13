@@ -1,0 +1,107 @@
+\hypertarget{structnih_1_1_c_p__rotated__sequence}{
+\section{nih\-:\-:\-C\-P\-\_\-rotated\-\_\-sequence$<$ \-Sample\-\_\-sequence $>$ \-Struct \-Template \-Reference}
+\label{structnih_1_1_c_p__rotated__sequence}\index{nih\-::\-C\-P\-\_\-rotated\-\_\-sequence$<$ Sample\-\_\-sequence $>$@{nih\-::\-C\-P\-\_\-rotated\-\_\-sequence$<$ Sample\-\_\-sequence $>$}}
+}
+
+
+{\ttfamily \#include $<$cp\-\_\-rotations.\-h$>$}
+
+\subsection*{\-Public \-Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_c_p__rotated__sequence_a28ebe66ab60419e73723ad3c108c93a9}{
+typedef \hyperlink{structnih_1_1_c_p__rotator}{\-C\-P\-\_\-rotator}$<$ typename \*
+\-Sample\-\_\-sequence\-::\-Sampler\-\_\-type $>$ {\bfseries \-Sampler\-\_\-type}}
+\label{structnih_1_1_c_p__rotated__sequence_a28ebe66ab60419e73723ad3c108c93a9}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \hyperlink{structnih_1_1_c_p__rotated__sequence_a660231532d529c38aeb9827ea20d5637}{\-C\-P\-\_\-rotated\-\_\-sequence} (\-Sample\-\_\-sequence \&sequence, const uint32 dims, const float $\ast$rot, uint32 size)
+\item 
+\hyperlink{structnih_1_1_c_p__rotator}{\-Sampler\-\_\-type} \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \hyperlink{structnih_1_1_c_p__rotated__sequence_a825ebb2e498eabafb7313bfc07e28b74}{instance} (const uint32 index, const uint32 copy) const 
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_c_p__rotated__sequence_af62a09744624faa6966dd88bcce62844}{
+\-Sample\-\_\-sequence \& {\bfseries m\-\_\-sequence}}
+\label{structnih_1_1_c_p__rotated__sequence_af62a09744624faa6966dd88bcce62844}
+
+\item 
+\hypertarget{structnih_1_1_c_p__rotated__sequence_a170f1d2705c53b1979c5c788d0945f25}{
+const float $\ast$ {\bfseries m\-\_\-rot}}
+\label{structnih_1_1_c_p__rotated__sequence_a170f1d2705c53b1979c5c788d0945f25}
+
+\item 
+\hypertarget{structnih_1_1_c_p__rotated__sequence_a7a24a4f9c36f7cc0c9eebb7754f5f5cd}{
+uint32 {\bfseries m\-\_\-size}}
+\label{structnih_1_1_c_p__rotated__sequence_a7a24a4f9c36f7cc0c9eebb7754f5f5cd}
+
+\item 
+\hypertarget{structnih_1_1_c_p__rotated__sequence_ac064d4c0bdda2b85a8628be92c241b89}{
+uint32 {\bfseries m\-\_\-dims}}
+\label{structnih_1_1_c_p__rotated__sequence_ac064d4c0bdda2b85a8628be92c241b89}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\subsubsection*{template$<$typename Sample\-\_\-sequence$>$struct nih\-::\-C\-P\-\_\-rotated\-\_\-sequence$<$ Sample\-\_\-sequence $>$}
+
+\-Wrapper class to rotate the samples coming from a sample sequence with a set of \-Cranley-\/\-Patterson rotations. 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{structnih_1_1_c_p__rotated__sequence_a660231532d529c38aeb9827ea20d5637}{
+\index{nih\-::\-C\-P\-\_\-rotated\-\_\-sequence@{nih\-::\-C\-P\-\_\-rotated\-\_\-sequence}!\-C\-P\-\_\-rotated\-\_\-sequence@{\-C\-P\-\_\-rotated\-\_\-sequence}}
+\index{\-C\-P\-\_\-rotated\-\_\-sequence@{\-C\-P\-\_\-rotated\-\_\-sequence}!nih::CP_rotated_sequence@{nih\-::\-C\-P\-\_\-rotated\-\_\-sequence}}
+\subsubsection[{\-C\-P\-\_\-rotated\-\_\-sequence}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Sample\-\_\-sequence $>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E {\bf nih\-::\-C\-P\-\_\-rotated\-\_\-sequence}$<$ \-Sample\-\_\-sequence $>$\-::{\bf \-C\-P\-\_\-rotated\-\_\-sequence} (
+\begin{DoxyParamCaption}
+\item[{\-Sample\-\_\-sequence \&}]{sequence, }
+\item[{const uint32}]{dims, }
+\item[{const float $\ast$}]{rot, }
+\item[{uint32}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_c_p__rotated__sequence_a660231532d529c38aeb9827ea20d5637}
+constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em sequence} & sample sequence \\
+\hline
+{\em dims} & dimensionality of the sequence \\
+\hline
+{\em rot} & rotation set \\
+\hline
+{\em size} & size of the rotation set \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1_c_p__rotated__sequence_a825ebb2e498eabafb7313bfc07e28b74}{
+\index{nih\-::\-C\-P\-\_\-rotated\-\_\-sequence@{nih\-::\-C\-P\-\_\-rotated\-\_\-sequence}!instance@{instance}}
+\index{instance@{instance}!nih::CP_rotated_sequence@{nih\-::\-C\-P\-\_\-rotated\-\_\-sequence}}
+\subsubsection[{instance}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Sample\-\_\-sequence $>$ {\bf \-Sampler\-\_\-type} \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E {\bf nih\-::\-C\-P\-\_\-rotated\-\_\-sequence}$<$ \-Sample\-\_\-sequence $>$\-::instance (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{index, }
+\item[{const uint32}]{copy}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_c_p__rotated__sequence_a825ebb2e498eabafb7313bfc07e28b74}
+instance
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em index} & sequence index \\
+\hline
+{\em copy} & sequence instance \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+sampling/\hyperlink{cp__rotations_8h}{cp\-\_\-rotations.\-h}\end{DoxyCompactItemize}

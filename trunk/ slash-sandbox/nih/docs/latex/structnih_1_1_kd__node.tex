@@ -1,0 +1,212 @@
+\hypertarget{structnih_1_1_kd__node}{
+\section{nih\-:\-:\-Kd\-\_\-node \-Struct \-Reference}
+\label{structnih_1_1_kd__node}\index{nih\-::\-Kd\-\_\-node@{nih\-::\-Kd\-\_\-node}}
+}
+
+
+{\ttfamily \#include $<$kd\-\_\-node.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \hyperlink{structnih_1_1_kd__node_a2149c53ad7cc826957f69cc02e3ab09f}{\-Kd\-\_\-node} ()
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \hyperlink{structnih_1_1_kd__node_a1829b381799c337fcca40dba470f3e7f}{\-Kd\-\_\-node} (uint32 index)
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \hyperlink{structnih_1_1_kd__node_a2111cebdc9346b36aff1c9d5fbe7d735}{\-Kd\-\_\-node} (const uint32 split\-\_\-dim, const float split\-\_\-plane, uint32 index)
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_kd__node_a25619b385e5688f1016f2959d35653df}{is\-\_\-leaf} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_kd__node_a119a19feb6758c6b1259e65d9976cc67}{get\-\_\-child\-\_\-offset} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_kd__node_a9168dcc8e7e8357edbf5fbfea0a665f7}{get\-\_\-leaf\-\_\-index} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_kd__node_aa4c26fb83061a5527300444cc3d60f58}{get\-\_\-child} (const uint32 i) const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E bool \hyperlink{structnih_1_1_kd__node_adef1d7ddfa71dda74749f2b516a2d01b}{has\-\_\-child} (const uint32 i) const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_kd__node_ae4206521a0b72d8e780dc0cfd68d6a9d}{get\-\_\-left} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_kd__node_a455e441bda3ae8cef4de37478fd1d911}{get\-\_\-right} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_kd__node_a0606ab5dcae48dc967ec02944603c90f}{get\-\_\-split\-\_\-dim} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{structnih_1_1_kd__node_a31fefd59332fd83af66d842f64a98237}{get\-\_\-split\-\_\-plane} () const 
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_kd__node_ae0a6a4ce3de8a3dc5c4fbeb6f03a9414}{
+uint32 {\bfseries m\-\_\-packed\-\_\-info}}
+\label{structnih_1_1_kd__node_ae0a6a4ce3de8a3dc5c4fbeb6f03a9414}
+
+\item 
+\hypertarget{structnih_1_1_kd__node_ae2e1ffe17f5358536a749ab65b3238fc}{
+float {\bfseries m\-\_\-split\-\_\-plane}}
+\label{structnih_1_1_kd__node_ae2e1ffe17f5358536a749ab65b3238fc}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Static \-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_kd__node_af76cdc6cf213309f00fa480b4192af08}{
+static const uint32 {\bfseries k\-Invalid} = uint32(-\/1)}
+\label{structnih_1_1_kd__node_af76cdc6cf213309f00fa480b4192af08}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-A k-\/d tree node. \-A node can either be a leaf and have no children, or be an internal split node. \-If a split node, its children will be consecutive in memory. \-Supports up to 6 dimensions. 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{structnih_1_1_kd__node_a2149c53ad7cc826957f69cc02e3ab09f}{
+\index{nih\-::\-Kd\-\_\-node@{nih\-::\-Kd\-\_\-node}!\-Kd\-\_\-node@{\-Kd\-\_\-node}}
+\index{\-Kd\-\_\-node@{\-Kd\-\_\-node}!nih::Kd_node@{nih\-::\-Kd\-\_\-node}}
+\subsubsection[{\-Kd\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E nih\-::\-Kd\-\_\-node\-::\-Kd\-\_\-node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_kd__node_a2149c53ad7cc826957f69cc02e3ab09f}
+empty constructor \hypertarget{structnih_1_1_kd__node_a1829b381799c337fcca40dba470f3e7f}{
+\index{nih\-::\-Kd\-\_\-node@{nih\-::\-Kd\-\_\-node}!\-Kd\-\_\-node@{\-Kd\-\_\-node}}
+\index{\-Kd\-\_\-node@{\-Kd\-\_\-node}!nih::Kd_node@{nih\-::\-Kd\-\_\-node}}
+\subsubsection[{\-Kd\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E nih\-::\-Kd\-\_\-node\-::\-Kd\-\_\-node (
+\begin{DoxyParamCaption}
+\item[{uint32}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_kd__node_a1829b381799c337fcca40dba470f3e7f}
+full leaf constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em index} & child index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_kd__node_a2111cebdc9346b36aff1c9d5fbe7d735}{
+\index{nih\-::\-Kd\-\_\-node@{nih\-::\-Kd\-\_\-node}!\-Kd\-\_\-node@{\-Kd\-\_\-node}}
+\index{\-Kd\-\_\-node@{\-Kd\-\_\-node}!nih::Kd_node@{nih\-::\-Kd\-\_\-node}}
+\subsubsection[{\-Kd\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E nih\-::\-Kd\-\_\-node\-::\-Kd\-\_\-node (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{split\-\_\-dim, }
+\item[{const float}]{split\-\_\-plane, }
+\item[{uint32}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_kd__node_a2111cebdc9346b36aff1c9d5fbe7d735}
+full split node constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em split\-\_\-dim} & splitting dimension \\
+\hline
+{\em split\-\_\-plane} & splitting plane \\
+\hline
+{\em index} & child index \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1_kd__node_aa4c26fb83061a5527300444cc3d60f58}{
+\index{nih\-::\-Kd\-\_\-node@{nih\-::\-Kd\-\_\-node}!get\-\_\-child@{get\-\_\-child}}
+\index{get\-\_\-child@{get\-\_\-child}!nih::Kd_node@{nih\-::\-Kd\-\_\-node}}
+\subsubsection[{get\-\_\-child}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Kd\-\_\-node\-::get\-\_\-child (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_kd__node_aa4c26fb83061a5527300444cc3d60f58}
+get i-\/th child
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em i} & child index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_kd__node_a119a19feb6758c6b1259e65d9976cc67}{
+\index{nih\-::\-Kd\-\_\-node@{nih\-::\-Kd\-\_\-node}!get\-\_\-child\-\_\-offset@{get\-\_\-child\-\_\-offset}}
+\index{get\-\_\-child\-\_\-offset@{get\-\_\-child\-\_\-offset}!nih::Kd_node@{nih\-::\-Kd\-\_\-node}}
+\subsubsection[{get\-\_\-child\-\_\-offset}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Kd\-\_\-node\-::get\-\_\-child\-\_\-offset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_kd__node_a119a19feb6758c6b1259e65d9976cc67}
+get offset of the first child \hypertarget{structnih_1_1_kd__node_a9168dcc8e7e8357edbf5fbfea0a665f7}{
+\index{nih\-::\-Kd\-\_\-node@{nih\-::\-Kd\-\_\-node}!get\-\_\-leaf\-\_\-index@{get\-\_\-leaf\-\_\-index}}
+\index{get\-\_\-leaf\-\_\-index@{get\-\_\-leaf\-\_\-index}!nih::Kd_node@{nih\-::\-Kd\-\_\-node}}
+\subsubsection[{get\-\_\-leaf\-\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Kd\-\_\-node\-::get\-\_\-leaf\-\_\-index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_kd__node_a9168dcc8e7e8357edbf5fbfea0a665f7}
+get leaf index \hypertarget{structnih_1_1_kd__node_ae4206521a0b72d8e780dc0cfd68d6a9d}{
+\index{nih\-::\-Kd\-\_\-node@{nih\-::\-Kd\-\_\-node}!get\-\_\-left@{get\-\_\-left}}
+\index{get\-\_\-left@{get\-\_\-left}!nih::Kd_node@{nih\-::\-Kd\-\_\-node}}
+\subsubsection[{get\-\_\-left}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Kd\-\_\-node\-::get\-\_\-left (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_kd__node_ae4206521a0b72d8e780dc0cfd68d6a9d}
+get left partition (or k\-Invalid if not active) \hypertarget{structnih_1_1_kd__node_a455e441bda3ae8cef4de37478fd1d911}{
+\index{nih\-::\-Kd\-\_\-node@{nih\-::\-Kd\-\_\-node}!get\-\_\-right@{get\-\_\-right}}
+\index{get\-\_\-right@{get\-\_\-right}!nih::Kd_node@{nih\-::\-Kd\-\_\-node}}
+\subsubsection[{get\-\_\-right}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Kd\-\_\-node\-::get\-\_\-right (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_kd__node_a455e441bda3ae8cef4de37478fd1d911}
+get right partition (or k\-Invalid if not active) \hypertarget{structnih_1_1_kd__node_a0606ab5dcae48dc967ec02944603c90f}{
+\index{nih\-::\-Kd\-\_\-node@{nih\-::\-Kd\-\_\-node}!get\-\_\-split\-\_\-dim@{get\-\_\-split\-\_\-dim}}
+\index{get\-\_\-split\-\_\-dim@{get\-\_\-split\-\_\-dim}!nih::Kd_node@{nih\-::\-Kd\-\_\-node}}
+\subsubsection[{get\-\_\-split\-\_\-dim}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Kd\-\_\-node\-::get\-\_\-split\-\_\-dim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_kd__node_a0606ab5dcae48dc967ec02944603c90f}
+get splitting dimension \hypertarget{structnih_1_1_kd__node_a31fefd59332fd83af66d842f64a98237}{
+\index{nih\-::\-Kd\-\_\-node@{nih\-::\-Kd\-\_\-node}!get\-\_\-split\-\_\-plane@{get\-\_\-split\-\_\-plane}}
+\index{get\-\_\-split\-\_\-plane@{get\-\_\-split\-\_\-plane}!nih::Kd_node@{nih\-::\-Kd\-\_\-node}}
+\subsubsection[{get\-\_\-split\-\_\-plane}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float nih\-::\-Kd\-\_\-node\-::get\-\_\-split\-\_\-plane (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_kd__node_a31fefd59332fd83af66d842f64a98237}
+get splitting plane \hypertarget{structnih_1_1_kd__node_adef1d7ddfa71dda74749f2b516a2d01b}{
+\index{nih\-::\-Kd\-\_\-node@{nih\-::\-Kd\-\_\-node}!has\-\_\-child@{has\-\_\-child}}
+\index{has\-\_\-child@{has\-\_\-child}!nih::Kd_node@{nih\-::\-Kd\-\_\-node}}
+\subsubsection[{has\-\_\-child}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E bool nih\-::\-Kd\-\_\-node\-::has\-\_\-child (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_kd__node_adef1d7ddfa71dda74749f2b516a2d01b}
+is the i-\/th child active?
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em i} & child index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_kd__node_a25619b385e5688f1016f2959d35653df}{
+\index{nih\-::\-Kd\-\_\-node@{nih\-::\-Kd\-\_\-node}!is\-\_\-leaf@{is\-\_\-leaf}}
+\index{is\-\_\-leaf@{is\-\_\-leaf}!nih::Kd_node@{nih\-::\-Kd\-\_\-node}}
+\subsubsection[{is\-\_\-leaf}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 nih\-::\-Kd\-\_\-node\-::is\-\_\-leaf (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_kd__node_a25619b385e5688f1016f2959d35653df}
+is a leaf? 
+
+\-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+kd/\hyperlink{kd__node_8h}{kd\-\_\-node.\-h}\end{DoxyCompactItemize}

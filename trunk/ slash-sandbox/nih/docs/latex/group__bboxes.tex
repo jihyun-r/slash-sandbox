@@ -1,0 +1,126 @@
+\hypertarget{group__bboxes}{
+\section{\-Bounding \-Boxes}
+\label{group__bboxes}\index{\-Bounding Boxes@{\-Bounding Boxes}}
+}
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1_bbox}{nih\-::\-Bbox$<$ Vector\-\_\-t $>$}
+\end{DoxyCompactItemize}
+\subsection*{\-Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__bboxes_ga5ebd3a6c3e9a5a8ac883e5a87bf821e6}{
+typedef \-Bbox$<$ \-Vector2f $>$ {\bfseries nih\-::\-Bbox2f}}
+\label{group__bboxes_ga5ebd3a6c3e9a5a8ac883e5a87bf821e6}
+
+\item 
+\hypertarget{group__bboxes_ga4454301371a3ef18876d4c33f9b15418}{
+typedef \-Bbox$<$ \-Vector3f $>$ {\bfseries nih\-::\-Bbox3f}}
+\label{group__bboxes_ga4454301371a3ef18876d4c33f9b15418}
+
+\item 
+\hypertarget{group__bboxes_ga276df7c674fca6914e123dcf4df166ed}{
+typedef \-Bbox$<$ \-Vector4f $>$ {\bfseries nih\-::\-Bbox4f}}
+\label{group__bboxes_ga276df7c674fca6914e123dcf4df166ed}
+
+\item 
+\hypertarget{group__bboxes_ga70a3a6e123309089469f924018908bae}{
+typedef \-Bbox$<$ \-Vector2d $>$ {\bfseries nih\-::\-Bbox2d}}
+\label{group__bboxes_ga70a3a6e123309089469f924018908bae}
+
+\item 
+\hypertarget{group__bboxes_ga073517d49cea29e74f704677e268f215}{
+typedef \-Bbox$<$ \-Vector3d $>$ {\bfseries nih\-::\-Bbox3d}}
+\label{group__bboxes_ga073517d49cea29e74f704677e268f215}
+
+\item 
+\hypertarget{group__bboxes_ga6079eb49bd961dbb56b17e1e657eb2dd}{
+typedef \-Bbox$<$ \-Vector4d $>$ {\bfseries nih\-::\-Bbox4d}}
+\label{group__bboxes_ga6079eb49bd961dbb56b17e1e657eb2dd}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{group__bboxes_gaceb0562c9b45c828b66c12f65bd85d8b}{nih\-::area} (const \-Bbox3f \&bbox)
+\item 
+{\footnotesize template$<$typename Vector\-\_\-t $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E bool \hyperlink{group__bboxes_gaddb50572c7ac110eddcc46bb6cf6fcc5}{nih\-::contains} (const \-Bbox$<$ \-Vector\-\_\-t $>$ \&bbox, const \-Vector\-\_\-t \&p)
+\item 
+{\footnotesize template$<$typename Vector\-\_\-t $>$ }\\\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{group__bboxes_gae81285029f77d03eb828a15fb90ffede}{nih\-::sq\-\_\-distance} (const \-Bbox$<$ \-Vector\-\_\-t $>$ \&bbox, const \-Vector\-\_\-t \&p)
+\item 
+{\footnotesize template$<$typename Vector\-\_\-t $>$ }\\\-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E size\-\_\-t \hyperlink{group__bboxes_ga38d296764ec08b5bb7cb072460967e00}{nih\-::largest\-\_\-axis} (const \-Bbox$<$ \-Vector\-\_\-t $>$ \&bbox)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{group__bboxes_gaceb0562c9b45c828b66c12f65bd85d8b}{
+\index{\-Bounding Boxes@{\-Bounding Boxes}!area@{area}}
+\index{area@{area}!Bounding Boxes@{\-Bounding Boxes}}
+\subsubsection[{area}]{\setlength{\rightskip}{0pt plus 5cm}float nih\-::area (
+\begin{DoxyParamCaption}
+\item[{const \-Bbox3f \&}]{bbox}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{group__bboxes_gaceb0562c9b45c828b66c12f65bd85d8b}
+compute the area of a 3d bbox
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em bbox} & bbox object \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__bboxes_gaddb50572c7ac110eddcc46bb6cf6fcc5}{
+\index{\-Bounding Boxes@{\-Bounding Boxes}!contains@{contains}}
+\index{contains@{contains}!Bounding Boxes@{\-Bounding Boxes}}
+\subsubsection[{contains}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Vector\-\_\-t $>$ bool nih\-::contains (
+\begin{DoxyParamCaption}
+\item[{const \-Bbox$<$ \-Vector\-\_\-t $>$ \&}]{bbox, }
+\item[{const \-Vector\-\_\-t \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{group__bboxes_gaddb50572c7ac110eddcc46bb6cf6fcc5}
+point-\/in-\/bbox inclusion predicate
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em bbox} & bbox object \\
+\hline
+{\em p} & point to test for inclusion \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__bboxes_ga38d296764ec08b5bb7cb072460967e00}{
+\index{\-Bounding Boxes@{\-Bounding Boxes}!largest\-\_\-axis@{largest\-\_\-axis}}
+\index{largest\-\_\-axis@{largest\-\_\-axis}!Bounding Boxes@{\-Bounding Boxes}}
+\subsubsection[{largest\-\_\-axis}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Vector\-\_\-t $>$ size\-\_\-t nih\-::largest\-\_\-axis (
+\begin{DoxyParamCaption}
+\item[{const \-Bbox$<$ \-Vector\-\_\-t $>$ \&}]{bbox}
+\end{DoxyParamCaption}
+)}}
+\label{group__bboxes_ga38d296764ec08b5bb7cb072460967e00}
+returns the largest axis of a bbox
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em bbox} & bbox object \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__bboxes_gae81285029f77d03eb828a15fb90ffede}{
+\index{\-Bounding Boxes@{\-Bounding Boxes}!sq\-\_\-distance@{sq\-\_\-distance}}
+\index{sq\-\_\-distance@{sq\-\_\-distance}!Bounding Boxes@{\-Bounding Boxes}}
+\subsubsection[{sq\-\_\-distance}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Vector\-\_\-t $>$ float nih\-::sq\-\_\-distance (
+\begin{DoxyParamCaption}
+\item[{const \-Bbox$<$ \-Vector\-\_\-t $>$ \&}]{bbox, }
+\item[{const \-Vector\-\_\-t \&}]{p}
+\end{DoxyParamCaption}
+)}}
+\label{group__bboxes_gae81285029f77d03eb828a15fb90ffede}
+point-\/to-\/bbox squared distance
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em bbox} & bbox object \\
+\hline
+{\em p} & point \\
+\hline
+\end{DoxyParams}

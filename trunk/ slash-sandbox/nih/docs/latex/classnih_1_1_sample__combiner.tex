@@ -1,0 +1,146 @@
+\hypertarget{classnih_1_1_sample__combiner}{
+\section{nih\-:\-:\-Sample\-\_\-combiner$<$ \-Image\-\_\-type $>$ \-Class \-Template \-Reference}
+\label{classnih_1_1_sample__combiner}\index{nih\-::\-Sample\-\_\-combiner$<$ Image\-\_\-type $>$@{nih\-::\-Sample\-\_\-combiner$<$ Image\-\_\-type $>$}}
+}
+
+
+{\ttfamily \#include $<$sampler.\-h$>$}
+
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1_sample__combiner_1_1_row}{\-Row}
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classnih_1_1_sample__combiner_a22367618b733b1f0479cdd9cb8aa2ece}{\-Sample\-\_\-combiner} ()
+\item 
+\hyperlink{classnih_1_1_sample__combiner_a4219ba03678b5284ef80f469b805bdda}{\-Sample\-\_\-combiner} (const \-Image\-\_\-type \&\-X, const \-Image\-\_\-type \&\-Y)
+\item 
+uint32 \hyperlink{classnih_1_1_sample__combiner_a874efd345d08e22acb0fb1dc5c0f1b99}{rows} () const 
+\item 
+uint32 \hyperlink{classnih_1_1_sample__combiner_aecae5146a02af2bbac2884de97e18d33}{cols} () const 
+\item 
+uint32 \hyperlink{classnih_1_1_sample__combiner_a75099a4a1489baba07431d31b92d543b}{primary\-\_\-size} () const 
+\item 
+uint32 \hyperlink{classnih_1_1_sample__combiner_aad15a68a7b87de7414f221b02848596d}{secondary\-\_\-size} () const 
+\item 
+uint32 \hyperlink{classnih_1_1_sample__combiner_a880fb4d91c5a00af955d920c4dd196e7}{size} () const 
+\item 
+float \hyperlink{classnih_1_1_sample__combiner_ac3e27a1dd31287bc8d499e4a41caaf45}{operator()} (const uint32 d, const uint32 i) const 
+\item 
+float \hyperlink{classnih_1_1_sample__combiner_a9c937c9bdd0bd33d3957e4811fd01cca}{operator()} (const uint32 x, const uint32 y, const uint32 d) const 
+\item 
+\hyperlink{structnih_1_1_sample__combiner_1_1_row}{\-Row} \hyperlink{classnih_1_1_sample__combiner_a2a4ab922122f90d3f9f0264aaf09bcfc}{operator\mbox{[}$\,$\mbox{]}} (const uint32 i) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\subsubsection*{template$<$typename Image\-\_\-type$>$class nih\-::\-Sample\-\_\-combiner$<$ Image\-\_\-type $>$}
+
+\-Combine two sets of samples (represented as images whose rows are the d-\/dimensional samples) using \-C\-P-\/rotations 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classnih_1_1_sample__combiner_a22367618b733b1f0479cdd9cb8aa2ece}{
+\index{nih\-::\-Sample\-\_\-combiner@{nih\-::\-Sample\-\_\-combiner}!\-Sample\-\_\-combiner@{\-Sample\-\_\-combiner}}
+\index{\-Sample\-\_\-combiner@{\-Sample\-\_\-combiner}!nih::Sample_combiner@{nih\-::\-Sample\-\_\-combiner}}
+\subsubsection[{\-Sample\-\_\-combiner}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Image\-\_\-type $>$ {\bf nih\-::\-Sample\-\_\-combiner}$<$ \-Image\-\_\-type $>$\-::{\bf \-Sample\-\_\-combiner} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_sample__combiner_a22367618b733b1f0479cdd9cb8aa2ece}
+constructor \hypertarget{classnih_1_1_sample__combiner_a4219ba03678b5284ef80f469b805bdda}{
+\index{nih\-::\-Sample\-\_\-combiner@{nih\-::\-Sample\-\_\-combiner}!\-Sample\-\_\-combiner@{\-Sample\-\_\-combiner}}
+\index{\-Sample\-\_\-combiner@{\-Sample\-\_\-combiner}!nih::Sample_combiner@{nih\-::\-Sample\-\_\-combiner}}
+\subsubsection[{\-Sample\-\_\-combiner}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Image\-\_\-type $>$ {\bf nih\-::\-Sample\-\_\-combiner}$<$ \-Image\-\_\-type $>$\-::{\bf \-Sample\-\_\-combiner} (
+\begin{DoxyParamCaption}
+\item[{const \-Image\-\_\-type \&}]{\-X, }
+\item[{const \-Image\-\_\-type \&}]{\-Y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_sample__combiner_a4219ba03678b5284ef80f469b805bdda}
+constructor 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classnih_1_1_sample__combiner_aecae5146a02af2bbac2884de97e18d33}{
+\index{nih\-::\-Sample\-\_\-combiner@{nih\-::\-Sample\-\_\-combiner}!cols@{cols}}
+\index{cols@{cols}!nih::Sample_combiner@{nih\-::\-Sample\-\_\-combiner}}
+\subsubsection[{cols}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Image\-\_\-type $>$ uint32 {\bf nih\-::\-Sample\-\_\-combiner}$<$ \-Image\-\_\-type $>$\-::cols (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_sample__combiner_aecae5146a02af2bbac2884de97e18d33}
+return cols \hypertarget{classnih_1_1_sample__combiner_ac3e27a1dd31287bc8d499e4a41caaf45}{
+\index{nih\-::\-Sample\-\_\-combiner@{nih\-::\-Sample\-\_\-combiner}!operator()@{operator()}}
+\index{operator()@{operator()}!nih::Sample_combiner@{nih\-::\-Sample\-\_\-combiner}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Image\-\_\-type $>$ float {\bf nih\-::\-Sample\-\_\-combiner}$<$ \-Image\-\_\-type $>$\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{d, }
+\item[{const uint32}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_sample__combiner_ac3e27a1dd31287bc8d499e4a41caaf45}
+return d-\/th component of the i-\/th sample \hypertarget{classnih_1_1_sample__combiner_a9c937c9bdd0bd33d3957e4811fd01cca}{
+\index{nih\-::\-Sample\-\_\-combiner@{nih\-::\-Sample\-\_\-combiner}!operator()@{operator()}}
+\index{operator()@{operator()}!nih::Sample_combiner@{nih\-::\-Sample\-\_\-combiner}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Image\-\_\-type $>$ float {\bf nih\-::\-Sample\-\_\-combiner}$<$ \-Image\-\_\-type $>$\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{x, }
+\item[{const uint32}]{y, }
+\item[{const uint32}]{d}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_sample__combiner_a9c937c9bdd0bd33d3957e4811fd01cca}
+return d-\/th component of the (x,y)-\/th sample \hypertarget{classnih_1_1_sample__combiner_a2a4ab922122f90d3f9f0264aaf09bcfc}{
+\index{nih\-::\-Sample\-\_\-combiner@{nih\-::\-Sample\-\_\-combiner}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!nih::Sample_combiner@{nih\-::\-Sample\-\_\-combiner}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Image\-\_\-type $>$ {\bf \-Row} {\bf nih\-::\-Sample\-\_\-combiner}$<$ \-Image\-\_\-type $>$\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_sample__combiner_a2a4ab922122f90d3f9f0264aaf09bcfc}
+return d-\/th component of the i-\/th sample \hypertarget{classnih_1_1_sample__combiner_a75099a4a1489baba07431d31b92d543b}{
+\index{nih\-::\-Sample\-\_\-combiner@{nih\-::\-Sample\-\_\-combiner}!primary\-\_\-size@{primary\-\_\-size}}
+\index{primary\-\_\-size@{primary\-\_\-size}!nih::Sample_combiner@{nih\-::\-Sample\-\_\-combiner}}
+\subsubsection[{primary\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Image\-\_\-type $>$ uint32 {\bf nih\-::\-Sample\-\_\-combiner}$<$ \-Image\-\_\-type $>$\-::primary\-\_\-size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_sample__combiner_a75099a4a1489baba07431d31b92d543b}
+size of the primary set \hypertarget{classnih_1_1_sample__combiner_a874efd345d08e22acb0fb1dc5c0f1b99}{
+\index{nih\-::\-Sample\-\_\-combiner@{nih\-::\-Sample\-\_\-combiner}!rows@{rows}}
+\index{rows@{rows}!nih::Sample_combiner@{nih\-::\-Sample\-\_\-combiner}}
+\subsubsection[{rows}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Image\-\_\-type $>$ uint32 {\bf nih\-::\-Sample\-\_\-combiner}$<$ \-Image\-\_\-type $>$\-::rows (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_sample__combiner_a874efd345d08e22acb0fb1dc5c0f1b99}
+return rows \hypertarget{classnih_1_1_sample__combiner_aad15a68a7b87de7414f221b02848596d}{
+\index{nih\-::\-Sample\-\_\-combiner@{nih\-::\-Sample\-\_\-combiner}!secondary\-\_\-size@{secondary\-\_\-size}}
+\index{secondary\-\_\-size@{secondary\-\_\-size}!nih::Sample_combiner@{nih\-::\-Sample\-\_\-combiner}}
+\subsubsection[{secondary\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Image\-\_\-type $>$ uint32 {\bf nih\-::\-Sample\-\_\-combiner}$<$ \-Image\-\_\-type $>$\-::secondary\-\_\-size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_sample__combiner_aad15a68a7b87de7414f221b02848596d}
+size of the secondary set \hypertarget{classnih_1_1_sample__combiner_a880fb4d91c5a00af955d920c4dd196e7}{
+\index{nih\-::\-Sample\-\_\-combiner@{nih\-::\-Sample\-\_\-combiner}!size@{size}}
+\index{size@{size}!nih::Sample_combiner@{nih\-::\-Sample\-\_\-combiner}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Image\-\_\-type $>$ uint32 {\bf nih\-::\-Sample\-\_\-combiner}$<$ \-Image\-\_\-type $>$\-::size (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_sample__combiner_a880fb4d91c5a00af955d920c4dd196e7}
+size of the combined sample set 
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+sampling/\hyperlink{sampler_8h}{sampler.\-h}\end{DoxyCompactItemize}

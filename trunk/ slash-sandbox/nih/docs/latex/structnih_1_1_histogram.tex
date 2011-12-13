@@ -1,0 +1,290 @@
+\hypertarget{structnih_1_1_histogram}{
+\section{nih\-:\-:\-Histogram$<$ \-T $>$ \-Struct \-Template \-Reference}
+\label{structnih_1_1_histogram}\index{nih\-::\-Histogram$<$ T $>$@{nih\-::\-Histogram$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$stats.\-h$>$}
+
+\subsection*{\-Public \-Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_histogram_a1f51fd52c25d8e39a5bdf46c102c2f9c}{
+typedef \hyperlink{structnih_1_1_stats}{\-Stats}$<$ \-T $>$ {\bfseries \-Stats\-\_\-type}}
+\label{structnih_1_1_histogram_a1f51fd52c25d8e39a5bdf46c102c2f9c}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structnih_1_1_histogram_a02fc7d53135317aa09987e844dc12b62}{\-Histogram} ()
+\item 
+\hyperlink{structnih_1_1_histogram_a3ec4838b404f190ba70268a653ceb1b0}{\-Histogram} (const \hyperlink{structnih_1_1_stats}{\-Stats\-\_\-type} \&stats, const uint32 bins)
+\item 
+uint32 \hyperlink{structnih_1_1_histogram_a2019e21e8331552e11868f2ebb7e88ed}{bin} (const \-T v) const 
+\item 
+\-T \hyperlink{structnih_1_1_histogram_a7b0fc3739f04f28b32fb11dbaec17a98}{bin\-\_\-min} (const uint32 b) const 
+\item 
+\-T \hyperlink{structnih_1_1_histogram_ad81875d21a2c8e79bbb0890ab0e6a022}{bin\-\_\-max} (const uint32 b) const 
+\item 
+void \hyperlink{structnih_1_1_histogram_a93fd01eeb1081763157d7da55acdf0ae}{operator+=} (const \-T v)
+\item 
+\-T \hyperlink{structnih_1_1_histogram_af5ea4cf95bd6f513637185ef459227ed}{avg} (const uint32 b) const 
+\item 
+\-T \hyperlink{structnih_1_1_histogram_ac11bb3aaf34b80cf1b0197cfaec6ad13}{sum} (const uint32 b) const 
+\item 
+\-T \hyperlink{structnih_1_1_histogram_a34b0697ee7f959f9b581f18bbecfba32}{min} (const uint32 b) const 
+\item 
+\-T \hyperlink{structnih_1_1_histogram_aad9fcd509dfb9867bef691171eeddf07}{max} (const uint32 b) const 
+\item 
+long long \hyperlink{structnih_1_1_histogram_a93961d96035232c3a8068188c5b94478}{count} (const uint32 b) const 
+\item 
+float \hyperlink{structnih_1_1_histogram_add147c7cfa62c368150ef680a243e9f3}{percentage} (const uint32 b) const 
+\item 
+\-T \hyperlink{structnih_1_1_histogram_af8d91f889c49450bddc82c87c96fc60b}{var} () const 
+\item 
+\-T \hyperlink{structnih_1_1_histogram_afbcee663ea55aa97115f4f8ef1bde8a1}{sigma} () const 
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_histogram_ae79b97be33196f5da19aa9c03f3449d2}{
+\hyperlink{structnih_1_1_stats}{\-Stats\-\_\-type} {\bfseries m\-\_\-stats}}
+\label{structnih_1_1_histogram_ae79b97be33196f5da19aa9c03f3449d2}
+
+\item 
+\hypertarget{structnih_1_1_histogram_aed852128b096e8b9fb2647e5ce55f25d}{
+std\-::vector$<$ \hyperlink{structnih_1_1_stats}{\-Stats\-\_\-type} $>$ {\bfseries m\-\_\-bins}}
+\label{structnih_1_1_histogram_aed852128b096e8b9fb2647e5ce55f25d}
+
+\item 
+\hypertarget{structnih_1_1_histogram_af87025d0e89655b81cc5b8bc3d164e5b}{
+\-T {\bfseries m\-\_\-var}}
+\label{structnih_1_1_histogram_af87025d0e89655b81cc5b8bc3d164e5b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\subsubsection*{template$<$typename T$>$struct nih\-::\-Histogram$<$ T $>$}
+
+\-A small helper class to compute histograms. \-Usage of this class is supposed to be coupled with {\ttfamily \-Stats$<$\-T$>$}. \-In order to use this class, one would typically loop once over the values to compute basic statistics with a {\ttfamily \-Stats$<$\-T$>$} object, and loop over the values once again to create a {\ttfamily \-Histogram$<$\-T$>$}. 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{structnih_1_1_histogram_a02fc7d53135317aa09987e844dc12b62}{
+\index{nih\-::\-Histogram@{nih\-::\-Histogram}!\-Histogram@{\-Histogram}}
+\index{\-Histogram@{\-Histogram}!nih::Histogram@{nih\-::\-Histogram}}
+\subsubsection[{\-Histogram}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf nih\-::\-Histogram}$<$ \-T $>$\-::{\bf \-Histogram} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_histogram_a02fc7d53135317aa09987e844dc12b62}
+empty constructor \hypertarget{structnih_1_1_histogram_a3ec4838b404f190ba70268a653ceb1b0}{
+\index{nih\-::\-Histogram@{nih\-::\-Histogram}!\-Histogram@{\-Histogram}}
+\index{\-Histogram@{\-Histogram}!nih::Histogram@{nih\-::\-Histogram}}
+\subsubsection[{\-Histogram}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf nih\-::\-Histogram}$<$ \-T $>$\-::{\bf \-Histogram} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Stats\-\_\-type} \&}]{stats, }
+\item[{const uint32}]{bins}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_histogram_a3ec4838b404f190ba70268a653ceb1b0}
+constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em stats} & basic statistics \\
+\hline
+{\em bins} & number of bins \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1_histogram_af5ea4cf95bd6f513637185ef459227ed}{
+\index{nih\-::\-Histogram@{nih\-::\-Histogram}!avg@{avg}}
+\index{avg@{avg}!nih::Histogram@{nih\-::\-Histogram}}
+\subsubsection[{avg}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-T {\bf nih\-::\-Histogram}$<$ \-T $>$\-::avg (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{b}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_histogram_af5ea4cf95bd6f513637185ef459227ed}
+return the average value in a given bin
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em b} & bin index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_histogram_a2019e21e8331552e11868f2ebb7e88ed}{
+\index{nih\-::\-Histogram@{nih\-::\-Histogram}!bin@{bin}}
+\index{bin@{bin}!nih::Histogram@{nih\-::\-Histogram}}
+\subsubsection[{bin}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ uint32 {\bf nih\-::\-Histogram}$<$ \-T $>$\-::bin (
+\begin{DoxyParamCaption}
+\item[{const \-T}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_histogram_a2019e21e8331552e11868f2ebb7e88ed}
+find the bin corresponding to a given value
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em v} & input value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+corresponding bin 
+\end{DoxyReturn}
+\hypertarget{structnih_1_1_histogram_ad81875d21a2c8e79bbb0890ab0e6a022}{
+\index{nih\-::\-Histogram@{nih\-::\-Histogram}!bin\-\_\-max@{bin\-\_\-max}}
+\index{bin\-\_\-max@{bin\-\_\-max}!nih::Histogram@{nih\-::\-Histogram}}
+\subsubsection[{bin\-\_\-max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-T {\bf nih\-::\-Histogram}$<$ \-T $>$\-::bin\-\_\-max (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{b}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_histogram_ad81875d21a2c8e79bbb0890ab0e6a022}
+return the maximum value found in a given bin
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em b} & bin index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_histogram_a7b0fc3739f04f28b32fb11dbaec17a98}{
+\index{nih\-::\-Histogram@{nih\-::\-Histogram}!bin\-\_\-min@{bin\-\_\-min}}
+\index{bin\-\_\-min@{bin\-\_\-min}!nih::Histogram@{nih\-::\-Histogram}}
+\subsubsection[{bin\-\_\-min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-T {\bf nih\-::\-Histogram}$<$ \-T $>$\-::bin\-\_\-min (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{b}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_histogram_a7b0fc3739f04f28b32fb11dbaec17a98}
+return the minimum value found in a given bin
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em b} & bin index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_histogram_a93961d96035232c3a8068188c5b94478}{
+\index{nih\-::\-Histogram@{nih\-::\-Histogram}!count@{count}}
+\index{count@{count}!nih::Histogram@{nih\-::\-Histogram}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ long long {\bf nih\-::\-Histogram}$<$ \-T $>$\-::count (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{b}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_histogram_a93961d96035232c3a8068188c5b94478}
+return the number of samples in a given bin
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em b} & bin index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_histogram_aad9fcd509dfb9867bef691171eeddf07}{
+\index{nih\-::\-Histogram@{nih\-::\-Histogram}!max@{max}}
+\index{max@{max}!nih::Histogram@{nih\-::\-Histogram}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-T {\bf nih\-::\-Histogram}$<$ \-T $>$\-::max (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{b}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_histogram_aad9fcd509dfb9867bef691171eeddf07}
+return the maximum value in a given bin
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em b} & bin index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_histogram_a34b0697ee7f959f9b581f18bbecfba32}{
+\index{nih\-::\-Histogram@{nih\-::\-Histogram}!min@{min}}
+\index{min@{min}!nih::Histogram@{nih\-::\-Histogram}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-T {\bf nih\-::\-Histogram}$<$ \-T $>$\-::min (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{b}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_histogram_a34b0697ee7f959f9b581f18bbecfba32}
+return the minimum value in a given bin
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em b} & bin index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_histogram_a93fd01eeb1081763157d7da55acdf0ae}{
+\index{nih\-::\-Histogram@{nih\-::\-Histogram}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!nih::Histogram@{nih\-::\-Histogram}}
+\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf nih\-::\-Histogram}$<$ \-T $>$\-::operator+= (
+\begin{DoxyParamCaption}
+\item[{const \-T}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_histogram_a93fd01eeb1081763157d7da55acdf0ae}
+accumulate a new value
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em v} & new value \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_histogram_add147c7cfa62c368150ef680a243e9f3}{
+\index{nih\-::\-Histogram@{nih\-::\-Histogram}!percentage@{percentage}}
+\index{percentage@{percentage}!nih::Histogram@{nih\-::\-Histogram}}
+\subsubsection[{percentage}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ float {\bf nih\-::\-Histogram}$<$ \-T $>$\-::percentage (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{b}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_histogram_add147c7cfa62c368150ef680a243e9f3}
+return the percentage of values falling in a given bin
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em b} & bin index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_histogram_afbcee663ea55aa97115f4f8ef1bde8a1}{
+\index{nih\-::\-Histogram@{nih\-::\-Histogram}!sigma@{sigma}}
+\index{sigma@{sigma}!nih::Histogram@{nih\-::\-Histogram}}
+\subsubsection[{sigma}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-T {\bf nih\-::\-Histogram}$<$ \-T $>$\-::sigma (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_histogram_afbcee663ea55aa97115f4f8ef1bde8a1}
+return the sample standard deviation \hypertarget{structnih_1_1_histogram_ac11bb3aaf34b80cf1b0197cfaec6ad13}{
+\index{nih\-::\-Histogram@{nih\-::\-Histogram}!sum@{sum}}
+\index{sum@{sum}!nih::Histogram@{nih\-::\-Histogram}}
+\subsubsection[{sum}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-T {\bf nih\-::\-Histogram}$<$ \-T $>$\-::sum (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{b}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_histogram_ac11bb3aaf34b80cf1b0197cfaec6ad13}
+return the total value in a given bin
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em b} & bin index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_histogram_af8d91f889c49450bddc82c87c96fc60b}{
+\index{nih\-::\-Histogram@{nih\-::\-Histogram}!var@{var}}
+\index{var@{var}!nih::Histogram@{nih\-::\-Histogram}}
+\subsubsection[{var}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-T {\bf nih\-::\-Histogram}$<$ \-T $>$\-::var (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_histogram_af8d91f889c49450bddc82c87c96fc60b}
+return the sample variance 
+
+\-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+basic/\hyperlink{stats_8h}{stats.\-h}\end{DoxyCompactItemize}
