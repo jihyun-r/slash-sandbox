@@ -1,0 +1,97 @@
+\hypertarget{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4}{
+\section{nih\-:\-:\-Octree$<$ breadth\-\_\-first\-\_\-tree, \-Domain\-\_\-type $>$ \-Struct \-Template \-Reference}
+\label{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4}\index{nih\-::\-Octree$<$ breadth\-\_\-first\-\_\-tree, Domain\-\_\-type $>$@{nih\-::\-Octree$<$ breadth\-\_\-first\-\_\-tree, Domain\-\_\-type $>$}}
+}
+
+
+{\ttfamily \#include $<$octree.\-h$>$}
+
+\subsection*{\-Public \-Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a157307c8173958f3619aa968042dd04b}{
+typedef \-Domain\-\_\-type {\bfseries domain\-\_\-type}}
+\label{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a157307c8173958f3619aa968042dd04b}
+
+\item 
+\hypertarget{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a452331fae12f9d402d7076f1e0161ad7}{
+typedef \hyperlink{structnih_1_1_octree__node__base}{\-Octree\-\_\-node\-\_\-base} {\bfseries node\-\_\-type}}
+\label{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a452331fae12f9d402d7076f1e0161ad7}
+
+\item 
+\hypertarget{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a14a35a080d32928795cae3a110201bb9}{
+typedef \hyperlink{structnih_1_1breadth__first__tree}{breadth\-\_\-first\-\_\-tree} {\bfseries tree\-\_\-type}}
+\label{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a14a35a080d32928795cae3a110201bb9}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_ac6f5799aaf4597fa6c7157751078f16b}{
+\hyperlink{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_ac6f5799aaf4597fa6c7157751078f16b}{\-Octree} (const \hyperlink{structnih_1_1_octree__node__base}{node\-\_\-type} $\ast$nodes, const uint32 n\-\_\-leaves, const uint2 $\ast$leaves, const uint32 n\-\_\-levels, const uint32 $\ast$levels)}
+\label{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_ac6f5799aaf4597fa6c7157751078f16b}
+
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\hypertarget{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_ae31b49e00bcdc117650147f3d48d6892}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_ae31b49e00bcdc117650147f3d48d6892}{get\-\_\-level\-\_\-count} () const }
+\label{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_ae31b49e00bcdc117650147f3d48d6892}
+
+\begin{DoxyCompactList}\small\item\em return the number of levels \end{DoxyCompactList}\item 
+\hypertarget{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a233f8b1c746cfd13abbec95dc638a477}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a233f8b1c746cfd13abbec95dc638a477}{get\-\_\-level} (const uint32 i) const }
+\label{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a233f8b1c746cfd13abbec95dc638a477}
+
+\begin{DoxyCompactList}\small\item\em return the i-\/th level \end{DoxyCompactList}\item 
+\hypertarget{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_ad2a89c8ff37c30396c82203c5b6e037d}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \hyperlink{structnih_1_1_octree__node__base}{node\-\_\-type} \hyperlink{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_ad2a89c8ff37c30396c82203c5b6e037d}{get\-\_\-node} (const uint32 index) const }
+\label{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_ad2a89c8ff37c30396c82203c5b6e037d}
+
+\begin{DoxyCompactList}\small\item\em retrieve a node \end{DoxyCompactList}\item 
+\hypertarget{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a93cdaad384785be390ef40b813b8eee7}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a93cdaad384785be390ef40b813b8eee7}{get\-\_\-leaf\-\_\-count} () const }
+\label{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a93cdaad384785be390ef40b813b8eee7}
+
+\begin{DoxyCompactList}\small\item\em return the number of leaves \end{DoxyCompactList}\item 
+\hypertarget{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a4d927782358d1cbfa1b424f135dda56a}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E uint2 \hyperlink{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a4d927782358d1cbfa1b424f135dda56a}{get\-\_\-leaf} (const uint32 index) const }
+\label{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a4d927782358d1cbfa1b424f135dda56a}
+
+\begin{DoxyCompactList}\small\item\em retrieve a leaf \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a5f8bbe5213a3072f140f5f1d8a1c2ab1}{
+const \hyperlink{structnih_1_1_octree__node__base}{node\-\_\-type} $\ast$ {\bfseries m\-\_\-nodes}}
+\label{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a5f8bbe5213a3072f140f5f1d8a1c2ab1}
+
+\item 
+\hypertarget{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a534d4833d769cfc6494fe02661647d64}{
+const uint32 {\bfseries m\-\_\-leaf\-\_\-count}}
+\label{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a534d4833d769cfc6494fe02661647d64}
+
+\item 
+\hypertarget{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_af85129e934bcc4b1051bb8d8d930f1bb}{
+const uint2 $\ast$ {\bfseries m\-\_\-leaves}}
+\label{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_af85129e934bcc4b1051bb8d8d930f1bb}
+
+\item 
+\hypertarget{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a9ba38aa09710b9179e457a0545cd316b}{
+const uint32 $\ast$ {\bfseries m\-\_\-levels}}
+\label{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_a9ba38aa09710b9179e457a0545cd316b}
+
+\item 
+\hypertarget{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_ae0f5f92bbc6184a69e472999d3c50fcf}{
+uint32 {\bfseries m\-\_\-level\-\_\-count}}
+\label{structnih_1_1_octree_3_01breadth__first__tree_00_01_domain__type_01_4_ae0f5f92bbc6184a69e472999d3c50fcf}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\subsubsection*{template$<$typename Domain\-\_\-type$>$struct nih\-::\-Octree$<$ breadth\-\_\-first\-\_\-tree, Domain\-\_\-type $>$}
+
+\-A simple \-Breadth-\/\-First \-Tree model implementation for \-Octrees 
+
+\-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\-C\-:/p4research/research/jpantaleoni/nih/octree/\hyperlink{octree_8h}{octree.\-h}\end{DoxyCompactItemize}

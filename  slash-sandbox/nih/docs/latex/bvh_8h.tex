@@ -1,0 +1,41 @@
+\hypertarget{bvh_8h}{
+\section{bvh/bvh.h \-File \-Reference}
+\label{bvh_8h}\index{bvh/bvh.\-h@{bvh/bvh.\-h}}
+}
+
+
+\-Entry point to the generic \-Bounding \-Volume \-Hierarchy library.  
+
+
+{\ttfamily \#include $<$nih/linalg/vector.\-h$>$}\*
+{\ttfamily \#include $<$nih/linalg/bbox.\-h$>$}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$stack$>$}\*
+{\ttfamily \#include $<$nih/bvh/bvh\-\_\-inline.\-h$>$}\*
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1_bvh__node}{nih\-::\-Bvh\-\_\-node}
+\item 
+struct \hyperlink{structnih_1_1_bvh__leaf}{nih\-::\-Bvh\-\_\-leaf}
+\item 
+struct \hyperlink{structnih_1_1_bvh}{nih\-::\-Bvh$<$ D\-I\-M $>$}
+\item 
+class \hyperlink{classnih_1_1_bvh__builder}{nih\-::\-Bvh\-\_\-builder$<$ D\-I\-M $>$}
+\item 
+struct {\bfseries nih\-::\-Bvh\-\_\-builder$<$ D\-I\-M $>$\-::\-Point}
+\item 
+struct {\bfseries nih\-::\-Bvh\-\_\-builder$<$ D\-I\-M $>$\-::\-Node}
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacenih_a5cc9ea3e24ddd6019cc99848dbd25bfe}{
+float {\bfseries nih\-::compute\-\_\-sah\-\_\-cost} (const \-Bvh$<$ 3 $>$ \&bvh, uint32 node\-\_\-index=0)}
+\label{namespacenih_a5cc9ea3e24ddd6019cc99848dbd25bfe}
+
+\begin{DoxyCompactList}\small\item\em compute \-S\-A\-H cost of a subtree \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Entry point to the generic \-Bounding \-Volume \-Hierarchy library. 

@@ -1,0 +1,36 @@
+\hypertarget{octree_8h}{
+\section{octree/octree.h \-File \-Reference}
+\label{octree_8h}\index{octree/octree.\-h@{octree/octree.\-h}}
+}
+
+
+\-Defines the octree base classes.  
+
+
+{\ttfamily \#include $<$nih/basic/types.\-h$>$}\*
+{\ttfamily \#include $<$nih/basic/cuda\-\_\-domains.\-h$>$}\*
+{\ttfamily \#include $<$nih/bits/popcount.\-h$>$}\*
+{\ttfamily \#include $<$nih/tree/model.\-h$>$}\*
+{\ttfamily \#include $<$nih/octree/octree\-\_\-inline.\-h$>$}\*
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1_octree__node}{nih\-::\-Octree\-\_\-node}
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__octrees_gad4574cd2cca5635d516bb19ab9bf7006}{
+uint32 \hyperlink{group__octrees_gad4574cd2cca5635d516bb19ab9bf7006}{nih\-::get\-\_\-octant} (const \-Octree\-\_\-node \&node, const uint32 i, host\-\_\-domain tag)}
+\label{group__octrees_gad4574cd2cca5635d516bb19ab9bf7006}
+
+\begin{DoxyCompactList}\small\item\em get the index of the i-\/th octant. returns k\-Invalid for non-\/active children. \end{DoxyCompactList}\item 
+\hypertarget{group__octrees_ga6aee09758eb16afef4995243bf301505}{
+\-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E uint32 \hyperlink{group__octrees_ga6aee09758eb16afef4995243bf301505}{nih\-::get\-\_\-octant} (const \-Octree\-\_\-node \&node, const uint32 i, device\-\_\-domain tag)}
+\label{group__octrees_ga6aee09758eb16afef4995243bf301505}
+
+\begin{DoxyCompactList}\small\item\em get the index of the i-\/th octant. returns k\-Invalid for non-\/active children. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Defines the octree base classes. 

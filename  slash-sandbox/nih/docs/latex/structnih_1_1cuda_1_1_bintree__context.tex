@@ -1,0 +1,133 @@
+\hypertarget{structnih_1_1cuda_1_1_bintree__context}{
+\section{nih\-:\-:cuda\-:\-:\-Bintree\-\_\-context \-Struct \-Reference}
+\label{structnih_1_1cuda_1_1_bintree__context}\index{nih\-::cuda\-::\-Bintree\-\_\-context@{nih\-::cuda\-::\-Bintree\-\_\-context}}
+}
+
+
+{\ttfamily \#include $<$bintree\-\_\-context.\-h$>$}
+
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1cuda_1_1_bintree__context_1_1_context}{\-Context}
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structnih_1_1cuda_1_1_bintree__context_a3e8d6b2383234b42c055a6c61d6d2b1d}{\-Bintree\-\_\-context} (thrust\-::device\-\_\-vector$<$ \hyperlink{structnih_1_1_bintree__node}{\-Bintree\-\_\-node} $>$ \&nodes, thrust\-::device\-\_\-vector$<$ uint2 $>$ \&leaves)
+\item 
+\hyperlink{structnih_1_1cuda_1_1_bintree__context_a8241779bf74ebdfd5af5802eac3a2561}{\-Bintree\-\_\-context} (thrust\-::device\-\_\-vector$<$ \hyperlink{structnih_1_1_bintree__node}{\-Bintree\-\_\-node} $>$ $\ast$nodes, thrust\-::device\-\_\-vector$<$ uint2 $>$ $\ast$leaves)
+\item 
+void \hyperlink{structnih_1_1cuda_1_1_bintree__context_ae887db1dc85b1157a9304d920604490b}{reserve\-\_\-nodes} (const uint32 n)
+\item 
+void \hyperlink{structnih_1_1cuda_1_1_bintree__context_a698f1637186d09ef776b18f54baa0cf9}{reserve\-\_\-leaves} (const uint32 n)
+\item 
+\hyperlink{structnih_1_1cuda_1_1_bintree__context_1_1_context}{\-Context} \hyperlink{structnih_1_1cuda_1_1_bintree__context_ac9366acf257d4869ff1925dbe7a40a85}{get\-\_\-context} ()
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1cuda_1_1_bintree__context_ab84ea1df4317efb5866427094de3c354}{
+thrust\-::device\-\_\-vector\*
+$<$ \hyperlink{structnih_1_1_bintree__node}{\-Bintree\-\_\-node} $>$ $\ast$ {\bfseries m\-\_\-nodes}}
+\label{structnih_1_1cuda_1_1_bintree__context_ab84ea1df4317efb5866427094de3c354}
+
+\item 
+\hypertarget{structnih_1_1cuda_1_1_bintree__context_a60b24c0b1c58a4f7f61ee868c744c12d}{
+thrust\-::device\-\_\-vector$<$ uint2 $>$ $\ast$ {\bfseries m\-\_\-leaves}}
+\label{structnih_1_1cuda_1_1_bintree__context_a60b24c0b1c58a4f7f61ee868c744c12d}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-A simple binary tree context implementation to be used with the \-Bintree \hyperlink{group__bintree_gad76a50ae08ab4d525f748a7cbcc0fb6e}{generate()} function. 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{structnih_1_1cuda_1_1_bintree__context_a3e8d6b2383234b42c055a6c61d6d2b1d}{
+\index{nih\-::cuda\-::\-Bintree\-\_\-context@{nih\-::cuda\-::\-Bintree\-\_\-context}!\-Bintree\-\_\-context@{\-Bintree\-\_\-context}}
+\index{\-Bintree\-\_\-context@{\-Bintree\-\_\-context}!nih::cuda::Bintree_context@{nih\-::cuda\-::\-Bintree\-\_\-context}}
+\subsubsection[{\-Bintree\-\_\-context}]{\setlength{\rightskip}{0pt plus 5cm}nih\-::cuda\-::\-Bintree\-\_\-context\-::\-Bintree\-\_\-context (
+\begin{DoxyParamCaption}
+\item[{thrust\-::device\-\_\-vector$<$ {\bf \-Bintree\-\_\-node} $>$ \&}]{nodes, }
+\item[{thrust\-::device\-\_\-vector$<$ uint2 $>$ \&}]{leaves}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1cuda_1_1_bintree__context_a3e8d6b2383234b42c055a6c61d6d2b1d}
+constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em nodes} & nodes to write to \\
+\hline
+{\em leaves} & leaves to write to \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1cuda_1_1_bintree__context_a8241779bf74ebdfd5af5802eac3a2561}{
+\index{nih\-::cuda\-::\-Bintree\-\_\-context@{nih\-::cuda\-::\-Bintree\-\_\-context}!\-Bintree\-\_\-context@{\-Bintree\-\_\-context}}
+\index{\-Bintree\-\_\-context@{\-Bintree\-\_\-context}!nih::cuda::Bintree_context@{nih\-::cuda\-::\-Bintree\-\_\-context}}
+\subsubsection[{\-Bintree\-\_\-context}]{\setlength{\rightskip}{0pt plus 5cm}nih\-::cuda\-::\-Bintree\-\_\-context\-::\-Bintree\-\_\-context (
+\begin{DoxyParamCaption}
+\item[{thrust\-::device\-\_\-vector$<$ {\bf \-Bintree\-\_\-node} $>$ $\ast$}]{nodes, }
+\item[{thrust\-::device\-\_\-vector$<$ uint2 $>$ $\ast$}]{leaves}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1cuda_1_1_bintree__context_a8241779bf74ebdfd5af5802eac3a2561}
+constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em nodes} & nodes to write to \\
+\hline
+{\em leaves} & leaves to write to \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1cuda_1_1_bintree__context_ac9366acf257d4869ff1925dbe7a40a85}{
+\index{nih\-::cuda\-::\-Bintree\-\_\-context@{nih\-::cuda\-::\-Bintree\-\_\-context}!get\-\_\-context@{get\-\_\-context}}
+\index{get\-\_\-context@{get\-\_\-context}!nih::cuda::Bintree_context@{nih\-::cuda\-::\-Bintree\-\_\-context}}
+\subsubsection[{get\-\_\-context}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Context} nih\-::cuda\-::\-Bintree\-\_\-context\-::get\-\_\-context (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1cuda_1_1_bintree__context_ac9366acf257d4869ff1925dbe7a40a85}
+return a cuda context \hypertarget{structnih_1_1cuda_1_1_bintree__context_a698f1637186d09ef776b18f54baa0cf9}{
+\index{nih\-::cuda\-::\-Bintree\-\_\-context@{nih\-::cuda\-::\-Bintree\-\_\-context}!reserve\-\_\-leaves@{reserve\-\_\-leaves}}
+\index{reserve\-\_\-leaves@{reserve\-\_\-leaves}!nih::cuda::Bintree_context@{nih\-::cuda\-::\-Bintree\-\_\-context}}
+\subsubsection[{reserve\-\_\-leaves}]{\setlength{\rightskip}{0pt plus 5cm}void nih\-::cuda\-::\-Bintree\-\_\-context\-::reserve\-\_\-leaves (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1cuda_1_1_bintree__context_a698f1637186d09ef776b18f54baa0cf9}
+reserve space for more leaves
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em n} & leaves to reserve \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1cuda_1_1_bintree__context_ae887db1dc85b1157a9304d920604490b}{
+\index{nih\-::cuda\-::\-Bintree\-\_\-context@{nih\-::cuda\-::\-Bintree\-\_\-context}!reserve\-\_\-nodes@{reserve\-\_\-nodes}}
+\index{reserve\-\_\-nodes@{reserve\-\_\-nodes}!nih::cuda::Bintree_context@{nih\-::cuda\-::\-Bintree\-\_\-context}}
+\subsubsection[{reserve\-\_\-nodes}]{\setlength{\rightskip}{0pt plus 5cm}void nih\-::cuda\-::\-Bintree\-\_\-context\-::reserve\-\_\-nodes (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1cuda_1_1_bintree__context_ae887db1dc85b1157a9304d920604490b}
+reserve space for more nodes
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em n} & nodes to reserve \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+bintree/cuda/\hyperlink{bintree__context_8h}{bintree\-\_\-context.\-h}\end{DoxyCompactItemize}

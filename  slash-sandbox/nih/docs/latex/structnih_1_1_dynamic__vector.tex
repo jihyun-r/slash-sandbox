@@ -1,0 +1,221 @@
+\hypertarget{structnih_1_1_dynamic__vector}{
+\section{nih\-:\-:\-Dynamic\-\_\-vector$<$ \-T $>$ \-Struct \-Template \-Reference}
+\label{structnih_1_1_dynamic__vector}\index{nih\-::\-Dynamic\-\_\-vector$<$ T $>$@{nih\-::\-Dynamic\-\_\-vector$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$vector.\-h$>$}
+
+\subsection*{\-Public \-Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_dynamic__vector_aa461bd2c29680637f5ce89654a4c9ab0}{
+typedef \-T {\bfseries value\-\_\-type}}
+\label{structnih_1_1_dynamic__vector_aa461bd2c29680637f5ce89654a4c9ab0}
+
+\item 
+\hypertarget{structnih_1_1_dynamic__vector_a441fb60fc9a465ad29cafdf20c825985}{
+typedef \-T {\bfseries \-Field\-\_\-type}}
+\label{structnih_1_1_dynamic__vector_a441fb60fc9a465ad29cafdf20c825985}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \hyperlink{structnih_1_1_dynamic__vector_a78352151ab2fec1cec4024ee211454a9}{\-Dynamic\-\_\-vector} ()
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \hyperlink{structnih_1_1_dynamic__vector_a434b9fa69facf06fb9122a059461c000}{\-Dynamic\-\_\-vector} (const size\-\_\-t dim)
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \hyperlink{structnih_1_1_dynamic__vector_a980af6ce6af2d60e65878638c6da5d51}{\-Dynamic\-\_\-vector} (const size\-\_\-t dim, const \-T v)
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \hyperlink{structnih_1_1_dynamic__vector_a6d43a42828024ae13a6e07387a45c6de}{\-Dynamic\-\_\-vector} (const size\-\_\-t dim, const \-T $\ast$v)
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \hyperlink{structnih_1_1_dynamic__vector_a489efffc6e5af45d78277bfdd9e4e0f0}{\-Dynamic\-\_\-vector} (const \hyperlink{structnih_1_1_dynamic__vector}{\-Dynamic\-\_\-vector} \&v)
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \*
+\hyperlink{structnih_1_1_dynamic__vector}{\-Dynamic\-\_\-vector} \& \hyperlink{structnih_1_1_dynamic__vector_a767e2ada4f59a2109a8a09fa2e46565f}{operator=} (const \hyperlink{structnih_1_1_dynamic__vector}{\-Dynamic\-\_\-vector} \&v)
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E const \-T \& \hyperlink{structnih_1_1_dynamic__vector_a747ac892d8de76ec66ab438bd0b2d750}{operator\mbox{[}$\,$\mbox{]}} (const size\-\_\-t i) const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T \& \hyperlink{structnih_1_1_dynamic__vector_a0a296aca69ad2bf09ced18704de786f5}{operator\mbox{[}$\,$\mbox{]}} (const size\-\_\-t i)
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E size\-\_\-t \hyperlink{structnih_1_1_dynamic__vector_a91342bd1d155e5863091fa57380604b9}{dimension} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T void \hyperlink{structnih_1_1_dynamic__vector_a25911ca1ee9497526cd97c6736adb6b1}{resize} (const size\-\_\-t n)
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_dynamic__vector_a1b8e9f0996bc064c0a3d753e014964db}{
+std\-::vector$<$ \-T $>$ {\bfseries x}}
+\label{structnih_1_1_dynamic__vector_a1b8e9f0996bc064c0a3d753e014964db}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\subsubsection*{template$<$typename \-T$>$struct nih\-::\-Dynamic\-\_\-vector$<$ T $>$}
+
+\-Abstract linear algebra vector class, templated over type and with dynamic dimension 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{structnih_1_1_dynamic__vector_a78352151ab2fec1cec4024ee211454a9}{
+\index{nih\-::\-Dynamic\-\_\-vector@{nih\-::\-Dynamic\-\_\-vector}!\-Dynamic\-\_\-vector@{\-Dynamic\-\_\-vector}}
+\index{\-Dynamic\-\_\-vector@{\-Dynamic\-\_\-vector}!nih::Dynamic_vector@{nih\-::\-Dynamic\-\_\-vector}}
+\subsubsection[{\-Dynamic\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E {\bf nih\-::\-Dynamic\-\_\-vector}$<$ \-T $>$\-::{\bf \-Dynamic\-\_\-vector} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_dynamic__vector_a78352151ab2fec1cec4024ee211454a9}
+empty constructor \hypertarget{structnih_1_1_dynamic__vector_a434b9fa69facf06fb9122a059461c000}{
+\index{nih\-::\-Dynamic\-\_\-vector@{nih\-::\-Dynamic\-\_\-vector}!\-Dynamic\-\_\-vector@{\-Dynamic\-\_\-vector}}
+\index{\-Dynamic\-\_\-vector@{\-Dynamic\-\_\-vector}!nih::Dynamic_vector@{nih\-::\-Dynamic\-\_\-vector}}
+\subsubsection[{\-Dynamic\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T {\bf nih\-::\-Dynamic\-\_\-vector}$<$ \-T $>$\-::{\bf \-Dynamic\-\_\-vector} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{dim}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, explicit\mbox{]}}}}
+\label{structnih_1_1_dynamic__vector_a434b9fa69facf06fb9122a059461c000}
+constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em dim} & vector dimension \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_dynamic__vector_a980af6ce6af2d60e65878638c6da5d51}{
+\index{nih\-::\-Dynamic\-\_\-vector@{nih\-::\-Dynamic\-\_\-vector}!\-Dynamic\-\_\-vector@{\-Dynamic\-\_\-vector}}
+\index{\-Dynamic\-\_\-vector@{\-Dynamic\-\_\-vector}!nih::Dynamic_vector@{nih\-::\-Dynamic\-\_\-vector}}
+\subsubsection[{\-Dynamic\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T {\bf nih\-::\-Dynamic\-\_\-vector}$<$ \-T $>$\-::{\bf \-Dynamic\-\_\-vector} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{dim, }
+\item[{const \-T}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_dynamic__vector_a980af6ce6af2d60e65878638c6da5d51}
+constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em dim} & vector dimension \\
+\hline
+{\em v} & scalar value \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_dynamic__vector_a6d43a42828024ae13a6e07387a45c6de}{
+\index{nih\-::\-Dynamic\-\_\-vector@{nih\-::\-Dynamic\-\_\-vector}!\-Dynamic\-\_\-vector@{\-Dynamic\-\_\-vector}}
+\index{\-Dynamic\-\_\-vector@{\-Dynamic\-\_\-vector}!nih::Dynamic_vector@{nih\-::\-Dynamic\-\_\-vector}}
+\subsubsection[{\-Dynamic\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T {\bf nih\-::\-Dynamic\-\_\-vector}$<$ \-T $>$\-::{\bf \-Dynamic\-\_\-vector} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{dim, }
+\item[{const \-T $\ast$}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_dynamic__vector_a6d43a42828024ae13a6e07387a45c6de}
+constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em dim} & vector dimension \\
+\hline
+{\em v} & input array \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_dynamic__vector_a489efffc6e5af45d78277bfdd9e4e0f0}{
+\index{nih\-::\-Dynamic\-\_\-vector@{nih\-::\-Dynamic\-\_\-vector}!\-Dynamic\-\_\-vector@{\-Dynamic\-\_\-vector}}
+\index{\-Dynamic\-\_\-vector@{\-Dynamic\-\_\-vector}!nih::Dynamic_vector@{nih\-::\-Dynamic\-\_\-vector}}
+\subsubsection[{\-Dynamic\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E {\bf nih\-::\-Dynamic\-\_\-vector}$<$ \-T $>$\-::{\bf \-Dynamic\-\_\-vector} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Dynamic\-\_\-vector}$<$ \-T $>$ \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_dynamic__vector_a489efffc6e5af45d78277bfdd9e4e0f0}
+copy constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em v} & input vector \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1_dynamic__vector_a91342bd1d155e5863091fa57380604b9}{
+\index{nih\-::\-Dynamic\-\_\-vector@{nih\-::\-Dynamic\-\_\-vector}!dimension@{dimension}}
+\index{dimension@{dimension}!nih::Dynamic_vector@{nih\-::\-Dynamic\-\_\-vector}}
+\subsubsection[{dimension}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E size\-\_\-t {\bf nih\-::\-Dynamic\-\_\-vector}$<$ \-T $>$\-::dimension (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_dynamic__vector_a91342bd1d155e5863091fa57380604b9}
+vector dimension \hypertarget{structnih_1_1_dynamic__vector_a767e2ada4f59a2109a8a09fa2e46565f}{
+\index{nih\-::\-Dynamic\-\_\-vector@{nih\-::\-Dynamic\-\_\-vector}!operator=@{operator=}}
+\index{operator=@{operator=}!nih::Dynamic_vector@{nih\-::\-Dynamic\-\_\-vector}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E {\bf \-Dynamic\-\_\-vector}\& {\bf nih\-::\-Dynamic\-\_\-vector}$<$ \-T $>$\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Dynamic\-\_\-vector}$<$ \-T $>$ \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_dynamic__vector_a767e2ada4f59a2109a8a09fa2e46565f}
+assignment operator
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em v} & input vector \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_dynamic__vector_a747ac892d8de76ec66ab438bd0b2d750}{
+\index{nih\-::\-Dynamic\-\_\-vector@{nih\-::\-Dynamic\-\_\-vector}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!nih::Dynamic_vector@{nih\-::\-Dynamic\-\_\-vector}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E const \-T\& {\bf nih\-::\-Dynamic\-\_\-vector}$<$ \-T $>$\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_dynamic__vector_a747ac892d8de76ec66ab438bd0b2d750}
+const indexing operator
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em i} & component index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_dynamic__vector_a0a296aca69ad2bf09ced18704de786f5}{
+\index{nih\-::\-Dynamic\-\_\-vector@{nih\-::\-Dynamic\-\_\-vector}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!nih::Dynamic_vector@{nih\-::\-Dynamic\-\_\-vector}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T \-F\-O\-R\-C\-E\-\_\-\-I\-N\-L\-I\-N\-E \-T\& {\bf nih\-::\-Dynamic\-\_\-vector}$<$ \-T $>$\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_dynamic__vector_a0a296aca69ad2bf09ced18704de786f5}
+indexing operator
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em i} & component index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_dynamic__vector_a25911ca1ee9497526cd97c6736adb6b1}{
+\index{nih\-::\-Dynamic\-\_\-vector@{nih\-::\-Dynamic\-\_\-vector}!resize@{resize}}
+\index{resize@{resize}!nih::Dynamic_vector@{nih\-::\-Dynamic\-\_\-vector}}
+\subsubsection[{resize}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T void {\bf nih\-::\-Dynamic\-\_\-vector}$<$ \-T $>$\-::resize (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_dynamic__vector_a25911ca1ee9497526cd97c6736adb6b1}
+resize dimension
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em n} & new vector size \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+linalg/\hyperlink{vector_8h}{vector.\-h}\end{DoxyCompactItemize}

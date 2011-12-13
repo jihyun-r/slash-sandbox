@@ -1,0 +1,281 @@
+\hypertarget{classnih_1_1_image}{
+\section{nih\-:\-:\-Image$<$ \-T $>$ \-Class \-Template \-Reference}
+\label{classnih_1_1_image}\index{nih\-::\-Image$<$ T $>$@{nih\-::\-Image$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$image.\-h$>$}
+
+\subsection*{\-Public \-Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classnih_1_1_image_abd70636148b2bb570d959437657923d9}{
+typedef \-T {\bfseries \-Field\-\_\-type}}
+\label{classnih_1_1_image_abd70636148b2bb570d959437657923d9}
+
+\item 
+\hypertarget{classnih_1_1_image_aa83a82e4c33be9e6a5d2c0b29f358027}{
+typedef std\-::vector$<$ \-T $\ast$ $>$\*
+\-::const\-\_\-iterator {\bfseries \-Row\-\_\-const\-\_\-iterator}}
+\label{classnih_1_1_image_aa83a82e4c33be9e6a5d2c0b29f358027}
+
+\item 
+\hypertarget{classnih_1_1_image_a384c4a2ca348f3bb3aef7717754312e6}{
+typedef std\-::vector$<$ \-T $\ast$ $>$\*
+\-::iterator {\bfseries \-Row\-\_\-iterator}}
+\label{classnih_1_1_image_a384c4a2ca348f3bb3aef7717754312e6}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classnih_1_1_image_a9c8b360b9c6c43d67a8ea5039910b730}{\-Image} ()
+\item 
+\hyperlink{classnih_1_1_image_a82643045a9ab3f076b33a311320da116}{\-Image} (const \hyperlink{classnih_1_1_image}{\-Image} \&image)
+\item 
+\hyperlink{classnih_1_1_image}{\-Image} \& \hyperlink{classnih_1_1_image_aa7485220a5eeb31401def6c3e72d48be}{operator=} (const \hyperlink{classnih_1_1_image}{\-Image} \&image)
+\item 
+void \hyperlink{classnih_1_1_image_ae9797fafa8e69882f19bfcb4f1227bba}{set} (const uint32 res\-\_\-x, const uint32 res\-\_\-y, const \-T def=\-T(0.\-0))
+\item 
+void \hyperlink{classnih_1_1_image_ac8b325d9f7271215b974082b7639ec3f}{clear} (const \-T def)
+\item 
+uint32 \hyperlink{classnih_1_1_image_ab637ec6e7b92f39038c2e827961586c9}{resolution} (const uint32 i) const 
+\item 
+uint32 \hyperlink{classnih_1_1_image_a166ef231ddfb1d5fff0a6d174ec0d182}{cols} () const 
+\item 
+uint32 \hyperlink{classnih_1_1_image_a149bc73b02026b3c97e0e1bf8b7d2833}{rows} () const 
+\item 
+\-T \& \hyperlink{classnih_1_1_image_ab5f3462b149680faf6fec6c818408c0b}{operator()} (const uint32 x, const uint32 y)
+\item 
+const \-T \& \hyperlink{classnih_1_1_image_a1b6584cd7349186c6e6faca6856f77a5}{operator()} (const uint32 x, const uint32 y) const 
+\item 
+const \-T $\ast$ \hyperlink{classnih_1_1_image_a98250285c5f8a0e1ab672ae0ae453a54}{operator\mbox{[}$\,$\mbox{]}} (const uint32 y) const 
+\item 
+\-T $\ast$ \hyperlink{classnih_1_1_image_ac49ee0f27d5da14952e3ad890c8a6bda}{operator\mbox{[}$\,$\mbox{]}} (const uint32 y)
+\item 
+\-Row\-\_\-const\-\_\-iterator \hyperlink{classnih_1_1_image_affe9b98c67f1e4d27b6bfb0cbb4ed6c6}{begin} () const 
+\item 
+\-Row\-\_\-const\-\_\-iterator \hyperlink{classnih_1_1_image_a78c6027f77af6aa6f72dac6b84269ae7}{end} () const 
+\item 
+\-Row\-\_\-iterator \hyperlink{classnih_1_1_image_af5c16c3840bd5b706ebb1e3a546aabc8}{begin} ()
+\item 
+\-Row\-\_\-iterator \hyperlink{classnih_1_1_image_a12fa4f245c121a0634ffe963c3f1aefa}{end} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\subsubsection*{template$<$typename T$>$class nih\-::\-Image$<$ T $>$}
+
+\-An abstract image (i.\-e. large matrix) class over elements of templated type \-T. 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classnih_1_1_image_a9c8b360b9c6c43d67a8ea5039910b730}{
+\index{nih\-::\-Image@{nih\-::\-Image}!\-Image@{\-Image}}
+\index{\-Image@{\-Image}!nih::Image@{nih\-::\-Image}}
+\subsubsection[{\-Image}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf nih\-::\-Image}$<$ \-T $>$\-::{\bf \-Image} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_image_a9c8b360b9c6c43d67a8ea5039910b730}
+empty constructor \hypertarget{classnih_1_1_image_a82643045a9ab3f076b33a311320da116}{
+\index{nih\-::\-Image@{nih\-::\-Image}!\-Image@{\-Image}}
+\index{\-Image@{\-Image}!nih::Image@{nih\-::\-Image}}
+\subsubsection[{\-Image}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf nih\-::\-Image}$<$ \-T $>$\-::{\bf \-Image} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Image}$<$ \-T $>$ \&}]{image}
+\end{DoxyParamCaption}
+)}}
+\label{classnih_1_1_image_a82643045a9ab3f076b33a311320da116}
+copy constructor 
+\begin{DoxyParams}{\-Parameters}
+{\em image} & image to copy \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classnih_1_1_image_affe9b98c67f1e4d27b6bfb0cbb4ed6c6}{
+\index{nih\-::\-Image@{nih\-::\-Image}!begin@{begin}}
+\index{begin@{begin}!nih::Image@{nih\-::\-Image}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-Row\-\_\-const\-\_\-iterator {\bf nih\-::\-Image}$<$ \-T $>$\-::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_image_affe9b98c67f1e4d27b6bfb0cbb4ed6c6}
+begin row iterator \hypertarget{classnih_1_1_image_af5c16c3840bd5b706ebb1e3a546aabc8}{
+\index{nih\-::\-Image@{nih\-::\-Image}!begin@{begin}}
+\index{begin@{begin}!nih::Image@{nih\-::\-Image}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-Row\-\_\-iterator {\bf nih\-::\-Image}$<$ \-T $>$\-::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_image_af5c16c3840bd5b706ebb1e3a546aabc8}
+begin row iterator \hypertarget{classnih_1_1_image_ac8b325d9f7271215b974082b7639ec3f}{
+\index{nih\-::\-Image@{nih\-::\-Image}!clear@{clear}}
+\index{clear@{clear}!nih::Image@{nih\-::\-Image}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf nih\-::\-Image}$<$ \-T $>$\-::clear (
+\begin{DoxyParamCaption}
+\item[{const \-T}]{def}
+\end{DoxyParamCaption}
+)}}
+\label{classnih_1_1_image_ac8b325d9f7271215b974082b7639ec3f}
+clear the image to a default value 
+\begin{DoxyParams}{\-Parameters}
+{\em def} & default value \\
+\hline
+\end{DoxyParams}
+\hypertarget{classnih_1_1_image_a166ef231ddfb1d5fff0a6d174ec0d182}{
+\index{nih\-::\-Image@{nih\-::\-Image}!cols@{cols}}
+\index{cols@{cols}!nih::Image@{nih\-::\-Image}}
+\subsubsection[{cols}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ uint32 {\bf nih\-::\-Image}$<$ \-T $>$\-::cols (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_image_a166ef231ddfb1d5fff0a6d174ec0d182}
+return \# of columns \hypertarget{classnih_1_1_image_a78c6027f77af6aa6f72dac6b84269ae7}{
+\index{nih\-::\-Image@{nih\-::\-Image}!end@{end}}
+\index{end@{end}!nih::Image@{nih\-::\-Image}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-Row\-\_\-const\-\_\-iterator {\bf nih\-::\-Image}$<$ \-T $>$\-::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_image_a78c6027f77af6aa6f72dac6b84269ae7}
+end row iterator \hypertarget{classnih_1_1_image_a12fa4f245c121a0634ffe963c3f1aefa}{
+\index{nih\-::\-Image@{nih\-::\-Image}!end@{end}}
+\index{end@{end}!nih::Image@{nih\-::\-Image}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-Row\-\_\-iterator {\bf nih\-::\-Image}$<$ \-T $>$\-::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_image_a12fa4f245c121a0634ffe963c3f1aefa}
+begin row iterator \hypertarget{classnih_1_1_image_ab5f3462b149680faf6fec6c818408c0b}{
+\index{nih\-::\-Image@{nih\-::\-Image}!operator()@{operator()}}
+\index{operator()@{operator()}!nih::Image@{nih\-::\-Image}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-T \& {\bf nih\-::\-Image}$<$ \-T $>$\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{x, }
+\item[{const uint32}]{y}
+\end{DoxyParamCaption}
+)}}
+\label{classnih_1_1_image_ab5f3462b149680faf6fec6c818408c0b}
+non-\/const access to (x,y) pixel 
+\begin{DoxyParams}{\-Parameters}
+{\em x} & x coordinate \\
+\hline
+{\em y} & y coordinate \\
+\hline
+\end{DoxyParams}
+\hypertarget{classnih_1_1_image_a1b6584cd7349186c6e6faca6856f77a5}{
+\index{nih\-::\-Image@{nih\-::\-Image}!operator()@{operator()}}
+\index{operator()@{operator()}!nih::Image@{nih\-::\-Image}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ const \-T \& {\bf nih\-::\-Image}$<$ \-T $>$\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{x, }
+\item[{const uint32}]{y}
+\end{DoxyParamCaption}
+) const}}
+\label{classnih_1_1_image_a1b6584cd7349186c6e6faca6856f77a5}
+const access to (x,y) pixel 
+\begin{DoxyParams}{\-Parameters}
+{\em x} & x coordinate \\
+\hline
+{\em y} & y coordinate \\
+\hline
+\end{DoxyParams}
+\hypertarget{classnih_1_1_image_aa7485220a5eeb31401def6c3e72d48be}{
+\index{nih\-::\-Image@{nih\-::\-Image}!operator=@{operator=}}
+\index{operator=@{operator=}!nih::Image@{nih\-::\-Image}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf \-Image}$<$ \-T $>$ \& {\bf nih\-::\-Image}$<$ \-T $>$\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Image}$<$ \-T $>$ \&}]{image}
+\end{DoxyParamCaption}
+)}}
+\label{classnih_1_1_image_aa7485220a5eeb31401def6c3e72d48be}
+copy operator 
+\begin{DoxyParams}{\-Parameters}
+{\em image} & image to copy \\
+\hline
+\end{DoxyParams}
+\hypertarget{classnih_1_1_image_a98250285c5f8a0e1ab672ae0ae453a54}{
+\index{nih\-::\-Image@{nih\-::\-Image}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!nih::Image@{nih\-::\-Image}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ const \-T $\ast$ {\bf nih\-::\-Image}$<$ \-T $>$\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{y}
+\end{DoxyParamCaption}
+) const}}
+\label{classnih_1_1_image_a98250285c5f8a0e1ab672ae0ae453a54}
+dereference operator for rows 
+\begin{DoxyParams}{\-Parameters}
+{\em y} & y coordinate \\
+\hline
+\end{DoxyParams}
+\hypertarget{classnih_1_1_image_ac49ee0f27d5da14952e3ad890c8a6bda}{
+\index{nih\-::\-Image@{nih\-::\-Image}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!nih::Image@{nih\-::\-Image}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-T $\ast$ {\bf nih\-::\-Image}$<$ \-T $>$\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{y}
+\end{DoxyParamCaption}
+)}}
+\label{classnih_1_1_image_ac49ee0f27d5da14952e3ad890c8a6bda}
+non-\/const dereference operator for rows 
+\begin{DoxyParams}{\-Parameters}
+{\em y} & y coordinate \\
+\hline
+\end{DoxyParams}
+\hypertarget{classnih_1_1_image_ab637ec6e7b92f39038c2e827961586c9}{
+\index{nih\-::\-Image@{nih\-::\-Image}!resolution@{resolution}}
+\index{resolution@{resolution}!nih::Image@{nih\-::\-Image}}
+\subsubsection[{resolution}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ uint32 {\bf nih\-::\-Image}$<$ \-T $>$\-::resolution (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_image_ab637ec6e7b92f39038c2e827961586c9}
+return resolution 
+\begin{DoxyParams}{\-Parameters}
+{\em i} & axis \\
+\hline
+\end{DoxyParams}
+\hypertarget{classnih_1_1_image_a149bc73b02026b3c97e0e1bf8b7d2833}{
+\index{nih\-::\-Image@{nih\-::\-Image}!rows@{rows}}
+\index{rows@{rows}!nih::Image@{nih\-::\-Image}}
+\subsubsection[{rows}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ uint32 {\bf nih\-::\-Image}$<$ \-T $>$\-::rows (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_image_a149bc73b02026b3c97e0e1bf8b7d2833}
+return \# of rows \hypertarget{classnih_1_1_image_ae9797fafa8e69882f19bfcb4f1227bba}{
+\index{nih\-::\-Image@{nih\-::\-Image}!set@{set}}
+\index{set@{set}!nih::Image@{nih\-::\-Image}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf nih\-::\-Image}$<$ \-T $>$\-::set (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{res\-\_\-x, }
+\item[{const uint32}]{res\-\_\-y, }
+\item[{const \-T}]{def = {\ttfamily \-T(0.0)}}
+\end{DoxyParamCaption}
+)}}
+\label{classnih_1_1_image_ae9797fafa8e69882f19bfcb4f1227bba}
+set the image resolution 
+\begin{DoxyParams}{\-Parameters}
+{\em res\-\_\-x} & x resolution \\
+\hline
+{\em res\-\_\-y} & y resolution \\
+\hline
+{\em def} & default value \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+image/\hyperlink{image_8h}{image.\-h}\item 
+image/image\-\_\-inline.\-h\end{DoxyCompactItemize}
