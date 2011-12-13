@@ -157,7 +157,9 @@ __global__ void split_kernel(
                 output_count ? split_index != begin : false,
                 output_count ? split_index != end   : false,
                 output_count ? node_offset          : leaf_index,
-                skip_node );
+                skip_node,
+                level,
+                output_count ? split_index : uint32(-1) );
 
             // make a leaf if necessary
             if (output_count == 0)
@@ -193,6 +195,7 @@ __global__ void gen_leaves_kernel(
         uint32 node;
         uint32 begin;
         uint32 end;
+        uint32 level;
         uint32 skip_node;
 
         // check if the task id is in range, and if so try to find its split plane
@@ -203,6 +206,7 @@ __global__ void gen_leaves_kernel(
             node  = in_task.m_node;
             begin = in_task.m_begin;
             end   = in_task.m_end;
+            level = in_task.m_input;
             skip_node = in_skip_nodes[ task_id ];
         }
 
@@ -212,7 +216,7 @@ __global__ void gen_leaves_kernel(
         // write the parent node
         if (task_id < in_tasks_count)
         {
-            tree.write_node( node, false, false, leaf_index, skip_node );
+            tree.write_node( node, false, false, leaf_index, skip_node, level, uint32(-1) );
             tree.write_leaf( leaf_index, begin, end );
         }
     }

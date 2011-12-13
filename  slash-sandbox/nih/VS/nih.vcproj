@@ -628,6 +628,30 @@
 				>
 			</File>
 		</Filter>
+		<Filter
+			Name="kd"
+			>
+			<File
+				RelativePath="..\kd\kd_node.h"
+				>
+			</File>
+			<Filter
+				Name="cuda"
+				>
+				<File
+					RelativePath="..\kd\cuda\kd_builder.h"
+					>
+				</File>
+				<File
+					RelativePath="..\kd\cuda\kd_builder_inline.h"
+					>
+				</File>
+				<File
+					RelativePath="..\kd\cuda\kd_test.cu"
+					>
+				</File>
+			</Filter>
+		</Filter>
 		<File
 			RelativePath=".\ReadMe.txt"
 			>

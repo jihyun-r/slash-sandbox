@@ -92,7 +92,7 @@ namespace sah {
 /// thrust::device_vector<uint2>    bvh_leaves;
 /// thrust::device_vector<uint32>   bvh_index;
 ///
-/// nih::Sah_builder builder( bvh_nodes, bvh_leaves, bvh_index );
+/// nih::cuda::Sah_builder builder( bvh_nodes, bvh_leaves, bvh_index );
 /// builder.build(
 ///     Bbox3f( Vector3f(0.0f), Vector3f(1.0f) ),   // suppose all bboxes are in [0,1]^3
 ///     bboxes.begin(),                             // begin iterator

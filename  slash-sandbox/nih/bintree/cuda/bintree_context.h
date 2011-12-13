@@ -61,7 +61,7 @@ struct Bintree_context
 
         /// write a new node
         ///
-        NIH_HOST_DEVICE void write_node(const uint32 node, bool p1, bool p2, const uint32 offset, const uint32 skip_node)
+        NIH_HOST_DEVICE void write_node(const uint32 node, bool p1, bool p2, const uint32 offset, const uint32 skip_node, const uint32 level, const uint32 split_index)
         {
             m_nodes[ node ] = Bintree_node( p1, p2, offset );
         }

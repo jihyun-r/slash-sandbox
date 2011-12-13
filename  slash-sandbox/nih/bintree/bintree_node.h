@@ -35,6 +35,10 @@
 
 namespace nih {
 
+/*! \addtogroup bintree Binary Trees
+ *  \{
+ */
+
 ///
 /// A middle-split binary tree node.
 /// A node can either be a leaf and have no children, or be
@@ -105,5 +109,8 @@ struct Bintree_node
 
     uint32 m_packed_info;
 };
+
+/*! \}
+ */
 
 } // namespace nih
