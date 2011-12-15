@@ -1,0 +1,163 @@
+\hypertarget{structnih_1_1_oct__smooth__basis}{
+\section{nih\-:\-:\-Oct\-\_\-smooth\-\_\-basis \-Struct \-Reference}
+\label{structnih_1_1_oct__smooth__basis}\index{nih\-::\-Oct\-\_\-smooth\-\_\-basis@{nih\-::\-Oct\-\_\-smooth\-\_\-basis}}
+}
+
+
+{\ttfamily \#include $<$oct.\-h$>$}
+
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bfseries \-Initializer}
+\end{DoxyCompactItemize}
+\subsection*{\-Static \-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{structnih_1_1_oct__smooth__basis_aa14a75a18d247804bad176c609a7a0e8}{eval} (const int32 i, const \hyperlink{structnih_1_1_vector}{\-Vector3f} \&d)
+\item 
+static void \hyperlink{structnih_1_1_oct__smooth__basis_aa0169c6efd1730c823590835cd10418a}{clamped\-\_\-cosine} (const \hyperlink{structnih_1_1_vector}{\-Vector3f} \&normal, const float w, float $\ast$coeffs)
+\item 
+static void \hyperlink{structnih_1_1_oct__smooth__basis_a8cc76fb6689cc5cddd5923badce7b65a}{constant} (float k, float $\ast$coeffs)
+\item 
+static float \hyperlink{structnih_1_1_oct__smooth__basis_ac44cf16365644cc8ee5e92347e4b3070}{integral} (const float $\ast$coeffs)
+\item 
+{\footnotesize template$<$typename Vector\-\_\-type $>$ }\\static float \hyperlink{structnih_1_1_oct__smooth__basis_a76b5bd9b8b77e8f6bdaa3e6eb987b080}{integral} (const \-Vector\-\_\-type \&coeffs)
+\item 
+static float \hyperlink{structnih_1_1_oct__smooth__basis_a68628b961af6d2c665fe1db6615fb027}{\-G} (const int32 i, const int32 j)
+\item 
+static void \hyperlink{structnih_1_1_oct__smooth__basis_a4cf03f31e968129821a58231166ae3b6}{solve} (float $\ast$coeffs)
+\end{DoxyCompactItemize}
+\subsection*{\-Static \-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_oct__smooth__basis_a86f63865f9910e9c41f7b32c41202bdc}{
+static const int32 {\bfseries \-C\-O\-E\-F\-F\-S} = 8}
+\label{structnih_1_1_oct__smooth__basis_a86f63865f9910e9c41f7b32c41202bdc}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-A smoothed octahedral basis\-: the basis functions overlap and are not orthogonal. \-As a consequence, projection requires solving a least squares problem. 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1_oct__smooth__basis_aa0169c6efd1730c823590835cd10418a}{
+\index{nih\-::\-Oct\-\_\-smooth\-\_\-basis@{nih\-::\-Oct\-\_\-smooth\-\_\-basis}!clamped\-\_\-cosine@{clamped\-\_\-cosine}}
+\index{clamped\-\_\-cosine@{clamped\-\_\-cosine}!nih::Oct_smooth_basis@{nih\-::\-Oct\-\_\-smooth\-\_\-basis}}
+\subsubsection[{clamped\-\_\-cosine}]{\setlength{\rightskip}{0pt plus 5cm}void nih\-::\-Oct\-\_\-smooth\-\_\-basis\-::clamped\-\_\-cosine (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vector3f} \&}]{normal, }
+\item[{const float}]{w, }
+\item[{float $\ast$}]{coeffs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{structnih_1_1_oct__smooth__basis_aa0169c6efd1730c823590835cd10418a}
+add a weighted basis expansion of a clamped cosine lobe to a given set of coefficients
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em normal} & input normal \\
+\hline
+{\em w} & scalar weight \\
+\hline
+{\em coeffs} & input/output coefficients \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_oct__smooth__basis_a8cc76fb6689cc5cddd5923badce7b65a}{
+\index{nih\-::\-Oct\-\_\-smooth\-\_\-basis@{nih\-::\-Oct\-\_\-smooth\-\_\-basis}!constant@{constant}}
+\index{constant@{constant}!nih::Oct_smooth_basis@{nih\-::\-Oct\-\_\-smooth\-\_\-basis}}
+\subsubsection[{constant}]{\setlength{\rightskip}{0pt plus 5cm}static void nih\-::\-Oct\-\_\-smooth\-\_\-basis\-::constant (
+\begin{DoxyParamCaption}
+\item[{float}]{k, }
+\item[{float $\ast$}]{coeffs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{structnih_1_1_oct__smooth__basis_a8cc76fb6689cc5cddd5923badce7b65a}
+return the basis expansion of a constant
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em k} & input constant \\
+\hline
+{\em coeffs} & output coefficients \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_oct__smooth__basis_aa14a75a18d247804bad176c609a7a0e8}{
+\index{nih\-::\-Oct\-\_\-smooth\-\_\-basis@{nih\-::\-Oct\-\_\-smooth\-\_\-basis}!eval@{eval}}
+\index{eval@{eval}!nih::Oct_smooth_basis@{nih\-::\-Oct\-\_\-smooth\-\_\-basis}}
+\subsubsection[{eval}]{\setlength{\rightskip}{0pt plus 5cm}static \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float nih\-::\-Oct\-\_\-smooth\-\_\-basis\-::eval (
+\begin{DoxyParamCaption}
+\item[{const int32}]{i, }
+\item[{const {\bf \-Vector3f} \&}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{structnih_1_1_oct__smooth__basis_aa14a75a18d247804bad176c609a7a0e8}
+evaluate the i-\/th octahedral function
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em i} & function index \\
+\hline
+{\em d} & input direction vector \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_oct__smooth__basis_a68628b961af6d2c665fe1db6615fb027}{
+\index{nih\-::\-Oct\-\_\-smooth\-\_\-basis@{nih\-::\-Oct\-\_\-smooth\-\_\-basis}!\-G@{\-G}}
+\index{\-G@{\-G}!nih::Oct_smooth_basis@{nih\-::\-Oct\-\_\-smooth\-\_\-basis}}
+\subsubsection[{\-G}]{\setlength{\rightskip}{0pt plus 5cm}static float nih\-::\-Oct\-\_\-smooth\-\_\-basis\-::\-G (
+\begin{DoxyParamCaption}
+\item[{const int32}]{i, }
+\item[{const int32}]{j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{structnih_1_1_oct__smooth__basis_a68628b961af6d2c665fe1db6615fb027}
+return the dot product of the i-\/th and j-\/th basis functions
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em i} & first function index \\
+\hline
+{\em j} & second functio index \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_oct__smooth__basis_ac44cf16365644cc8ee5e92347e4b3070}{
+\index{nih\-::\-Oct\-\_\-smooth\-\_\-basis@{nih\-::\-Oct\-\_\-smooth\-\_\-basis}!integral@{integral}}
+\index{integral@{integral}!nih::Oct_smooth_basis@{nih\-::\-Oct\-\_\-smooth\-\_\-basis}}
+\subsubsection[{integral}]{\setlength{\rightskip}{0pt plus 5cm}static float nih\-::\-Oct\-\_\-smooth\-\_\-basis\-::integral (
+\begin{DoxyParamCaption}
+\item[{const float $\ast$}]{coeffs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{structnih_1_1_oct__smooth__basis_ac44cf16365644cc8ee5e92347e4b3070}
+return the integral of a spherical hamonics function \hypertarget{structnih_1_1_oct__smooth__basis_a76b5bd9b8b77e8f6bdaa3e6eb987b080}{
+\index{nih\-::\-Oct\-\_\-smooth\-\_\-basis@{nih\-::\-Oct\-\_\-smooth\-\_\-basis}!integral@{integral}}
+\index{integral@{integral}!nih::Oct_smooth_basis@{nih\-::\-Oct\-\_\-smooth\-\_\-basis}}
+\subsubsection[{integral}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Vector\-\_\-type $>$ static float nih\-::\-Oct\-\_\-smooth\-\_\-basis\-::integral (
+\begin{DoxyParamCaption}
+\item[{const \-Vector\-\_\-type \&}]{coeffs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{structnih_1_1_oct__smooth__basis_a76b5bd9b8b77e8f6bdaa3e6eb987b080}
+return the integral of a spherical hamonics function \hypertarget{structnih_1_1_oct__smooth__basis_a4cf03f31e968129821a58231166ae3b6}{
+\index{nih\-::\-Oct\-\_\-smooth\-\_\-basis@{nih\-::\-Oct\-\_\-smooth\-\_\-basis}!solve@{solve}}
+\index{solve@{solve}!nih::Oct_smooth_basis@{nih\-::\-Oct\-\_\-smooth\-\_\-basis}}
+\subsubsection[{solve}]{\setlength{\rightskip}{0pt plus 5cm}void nih\-::\-Oct\-\_\-smooth\-\_\-basis\-::solve (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{coeffs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{structnih_1_1_oct__smooth__basis_a4cf03f31e968129821a58231166ae3b6}
+solve the linear least squares projection for a set of coefficients
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em coeffs} & input projection coefficients \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+spherical/\hyperlink{oct_8h}{oct.\-h}\item 
+spherical/oct.\-cpp\end{DoxyCompactItemize}

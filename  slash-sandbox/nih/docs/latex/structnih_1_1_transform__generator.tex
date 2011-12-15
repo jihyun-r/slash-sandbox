@@ -1,0 +1,90 @@
+\hypertarget{structnih_1_1_transform__generator}{
+\section{nih\-:\-:\-Transform\-\_\-generator$<$ \-Generator, \-Distribution $>$ \-Struct \-Template \-Reference}
+\label{structnih_1_1_transform__generator}\index{nih\-::\-Transform\-\_\-generator$<$ Generator, Distribution $>$@{nih\-::\-Transform\-\_\-generator$<$ Generator, Distribution $>$}}
+}
+
+
+{\ttfamily \#include $<$distributions.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \hyperlink{structnih_1_1_transform__generator_a2eb6f406cccc2183d8925e850ac5138d}{\-Transform\-\_\-generator} (\-Generator \&gen, const \-Distribution \&dist)
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{structnih_1_1_transform__generator_a707e7a74d89d556a64d8894bef3f2143}{next} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{structnih_1_1_transform__generator_a42b361037ac1879ae4e81f3757b5ce02}{density} (const float x) const 
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_transform__generator_a48eade2bae06dd3aef5280b2b01a9326}{
+\-Generator \& {\bfseries m\-\_\-gen}}
+\label{structnih_1_1_transform__generator_a48eade2bae06dd3aef5280b2b01a9326}
+
+\item 
+\hypertarget{structnih_1_1_transform__generator_a6cc20e94a0c060344d5f48ccbf944513}{
+\-Distribution {\bfseries m\-\_\-dist}}
+\label{structnih_1_1_transform__generator_a6cc20e94a0c060344d5f48ccbf944513}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\subsubsection*{template$<$typename Generator, typename Distribution$>$struct nih\-::\-Transform\-\_\-generator$<$ Generator, Distribution $>$}
+
+\-Wrapper class to transform a random number generator with a given distribution 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{structnih_1_1_transform__generator_a2eb6f406cccc2183d8925e850ac5138d}{
+\index{nih\-::\-Transform\-\_\-generator@{nih\-::\-Transform\-\_\-generator}!\-Transform\-\_\-generator@{\-Transform\-\_\-generator}}
+\index{\-Transform\-\_\-generator@{\-Transform\-\_\-generator}!nih::Transform_generator@{nih\-::\-Transform\-\_\-generator}}
+\subsubsection[{\-Transform\-\_\-generator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Generator , typename Distribution $>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E {\bf nih\-::\-Transform\-\_\-generator}$<$ \-Generator, \-Distribution $>$\-::{\bf \-Transform\-\_\-generator} (
+\begin{DoxyParamCaption}
+\item[{\-Generator \&}]{gen, }
+\item[{const \-Distribution \&}]{dist}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_transform__generator_a2eb6f406cccc2183d8925e850ac5138d}
+constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em gen} & generator to wrap \\
+\hline
+{\em dist} & transforming distribution \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1_transform__generator_a42b361037ac1879ae4e81f3757b5ce02}{
+\index{nih\-::\-Transform\-\_\-generator@{nih\-::\-Transform\-\_\-generator}!density@{density}}
+\index{density@{density}!nih::Transform_generator@{nih\-::\-Transform\-\_\-generator}}
+\subsubsection[{density}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Generator , typename Distribution $>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float {\bf nih\-::\-Transform\-\_\-generator}$<$ \-Generator, \-Distribution $>$\-::density (
+\begin{DoxyParamCaption}
+\item[{const float}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_transform__generator_a42b361037ac1879ae4e81f3757b5ce02}
+probability density function
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em x} & sample location \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_transform__generator_a707e7a74d89d556a64d8894bef3f2143}{
+\index{nih\-::\-Transform\-\_\-generator@{nih\-::\-Transform\-\_\-generator}!next@{next}}
+\index{next@{next}!nih::Transform_generator@{nih\-::\-Transform\-\_\-generator}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Generator , typename Distribution $>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float {\bf nih\-::\-Transform\-\_\-generator}$<$ \-Generator, \-Distribution $>$\-::next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1_transform__generator_a707e7a74d89d556a64d8894bef3f2143}
+return the next number in the sequence 
+
+\-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+sampling/\hyperlink{distributions_8h}{distributions.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,150 @@
+\hypertarget{group__spherical}{
+\section{\-Spherical and \-Zonal \-Harmonics}
+\label{group__spherical}\index{\-Spherical and Zonal Harmonics@{\-Spherical and Zonal Harmonics}}
+}
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1_s_h__basis}{nih\-::\-S\-H\-\_\-basis$<$ L $>$}
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Vector3 $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{group__spherical_ga61b3dccbdbb3265ced8cfefc49c4f96c}{nih\-::sh} (const int32 l, const int32 m, const \-Vector3 \&v)
+\item 
+{\footnotesize template$<$int32 l, typename Vector3 $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{group__spherical_ga84c13afac74205bed1f5f3a382088394}{nih\-::sh} (const int32 m, const \-Vector3 \&v)
+\item 
+{\footnotesize template$<$int32 l, int32 m, typename Vector3 $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{group__spherical_ga093407ba5202540f5ca6cc3da2567970}{nih\-::sh} (const \-Vector3 \&v)
+\item 
+{\footnotesize template$<$typename Z\-H\-Vector , typename S\-H\-Vector , typename Vector3 $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E void \hyperlink{group__spherical_gac4367786c521d9b0e54b08dd27bcc391}{nih\-::rotate\-\_\-\-Z\-H} (const int32 \-L, const \-Z\-H\-Vector \&zh\-\_\-coeff, const \-Vector3 \&d, \-S\-H\-Vector \&sh\-\_\-coeff)
+\item 
+{\footnotesize template$<$int32 \-L, typename Z\-H\-Vector , typename S\-H\-Vector , typename Vector3 $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E void \hyperlink{group__spherical_gad3026df527a2ed22cead3594bdd25b19}{nih\-::rotate\-\_\-\-Z\-H} (const \-Z\-H\-Vector \&zh\-\_\-coeff, const \-Vector3 \&d, \-S\-H\-Vector \&sh\-\_\-coeff)
+\item 
+{\footnotesize template$<$int32 l, int32 m, typename Vector3 $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{group__spherical_ga0cea7b5e2aa00742a2e8d00af322edf3}{nih\-::rotate\-\_\-\-Z\-H} (const float zh\-\_\-l, const \-Vector3 \&d)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{group__spherical_gac4367786c521d9b0e54b08dd27bcc391}{
+\index{\-Spherical and Zonal Harmonics@{\-Spherical and Zonal Harmonics}!rotate\-\_\-\-Z\-H@{rotate\-\_\-\-Z\-H}}
+\index{rotate\-\_\-\-Z\-H@{rotate\-\_\-\-Z\-H}!Spherical and Zonal Harmonics@{\-Spherical and Zonal Harmonics}}
+\subsubsection[{rotate\-\_\-\-Z\-H}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Z\-H\-Vector , typename S\-H\-Vector , typename Vector3 $>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E void nih\-::rotate\-\_\-\-Z\-H (
+\begin{DoxyParamCaption}
+\item[{const int32}]{\-L, }
+\item[{const \-Z\-H\-Vector \&}]{zh\-\_\-coeff, }
+\item[{const \-Vector3 \&}]{d, }
+\item[{\-S\-H\-Vector \&}]{sh\-\_\-coeff}
+\end{DoxyParamCaption}
+)}}
+\label{group__spherical_gac4367786c521d9b0e54b08dd27bcc391}
+rotate a zonal harmonics to an arbitrary direction vector
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \-L} & number of bands \\
+\hline
+{\em zh\-\_\-coeff} & input \-Zonal \-Harmonics coefficients \\
+\hline
+{\em d} & input vector \\
+\hline
+{\em sh\-\_\-coeff} & output \-Spherical \-Harmonics coefficients \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__spherical_gad3026df527a2ed22cead3594bdd25b19}{
+\index{\-Spherical and Zonal Harmonics@{\-Spherical and Zonal Harmonics}!rotate\-\_\-\-Z\-H@{rotate\-\_\-\-Z\-H}}
+\index{rotate\-\_\-\-Z\-H@{rotate\-\_\-\-Z\-H}!Spherical and Zonal Harmonics@{\-Spherical and Zonal Harmonics}}
+\subsubsection[{rotate\-\_\-\-Z\-H}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int32 \-L, typename Z\-H\-Vector , typename S\-H\-Vector , typename Vector3 $>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E void nih\-::rotate\-\_\-\-Z\-H (
+\begin{DoxyParamCaption}
+\item[{const \-Z\-H\-Vector \&}]{zh\-\_\-coeff, }
+\item[{const \-Vector3 \&}]{d, }
+\item[{\-S\-H\-Vector \&}]{sh\-\_\-coeff}
+\end{DoxyParamCaption}
+)}}
+\label{group__spherical_gad3026df527a2ed22cead3594bdd25b19}
+rotate a zonal harmonics to an arbitrary direction vector, with the number of bands specified at compile-\/time.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em zh\-\_\-coeff} & input \-Zonal \-Harmonics coefficients \\
+\hline
+{\em d} & input vector \\
+\hline
+{\em sh\-\_\-coeff} & output \-Spherical \-Harmonics coefficients \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__spherical_ga0cea7b5e2aa00742a2e8d00af322edf3}{
+\index{\-Spherical and Zonal Harmonics@{\-Spherical and Zonal Harmonics}!rotate\-\_\-\-Z\-H@{rotate\-\_\-\-Z\-H}}
+\index{rotate\-\_\-\-Z\-H@{rotate\-\_\-\-Z\-H}!Spherical and Zonal Harmonics@{\-Spherical and Zonal Harmonics}}
+\subsubsection[{rotate\-\_\-\-Z\-H}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int32 l, int32 m, typename Vector3 $>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float nih\-::rotate\-\_\-\-Z\-H (
+\begin{DoxyParamCaption}
+\item[{const float}]{zh\-\_\-l, }
+\item[{const \-Vector3 \&}]{d}
+\end{DoxyParamCaption}
+)}}
+\label{group__spherical_ga0cea7b5e2aa00742a2e8d00af322edf3}
+return the (l,m) spherical harmonics coefficient of a zonal harmonics function rotated to match a given axis.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em zh\-\_\-l} & l-\/band zonal harmonics coefficient \\
+\hline
+{\em d} & input vector \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__spherical_ga61b3dccbdbb3265ced8cfefc49c4f96c}{
+\index{\-Spherical and Zonal Harmonics@{\-Spherical and Zonal Harmonics}!sh@{sh}}
+\index{sh@{sh}!Spherical and Zonal Harmonics@{\-Spherical and Zonal Harmonics}}
+\subsubsection[{sh}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Vector3 $>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float nih\-::sh (
+\begin{DoxyParamCaption}
+\item[{const int32}]{l, }
+\item[{const int32}]{m, }
+\item[{const \-Vector3 \&}]{v}
+\end{DoxyParamCaption}
+)}}
+\label{group__spherical_ga61b3dccbdbb3265ced8cfefc49c4f96c}
+evaluate the (l,m)-\/th basis function on a given vector
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em l} & band index \\
+\hline
+{\em m} & subband index \\
+\hline
+{\em v} & input vector \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__spherical_ga84c13afac74205bed1f5f3a382088394}{
+\index{\-Spherical and Zonal Harmonics@{\-Spherical and Zonal Harmonics}!sh@{sh}}
+\index{sh@{sh}!Spherical and Zonal Harmonics@{\-Spherical and Zonal Harmonics}}
+\subsubsection[{sh}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int32 l, typename Vector3 $>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float nih\-::sh (
+\begin{DoxyParamCaption}
+\item[{const int32}]{m, }
+\item[{const \-Vector3 \&}]{v}
+\end{DoxyParamCaption}
+)}}
+\label{group__spherical_ga84c13afac74205bed1f5f3a382088394}
+evaluate the (l,m)-\/th basis function on a given vector, where l is determined at compile-\/time.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em m} & subband index \\
+\hline
+{\em v} & input vector \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__spherical_ga093407ba5202540f5ca6cc3da2567970}{
+\index{\-Spherical and Zonal Harmonics@{\-Spherical and Zonal Harmonics}!sh@{sh}}
+\index{sh@{sh}!Spherical and Zonal Harmonics@{\-Spherical and Zonal Harmonics}}
+\subsubsection[{sh}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int32 l, int32 m, typename Vector3 $>$ \-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float nih\-::sh (
+\begin{DoxyParamCaption}
+\item[{const \-Vector3 \&}]{v}
+\end{DoxyParamCaption}
+)}}
+\label{group__spherical_ga093407ba5202540f5ca6cc3da2567970}
+evaluate the (l,m)-\/th basis function on a given vector, where l and m are determined at compile-\/time.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em v} & input vector \\
+\hline
+\end{DoxyParams}

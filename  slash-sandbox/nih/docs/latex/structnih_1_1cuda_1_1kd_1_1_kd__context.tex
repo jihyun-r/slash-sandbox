@@ -1,0 +1,72 @@
+\hypertarget{structnih_1_1cuda_1_1kd_1_1_kd__context}{
+\section{nih\-:\-:cuda\-:\-:kd\-:\-:\-Kd\-\_\-context$<$ \-Integer, \-Output\-Tree $>$ \-Struct \-Template \-Reference}
+\label{structnih_1_1cuda_1_1kd_1_1_kd__context}\index{nih\-::cuda\-::kd\-::\-Kd\-\_\-context$<$ Integer, Output\-Tree $>$@{nih\-::cuda\-::kd\-::\-Kd\-\_\-context$<$ Integer, Output\-Tree $>$}}
+}
+
+
+{\ttfamily \#include $<$kd\-\_\-builder\-\_\-inline.\-h$>$}
+
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1cuda_1_1kd_1_1_kd__context_1_1_context}{\-Context}
+\begin{DoxyCompactList}\small\item\em \-Cuda accessor struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1cuda_1_1kd_1_1_kd__context_ae666201099fed2c086017df8ce24ec29}{
+typedef \-Output\-Tree\-::\-Context {\bfseries \-Base\-Context}}
+\label{structnih_1_1cuda_1_1kd_1_1_kd__context_ae666201099fed2c086017df8ce24ec29}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1cuda_1_1kd_1_1_kd__context_abe9c4314aef3ed1a35933de2d1cbb42a}{
+\hyperlink{structnih_1_1cuda_1_1kd_1_1_kd__context_abe9c4314aef3ed1a35933de2d1cbb42a}{\-Kd\-\_\-context} (\-Output\-Tree context, const \-Integer $\ast$codes, \hyperlink{structnih_1_1_bbox}{\-Bbox3f} bbox)}
+\label{structnih_1_1cuda_1_1kd_1_1_kd__context_abe9c4314aef3ed1a35933de2d1cbb42a}
+
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\hypertarget{structnih_1_1cuda_1_1kd_1_1_kd__context_a0a3ff0a6c3183ae567dcea906240cfb3}{
+void \hyperlink{structnih_1_1cuda_1_1kd_1_1_kd__context_a0a3ff0a6c3183ae567dcea906240cfb3}{reserve\-\_\-nodes} (const uint32 n)}
+\label{structnih_1_1cuda_1_1kd_1_1_kd__context_a0a3ff0a6c3183ae567dcea906240cfb3}
+
+\begin{DoxyCompactList}\small\item\em reserve space for more nodes \end{DoxyCompactList}\item 
+\hypertarget{structnih_1_1cuda_1_1kd_1_1_kd__context_ab7385013e4f09f265ad7627b487d43ce}{
+void \hyperlink{structnih_1_1cuda_1_1kd_1_1_kd__context_ab7385013e4f09f265ad7627b487d43ce}{reserve\-\_\-leaves} (const uint32 n)}
+\label{structnih_1_1cuda_1_1kd_1_1_kd__context_ab7385013e4f09f265ad7627b487d43ce}
+
+\begin{DoxyCompactList}\small\item\em reserve space for more leaves \end{DoxyCompactList}\item 
+\hypertarget{structnih_1_1cuda_1_1kd_1_1_kd__context_a55edd27ba21a537108ecf6f5ed0468a5}{
+\hyperlink{structnih_1_1cuda_1_1kd_1_1_kd__context_1_1_context}{\-Context} \hyperlink{structnih_1_1cuda_1_1kd_1_1_kd__context_a55edd27ba21a537108ecf6f5ed0468a5}{get\-\_\-context} ()}
+\label{structnih_1_1cuda_1_1kd_1_1_kd__context_a55edd27ba21a537108ecf6f5ed0468a5}
+
+\begin{DoxyCompactList}\small\item\em return a cuda context \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1cuda_1_1kd_1_1_kd__context_a694aa7947adb74b84cea3f7e45a2a488}{
+\-Output\-Tree {\bfseries m\-\_\-context}}
+\label{structnih_1_1cuda_1_1kd_1_1_kd__context_a694aa7947adb74b84cea3f7e45a2a488}
+
+\item 
+\hypertarget{structnih_1_1cuda_1_1kd_1_1_kd__context_a13350015a77fa296f473f82cbd0cb95e}{
+const \-Integer $\ast$ {\bfseries m\-\_\-codes}}
+\label{structnih_1_1cuda_1_1kd_1_1_kd__context_a13350015a77fa296f473f82cbd0cb95e}
+
+\item 
+\hypertarget{structnih_1_1cuda_1_1kd_1_1_kd__context_a98d097e5c1523dfa7599772e70b1f0bc}{
+\hyperlink{structnih_1_1_bbox}{\-Bbox3f} {\bfseries m\-\_\-bbox}}
+\label{structnih_1_1cuda_1_1kd_1_1_kd__context_a98d097e5c1523dfa7599772e70b1f0bc}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\subsubsection*{template$<$typename Integer, typename Output\-Tree$>$struct nih\-::cuda\-::kd\-::\-Kd\-\_\-context$<$ Integer, Output\-Tree $>$}
+
+\-A simple binary tree context implementation to be used with the \hyperlink{structnih_1_1_bvh}{\-Bvh} \hyperlink{group__bintree_gad76a50ae08ab4d525f748a7cbcc0fb6e}{generate()} function. 
+
+\-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+kd/cuda/kd\-\_\-builder\-\_\-inline.\-h\end{DoxyCompactItemize}
