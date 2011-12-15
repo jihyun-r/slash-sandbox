@@ -1,0 +1,98 @@
+\hypertarget{classnih_1_1_running_stat}{
+\section{nih\-:\-:\-Running\-Stat \-Class \-Reference}
+\label{classnih_1_1_running_stat}\index{nih\-::\-Running\-Stat@{nih\-::\-Running\-Stat}}
+}
+
+
+{\ttfamily \#include $<$stats.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E \hyperlink{classnih_1_1_running_stat_a7552ff4ea8100a6c2a4116406d7cb4a4}{\-Running\-Stat} ()
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E void \hyperlink{classnih_1_1_running_stat_a089b7318809b0b6465f0cde8bb506a9e}{clear} ()
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E void \hyperlink{classnih_1_1_running_stat_a5569aae5076f40ac16889e5b7f5c1564}{push} (float x)
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E int \hyperlink{classnih_1_1_running_stat_acad1d887fa5d96d4f44fa22e7d572d67}{count} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{classnih_1_1_running_stat_a8785bce54f320d8a74aff13407f70fab}{mean} () const 
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{classnih_1_1_running_stat_a793cbce3c688d017aa1411b73211fa31}{variance} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-A small class to keep a running estimate of avg/variance 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classnih_1_1_running_stat_a7552ff4ea8100a6c2a4116406d7cb4a4}{
+\index{nih\-::\-Running\-Stat@{nih\-::\-Running\-Stat}!\-Running\-Stat@{\-Running\-Stat}}
+\index{\-Running\-Stat@{\-Running\-Stat}!nih::RunningStat@{nih\-::\-Running\-Stat}}
+\subsubsection[{\-Running\-Stat}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E nih\-::\-Running\-Stat\-::\-Running\-Stat (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_running_stat_a7552ff4ea8100a6c2a4116406d7cb4a4}
+empty constructor 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classnih_1_1_running_stat_a089b7318809b0b6465f0cde8bb506a9e}{
+\index{nih\-::\-Running\-Stat@{nih\-::\-Running\-Stat}!clear@{clear}}
+\index{clear@{clear}!nih::RunningStat@{nih\-::\-Running\-Stat}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E void nih\-::\-Running\-Stat\-::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_running_stat_a089b7318809b0b6465f0cde8bb506a9e}
+clear the stats \hypertarget{classnih_1_1_running_stat_acad1d887fa5d96d4f44fa22e7d572d67}{
+\index{nih\-::\-Running\-Stat@{nih\-::\-Running\-Stat}!count@{count}}
+\index{count@{count}!nih::RunningStat@{nih\-::\-Running\-Stat}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E int nih\-::\-Running\-Stat\-::count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_running_stat_acad1d887fa5d96d4f44fa22e7d572d67}
+return the number of values \hypertarget{classnih_1_1_running_stat_a8785bce54f320d8a74aff13407f70fab}{
+\index{nih\-::\-Running\-Stat@{nih\-::\-Running\-Stat}!mean@{mean}}
+\index{mean@{mean}!nih::RunningStat@{nih\-::\-Running\-Stat}}
+\subsubsection[{mean}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float nih\-::\-Running\-Stat\-::mean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_running_stat_a8785bce54f320d8a74aff13407f70fab}
+return the average value \hypertarget{classnih_1_1_running_stat_a5569aae5076f40ac16889e5b7f5c1564}{
+\index{nih\-::\-Running\-Stat@{nih\-::\-Running\-Stat}!push@{push}}
+\index{push@{push}!nih::RunningStat@{nih\-::\-Running\-Stat}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E void nih\-::\-Running\-Stat\-::push (
+\begin{DoxyParamCaption}
+\item[{float}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_running_stat_a5569aae5076f40ac16889e5b7f5c1564}
+push the next value
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em x} & new value \\
+\hline
+\end{DoxyParams}
+\hypertarget{classnih_1_1_running_stat_a793cbce3c688d017aa1411b73211fa31}{
+\index{nih\-::\-Running\-Stat@{nih\-::\-Running\-Stat}!variance@{variance}}
+\index{variance@{variance}!nih::RunningStat@{nih\-::\-Running\-Stat}}
+\subsubsection[{variance}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T\-\_\-\-D\-E\-V\-I\-C\-E float nih\-::\-Running\-Stat\-::variance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnih_1_1_running_stat_a793cbce3c688d017aa1411b73211fa31}
+return the statistical variance 
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+basic/\hyperlink{stats_8h}{stats.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,103 @@
+\hypertarget{structnih_1_1cuda_1_1_kd__knn_3_013_01_4}{
+\section{nih\-:\-:cuda\-:\-:\-Kd\-\_\-knn$<$ 3 $>$ \-Struct \-Template \-Reference}
+\label{structnih_1_1cuda_1_1_kd__knn_3_013_01_4}\index{nih\-::cuda\-::\-Kd\-\_\-knn$<$ 3 $>$@{nih\-::cuda\-::\-Kd\-\_\-knn$<$ 3 $>$}}
+}
+
+
+{\ttfamily \#include $<$knn.\-h$>$}
+
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1cuda_1_1_kd__knn_3_013_01_4_1_1_result}{\-Result}
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Query\-Iterator , typename Point\-Iterator $>$ }\\void \hyperlink{structnih_1_1cuda_1_1_kd__knn_3_013_01_4_a70c1237dd1598e801322c991705f8e35}{run} (const \-Query\-Iterator points\-\_\-begin, const \-Query\-Iterator points\-\_\-end, const \hyperlink{structnih_1_1_kd__node}{\-Kd\-\_\-node} $\ast$kd\-\_\-nodes, const uint2 $\ast$kd\-\_\-ranges, const uint2 $\ast$kd\-\_\-leaves, const \-Point\-Iterator kd\-\_\-points, \-Result $\ast$results)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\subsubsection*{template$<$$>$struct nih\-::cuda\-::\-Kd\-\_\-knn$<$ 3 $>$}
+
+\-G\-P\-U-\/based k-\/\-Nearest \-Neighbors lookup context.
+
+\-This class provides the context to perform 3-\/dimensional k-\/nn lookups on the \-G\-P\-U, using a k-\/d tree.
+
+\-The following code snippet shows how to use this class\-:
+
+
+\begin{DoxyCode}
+ #include <nih/kd/cuda/kd_knn.h>
+
+ thrust::device_vector<Vector4f> kd_points;
+ thrust::device_vector<Kd_node>  kd_nodes;
+ thrust::device_vector<uint2>    kd_leaves;
+ thrust::device_vector<uint32>   kd_index;
+
+ thrust::device_vector<Vector4f> query_points;
+ ... // code to build the k-d tree and query points here...
+     // NOTE: even though we're doing 3-dimensional queries,
+     // we can use Vector4f arrays for better coalescing
+
+ thrust::device_vector<cuda::Kd_knn<3>::Result> results( query_points.size() );
+
+ nih::cuda::Kd_knn<3> knn;
+ knn.run(
+     query_points.begin(),
+     query_points.end(),
+     thrust::raw_pointer_cast( &kd_nodes.front() ),
+     thrust::raw_pointer_cast( &kd_ranges.front() ),
+     thrust::raw_pointer_cast( &kd_leaves.front() ),
+     thrust::raw_pointer_cast( &kd_points.front() ),
+     thrust::raw_pointer_cast( &results.front() ) );
+\end{DoxyCode}
+ 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1cuda_1_1_kd__knn_3_013_01_4_a70c1237dd1598e801322c991705f8e35}{
+\index{nih\-::cuda\-::\-Kd\-\_\-knn$<$ 3 $>$@{nih\-::cuda\-::\-Kd\-\_\-knn$<$ 3 $>$}!run@{run}}
+\index{run@{run}!nih::cuda::Kd_knn< 3 >@{nih\-::cuda\-::\-Kd\-\_\-knn$<$ 3 $>$}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Query\-Iterator , typename Point\-Iterator $>$ void {\bf nih\-::cuda\-::\-Kd\-\_\-knn}$<$ 3 $>$\-::run (
+\begin{DoxyParamCaption}
+\item[{const \-Query\-Iterator}]{points\-\_\-begin, }
+\item[{const \-Query\-Iterator}]{points\-\_\-end, }
+\item[{const {\bf \-Kd\-\_\-node} $\ast$}]{kd\-\_\-nodes, }
+\item[{const uint2 $\ast$}]{kd\-\_\-ranges, }
+\item[{const uint2 $\ast$}]{kd\-\_\-leaves, }
+\item[{const \-Point\-Iterator}]{kd\-\_\-points, }
+\item[{\-Result $\ast$}]{results}
+\end{DoxyParamCaption}
+)}}
+\label{structnih_1_1cuda_1_1_kd__knn_3_013_01_4_a70c1237dd1598e801322c991705f8e35}
+perform a k-\/nn lookup for a set of query points
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em points\-\_\-begin} & beginning of the query point sequence \\
+\hline
+{\em points\-\_\-end} & end of the query point sequence \\
+\hline
+{\em kd\-\_\-nodes} & k-\/d tree nodes \\
+\hline
+{\em kd\-\_\-ranges} & k-\/d tree node ranges \\
+\hline
+{\em kd\-\_\-leaves} & k-\/d tree leaves \\
+\hline
+{\em kd\-\_\-points} & k-\/d tree points\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{\-Template Parameters}
+{\em \-Query\-Iterator} & an iterator type dereferencing to \-Vector$<$float,\-N$>$, with \-N $>$= 3 \\
+\hline
+{\em \-Point\-Iterator} & an iterator type dereferencing to \-Vector$<$float,\-N$>$, with \-N $>$= 3 \\
+\hline
+\end{DoxyTemplParams}
+
+
+\-The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+kd/cuda/knn.\-h\item 
+kd/cuda/knn\-\_\-inline.\-h\end{DoxyCompactItemize}

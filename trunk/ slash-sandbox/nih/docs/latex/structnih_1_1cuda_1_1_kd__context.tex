@@ -1,0 +1,105 @@
+\hypertarget{structnih_1_1cuda_1_1_kd__context}{
+\section{nih\-:\-:cuda\-:\-:\-Kd\-\_\-context \-Struct \-Reference}
+\label{structnih_1_1cuda_1_1_kd__context}\index{nih\-::cuda\-::\-Kd\-\_\-context@{nih\-::cuda\-::\-Kd\-\_\-context}}
+}
+
+
+{\ttfamily \#include $<$kd\-\_\-context.\-h$>$}
+
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1cuda_1_1_kd__context_1_1_context}{\-Context}
+\begin{DoxyCompactList}\small\item\em \-Cuda accessor struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structnih_1_1cuda_1_1_kd__context_aad6e96c8b13921717365ad860e6620af}{\-Kd\-\_\-context} (thrust\-::device\-\_\-vector$<$ \hyperlink{structnih_1_1_kd__node}{\-Kd\-\_\-node} $>$ $\ast$nodes, thrust\-::device\-\_\-vector$<$ uint2 $>$ $\ast$leaves, thrust\-::device\-\_\-vector$<$ uint2 $>$ $\ast$ranges)
+\item 
+void \hyperlink{structnih_1_1cuda_1_1_kd__context_a8773a94cb2efb9297e2a2b7f1e772d77}{reserve\-\_\-nodes} (const uint32 n)
+\item 
+void \hyperlink{structnih_1_1cuda_1_1_kd__context_a27ff1671ea464db8f1250f42229b5d1c}{reserve\-\_\-leaves} (const uint32 n)
+\item 
+\hyperlink{structnih_1_1cuda_1_1_kd__context_1_1_context}{\-Context} \hyperlink{structnih_1_1cuda_1_1_kd__context_a0675465ac211dc183a1f3d3fe4533d26}{get\-\_\-context} ()
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1cuda_1_1_kd__context_a16541e4150f67edfbbb055f031bd21b6}{
+thrust\-::device\-\_\-vector$<$ \hyperlink{structnih_1_1_kd__node}{\-Kd\-\_\-node} $>$ $\ast$ {\bfseries m\-\_\-nodes}}
+\label{structnih_1_1cuda_1_1_kd__context_a16541e4150f67edfbbb055f031bd21b6}
+
+\item 
+\hypertarget{structnih_1_1cuda_1_1_kd__context_aab614a58753424685f2266ca2087b746}{
+thrust\-::device\-\_\-vector$<$ uint2 $>$ $\ast$ {\bfseries m\-\_\-leaves}}
+\label{structnih_1_1cuda_1_1_kd__context_aab614a58753424685f2266ca2087b746}
+
+\item 
+\hypertarget{structnih_1_1cuda_1_1_kd__context_aea0bf9f282a1be20dfaed5131279ff72}{
+thrust\-::device\-\_\-vector$<$ uint2 $>$ $\ast$ {\bfseries m\-\_\-ranges}}
+\label{structnih_1_1cuda_1_1_kd__context_aea0bf9f282a1be20dfaed5131279ff72}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-A context to pass to k-\/d tree builders 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{structnih_1_1cuda_1_1_kd__context_aad6e96c8b13921717365ad860e6620af}{
+\index{nih\-::cuda\-::\-Kd\-\_\-context@{nih\-::cuda\-::\-Kd\-\_\-context}!\-Kd\-\_\-context@{\-Kd\-\_\-context}}
+\index{\-Kd\-\_\-context@{\-Kd\-\_\-context}!nih::cuda::Kd_context@{nih\-::cuda\-::\-Kd\-\_\-context}}
+\subsubsection[{\-Kd\-\_\-context}]{\setlength{\rightskip}{0pt plus 5cm}nih\-::cuda\-::\-Kd\-\_\-context\-::\-Kd\-\_\-context (
+\begin{DoxyParamCaption}
+\item[{thrust\-::device\-\_\-vector$<$ {\bf \-Kd\-\_\-node} $>$ $\ast$}]{nodes, }
+\item[{thrust\-::device\-\_\-vector$<$ uint2 $>$ $\ast$}]{leaves, }
+\item[{thrust\-::device\-\_\-vector$<$ uint2 $>$ $\ast$}]{ranges}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1cuda_1_1_kd__context_aad6e96c8b13921717365ad860e6620af}
+constructor
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em nodes} & output node vector \\
+\hline
+{\em leaves} & output leaf vector \\
+\hline
+{\em ranges} & output node range vector\-: if not \-N\-U\-L\-L, the i-\/th item will be set with the range of prims corresponding to the i-\/th node. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1cuda_1_1_kd__context_a0675465ac211dc183a1f3d3fe4533d26}{
+\index{nih\-::cuda\-::\-Kd\-\_\-context@{nih\-::cuda\-::\-Kd\-\_\-context}!get\-\_\-context@{get\-\_\-context}}
+\index{get\-\_\-context@{get\-\_\-context}!nih::cuda::Kd_context@{nih\-::cuda\-::\-Kd\-\_\-context}}
+\subsubsection[{get\-\_\-context}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Context} nih\-::cuda\-::\-Kd\-\_\-context\-::get\-\_\-context (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1cuda_1_1_kd__context_a0675465ac211dc183a1f3d3fe4533d26}
+return a cuda context \hypertarget{structnih_1_1cuda_1_1_kd__context_a27ff1671ea464db8f1250f42229b5d1c}{
+\index{nih\-::cuda\-::\-Kd\-\_\-context@{nih\-::cuda\-::\-Kd\-\_\-context}!reserve\-\_\-leaves@{reserve\-\_\-leaves}}
+\index{reserve\-\_\-leaves@{reserve\-\_\-leaves}!nih::cuda::Kd_context@{nih\-::cuda\-::\-Kd\-\_\-context}}
+\subsubsection[{reserve\-\_\-leaves}]{\setlength{\rightskip}{0pt plus 5cm}void nih\-::cuda\-::\-Kd\-\_\-context\-::reserve\-\_\-leaves (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1cuda_1_1_kd__context_a27ff1671ea464db8f1250f42229b5d1c}
+reserve space for more leaves \hypertarget{structnih_1_1cuda_1_1_kd__context_a8773a94cb2efb9297e2a2b7f1e772d77}{
+\index{nih\-::cuda\-::\-Kd\-\_\-context@{nih\-::cuda\-::\-Kd\-\_\-context}!reserve\-\_\-nodes@{reserve\-\_\-nodes}}
+\index{reserve\-\_\-nodes@{reserve\-\_\-nodes}!nih::cuda::Kd_context@{nih\-::cuda\-::\-Kd\-\_\-context}}
+\subsubsection[{reserve\-\_\-nodes}]{\setlength{\rightskip}{0pt plus 5cm}void nih\-::cuda\-::\-Kd\-\_\-context\-::reserve\-\_\-nodes (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{structnih_1_1cuda_1_1_kd__context_a8773a94cb2efb9297e2a2b7f1e772d77}
+reserve space for more nodes 
+
+\-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+kd/cuda/\hyperlink{kd__context_8h}{kd\-\_\-context.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,53 @@
+\hypertarget{group__processes}{
+\section{\-Stochastic \-Processes}
+\label{group__processes}\index{\-Stochastic Processes@{\-Stochastic Processes}}
+}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Generator , uint32 \-D\-I\-M$>$ }\\\-Vector$<$ float, \-D\-I\-M $>$ \hyperlink{group__processes_gabb2dd2ed5d619ca9c891ed4ce050fa6a}{nih\-::brownian\-\_\-bridge} (const uint32 \-L, const uint32 t, \-Generator gaussian)
+\item 
+{\footnotesize template$<$uint32 \-D\-I\-M, typename Distribution , typename Sampler\-\_\-type $>$ }\\\-Vector$<$ float, \-D\-I\-M $>$ \hyperlink{group__processes_ga1e80545c2d9cb0ccdc535bd7bbc6b003}{nih\-::generate\-\_\-point} (\-Sampler\-\_\-type \&sampler, \-Distribution \&gaussian)
+\item 
+{\footnotesize template$<$uint32 \-D\-I\-M, typename Sequence , typename Distribution $>$ }\\\-Vector$<$ float, \-D\-I\-M $>$ \hyperlink{group__processes_gadd2480f0c83af4a386b888ed7ed8e955}{nih\-::brownian\-\_\-bridge} (\-Distribution \&gaussian, const float sigma, const uint32 \-N, const uint32 i, const uint32 \-L, const uint32 t, const \-Sequence \&sequence)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{group__processes_gabb2dd2ed5d619ca9c891ed4ce050fa6a}{
+\index{\-Stochastic Processes@{\-Stochastic Processes}!brownian\-\_\-bridge@{brownian\-\_\-bridge}}
+\index{brownian\-\_\-bridge@{brownian\-\_\-bridge}!Stochastic Processes@{\-Stochastic Processes}}
+\subsubsection[{brownian\-\_\-bridge}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Generator , uint32 \-D\-I\-M$>$ \-Vector$<$ float, \-D\-I\-M $>$ nih\-::brownian\-\_\-bridge (
+\begin{DoxyParamCaption}
+\item[{const uint32}]{\-L, }
+\item[{const uint32}]{t, }
+\item[{\-Generator}]{gaussian}
+\end{DoxyParamCaption}
+)}}
+\label{group__processes_gabb2dd2ed5d619ca9c891ed4ce050fa6a}
+\-Evaluate a \-D\-I\-M-\/dimensional \-Brownian bridge of length \-L at time t, using a black-\/box \-Gaussian generator. \hypertarget{group__processes_gadd2480f0c83af4a386b888ed7ed8e955}{
+\index{\-Stochastic Processes@{\-Stochastic Processes}!brownian\-\_\-bridge@{brownian\-\_\-bridge}}
+\index{brownian\-\_\-bridge@{brownian\-\_\-bridge}!Stochastic Processes@{\-Stochastic Processes}}
+\subsubsection[{brownian\-\_\-bridge}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32 \-D\-I\-M, typename Sequence , typename Distribution $>$ \-Vector$<$ float, \-D\-I\-M $>$ nih\-::brownian\-\_\-bridge (
+\begin{DoxyParamCaption}
+\item[{\-Distribution \&}]{gaussian, }
+\item[{const float}]{sigma, }
+\item[{const uint32}]{\-N, }
+\item[{const uint32}]{i, }
+\item[{const uint32}]{\-L, }
+\item[{const uint32}]{t, }
+\item[{const \-Sequence \&}]{sequence}
+\end{DoxyParamCaption}
+)}}
+\label{group__processes_gadd2480f0c83af4a386b888ed7ed8e955}
+\-Evaluate the i/\-N-\/th \-D\-I\-M-\/dimensional \-Brownian bridge of length \-L at time t. \-The bridges are created using \-L copies of a \-D\-I\-M-\/dimensional \-Sobol sequence, first permuted and then shifted through \-Cranley-\/\-Patterson rotations. \-The vector of permutations must contain \-L permutations of the indices \mbox{[}0,\-N-\/1\mbox{]}, and the vector of rotations must contain \-L $\ast$ (\-D\-I\-M + (\-D\-I\-M \& 1)) entries. \hypertarget{group__processes_ga1e80545c2d9cb0ccdc535bd7bbc6b003}{
+\index{\-Stochastic Processes@{\-Stochastic Processes}!generate\-\_\-point@{generate\-\_\-point}}
+\index{generate\-\_\-point@{generate\-\_\-point}!Stochastic Processes@{\-Stochastic Processes}}
+\subsubsection[{generate\-\_\-point}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32 \-D\-I\-M, typename Distribution , typename Sampler\-\_\-type $>$ \-Vector$<$ float, \-D\-I\-M $>$ nih\-::generate\-\_\-point (
+\begin{DoxyParamCaption}
+\item[{\-Sampler\-\_\-type \&}]{sampler, }
+\item[{\-Distribution \&}]{gaussian}
+\end{DoxyParamCaption}
+)}}
+\label{group__processes_ga1e80545c2d9cb0ccdc535bd7bbc6b003}
+\-A simple utility function to generate a \-D\-I\-M-\/dimensional \-Gaussian point using the i-\/th point of a sample sequence, shifted by a \-Cranley-\/\-Patterson rotation. 

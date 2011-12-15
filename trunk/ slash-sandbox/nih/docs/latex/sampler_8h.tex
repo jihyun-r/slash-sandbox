@@ -1,0 +1,52 @@
+\hypertarget{sampler_8h}{
+\section{sampling/sampler.h \-File \-Reference}
+\label{sampler_8h}\index{sampling/sampler.\-h@{sampling/sampler.\-h}}
+}
+
+
+\-Defines several multidimensional samplers.  
+
+
+{\ttfamily \#include $<$nih/linalg/vector.\-h$>$}\*
+{\ttfamily \#include $<$nih/sampling/random.\-h$>$}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$algorithm$>$}\*
+{\ttfamily \#include $<$nih/sampling/sampler\-\_\-inline.\-h$>$}\*
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1_sample__vector}{nih\-::\-Sample\-\_\-vector$<$ Iterator $>$}
+\item 
+struct \hyperlink{structnih_1_1_sampler}{nih\-::\-Sampler}
+\item 
+struct \hyperlink{structnih_1_1_m_j_sampler}{nih\-::\-M\-J\-Sampler}
+\item 
+struct \hyperlink{structnih_1_1_m_j_sampler_1_1_sample}{nih\-::\-M\-J\-Sampler\-::\-Sample}
+\item 
+class \hyperlink{classnih_1_1_sample__combiner}{nih\-::\-Sample\-\_\-combiner$<$ Image\-\_\-type $>$}
+\item 
+struct \hyperlink{structnih_1_1_sample__combiner_1_1_row}{nih\-::\-Sample\-\_\-combiner$<$ Image\-\_\-type $>$\-::\-Row}
+\item 
+class \hyperlink{classnih_1_1_sample__layer}{nih\-::\-Sample\-\_\-layer$<$ Image\-\_\-type1, Image\-\_\-type2 $>$}
+\item 
+struct \hyperlink{structnih_1_1_sample__layer_1_1_row}{nih\-::\-Sample\-\_\-layer$<$ Image\-\_\-type1, Image\-\_\-type2 $>$\-::\-Row}
+\item 
+class \hyperlink{classnih_1_1_sample__window}{nih\-::\-Sample\-\_\-window$<$ Image\-\_\-type $>$}
+\item 
+struct \hyperlink{structnih_1_1_sample__window_1_1_row}{nih\-::\-Sample\-\_\-window$<$ Image\-\_\-type $>$\-::\-Row}
+\item 
+struct \hyperlink{structnih_1_1_sample__transformation}{nih\-::\-Sample\-\_\-transformation}
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32 \hyperlink{group__sampling_ga7f85d8d007bbaa744e558171b0064b8e}{nih\-::sample\-\_\-cdf} (const float x, const std\-::vector$<$ float $>$ \&cdf, float \&pdf)
+\item 
+uint32 \hyperlink{group__sampling_gae3dbf9f72ee99070878574ef9543785e}{nih\-::sample\-\_\-cdf} (const float x, const uint32 n, const float $\ast$cdf, float \&pdf)
+\item 
+float \hyperlink{group__sampling_ga2ba33066ab272bd8b90be1046198a124}{nih\-::sample\-\_\-cdf\-\_\-cont} (const float x, const std\-::vector$<$ float $>$ \&cdf, float \&pdf)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Defines several multidimensional samplers. \-This module provides several multi-\/dimensional samplers, ranging from latin hypercube to multi-\/jittered. \-It also provides helper objects to combine sample sets either by layering of different sets for different dimensions, or by \-C\-P-\/rotations. \-A sample set is represented as an image \-I, such that \-I\mbox{[}i\mbox{]}\mbox{[}d\mbox{]} represents the d-\/th coordinate of the i-\/th sample. 

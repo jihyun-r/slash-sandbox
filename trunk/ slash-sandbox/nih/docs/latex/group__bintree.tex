@@ -1,0 +1,131 @@
+\hypertarget{group__bintree}{
+\section{\-Binary \-Trees}
+\label{group__bintree}\index{\-Binary Trees@{\-Binary Trees}}
+}
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1_bintree__node}{nih\-::\-Bintree\-\_\-node}
+\item 
+struct \hyperlink{structnih_1_1cuda_1_1_bintree__context}{nih\-::cuda\-::\-Bintree\-\_\-context}
+\item 
+struct \hyperlink{structnih_1_1cuda_1_1_bintree__gen__context}{nih\-::cuda\-::\-Bintree\-\_\-gen\-\_\-context}
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Tree , typename Integer $>$ }\\void \hyperlink{group__bintree_gad76a50ae08ab4d525f748a7cbcc0fb6e}{nih\-::cuda\-::generate} (\-Bintree\-\_\-gen\-\_\-context \&context, const uint32 n\-\_\-codes, const \-Integer $\ast$codes, const uint32 bits, const uint32 max\-\_\-leaf\-\_\-size, const bool keep\-\_\-singletons, \-Tree \&tree)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{group__bintree_gad76a50ae08ab4d525f748a7cbcc0fb6e}{
+\index{\-Binary Trees@{\-Binary Trees}!generate@{generate}}
+\index{generate@{generate}!Binary Trees@{\-Binary Trees}}
+\subsubsection[{generate}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Tree , typename Integer $>$ void nih\-::cuda\-::generate (
+\begin{DoxyParamCaption}
+\item[{\-Bintree\-\_\-gen\-\_\-context \&}]{context, }
+\item[{const uint32}]{n\-\_\-codes, }
+\item[{const \-Integer $\ast$}]{codes, }
+\item[{const uint32}]{bits, }
+\item[{const uint32}]{max\-\_\-leaf\-\_\-size, }
+\item[{const bool}]{keep\-\_\-singletons, }
+\item[{\-Tree \&}]{tree}
+\end{DoxyParamCaption}
+)}}
+\label{group__bintree_gad76a50ae08ab4d525f748a7cbcc0fb6e}
+\-Generate a binary tree from a set of sorted integers, splitting the set top-\/down at each occurrence of a bit set to 1. \-In practice, if the integers are seen as \-Morton codes, this algorithm generates a middle-\/split k-\/d tree.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em context} & the generation context \\
+\hline
+{\em n\-\_\-codes} & number of entries in the input set of codes \\
+\hline
+{\em codes} & input set of codes \\
+\hline
+{\em bits} & number of bits per code \\
+\hline
+{\em max\-\_\-leaf\-\_\-size} & maximum target number of entries per leaf \\
+\hline
+{\em keep\-\_\-singletons} & mark whether to keep or suppress singleton nodes in the output tree \\
+\hline
+{\em tree} & output tree\\
+\hline
+\end{DoxyParams}
+\-The \-Tree template parameter has to provide the following interface\-:
+
+
+\begin{DoxyCode}
+ struct Tree
+ {
+    void reserve_nodes(const uint32 n);  // reserve space for n nodes
+    void reserve_leaves(const uint32 n); // reserve space for n leaves
+
+    Context get_context();             // get a context to write nodes/leaves
+
+    struct Context
+    {
+        void write_node(
+           const uint32 node,          // node to write
+           const bool   left_child,    // specify whether the node has a left
+       child
+           const bool   right_child,   // specify whether the node has a right
+       child
+           const uint32 offset,        // child offset
+           const uint32 skip_node,     // skip node
+           const uint32 level,         // split level
+           const uint32 begin,         // node range begin
+           const uint32 end,           // node range end
+           const uint32 split_index);  // split index
+
+        void write_leaf(
+           const uint32 index,         // leaf to write
+           const uint32 begin,         // leaf range begin
+           const uint32 end);          // leaf range end
+    };
+ };
+\end{DoxyCode}
+
+
+\-The following code snippet shows how to use this builder\-:
+
+
+\begin{DoxyCode}
+ #include <nih/bintree/cuda/bintree_gen.h>
+ #include <nih/bintree/cuda/bintree_context.h>
+ #include <nih/bits/morton.h>
+
+ const uint32 n_points = 1000000;
+ thrust::device_vector<Vecto3f> points( n_points );
+ ... // generate a bunch of points here
+
+ // compute their Morton codes
+ thrust::device_vector<uint32> codes( n_points );
+ thrust::transform(
+     points.begin(),
+     points.begin() + n_points,
+     codes.begin(),
+     morton_functor<uint32>() );
+
+ // sort them
+ thrust::sort( codes.begin(), codes.end() );
+
+ // allocate storage for a binary tree...
+ thrust::device_vector<Bintree_node> nodes;
+ thrust::device_vector<uint2>        leaves;
+
+ Bintree_context tree( nodes, leaves );
+
+ // ...and generate it!
+ Bintree_gen_context gen_context;
+ cuda::generate(
+     gen_context,
+     n_points,
+     thrust::raw_pointer_cast( &codes.front() ),
+     30u,
+     16u,
+     false,
+     tree );
+\end{DoxyCode}
+ 

@@ -1,0 +1,137 @@
+\hypertarget{structnih_1_1_oct__basis}{
+\section{nih\-:\-:\-Oct\-\_\-basis \-Struct \-Reference}
+\label{structnih_1_1_oct__basis}\index{nih\-::\-Oct\-\_\-basis@{nih\-::\-Oct\-\_\-basis}}
+}
+
+
+{\ttfamily \#include $<$oct.\-h$>$}
+
+\subsection*{\-Static \-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\-N\-I\-H\-\_\-\-H\-O\-S\-T static \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E float \hyperlink{structnih_1_1_oct__basis_a3416fb501ffa0800555a1d6d155d1ede}{eval} (const int32 i, const \hyperlink{structnih_1_1_vector}{\-Vector3f} \&d)
+\item 
+static void \hyperlink{structnih_1_1_oct__basis_acb3b29cb0c7c734967155a0db1f4cc21}{clamped\-\_\-cosine} (const \hyperlink{structnih_1_1_vector}{\-Vector3f} \&normal, const float w, float $\ast$coeffs)
+\item 
+static void \hyperlink{structnih_1_1_oct__basis_a65fc8be223ac745b96f1fe8fc6d7b17c}{constant} (float k, float $\ast$coeffs)
+\item 
+static float \hyperlink{structnih_1_1_oct__basis_a24c4318d1fff8c5479cb9818d091a762}{integral} (const float $\ast$coeffs)
+\item 
+{\footnotesize template$<$typename Vector\-\_\-type $>$ }\\static float \hyperlink{structnih_1_1_oct__basis_acb720797ed36adc43ee4c40d8189ade6}{integral} (const \-Vector\-\_\-type \&coeffs)
+\item 
+static void \hyperlink{structnih_1_1_oct__basis_a0278f1597434a516d596659ec9501d89}{solve} (float $\ast$coeffs)
+\end{DoxyCompactItemize}
+\subsection*{\-Static \-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structnih_1_1_oct__basis_a9cb8fb88334e2a673b32ab0d7e00d97c}{
+static const int32 {\bfseries \-C\-O\-E\-F\-F\-S} = 8}
+\label{structnih_1_1_oct__basis_a9cb8fb88334e2a673b32ab0d7e00d97c}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-An octahedral basis\-: the basis functions correspond to the characteristic functions of the intersection of the octants and the sphere, and do not overlap. 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{structnih_1_1_oct__basis_acb3b29cb0c7c734967155a0db1f4cc21}{
+\index{nih\-::\-Oct\-\_\-basis@{nih\-::\-Oct\-\_\-basis}!clamped\-\_\-cosine@{clamped\-\_\-cosine}}
+\index{clamped\-\_\-cosine@{clamped\-\_\-cosine}!nih::Oct_basis@{nih\-::\-Oct\-\_\-basis}}
+\subsubsection[{clamped\-\_\-cosine}]{\setlength{\rightskip}{0pt plus 5cm}void nih\-::\-Oct\-\_\-basis\-::clamped\-\_\-cosine (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vector3f} \&}]{normal, }
+\item[{const float}]{w, }
+\item[{float $\ast$}]{coeffs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{structnih_1_1_oct__basis_acb3b29cb0c7c734967155a0db1f4cc21}
+add a weighted basis expansion of a clamped cosine lobe to a given set of coefficients
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em normal} & input normal \\
+\hline
+{\em w} & scalar weight \\
+\hline
+{\em coeffs} & input/output coefficients \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_oct__basis_a65fc8be223ac745b96f1fe8fc6d7b17c}{
+\index{nih\-::\-Oct\-\_\-basis@{nih\-::\-Oct\-\_\-basis}!constant@{constant}}
+\index{constant@{constant}!nih::Oct_basis@{nih\-::\-Oct\-\_\-basis}}
+\subsubsection[{constant}]{\setlength{\rightskip}{0pt plus 5cm}static void nih\-::\-Oct\-\_\-basis\-::constant (
+\begin{DoxyParamCaption}
+\item[{float}]{k, }
+\item[{float $\ast$}]{coeffs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{structnih_1_1_oct__basis_a65fc8be223ac745b96f1fe8fc6d7b17c}
+return the basis expansion of a constant
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em k} & input constant \\
+\hline
+{\em coeffs} & output coefficients \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_oct__basis_a3416fb501ffa0800555a1d6d155d1ede}{
+\index{nih\-::\-Oct\-\_\-basis@{nih\-::\-Oct\-\_\-basis}!eval@{eval}}
+\index{eval@{eval}!nih::Oct_basis@{nih\-::\-Oct\-\_\-basis}}
+\subsubsection[{eval}]{\setlength{\rightskip}{0pt plus 5cm}\-N\-I\-H\-\_\-\-H\-O\-S\-T static \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E float nih\-::\-Oct\-\_\-basis\-::eval (
+\begin{DoxyParamCaption}
+\item[{const int32}]{i, }
+\item[{const {\bf \-Vector3f} \&}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{structnih_1_1_oct__basis_a3416fb501ffa0800555a1d6d155d1ede}
+evaluate the i-\/th octahedral function
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em i} & function index \\
+\hline
+{\em d} & input direction vector \\
+\hline
+\end{DoxyParams}
+\hypertarget{structnih_1_1_oct__basis_a24c4318d1fff8c5479cb9818d091a762}{
+\index{nih\-::\-Oct\-\_\-basis@{nih\-::\-Oct\-\_\-basis}!integral@{integral}}
+\index{integral@{integral}!nih::Oct_basis@{nih\-::\-Oct\-\_\-basis}}
+\subsubsection[{integral}]{\setlength{\rightskip}{0pt plus 5cm}static float nih\-::\-Oct\-\_\-basis\-::integral (
+\begin{DoxyParamCaption}
+\item[{const float $\ast$}]{coeffs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{structnih_1_1_oct__basis_a24c4318d1fff8c5479cb9818d091a762}
+return the integral of a spherical hamonics function \hypertarget{structnih_1_1_oct__basis_acb720797ed36adc43ee4c40d8189ade6}{
+\index{nih\-::\-Oct\-\_\-basis@{nih\-::\-Oct\-\_\-basis}!integral@{integral}}
+\index{integral@{integral}!nih::Oct_basis@{nih\-::\-Oct\-\_\-basis}}
+\subsubsection[{integral}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Vector\-\_\-type $>$ static float nih\-::\-Oct\-\_\-basis\-::integral (
+\begin{DoxyParamCaption}
+\item[{const \-Vector\-\_\-type \&}]{coeffs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{structnih_1_1_oct__basis_acb720797ed36adc43ee4c40d8189ade6}
+return the integral of a spherical hamonics function \hypertarget{structnih_1_1_oct__basis_a0278f1597434a516d596659ec9501d89}{
+\index{nih\-::\-Oct\-\_\-basis@{nih\-::\-Oct\-\_\-basis}!solve@{solve}}
+\index{solve@{solve}!nih::Oct_basis@{nih\-::\-Oct\-\_\-basis}}
+\subsubsection[{solve}]{\setlength{\rightskip}{0pt plus 5cm}static void nih\-::\-Oct\-\_\-basis\-::solve (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{coeffs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{structnih_1_1_oct__basis_a0278f1597434a516d596659ec9501d89}
+solve the linear least squares projection for a set of coefficients
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em coeffs} & input projection coefficients \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+spherical/\hyperlink{oct_8h}{oct.\-h}\item 
+spherical/oct.\-cpp\end{DoxyCompactItemize}

@@ -1,0 +1,115 @@
+\hypertarget{group__matrices}{
+\section{\-Matrices}
+\label{group__matrices}\index{\-Matrices@{\-Matrices}}
+}
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1_matrix}{nih\-::\-Matrix$<$ T, N, M $>$}
+\end{DoxyCompactItemize}
+\subsection*{\-Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__matrices_ga068289888360ffe2e4c54644a89c3bde}{
+typedef \-Matrix$<$ float, 3, 3 $>$ {\bfseries nih\-::\-Matrix3x3f}}
+\label{group__matrices_ga068289888360ffe2e4c54644a89c3bde}
+
+\item 
+\hypertarget{group__matrices_gaa34814c8fbeebc00b3aacbbb9a802a0f}{
+typedef \-Matrix$<$ double, 3, 3 $>$ {\bfseries nih\-::\-Matrix3x3d}}
+\label{group__matrices_gaa34814c8fbeebc00b3aacbbb9a802a0f}
+
+\item 
+\hypertarget{group__matrices_gab91e326c8a8aefd74552fcf7453d9edf}{
+typedef \-Matrix$<$ float, 4, 4 $>$ {\bfseries nih\-::\-Matrix4x4f}}
+\label{group__matrices_gab91e326c8a8aefd74552fcf7453d9edf}
+
+\item 
+\hypertarget{group__matrices_gae98749c4d28911f80b68e56efb46b7c8}{
+typedef \-Matrix$<$ double, 4, 4 $>$ {\bfseries nih\-::\-Matrix4x4d}}
+\label{group__matrices_gae98749c4d28911f80b68e56efb46b7c8}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__matrices_ga9d891cd64a82aefc62f28dca0061a99f}{
+{\footnotesize template$<$typename T , int \-N, int \-M, int \-Q$>$ }\\\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-Matrix$<$ \-T, \-N, \-Q $>$ \& {\bfseries nih\-::multiply} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, const \-Matrix$<$ \-T, \-M, \-Q $>$ \&, \-Matrix$<$ \-T, \-N, \-Q $>$ \&)}
+\label{group__matrices_ga9d891cd64a82aefc62f28dca0061a99f}
+
+\item 
+\hypertarget{group__matrices_gae27c9ec1c67d6ccc566ccef54d6134ec}{
+{\footnotesize template$<$typename T , int \-N, int \-M, int \-Q$>$ }\\\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-Matrix$<$ \-T, \-N, \-Q $>$ {\bfseries nih\-::operator$\ast$} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, const \-Matrix$<$ \-T, \-M, \-Q $>$ \&)}
+\label{group__matrices_gae27c9ec1c67d6ccc566ccef54d6134ec}
+
+\item 
+\hypertarget{group__matrices_ga3b402229a02f14d9742452c586f5215d}{
+{\footnotesize template$<$typename T , int \-N, int \-M$>$ }\\\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-Vector$<$ \-T, \-M $>$ \& {\bfseries nih\-::multiply} (const \-Vector$<$ \-T, \-N $>$ \&, const \-Matrix$<$ \-T, \-N, \-M $>$ \&, \-Vector$<$ \-T, \-M $>$ \&)}
+\label{group__matrices_ga3b402229a02f14d9742452c586f5215d}
+
+\item 
+\hypertarget{group__matrices_ga0f199ec8806602a51e72f64b9ee2860c}{
+{\footnotesize template$<$typename T , int \-N, int \-M$>$ }\\\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-Vector$<$ \-T, \-N $>$ \& {\bfseries nih\-::multiply} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, const \-Vector$<$ \-T, \-M $>$ \&, \-Vector$<$ \-T, \-N $>$ \&)}
+\label{group__matrices_ga0f199ec8806602a51e72f64b9ee2860c}
+
+\item 
+\hypertarget{group__matrices_ga3585b1336ed34f070bbffd8904057a72}{
+{\footnotesize template$<$typename T , int \-N, int \-M$>$ }\\\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-Matrix$<$ \-T, \-M, \-N $>$ {\bfseries nih\-::transpose} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&)}
+\label{group__matrices_ga3585b1336ed34f070bbffd8904057a72}
+
+\item 
+\hypertarget{group__matrices_ga317a79a13fca76856e3c4500ec8eeffa}{
+{\footnotesize template$<$typename T , int \-N, int \-M$>$ }\\\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-Matrix$<$ \-T, \-M, \-N $>$ \& {\bfseries nih\-::transpose} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, \-Matrix$<$ \-T, \-M, \-N $>$ \&)}
+\label{group__matrices_ga317a79a13fca76856e3c4500ec8eeffa}
+
+\item 
+\hypertarget{group__matrices_ga0f2181373ff7ef8ed392ccf8f92b8b97}{
+{\footnotesize template$<$typename T , int \-N, int \-M$>$ }\\\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S bool {\bfseries nih\-::invert} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&, \-Matrix$<$ \-T, \-M, \-N $>$ \&)}
+\label{group__matrices_ga0f2181373ff7ef8ed392ccf8f92b8b97}
+
+\item 
+\hypertarget{group__matrices_ga23f8ea3658a91f52bf853a4865f7df80}{
+{\footnotesize template$<$typename T , int \-N, int \-M$>$ }\\\-N\-I\-H\-\_\-\-A\-P\-I\-\_\-\-C\-S \-T {\bfseries nih\-::det} (const \-Matrix$<$ \-T, \-N, \-M $>$ \&)}
+\label{group__matrices_ga23f8ea3658a91f52bf853a4865f7df80}
+
+\item 
+\hypertarget{group__matrices_ga5d92f3307949b63085b54c2c4d14cb78}{
+{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Matrix$<$ \-T, 4, 4 $>$ \hyperlink{group__matrices_ga5d92f3307949b63085b54c2c4d14cb78}{nih\-::translate} (const \-Vector$<$ \-T, 3 $>$ \&vec)}
+\label{group__matrices_ga5d92f3307949b63085b54c2c4d14cb78}
+
+\begin{DoxyCompactList}\small\item\em build a 3d translation matrix \end{DoxyCompactList}\item 
+\hypertarget{group__matrices_gad1ee54c47ad750f6485c00f707dd978c}{
+{\footnotesize template$<$typename T $>$ }\\\-Matrix$<$ \-T, 4, 4 $>$ \hyperlink{group__matrices_gad1ee54c47ad750f6485c00f707dd978c}{nih\-::perspective} (\-T fovy, \-T aspect, \-T z\-Near, \-T z\-Far)}
+\label{group__matrices_gad1ee54c47ad750f6485c00f707dd978c}
+
+\begin{DoxyCompactList}\small\item\em build a 3d perspective matrix \end{DoxyCompactList}\item 
+\hypertarget{group__matrices_ga9df91e2ecf368ee7e7b9dddce3a7f3d1}{
+{\footnotesize template$<$typename T $>$ }\\\-Matrix$<$ \-T, 4, 4 $>$ \hyperlink{group__matrices_ga9df91e2ecf368ee7e7b9dddce3a7f3d1}{nih\-::look\-\_\-at} (const \-Vector$<$ \-T, 3 $>$ \&eye, const \-Vector$<$ \-T, 3 $>$ \&center, const \-Vector$<$ \-T, 3 $>$ \&up)}
+\label{group__matrices_ga9df91e2ecf368ee7e7b9dddce3a7f3d1}
+
+\begin{DoxyCompactList}\small\item\em build a 3d look at matrix \end{DoxyCompactList}\item 
+\hypertarget{group__matrices_gaf42e47e61afca06aff0efdbb26cfc1ef}{
+{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Matrix$<$ \-T, 4, 4 $>$ \hyperlink{group__matrices_gaf42e47e61afca06aff0efdbb26cfc1ef}{nih\-::rotation\-\_\-around\-\_\-\-X} (const \-T q)}
+\label{group__matrices_gaf42e47e61afca06aff0efdbb26cfc1ef}
+
+\begin{DoxyCompactList}\small\item\em build a 3d rotation around the \-X axis \end{DoxyCompactList}\item 
+\hypertarget{group__matrices_ga21af57144d9398e235230c2096f64655}{
+{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Matrix$<$ \-T, 4, 4 $>$ \hyperlink{group__matrices_ga21af57144d9398e235230c2096f64655}{nih\-::rotation\-\_\-around\-\_\-\-Y} (const \-T q)}
+\label{group__matrices_ga21af57144d9398e235230c2096f64655}
+
+\begin{DoxyCompactList}\small\item\em build a 3d rotation around the \-Y axis \end{DoxyCompactList}\item 
+\hypertarget{group__matrices_gaa52af0191054c50d9ebd145331c61a78}{
+{\footnotesize template$<$typename T $>$ }\\\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Matrix$<$ \-T, 4, 4 $>$ \hyperlink{group__matrices_gaa52af0191054c50d9ebd145331c61a78}{nih\-::rotation\-\_\-around\-\_\-\-Z} (const \-T q)}
+\label{group__matrices_gaa52af0191054c50d9ebd145331c61a78}
+
+\begin{DoxyCompactList}\small\item\em build a 3d rotation around the \-Z axis \end{DoxyCompactList}\item 
+\hypertarget{group__matrices_ga33d8b434a7554e170c48d85be8a45efd}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Vector3f \hyperlink{group__matrices_ga33d8b434a7554e170c48d85be8a45efd}{nih\-::ptrans} (const \-Matrix4x4f \&m, const \-Vector3f \&v)}
+\label{group__matrices_ga33d8b434a7554e170c48d85be8a45efd}
+
+\begin{DoxyCompactList}\small\item\em transform a 3d point with a perspective transform \end{DoxyCompactList}\item 
+\hypertarget{group__matrices_ga90f6d2850e286d194db09300a4d99537}{
+\-N\-I\-H\-\_\-\-H\-O\-S\-T \-N\-I\-H\-\_\-\-D\-E\-V\-I\-C\-E \-Vector3f \hyperlink{group__matrices_ga90f6d2850e286d194db09300a4d99537}{nih\-::vtrans} (const \-Matrix4x4f \&m, const \-Vector3f \&v)}
+\label{group__matrices_ga90f6d2850e286d194db09300a4d99537}
+
+\begin{DoxyCompactList}\small\item\em transform a 3d vector with a perspective transform \end{DoxyCompactList}\end{DoxyCompactItemize}

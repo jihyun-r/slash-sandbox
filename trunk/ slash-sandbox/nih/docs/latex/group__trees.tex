@@ -1,0 +1,118 @@
+\hypertarget{group__trees}{
+\section{\-Trees}
+\label{group__trees}\index{\-Trees@{\-Trees}}
+}
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnih_1_1breadth__first__tree}{nih\-::breadth\-\_\-first\-\_\-tree}
+\item 
+struct \hyperlink{structnih_1_1depth__first__tree}{nih\-::depth\-\_\-first\-\_\-tree}
+\item 
+struct \hyperlink{structnih_1_1_b_f_tree}{nih\-::\-B\-F\-Tree$<$ Node\-\_\-iterator, Domain\-\_\-type $>$}
+\begin{DoxyCompactList}\small\item\em \-A simple \-Breadth-\/\-First \-Tree model implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Tree , typename Input\-\_\-iterator , typename Output\-\_\-iterator , typename Operator $>$ }\\void \hyperlink{group__trees_gaa9d77543c5662fa5fc19d34fbcffece1}{nih\-::cuda\-::tree\-\_\-reduce} (const \-Tree tree, const \-Input\-\_\-iterator in\-\_\-values, \-Output\-\_\-iterator leaf\-\_\-values, \-Output\-\_\-iterator node\-\_\-values, const \-Operator op, const typename std\-::iterator\-\_\-traits$<$ \-Output\-\_\-iterator $>$\-::value\-\_\-type def\-\_\-value)
+\item 
+{\footnotesize template$<$typename Tree , typename Input\-\_\-iterator , typename Output\-\_\-iterator , typename Operator $>$ }\\void \hyperlink{group__trees_ga623ca32c63710202fea743670faeee28}{nih\-::cuda\-::tree\-\_\-reduce} (const \-Tree tree, const \-Input\-\_\-iterator in\-\_\-values, \-Output\-\_\-iterator node\-\_\-values, const \-Operator op)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{group__trees_gaa9d77543c5662fa5fc19d34fbcffece1}{
+\index{\-Trees@{\-Trees}!tree\-\_\-reduce@{tree\-\_\-reduce}}
+\index{tree\-\_\-reduce@{tree\-\_\-reduce}!Trees@{\-Trees}}
+\subsubsection[{tree\-\_\-reduce}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Tree , typename Input\-\_\-iterator , typename Output\-\_\-iterator , typename Operator $>$ void nih\-::cuda\-::tree\-\_\-reduce (
+\begin{DoxyParamCaption}
+\item[{const \-Tree}]{tree, }
+\item[{const \-Input\-\_\-iterator}]{in\-\_\-values, }
+\item[{\-Output\-\_\-iterator}]{leaf\-\_\-values, }
+\item[{\-Output\-\_\-iterator}]{node\-\_\-values, }
+\item[{const \-Operator}]{op, }
+\item[{const typename std\-::iterator\-\_\-traits$<$ \-Output\-\_\-iterator $>$\-::value\-\_\-type}]{def\-\_\-value}
+\end{DoxyParamCaption}
+)}}
+\label{group__trees_gaa9d77543c5662fa5fc19d34fbcffece1}
+\-Reduce a bunch of values attached to the elemens in the leaves of a tree. \-The \-Tree template type has to provide the following breadth-\/first tree interface\-:
+
+
+\begin{DoxyCode}
+ struct Tree
+ {
+     // return the number of levels
+     uint32 get_level_count() const;
+
+     // return the index of the first node in the i-th level
+     uint32 get_level(const uint32 i) const;
+
+     // retrieve a node
+     node_type get_node(const uint32 index) const;
+
+     // return the number of leaves
+     uint32 get_leaf_count() const;
+
+     // retrieve a leaf
+     uint2 get_leaf(const uint32 index) const;
+ };
+\end{DoxyCode}
+
+
+\-The following code snippet illustrates an example usage\-:
+
+
+\begin{DoxyCode}
+ #include <nih/tree/cuda/tree_reduce.h>
+ #include <nih/tree/model.h>
+
+ struct merge_op
+ {
+     NIH_HOST_DEVICE Bbox4f operator() (
+         const Bbox4f op1,
+         const Bbox4f op2) const { return Bbox4f( op1, op2 ); }
+ };
+
+ // compute the bboxes of a tree
+ void compute_bboxes(
+     uint32      node_count,     // input tree nodes
+     uint32      leaf_count,     // input tree leaves
+     uint32      level_count,    // input tree levels
+     Bvh_node*   nodes,          // input tree nodes, device pointer
+     uint2*      leaves,         // input tree leaves, device pointer
+     uint32*     levels,         // input tree levels, host pointer
+     Bbox4f*     bboxes,         // input primitive bboxes, device pointer
+     Bbox4f*     node_bboxes,    // output node bboxes, device pointer
+     Bbox4f*     leaf_bboxes)    // output leaf bboxes, device pointer
+ {
+     // instantiate a breadth-first tree view
+     BFTree<Bvh_node*,device_domain> bvh(
+         nodes,
+         leaf_count,
+         leaves,
+         level_count,
+         levels );
+
+     // compute a tree reduction
+     cuda::tree_reduce(
+         bvh,
+         bboxes,
+         leaf_bboxes,
+         node_bboxes,
+         merge_op(),
+         Bbox4f() );
+ }
+\end{DoxyCode}
+ \hypertarget{group__trees_ga623ca32c63710202fea743670faeee28}{
+\index{\-Trees@{\-Trees}!tree\-\_\-reduce@{tree\-\_\-reduce}}
+\index{tree\-\_\-reduce@{tree\-\_\-reduce}!Trees@{\-Trees}}
+\subsubsection[{tree\-\_\-reduce}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Tree , typename Input\-\_\-iterator , typename Output\-\_\-iterator , typename Operator $>$ void nih\-::cuda\-::tree\-\_\-reduce (
+\begin{DoxyParamCaption}
+\item[{const \-Tree}]{tree, }
+\item[{const \-Input\-\_\-iterator}]{in\-\_\-values, }
+\item[{\-Output\-\_\-iterator}]{node\-\_\-values, }
+\item[{const \-Operator}]{op}
+\end{DoxyParamCaption}
+)}}
+\label{group__trees_ga623ca32c63710202fea743670faeee28}
+\-Reduce a bunch of values attached to the leaves of a tree. 
