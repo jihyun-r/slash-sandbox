@@ -58,11 +58,50 @@ namespace cuda {
 ///                     of bits used to compute the points' Morton codes.
 ///                     Accepted values are uint32 and uint64.
 ///
+/// \tparam OutputTree  a template class used to write the output
+///                     tree, with the following interface:
+///
+/// \code
+/// struct OutputTree
+/// {
+///    void reserve_nodes(const uint32 n);  // reserve space for n nodes
+///    void reserve_leaves(const uint32 n); // reserve space for n leaves
+///
+///    Context get_context();             // get a context to write nodes/leaves
+///
+///    struct Context
+///    {
+///        void write_node(
+///           const uint32 node,          // node to write
+///           const uint32 offset,        // child offset
+///           const uint32 skip_node,     // skip node
+///           const uint32 begin,         // node range begin
+///           const uint32 end,           // node range end
+///           const uint32 split_index,   // split index
+///           const uint32 split_dim,     // splitting dimension
+///           const uint32 split_plane);  // splitting plane
+///
+///        void write_node(
+///           const uint32 node,          // node to write
+///           const uint32 offset,        // child offset
+///           const uint32 skip_node,     // skip node
+///           const uint32 begin,         // node range begin
+///           const uint32 end);          // node range end
+///
+///        void write_leaf(
+///           const uint32 index,         // leaf to write
+///           const uint32 begin,         // leaf range begin
+///           const uint32 end);          // leaf range end
+///    };
+/// };
+/// \endcode
+///
 /// The following code snippet shows how to use this builder:
 ///
 /// \code
 ///
 /// #include <nih/kd/cuda/kd_builder.h>
+/// #include <nih/kd/cuda/kd_context.h>
 ///
 /// thrust::device_vector<Vector3f> points;
 /// ... // code to fill the input vector of points
@@ -71,8 +110,11 @@ namespace cuda {
 /// thrust::device_vector<uint2>    kd_leaves;
 /// thrust::device_vector<uint32>   kd_index;
 ///
-/// nih::cuda::Kd_builder<uint64> builder( kd_nodes, kd_leaves, kd_index );
+/// nih::cuda::Kd_builder<uint64> builder( kd_index );
+/// nih::cuda::Kd_context kd_tree( &kd_nodes, &kd_leaves, NULL );
 /// builder.build(
+///     kd_tree,                                    // output tree
+///     kd_index,                                   // output index
 ///     Bbox3f( Vector3f(0.0f), Vector3f(1.0f) ),   // suppose all bboxes are in [0,1]^3
 ///     points.begin(),                             // begin iterator
 ///     points.end(),                               // end iterator
@@ -83,33 +125,23 @@ namespace cuda {
 template <typename Integer>
 struct Kd_builder
 {
-    /// constructor
-    ///
-    /// \param nodes        output nodes array
-    /// \param leaves       output leaf array
-    /// \param index        output index array
-    Kd_builder(
-        thrust::device_vector<Kd_node>&          nodes,
-        thrust::device_vector<uint2>&            leaves,
-        thrust::device_vector<uint32>&           index) :
-        m_nodes( &nodes ), m_leaves( &leaves ), m_index( &index ) {}
-
     /// build a bvh given a set of points that will be reordered in-place
     ///
+    /// \param out_tree         output tree
+    /// \param out_index        output index
     /// \param bbox             global bbox
     /// \param points_begin     beginning of the point sequence to sort
     /// \param points_end       end of the point sequence to sort
     /// \param max_leaf_size    maximum leaf size
-    template <typename Iterator>
+    template <typename OutputTree, typename Iterator>
     void build(
-        const Bbox3f    bbox,
-        const Iterator  points_begin,
-        const Iterator  points_end,
-        const uint32    max_leaf_size);
+        OutputTree&                     out_tree,
+        thrust::device_vector<uint32>&  out_index,
+        const Bbox3f                    bbox,
+        const Iterator                  points_begin,
+        const Iterator                  points_end,
+        const uint32                    max_leaf_size);
 
-    thrust::device_vector<Kd_node>*     m_nodes;
-    thrust::device_vector<uint2>*       m_leaves;
-    thrust::device_vector<uint32>*      m_index;
     thrust::device_vector<Integer>      m_codes;
     uint32                              m_levels[64];
     Bbox3f                              m_bbox;

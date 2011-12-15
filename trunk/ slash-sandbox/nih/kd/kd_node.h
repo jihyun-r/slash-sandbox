@@ -44,7 +44,7 @@ namespace nih {
 /// A node can either be a leaf and have no children, or be
 /// an internal split node. If a split node, its children
 /// will be consecutive in memory.
-/// Supports up to 6 dimensions.
+/// Supports up to 7 dimensions.
 ///
 struct Kd_node
 {
@@ -54,26 +54,26 @@ struct Kd_node
     ///
     NIH_HOST_DEVICE Kd_node() {}
 
-    /// full leaf constructor
+    /// leaf constructor
     ///
     /// \param index    child index
     NIH_HOST_DEVICE Kd_node(uint32 index) :
-        m_packed_info( 1u | (index << 3) ) {}
+        m_packed_info( 7u | (index << 3) ) {}
 
-    /// full split node constructor
+    /// split node constructor
     ///
     /// \param split_dim    splitting dimension
     /// \param split_plane  splitting plane
     /// \param index        child index
     NIH_HOST_DEVICE Kd_node(const uint32 split_dim, const float split_plane, uint32 index) :
-        m_packed_info( (split_dim+2) | (index << 3) ),
+        m_packed_info( split_dim | (index << 3) ),
         m_split_plane( split_plane ) {}
 
     /// is a leaf?
     ///
     NIH_HOST_DEVICE uint32 is_leaf() const
     {
-        return m_packed_info & 1u;
+        return (m_packed_info & 7u) == 7u;
     }
     /// get offset of the first child
     ///
@@ -99,7 +99,7 @@ struct Kd_node
     /// \param i    child index
     NIH_HOST_DEVICE bool has_child(const uint32 i) const
     {
-        return m_packed_info & 1u ? false : true;
+        return is_leaf() ? false : true;
     }
     /// get left partition (or kInvalid if not active)
     ///
@@ -116,7 +116,7 @@ struct Kd_node
 
     /// get splitting dimension
     ///
-    NIH_HOST_DEVICE uint32 get_split_dim() const { return (m_packed_info & 7u) - 2u; }
+    NIH_HOST_DEVICE uint32 get_split_dim() const { return (m_packed_info & 7u); }
 
     /// get splitting plane
     ///
