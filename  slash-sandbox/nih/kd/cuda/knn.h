@@ -34,6 +34,7 @@
 #include <nih/kd/kd_node.h>
 #include <nih/linalg/vector.h>
 #include <nih/linalg/bbox.h>
+#include <nih/basic/priority_queue.h>
 #include <nih/bintree/bintree_node.h>
 #include <nih/bintree/cuda/bintree_gen_context.h>
 #include <thrust/device_vector.h>
@@ -49,6 +50,12 @@ namespace cuda {
  *  \{
  */
 
+struct Kd_knn_result
+{
+    uint32 index;
+    float  dist2;
+};
+
 ///
 /// GPU-based k-Nearest Neighbors lookup context.
 ///
@@ -58,11 +65,7 @@ namespace cuda {
 template <uint32 DIM>
 struct Kd_knn
 {
-    struct Result
-    {
-        uint32 index;
-        float  dist2;
-    };
+    typedef Kd_knn_result Result;
 };
 
 ///
@@ -104,11 +107,7 @@ struct Kd_knn
 template <>
 struct Kd_knn<3>
 {
-    struct Result
-    {
-        uint32 index;
-        float  dist2;
-    };
+    typedef Kd_knn_result Result;
 
     /// perform a k-nn lookup for a set of query points
     ///
@@ -122,6 +121,28 @@ struct Kd_knn<3>
     /// \tparam QueryIterator   an iterator type dereferencing to Vector<float,N>, with N >= 3
     /// \tparam PointIterator   an iterator type dereferencing to Vector<float,N>, with N >= 3
     template <typename QueryIterator, typename PointIterator>
+    void run(
+        const QueryIterator             points_begin,
+        const QueryIterator             points_end,
+        const Kd_node*                  kd_nodes,
+        const uint2*                    kd_ranges,
+        const uint2*                    kd_leaves,
+        const PointIterator             kd_points,
+        Result*                         results);
+
+    /// perform a k-nn lookup for a set of query points
+    ///
+    /// \param points_begin     beginning of the query point sequence
+    /// \param points_end       end of the query point sequence
+    /// \param kd_nodes         k-d tree nodes
+    /// \param kd_ranges        k-d tree node ranges
+    /// \param kd_leaves        k-d tree leaves
+    /// \param kd_points        k-d tree points
+    ///
+    /// \tparam K               the number of requested nearest neighbors K
+    /// \tparam QueryIterator   an iterator type dereferencing to Vector<float,N>, with N >= 3
+    /// \tparam PointIterator   an iterator type dereferencing to Vector<float,N>, with N >= 3
+    template <uint32 K, typename QueryIterator, typename PointIterator>
     void run(
         const QueryIterator             points_begin,
         const QueryIterator             points_end,

@@ -153,6 +153,117 @@ bool check_knn(
     return true;
 }
 
+template <uint32 K>
+void test_knn(
+    const uint32            n_test_points,
+    const Kd_node*          kd_nodes,
+    const uint2*            kd_ranges,
+    const uint2*            kd_leaves,
+    const Vector4f*         kd_points,
+    cuda::Kd_knn_result*    results)
+{
+    fprintf(stderr, "k-d tree %u-NN test... started\n", K);
+
+    cudaEvent_t start, stop;
+    cudaEventCreate( &start );
+    cudaEventCreate( &stop );
+
+    cuda::Kd_knn<3> knn;
+
+    float time = 0.0f;
+
+    const uint32 n_tests = 100;
+
+    for (uint32 i = 0; i <= n_tests; ++i)
+    {
+        float dtime;
+        cudaEventRecord( start, 0 );
+
+        knn.run<K>(
+            kd_points,
+            kd_points + n_test_points,
+            kd_nodes,
+            kd_ranges,
+            kd_leaves,
+            kd_points,
+            results );
+
+        cudaEventRecord( stop, 0 );
+        cudaEventSynchronize( stop );
+        cudaEventElapsedTime( &dtime, start, stop );
+
+        if (i) // skip the first run
+            time += dtime;
+    }
+    time /= 1000.0f * float(n_tests);
+
+    cudaEventDestroy( start );
+    cudaEventDestroy( stop );
+
+    fprintf(stderr, "k-d tree %u-NN test... done\n", K);
+    fprintf(stderr, "  time       : %f ms\n", time * 1000.0f );
+    fprintf(stderr, "  points/sec : %f M\n", (n_test_points / time) / 1.0e6f );
+}
+
+template <>
+void test_knn<1>(
+    const uint32            n_test_points,
+    const Kd_node*          kd_nodes,
+    const uint2*            kd_ranges,
+    const uint2*            kd_leaves,
+    const Vector4f*         kd_points,
+    cuda::Kd_knn_result*    results)
+{
+    fprintf(stderr, "k-d tree 1-NN test... started\n");
+
+    cudaEvent_t start, stop;
+    cudaEventCreate( &start );
+    cudaEventCreate( &stop );
+
+    cuda::Kd_knn<3> knn;
+
+    float time = 0.0f;
+
+    const uint32 n_tests = 100;
+
+    for (uint32 i = 0; i <= n_tests; ++i)
+    {
+        float dtime;
+        cudaEventRecord( start, 0 );
+
+        knn.run(
+            kd_points,
+            kd_points + n_test_points,
+            kd_nodes,
+            kd_ranges,
+            kd_leaves,
+            kd_points,
+            results );
+
+        cudaEventRecord( stop, 0 );
+        cudaEventSynchronize( stop );
+        cudaEventElapsedTime( &dtime, start, stop );
+
+        if (i) // skip the first run
+            time += dtime;
+    }
+    time /= 1000.0f * float(n_tests);
+
+    cudaEventDestroy( start );
+    cudaEventDestroy( stop );
+/*
+    thrust::host_vector<cuda::Kd_knn_result> h_results( d_results );
+    if (check_knn( n_test_points, thrust::raw_pointer_cast( &h_results.front() ) ) == false)
+    {
+        fprintf(stderr, "k-d tree 1-NN test... *** failed ***\n");
+        exit(1);
+    }
+*/
+    fprintf(stderr, "k-d tree 1-NN test... done\n");
+    fprintf(stderr, "  time       : %f ms\n", time * 1000.0f );
+    fprintf(stderr, "  points/sec : %f M\n", (n_test_points / time) / 1.0e6f );
+}
+
 } // anonymous namespace
 
 void kd_test()
@@ -195,7 +306,7 @@ void kd_test()
             Bbox3f( Vector3f(0.0f), Vector3f(1.0f) ),
             d_points.begin(),
             d_points.end(),
-            16u );
+            8u );
 
         cudaEventRecord( stop, 0 );
         cudaEventSynchronize( stop );
@@ -242,56 +353,52 @@ void kd_test()
     for (uint32 level = 0; level < 60; ++level)
         fprintf(stderr, "  level %u : %u nodes\n", level, builder.m_levels[level+1] - builder.m_levels[level] );
 
-    fprintf(stderr, "k-d tree k-NN test... started\n");
-
     // do a k-nn test
     d_points = h_sorted_points;
 
-    thrust::device_vector<cuda::Kd_knn<3>::Result> d_results( n_points );
+    uint32 n_test_points = 256*1024;
 
-    cudaEventCreate( &start );
-    cudaEventCreate( &stop );
+    thrust::device_vector<cuda::Kd_knn_result> d_results( n_test_points*32 );
 
-    time = 0.0f;
+    test_knn<1>(
+        n_test_points,
+        thrust::raw_pointer_cast( &kd_nodes.front() ),
+        thrust::raw_pointer_cast( &kd_ranges.front() ),
+        thrust::raw_pointer_cast( &kd_leaves.front() ),
+        thrust::raw_pointer_cast( &d_points.front() ),
+        thrust::raw_pointer_cast( &d_results.front() ) );
 
-    cuda::Kd_knn<3> knn;
+    test_knn<4>(
+        n_test_points,
+        thrust::raw_pointer_cast( &kd_nodes.front() ),
+        thrust::raw_pointer_cast( &kd_ranges.front() ),
+        thrust::raw_pointer_cast( &kd_leaves.front() ),
+        thrust::raw_pointer_cast( &d_points.front() ),
+        thrust::raw_pointer_cast( &d_results.front() ) );
 
-    for (uint32 i = 0; i <= n_tests; ++i)
-    {
-        float dtime;
-        cudaEventRecord( start, 0 );
+    test_knn<8>(
+        n_test_points,
+        thrust::raw_pointer_cast( &kd_nodes.front() ),
+        thrust::raw_pointer_cast( &kd_ranges.front() ),
+        thrust::raw_pointer_cast( &kd_leaves.front() ),
+        thrust::raw_pointer_cast( &d_points.front() ),
+        thrust::raw_pointer_cast( &d_results.front() ) );
 
-        knn.run(
-            thrust::raw_pointer_cast( &d_points.front() ),
-            thrust::raw_pointer_cast( &d_points.front() ) + n_points,
-            thrust::raw_pointer_cast( &kd_nodes.front() ),
-            thrust::raw_pointer_cast( &kd_ranges.front() ),
-            thrust::raw_pointer_cast( &kd_leaves.front() ),
-            thrust::raw_pointer_cast( &d_points.front() ),
-            thrust::raw_pointer_cast( &d_results.front() ) );
+    test_knn<16>(
+        n_test_points,
+        thrust::raw_pointer_cast( &kd_nodes.front() ),
+        thrust::raw_pointer_cast( &kd_ranges.front() ),
+        thrust::raw_pointer_cast( &kd_leaves.front() ),
+        thrust::raw_pointer_cast( &d_points.front() ),
+        thrust::raw_pointer_cast( &d_results.front() ) );
 
-        cudaEventRecord( stop, 0 );
-        cudaEventSynchronize( stop );
-        cudaEventElapsedTime( &dtime, start, stop );
-
-        if (i) // skip the first run
-            time += dtime;
-    }
-    time /= 1000.0f * float(n_tests);
-
-    cudaEventDestroy( start );
-    cudaEventDestroy( stop );
-
-    thrust::host_vector<cuda::Kd_knn<3>::Result> h_results( d_results );
-    if (check_knn( n_points, thrust::raw_pointer_cast( &h_results.front() ) ) == false)
-    {
-        fprintf(stderr, "k-d tree k-NN test... *** failed ***\n");
-        exit(1);
-    }
-
-    fprintf(stderr, "k-d tree k-NN test... done\n");
-    fprintf(stderr, "  time       : %f ms\n", time * 1000.0f );
-    fprintf(stderr, "  points/sec : %f M\n", (n_points / time) / 1.0e6f );
+    test_knn<32>(
+        n_test_points,
+        thrust::raw_pointer_cast( &kd_nodes.front() ),
+        thrust::raw_pointer_cast( &kd_ranges.front() ),
+        thrust::raw_pointer_cast( &kd_leaves.front() ),
+        thrust::raw_pointer_cast( &d_points.front() ),
+        thrust::raw_pointer_cast( &d_results.front() ) );
 }
 
 } // namespace nih
