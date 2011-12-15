@@ -647,7 +647,19 @@
 					>
 				</File>
 				<File
+					RelativePath="..\kd\cuda\kd_context.h"
+					>
+				</File>
+				<File
 					RelativePath="..\kd\cuda\kd_test.cu"
+					>
+				</File>
+				<File
+					RelativePath="..\kd\cuda\knn.h"
+					>
+				</File>
+				<File
+					RelativePath="..\kd\cuda\knn_inline.h"
 					>
 				</File>
 			</Filter>
