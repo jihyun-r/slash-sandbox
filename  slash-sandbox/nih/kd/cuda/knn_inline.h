@@ -27,6 +27,15 @@
 
 #include <thrust/detail/backend/dereference.h>
 
+//#define KD_KNN_STATS
+#ifdef KD_KNN_STATS
+#define KD_KNN_STATS_DEF(type,name,value) type name = value;
+#define KD_KNN_STATS_ADD(name,value)      name += value;
+#else
+#define KD_KNN_STATS_DEF(type,name,value)
+#define KD_KNN_STATS_ADD(name,value)
+#endif
+
 namespace nih {
 namespace cuda {
 
@@ -237,7 +246,7 @@ __device__ void lookup(
     }
     // process all points in the found node
     {
-        // find the closest neighbor in this node
+        // find the closest neighbors in this node
         const uint2 range = kd_ranges[ first_node ];
         for (uint32 i = range.x; i < range.y; ++i)
         {
@@ -252,12 +261,16 @@ __device__ void lookup(
     //
     // 2-nd pass: visit the tree with a stack and careful pruning
     //
+    KD_KNN_STATS_DEF( uint32, node_tests,   0u );
+    KD_KNN_STATS_DEF( uint32, point_tests,  0u );
+    KD_KNN_STATS_DEF( uint32, point_pushes, 0u );
+    KD_KNN_STATS_DEF( uint32, node_pushes,  0u );
 
     int32  stackp = 1;
-    float4 stack[32];
+    float4 stack[64];
 
     // place a sentinel node in the stack
-    stack[0] = make_float4( 0.0f, 0.0f, 0.0f, binary_cast<float>(uint32(-1)) );
+    stack[0] = make_float4( 1.0e8f, 1.0e8f, 1.0e8f, binary_cast<float>(uint32(-1)) );
 
     // start from the root node
     node_index = 0;
@@ -266,22 +279,25 @@ __device__ void lookup(
 
     while (node_index != uint32(-1))
     {
+        KD_KNN_STATS_ADD( node_tests, 1u );
         const Kd_node node = kd_nodes[ node_index ];
 
         if (node.is_leaf() || first_node == node_index)
         {
             if (first_node != node_index)
             {
-                // find the closest neighbor in this leaf
-                const uint2 leaf = kd_leaves[ node.get_leaf_index() ];
-                for (uint32 i = leaf.x; i < leaf.y; ++i)
+                // find the closest neighbors in this leaf
+                const uint2 range = kd_leaves[ node.get_leaf_index() ];
+
+                KD_KNN_STATS_ADD( point_tests, range.y - range.x );
+                for (uint32 i = range.x; i < range.y; ++i)
                 {
                     const VectorType delta = kd_points[i] - query;
                     const float d2 = delta[0]*delta[0] + delta[1]*delta[1] + delta[2]*delta[2];
                     if (max_dist2 > d2)
                     {
+                        KD_KNN_STATS_ADD( point_pushes, 1u );
                         queue.push( make_float2( binary_cast<float>(i), d2 ) );
-
                         // reset the maximum distance bound
                         max_dist2 = queue.top().y;
                     }
@@ -326,11 +342,39 @@ __device__ void lookup(
 
             if (dist_far2 <= max_dist2)
             {
+                KD_KNN_STATS_ADD( node_pushes, 1u );
+
+                #if 0
+                // partially reorder the stack
+                if (stackp >= 1)
+                {
+                    const float4 last_cdist = stack[ stackp-1 ];
+                    const float last_dist2 =
+                        last_cdist.x*last_cdist.x +
+                        last_cdist.y*last_cdist.y +
+                        last_cdist.z*last_cdist.z;
+
+                    const uint32 index =
+                        last_dist2 < dist_far2 ? stackp-1 : stackp;
+
+                    if (last_dist2 < dist_far2)
+                        stack[ stackp ] = last_cdist;
+
+                    stack[ index ] = make_float4(
+                        cdist_far.x,
+                        cdist_far.y,
+                        cdist_far.z,
+                        binary_cast<float>( node.get_child_offset() + 1u - select ) );
+
+                    stackp++;
+                }
+                #else
                 stack[ stackp++ ] = make_float4(
                     cdist_far.x,
                     cdist_far.y,
                     cdist_far.z,
                     binary_cast<float>( node.get_child_offset() + 1u - select ) );
+                #endif
             }
         }
     }

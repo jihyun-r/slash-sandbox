@@ -201,8 +201,8 @@ void test_knn(
     cudaEventDestroy( stop );
 
     fprintf(stderr, "k-d tree %u-NN test... done\n", K);
-    fprintf(stderr, "  time       : %f ms\n", time * 1000.0f );
     fprintf(stderr, "  points/sec : %f M\n", (n_test_points / time) / 1.0e6f );
+    fprintf(stderr, "  time       : %f ms\n", time * 1000.0f );
 }
 
 template <>
@@ -260,8 +260,8 @@ void test_knn<1>(
     }
 */
     fprintf(stderr, "k-d tree 1-NN test... done\n");
-    fprintf(stderr, "  time       : %f ms\n", time * 1000.0f );
     fprintf(stderr, "  points/sec : %f M\n", (n_test_points / time) / 1.0e6f );
+    fprintf(stderr, "  time       : %f ms\n", time * 1000.0f );
 }
 
 } // anonymous namespace
@@ -358,7 +358,7 @@ void kd_test()
 
     uint32 n_test_points = 256*1024;
 
-    thrust::device_vector<cuda::Kd_knn_result> d_results( n_test_points*32 );
+    thrust::device_vector<cuda::Kd_knn_result> d_results( n_test_points*64 );
 
     test_knn<1>(
         n_test_points,
@@ -394,6 +394,22 @@ void kd_test()
 
     test_knn<32>(
         n_test_points,
+        thrust::raw_pointer_cast( &kd_nodes.front() ),
+        thrust::raw_pointer_cast( &kd_ranges.front() ),
+        thrust::raw_pointer_cast( &kd_leaves.front() ),
+        thrust::raw_pointer_cast( &d_points.front() ),
+        thrust::raw_pointer_cast( &d_results.front() ) );
+
+    test_knn<64>(
+        n_test_points,
+        thrust::raw_pointer_cast( &kd_nodes.front() ),
+        thrust::raw_pointer_cast( &kd_ranges.front() ),
+        thrust::raw_pointer_cast( &kd_leaves.front() ),
+        thrust::raw_pointer_cast( &d_points.front() ),
+        thrust::raw_pointer_cast( &d_results.front() ) );
+
+    test_knn<512>(
+        n_test_points / 16,
         thrust::raw_pointer_cast( &kd_nodes.front() ),
         thrust::raw_pointer_cast( &kd_ranges.front() ),
         thrust::raw_pointer_cast( &kd_leaves.front() ),
