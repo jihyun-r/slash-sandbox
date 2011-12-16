@@ -67,21 +67,25 @@ namespace cuda {
 ///    void reserve_nodes(const uint32 n);  // reserve space for n nodes
 ///    void reserve_leaves(const uint32 n); // reserve space for n leaves
 ///
-///    Context get_context();           // get a context to write nodes/leaves
+///    Context get_context();             // get a context to write nodes/leaves
 ///
 ///    struct Context
 ///    {
 ///        void write_node(
-///           const uint32 node,        // node to write
-///           const bool   left_child,  // specify whether the node has a left child
-///           const bool   right_child, // specify whether the node has a right child
-///           const uint32 offset,      // child offset
-///           const uint32 skip_node);  // skip node
+///           const uint32 node,          // node to write
+///           const bool   left_child,    // specify whether the node has a left child
+///           const bool   right_child,   // specify whether the node has a right child
+///           const uint32 offset,        // child offset
+///           const uint32 skip_node,     // skip node
+///           const uint32 level,         // split level
+///           const uint32 begin,         // node range begin
+///           const uint32 end,           // node range end
+///           const uint32 split_index);  // split index
 ///
 ///        void write_leaf(
-///           const uint32 index,       // leaf to write
-///           const uint32 begin,       // leaf range begin
-///           const uint32 end);        // leaf range end
+///           const uint32 index,         // leaf to write
+///           const uint32 begin,         // leaf range begin
+///           const uint32 end);          // leaf range end
 ///    };
 /// };
 /// \endcode
