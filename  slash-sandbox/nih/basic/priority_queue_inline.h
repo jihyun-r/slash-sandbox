@@ -68,7 +68,7 @@ FORCE_INLINE NIH_HOST_DEVICE void priority_queue<Key,Compare,SIZE>::push(const K
 	while (r > 1) // sift up new item
 	{		
 		const uint32 p = r/2;
-        if (! m_cmp( key, m_queue[p] )) // in proper order
+        if (! m_cmp( m_queue[p], key )) // in proper order
 			break;
 
         m_queue[r] = m_queue[p]; // else swap with parent
@@ -89,8 +89,8 @@ FORCE_INLINE NIH_HOST_DEVICE void priority_queue<Key,Compare,SIZE>::pop()
 	while (r <= m_size) // while r is still within the heap
 	{
 		// set r to smaller child of p
-		if (r < m_size  && m_cmp( m_queue[r+1], m_queue[r] )) r++;
-		if (! m_cmp( m_queue[r], dn ))	// in proper order
+		if (r < m_size  && m_cmp( m_queue[r], m_queue[r+1] )) r++;
+		if (! m_cmp( dn, m_queue[r] ))	// in proper order
 			break;
 
 		m_queue[p] = m_queue[r];    // else swap with child
