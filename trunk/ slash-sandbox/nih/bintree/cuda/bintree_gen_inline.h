@@ -159,6 +159,8 @@ __global__ void split_kernel(
                 output_count ? node_offset          : leaf_index,
                 skip_node,
                 level,
+                begin,
+                end,
                 output_count ? split_index : uint32(-1) );
 
             // make a leaf if necessary
@@ -216,7 +218,7 @@ __global__ void gen_leaves_kernel(
         // write the parent node
         if (task_id < in_tasks_count)
         {
-            tree.write_node( node, false, false, leaf_index, skip_node, level, uint32(-1) );
+            tree.write_node( node, false, false, leaf_index, skip_node, level, begin, end, uint32(-1) );
             tree.write_leaf( leaf_index, begin, end );
         }
     }
