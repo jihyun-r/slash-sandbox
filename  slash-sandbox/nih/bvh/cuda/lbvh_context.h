@@ -45,7 +45,7 @@ struct LBVH_context
             m_nodes(nodes), m_leaves(leaves) {}
 
         /// write a new node
-        NIH_HOST_DEVICE void write_node(const uint32 node, bool p1, bool p2, const uint32 offset, const uint32 skip_node, const uint32 level, const uint32 split_index)
+        NIH_HOST_DEVICE void write_node(const uint32 node, bool p1, bool p2, const uint32 offset, const uint32 skip_node, const uint32 level, const uint32 begin, const uint32 end, const uint32 split_index)
         {
             const uint32 type = p1 == false && p2 == false ? Bvh_node::kLeaf : Bvh_node::kInternal;
             m_nodes[ node ] = Bvh_node( type, offset, skip_node );
