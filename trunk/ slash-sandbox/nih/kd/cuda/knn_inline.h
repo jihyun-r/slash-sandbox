@@ -143,8 +143,8 @@ __device__ void lookup(
                 node_index = binary_cast<uint32>( stack_node.w );
                 cdist      = make_float3( stack_node.x, stack_node.y, stack_node.z );
 
-                if (cdist.x*cdist.x + cdist.y*cdist.y + cdist.z*cdist.z > dist2)
-                    continue;
+                if (cdist.x*cdist.x + cdist.y*cdist.y + cdist.z*cdist.z < dist2)
+                    break;
             }
         }
         else
@@ -265,6 +265,7 @@ __device__ void lookup(
     KD_KNN_STATS_DEF( uint32, point_tests,  0u );
     KD_KNN_STATS_DEF( uint32, point_pushes, 0u );
     KD_KNN_STATS_DEF( uint32, node_pushes,  0u );
+    KD_KNN_STATS_DEF( uint32, node_pops,    0u );
 
     int32  stackp = 1;
     float4 stack[64];
@@ -307,12 +308,13 @@ __device__ void lookup(
             // pop the next node from the stack
             while (stackp > 0)
             {
+                KD_KNN_STATS_ADD( node_pops, 1u );
                 const float4 stack_node = stack[ --stackp ];
                 node_index = binary_cast<uint32>( stack_node.w );
                 cdist      = make_float3( stack_node.x, stack_node.y, stack_node.z );
 
-                if (cdist.x*cdist.x + cdist.y*cdist.y + cdist.z*cdist.z > max_dist2)
-                    continue;
+                if (cdist.x*cdist.x + cdist.y*cdist.y + cdist.z*cdist.z < max_dist2)
+                    break;
             }
         }
         else
