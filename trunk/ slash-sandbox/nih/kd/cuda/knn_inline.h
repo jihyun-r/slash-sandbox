@@ -280,7 +280,7 @@ __device__ void lookup(
     // place a sentinel node in the stack
     stack[0] = make_float4( 1.0e8f, 1.0e8f, 1.0e8f, binary_cast<float>(uint32(-1)) );
 
-    if (K <= 16)
+    if (K <= 8)
     {
         // find the closest neighbors in this node
         const uint2 range = kd_ranges[ entry_subtree ];
