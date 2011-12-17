@@ -27,9 +27,27 @@ check out the
 
 The library offers primitives for fast k-d tree creation over point sets,
 based on a Morton code construction similar to the one used in LBVH.
-Here's some sorting rates, expressed in milliseconds, for sets of random
-3-d points.
+The following table reports sorting rates (in milliseconds) for sets of random
+3-d points of different sizes:
 
 http://slash-sandbox.googlecode.com/svn/trunk/%20slash-sandbox/nih/images/kd-chart.jpg
 
 == Bounding Volume Hierarchies == 
+
+The library supports several BVH builders:
+
+=== LBVH ===
+
+Linear Bounding Volume Hierarchies are constructed following the algorithms
+described in:
+
+http://research.nvidia.com/publication/simpler-and-faster-hlbvh-work-queues
+
+The following table reports sorting rates (in milliseconds) for sets of random
+3-d points of different sizes:
+
+http://slash-sandbox.googlecode.com/svn/trunk/%20slash-sandbox/nih/images/lbvh-chart.jpg
+
+=== Binned Surface Area Heuristic BVH === 
+
+=== Greedy Surface Area Heuristic BVH === 
