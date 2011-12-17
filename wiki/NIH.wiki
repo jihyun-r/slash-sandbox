@@ -26,7 +26,7 @@ check out the
 == k-d Trees ==
 
 The library offers primitives for fast k-d tree creation over point sets,
-based on a Morton code construction similar to the one used in LBVH.
+based on a Morton code construction similar to the one used in LBVH.<br>
 The following table reports sorting rates (in milliseconds) for sets of random
 3-d points of different sizes:
 
