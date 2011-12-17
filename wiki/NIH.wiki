@@ -50,14 +50,14 @@ The following table reports sorting rates (in milliseconds) for sets of random
 
 http://slash-sandbox.googlecode.com/svn/trunk/%20slash-sandbox/nih/images/lbvh-chart.jpg
 
-=== Greedy Surface Area Heuristic BVH === 
+=== Greedy Surface Area Heuristic Builder === 
 
 The library offers a novel massively parallel implementation of the standard
 full SAH-based BVH construction technique - a method that creates very high
 quality trees by carefully clustering primitives so as to minimize their surface
 area.
 
-=== Binned Surface Area Heuristic BVH === 
+=== Binned Surface Area Heuristic Builder === 
 
 This is a middle-quality BVH builder, using the binned SAH algorithm
 described in:<br>
