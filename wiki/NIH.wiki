@@ -42,7 +42,7 @@ Linear Bounding Volume Hierarchies are a kind of BVHs built sorting points
 over the Morton space-filling curve, and using middle spatial splits to
 separate them into clusters.
 The resulting hierarchies are not always very tight, but this is probably the fastest known method for building BVHs.
-The implementation offered by *nih* is based on the algorithms described in:
+The implementation offered by *nih* is based on the algorithms described in:<br>
 http://research.nvidia.com/publication/simpler-and-faster-hlbvh-work-queues
 
 The following table reports sorting rates (in milliseconds) for sets of random
@@ -60,5 +60,5 @@ area.
 === Binned Surface Area Heuristic BVH === 
 
 This is a middle-quality BVH builder, using the binned SAH algorithm
-described in:
+described in:<br>
 http://research.nvidia.com/publication/simpler-and-faster-hlbvh-work-queues
