@@ -38,9 +38,11 @@ The library supports several BVH builders:
 
 === LBVH ===
 
-Linear Bounding Volume Hierarchies are constructed following the algorithms
-described in:
-
+Linear Bounding Volume Hierarchies are a kind of BVHs built sorting points
+over the Morton space-filling curve, and using middle spatial splits to
+separate them into clusters.
+The resulting hierarchies are not always very tight, but this is probably the fastest known method for building BVHs.
+The implementation offered by *nih* is based on the algorithms described in:
 http://research.nvidia.com/publication/simpler-and-faster-hlbvh-work-queues
 
 The following table reports sorting rates (in milliseconds) for sets of random
@@ -48,6 +50,15 @@ The following table reports sorting rates (in milliseconds) for sets of random
 
 http://slash-sandbox.googlecode.com/svn/trunk/%20slash-sandbox/nih/images/lbvh-chart.jpg
 
+=== Greedy Surface Area Heuristic BVH === 
+
+The library offers a novel massively parallel implementation of the standard
+full SAH-based BVH construction technique - a method that creates very high
+quality trees by carefully clustering primitives so as to minimize their surface
+area.
+
 === Binned Surface Area Heuristic BVH === 
 
-=== Greedy Surface Area Heuristic BVH === 
+This is a middle-quality BVH builder, using the binned SAH algorithm
+described in:
+http://research.nvidia.com/publication/simpler-and-faster-hlbvh-work-queues
