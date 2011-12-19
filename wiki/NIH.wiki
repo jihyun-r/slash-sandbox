@@ -27,8 +27,7 @@ check out the
 
 The library offers primitives for fast k-d tree creation over point sets,
 based on a Morton code construction similar to the one used in LBVH.<br>
-The following table reports sorting rates (in milliseconds) for sets of random
-3-d points of different sizes, on a GTX480:
+The following table reports sorting rates (in milliseconds)for different sets of random 3-d points, on a GTX480:
 
 http://slash-sandbox.googlecode.com/svn/trunk/%20slash-sandbox/nih/images/kd-chart.jpg
 
@@ -45,8 +44,7 @@ The resulting hierarchies are not always very tight, but this is probably the fa
 The implementation offered by *nih* is based on the algorithms described in:<br>
 http://research.nvidia.com/publication/simpler-and-faster-hlbvh-work-queues
 
-The following table reports sorting rates (in milliseconds) for sets of random
-3-d points of different sizes, on a GTX480:
+The following table reports sorting rates (in milliseconds) for different sets of random 3-d points, on a GTX480:
 
 http://slash-sandbox.googlecode.com/svn/trunk/%20slash-sandbox/nih/images/lbvh-chart.jpg
 
@@ -61,7 +59,6 @@ This is a middle-quality BVH builder, using the binned SAH algorithm
 described in:<br>
 http://research.nvidia.com/publication/simpler-and-faster-hlbvh-work-queues
 
-The following table reports sorting rates (in milliseconds) for sets of random
-3-d points of different sizes, on a GTX480:
+The following table reports sorting rates (in milliseconds) for different sets of random 3-d bboxes, on a GTX480:
 
 http://slash-sandbox.googlecode.com/svn/trunk/%20slash-sandbox/nih/images/binned-sah-chart.jpg
