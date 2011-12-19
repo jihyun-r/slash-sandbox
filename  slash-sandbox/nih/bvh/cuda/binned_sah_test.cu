@@ -57,7 +57,6 @@ void binned_sah_bvh_test()
         h_bboxes[i] = Bbox4f( Vector4f( random.next(), random.next(), random.next(), 1.0f ) );
 
     thrust::device_vector<Bbox4f> d_bboxes( h_bboxes );
-    thrust::device_vector<Bbox4f> d_unsorted_bboxes( h_bboxes );
 
     thrust::device_vector<Bvh_node> bvh_nodes;
     thrust::device_vector<uint2>    bvh_leaves;
@@ -73,18 +72,16 @@ void binned_sah_bvh_test()
 
     for (uint32 i = 0; i <= n_tests; ++i)
     {
-        d_bboxes = d_unsorted_bboxes;
-        cudaThreadSynchronize();
-
         float dtime;
         cudaEventRecord( start, 0 );
 
         builder.build(
-            32u,
+            16u,
             Bbox3f( Vector3f(0.0f), Vector3f(1.0f) ),
             thrust::raw_pointer_cast( &d_bboxes.front() ),
             thrust::raw_pointer_cast( &d_bboxes.front() ) + n_objs,
-            4u,
+            thrust::raw_pointer_cast( &h_bboxes.front() ),
+            8u,
             1.8f );
 
         cudaEventRecord( stop, 0 );

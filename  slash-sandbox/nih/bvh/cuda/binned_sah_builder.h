@@ -64,10 +64,10 @@ namespace binned_sah {
     };
     struct Objects
     {
-        int4*       bin_ids;
-        int32*      split_ids;
-        int32*      node_ids;
-        uint32*     index;
+        int4*   bin_ids;
+        int32*  node_ids;
+        int32*  split_ids;
+        uint32* index;
     };
     struct Bbox
     {
@@ -127,6 +127,7 @@ struct Binned_sah_builder
         const Bbox3f    bbox,
         const Iterator  bbox_begin,
         const Iterator  bbox_end,
+const Iterator  h_bbox_begin,
         const uint32    max_leaf_size,
         const float     max_cost = 1.8f);
 
