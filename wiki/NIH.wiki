@@ -62,3 +62,6 @@ http://research.nvidia.com/publication/simpler-and-faster-hlbvh-work-queues
 The following table reports sorting rates (in milliseconds) for different sets of random 3-d bboxes, on a GTX480:
 
 http://slash-sandbox.googlecode.com/svn/trunk/%20slash-sandbox/nih/images/binned-sah-chart.jpg
+
+The current builder performs binning along all 3 axes. Doing it along the largest
+axis only would be roughly 3 times faster while producing slightly worse trees.
