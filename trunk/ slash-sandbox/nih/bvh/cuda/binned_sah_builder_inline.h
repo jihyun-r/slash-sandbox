@@ -38,10 +38,7 @@ namespace cuda {
 
 #define SAH_SINGLE_WARP 0
 #define SAH_MAX_BINS    128
-//#define SAH_OBJECT_REORDERING
 //#define SAH_CHECKS
-
-#define ACCESS_BINS(a,id,axis,index,stride) a[id + (axis*BINS + index)*stride]
 
 namespace binned_sah {
 
@@ -66,8 +63,7 @@ void distribute_objects(
     const int       n_objects,
     Queue           queue,
     const int       input_node_offset,
-    Bins            bins,
-    uint32*         new_index);
+    Bins            bins);
 
 void setup_leaves(
     const int       n_objects,
@@ -116,13 +112,7 @@ __global__ void update_bins_kernel(
         if (idx >= n_objects)
             return;
 
-      #ifdef SAH_OBJECT_REORDERING
-        const uint32 id = objects.index[ idx ];
-        if (id == uint32(-1))
-            continue;
-      #else
         const uint32 id = idx;
-      #endif
 
         // check if the object has already been assigned to a node
         const int32 node_id = objects.node_ids[id];
@@ -222,6 +212,7 @@ void Binned_sah_builder::build(
     const Bbox3f    bbox,
     const Iterator  bbox_begin,
     const Iterator  bbox_end,
+const Iterator  h_bbox_begin,
     const uint32    max_leaf_size,
     const float     max_cost)
 {
@@ -236,10 +227,6 @@ void Binned_sah_builder::build(
     need_space( m_bin_size, (n_objects / max_leaf_size) * BINS * 3 ); // might need more later on...
     need_space( m_queue_bins,    n_objects * 2 );
     need_space( m_queue_splits,  n_objects * 2 );
-  #ifdef SAH_OBJECT_REORDERING
-    need_space( m_queue_offsets, n_objects );
-    need_space( m_new_pos,       n_objects*2 );
-  #endif
 
     need_space( m_bin_ids,   n_objects );
     need_space( m_split_ids, n_objects );
@@ -251,27 +238,15 @@ void Binned_sah_builder::build(
     queue[0].splits = thrust::raw_pointer_cast( &m_queue_splits.front() );
     queue[1].bins   = thrust::raw_pointer_cast( &m_queue_bins.front() )   + n_objects;
     queue[1].splits = thrust::raw_pointer_cast( &m_queue_splits.front() ) + n_objects;
-  #ifdef SAH_OBJECT_REORDERING
-    queue[0].offsets = thrust::raw_pointer_cast( &m_queue_offsets.front() );
-    queue[1].offsets = thrust::raw_pointer_cast( &m_queue_offsets.front() );
-  #endif
 
     Objects objects;
     objects.bin_ids   = thrust::raw_pointer_cast( &m_bin_ids.front() );
-    objects.split_ids = thrust::raw_pointer_cast( &m_split_ids.front() );
     objects.node_ids  = thrust::raw_pointer_cast( &m_node_ids.front() );
-  #ifdef SAH_OBJECT_REORDERING
-    objects.index     = thrust::raw_pointer_cast( &m_new_pos.front() );
-  #endif
+    objects.split_ids = thrust::raw_pointer_cast( &m_split_ids.front() );
 
     // assign all objects to split task 0 and node -1
     thrust::fill( m_split_ids.begin(), m_split_ids.begin() + n_objects, 0 );
     thrust::fill( m_node_ids.begin(),  m_node_ids.begin() + n_objects, -1 );
-
-  #ifdef SAH_OBJECT_REORDERING
-    // assign initial ordering [0,1,2,...,n_objects-1] to the objects
-    thrust::copy( thrust::make_counting_iterator(0u), thrust::make_counting_iterator(0u) + n_objects, m_new_pos.begin() );
-  #endif
 
     // initialize root bounding box
     {
@@ -295,15 +270,6 @@ void Binned_sah_builder::build(
     cudaEvent_t start, stop;
     cudaEventCreate( &start );
     cudaEventCreate( &stop );
-
-  #ifdef SAH_OBJECT_REORDERING
-    uint32* index[2] = {
-        thrust::raw_pointer_cast( &m_new_pos.front() ),
-        thrust::raw_pointer_cast( &m_new_pos.front() ) + n_objects
-    };
-  #else
-    uint32* index[2] = { 0, 0 };
-  #endif
 
     Bins bins;
 
@@ -338,14 +304,8 @@ void Binned_sah_builder::build(
             thrust::fill( m_bin_bmax.begin(), m_bin_bmax.begin() + n_input_tasks * BINS * 3, make_float3( -HUGE, -HUGE, -HUGE ) );
             thrust::fill( m_bin_size.begin(), m_bin_size.begin() + n_input_tasks * BINS * 3, 0 );
         }
-        m_init_bins_time += binned_sah::stop_timer( start, stop );
 
-      #ifdef SAH_OBJECT_REORDERING
-        thrust::exclusive_scan(
-            thrust::make_transform_iterator( m_queue_bins.begin(), binned_sah::Bin_counter() ) + in_queue*n_objects,
-            thrust::make_transform_iterator( m_queue_bins.begin(), binned_sah::Bin_counter() ) + in_queue*n_objects + n_input_tasks,
-            m_queue_offsets.begin() );
-      #endif
+        m_init_bins_time += binned_sah::stop_timer( start, stop );
 
         binned_sah::start_timer( start, stop );
         binned_sah::update_bins( BINS, n_objects, bbox_begin, Vector4f(-bbox[0][0],-bbox[0][1],-bbox[0][2],0.0f), objects, queue[ in_queue ], bins);
@@ -368,26 +328,13 @@ void Binned_sah_builder::build(
 
         binned_sah::start_timer( start, stop );
 
-      #ifdef SAH_OBJECT_REORDERING
-        thrust::fill(
-            m_new_pos.begin() + (out_queue+0)*n_objects,
-            m_new_pos.begin() + (out_queue+1)*n_objects,
-            uint32(-1) );
-      #endif
-
         binned_sah::distribute_objects(
             BINS,
             objects,
             n_objects,
             queue[ in_queue ],
             input_node_offset,
-            bins,
-            index[ out_queue ] );
-
-      #ifdef SAH_OBJECT_REORDERING
-        // swap objects index
-        objects.index = index[ out_queue ];
-      #endif
+            bins );
 
         m_distribute_objects_time += binned_sah::stop_timer( start, stop );
 

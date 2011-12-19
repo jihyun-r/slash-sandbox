@@ -30,6 +30,8 @@
 #include <nih/bvh/cuda/binned_sah_builder.h>
 #include <nih/basic/cuda_config.h>
 
+#define ACCESS_BINS(a,id,axis,index,stride) a[id + (axis*BINS + index)*stride]
+
 namespace nih {
 namespace cuda {
 namespace binned_sah {
@@ -199,10 +201,6 @@ __global__ void sah_split_kernel(
 			    // left scan
 			    Bin bboxesL = bin( BINS, bins, id, axis, 0, qin.size );
 
-                #ifdef SAH_OBJECT_REORDERING
-                ACCESS_BINS( bins.size, id, axis, 0, qin.size ) = 0;
-                #endif
-
 			    for (int i = 0; i < BINS - 1; i++)
 			    {
                     // skip invalid splits
@@ -222,10 +220,6 @@ __global__ void sah_split_kernel(
 
                     const Bin next_bin = bin( BINS, bins, id, axis, i+1, qin.size );
 
-                    #ifdef SAH_OBJECT_REORDERING
-                    ACCESS_BINS( bins.size, id, axis, i+1, qin.size ) = __float_as_int( bboxesL.bmin.w );;
-                    #endif
-
                     bboxesL = bboxesL + next_bin;
 			    }
             }
@@ -237,7 +231,7 @@ __global__ void sah_split_kernel(
 	    if(split)
 	    {
             // allocate 2 child tasks and their corresponding nodes
-        	const int new_offset = alloc<2>( true, n_output, warp_tid, warp_broadcast + warp_id );
+        	const int new_offset = alloc<2>( split, n_output, warp_tid, warp_broadcast + warp_id );
 		    const int new_split  = new_offset;
 		    const int new_node   = output_node_offset + new_offset;
 
@@ -331,8 +325,7 @@ __global__ void distribute_objects_kernel(
     const int       n_objects,
     Queue           queue,
     const int       input_node_offset,
-    Bins            bins,
-    uint32*         new_index)
+    Bins            bins)
 {
     typedef Split Split;
 
@@ -348,13 +341,7 @@ __global__ void distribute_objects_kernel(
         if (idx >= n_objects)
             return;
 
-      #ifdef SAH_OBJECT_REORDERING
-        const uint32 id = objects.index[ idx ];
-        if (id == uint32(-1))
-            continue;
-      #else
         const uint32 id = idx;
-      #endif
 
         // check if the object has already been assigned to a node
 	    const int node_id = objects.node_ids[id];
@@ -365,10 +352,10 @@ __global__ void distribute_objects_kernel(
 	    const int   split_id  = objects.split_ids[id];
 	    const Split split     = queue.splits[split_id];
 
-        const int32 new_split = split.task_id;
+        const int32 new_split_id = split.task_id;
 
         // if the node has not been split, we have to assign its objects
-	    if(new_split == -1)
+	    if(new_split_id == -1)
         {
             const int32 leaf_id = split.best_plane;
             objects.node_ids[id] = leaf_id;
@@ -378,17 +365,7 @@ __global__ void distribute_objects_kernel(
         // assign the object to its new task
 	    const int32 best_split   = split.best_plane;
 	    const int32 selected_bin = best_split < BINS ? bin_id.x : (best_split < 2 * BINS ? bin_id.y : bin_id.z); // select the axis&bin of the best split
-        objects.split_ids[id] = selected_bin <= (best_split & (BINS-1)) ? new_split : new_split + 1;
-
-      #ifdef SAH_OBJECT_REORDERING
-        const int32 axis = best_split / BINS;
-        const int32 node_offset = queue.offsets[ split_id ];
-
-        int32* bin = (int32*)bins.size + split_id + (axis*BINS + selected_bin)*queue.size;
-        const int32 bin_offset = atomicAdd( bin, 1 );
-
-        new_index[ node_offset + bin_offset ] = id;
-      #endif
+        objects.split_ids[id] = selected_bin <= (best_split & (BINS-1)) ? new_split_id : new_split_id + 1;
     }
 }
 ///
@@ -400,8 +377,7 @@ void distribute_objects(
     const int       n_objects,
     Queue           queue,
     const int       input_node_offset,
-    Bins            bins,
-    uint32*         new_index)
+    Bins            bins)
 {
     const uint32 BLOCK_SIZE = SAH_SINGLE_WARP ? 32 : 256;
     const size_t max_blocks = SAH_SINGLE_WARP ? 1  : thrust::detail::backend::cuda::arch::max_active_blocks(distribute_objects_kernel, BLOCK_SIZE, 0);
@@ -413,8 +389,7 @@ void distribute_objects(
         n_objects,
         queue,
         input_node_offset,
-        bins,
-        new_index );
+        bins );
 
     cudaThreadSynchronize();
 }
